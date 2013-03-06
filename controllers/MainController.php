@@ -9,10 +9,10 @@
   Created on                  -  March 01, 2013
  * ***************************************************************************
  */
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/libraries/InitiateUser.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/controllers/AdminController.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/controllers/TeacherController.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/controllers/StudentController.php';
+include_once ('./libraries/InitiateUser.php');
+require_once "AdminController.php";
+require_once "TeacherController.php";
+require_once "StudentController.php";
 
 //session_start();
 // The main controller for showing the main 
@@ -39,7 +39,7 @@ public function setMessage($message) {
             }
     public function showMainView() {
         
-        require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/views/MainView.php';
+        require_once "./views/MainView.php";
         //$this->initiateLogin();
     }
 

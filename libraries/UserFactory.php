@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/models/Admin.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/models/Teacher.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/models/Student.php';
+require_once './models/Admin.php';
+require_once './models/Teacher.php';
+require_once './models/Student.php';
 class UserFactory {
 	public static function createUser($type) {
 		$baseClass = 'AUser';

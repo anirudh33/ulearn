@@ -12,7 +12,11 @@ Created on                  -  March 02, 2013
 //{
 //    
 //}
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/controllers/MainController.php';
+//define("SERVER_PATH",$_SERVER["DOCUMENT_ROOT"]);
+//define("BASE_PATH",SERVER_PATH."/ulearn");
+//echo SERVER_PATH; 
+require_once("./controllers/MainController.php");
+
 
 $obj= new MainController();
 if(isset($_REQUEST["msg"])){

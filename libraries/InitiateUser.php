@@ -13,8 +13,8 @@
  * ***************************************************************************
  */
 
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/libraries/AModel.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/libraries/DBConnect.php';
+ require_once './libraries/AModel.php';
+ require_once './libraries/DBConnect.php';
  session_start();
 class InitiateUser extends AModel {
 

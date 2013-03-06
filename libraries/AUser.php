@@ -1,7 +1,7 @@
 <?php 
 
 
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/libraries/AModel.php';
+require_once './libraries/AModel.php';
 abstract class AUser extends AModel{
     protected $user_id;
     protected $password;

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../libraries/AUser.php';
+require_once './libraries/AUser.php';
 class Admin extends AUser
 {
     protected $firstname;

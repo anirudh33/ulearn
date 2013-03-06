@@ -1,7 +1,7 @@
 
 <?php
 //session_start();
-require_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/libraries/UserFactory.php';
+require_once './libraries/UserFactory.php';
 
 //include_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/libraries/UserFactory.php';
 class AdminController {
