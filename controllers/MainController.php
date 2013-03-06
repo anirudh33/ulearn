@@ -9,7 +9,7 @@
   Created on                  -  March 01, 2013
  * ***************************************************************************
  */
-include_once ('./libraries/InitiateUser.php');
+require_once ('./libraries/InitiateUser.php');
 require_once "AdminController.php";
 require_once "TeacherController.php";
 require_once "StudentController.php";
