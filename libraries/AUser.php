@@ -1,7 +1,7 @@
 <?php 
 
-
-require_once './libraries/AModel.php';
+session_start();
+require_once ($_SESSION["SITE_PATH"]."/libraries/AModel.php");
 abstract class AUser extends AModel{
     protected $user_id;
     protected $password;

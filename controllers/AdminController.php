@@ -1,9 +1,9 @@
 
 <?php
-//session_start();
-require_once './libraries/UserFactory.php';
+session_start();
 
-//include_once $_SERVER["DOCUMENT_ROOT"] . '/ulearn/libraries/UserFactory.php';
+
+require_once ($_SESSION["SITE_PATH"]. "/libraries/UserFactory.php");
 class AdminController {
 
     private $_requiredType = "admin";
@@ -24,7 +24,7 @@ class AdminController {
     }
 
     public function showView() {
-        header("Location:http://localhost/ulearn/views/AdminViews/AdminView.php");
+        header("Location:http://".$_SESSION["DOMAIN_PATH"]."/views/AdminViews/AdminView.php");
     }
 
     public function process() {
@@ -37,7 +37,7 @@ class AdminController {
         } else {
             echo "-----------user not valid ------";
             echo $this->_message;
-            header("Location:http://localhost/ulearn/index.php?msg=" . $this->_message . "");
+            header("Location:http://".$_SESSION["DOMAIN_PATH"]."/index.php?msg=" . $this->_message . "");
         }
     }
 
@@ -92,7 +92,7 @@ class AdminController {
 
     public function logout() {
         session_destroy();
-        header("Location:http://localhost/ulearn/index.php");
+        header("Location:http://".$_SESSION["DOMAIN_PATH"]."/index.php");
     }
 
     public function manageTeachers() {

@@ -12,10 +12,10 @@
   Updated on                  -  March 02, 2013
  * ***************************************************************************
  */
+session_start();
+ require_once ($_SESSION["SITE_PATH"]."/libraries/AModel.php");
+ require_once ($_SESSION["SITE_PATH"]."/libraries/DBConnect.php");
 
- require_once './libraries/AModel.php';
- require_once './libraries/DBConnect.php';
- session_start();
 class InitiateUser extends AModel {
 
     //put your code here

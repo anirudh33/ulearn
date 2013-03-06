@@ -15,7 +15,10 @@ Created on                  -  March 02, 2013
 //define("SERVER_PATH",$_SERVER["DOCUMENT_ROOT"]);
 //define("BASE_PATH",SERVER_PATH."/ulearn");
 //echo SERVER_PATH; 
-require_once("./controllers/MainController.php");
+session_start();
+$_SESSION["SITE_PATH"]="/var/www/ulearn/branches/development";
+$_SESSION["DOMAIN_PATH"]="localhost/ulearn/branches/development";
+require_once($_SESSION["SITE_PATH"]."/controllers/MainController.php");
 
 
 $obj= new MainController();

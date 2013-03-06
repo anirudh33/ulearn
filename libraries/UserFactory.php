@@ -1,7 +1,8 @@
 <?php
-require_once './models/Admin.php';
-require_once './models/Teacher.php';
-require_once './models/Student.php';
+session_start();
+require_once ($_SESSION["SITE_PATH"]."/models/Admin.php");
+require_once ($_SESSION["SITE_PATH"]."/models/Teacher.php");
+require_once ($_SESSION["SITE_PATH"]."/models/Student.php");
 class UserFactory {
 	public static function createUser($type) {
 		$baseClass = 'AUser';

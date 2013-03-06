@@ -1,5 +1,6 @@
 <?php
-require_once './libraries/AUser.php';
+session_start();
+require_once ($_SESSION["SITE_PATH"]."/libraries/AUser.php");
 class Admin extends AUser
 {
     protected $firstname;

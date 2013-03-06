@@ -9,12 +9,13 @@
   Created on                  -  March 01, 2013
  * ***************************************************************************
  */
-require_once ('./libraries/InitiateUser.php');
-require_once "AdminController.php";
-require_once "TeacherController.php";
-require_once "StudentController.php";
+session_start();
+require_once ($_SESSION["SITE_PATH"]."/libraries/InitiateUser.php");
+require_once ($_SESSION["SITE_PATH"]."/controllers/AdminController.php");
+require_once ($_SESSION["SITE_PATH"]."/controllers/TeacherController.php");
+require_once ($_SESSION["SITE_PATH"]."/controllers/StudentController.php");
 
-//session_start();
+
 // The main controller for showing the main 
 class MainController {
 private $_message;
