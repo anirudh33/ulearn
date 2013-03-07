@@ -18,11 +18,11 @@
 abstract class AModel {
 
     protected $db;
-    protected $lang;
+   // protected $lang;
 
     function __construct() {
         $this->db = DBConnection::Connect();
-        $this->lang = Language::getinstance();
+        //$this->lang = Language::getinstance();
     }
 
 }
