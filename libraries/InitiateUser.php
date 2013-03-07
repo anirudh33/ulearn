@@ -103,7 +103,7 @@ class InitiateUser extends AModel {
                 
             } else {
                 $msg = "Login Failed username or password does not exist";
-                header("Location:http://localhost/ulearn/index.php?msg=$msg");
+                header("Location:http://".$_SESSION["DOMAIN_PATH"]."/index.php?msg=$msg");
             }
         } else {
             $msg = "Invaild Data Enter again";

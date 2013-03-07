@@ -16,8 +16,15 @@ Created on                  -  March 02, 2013
 //define("BASE_PATH",SERVER_PATH."/ulearn");
 //echo SERVER_PATH; 
 session_start();
-$_SESSION["SITE_PATH"]="/var/www/ulearn/branches/development";
-$_SESSION["DOMAIN_PATH"]="localhost/ulearn/branches/development";
+//echo "<pre>";
+//echo getcwd();
+//print_r (scandir(getcwd()));
+//
+//print_r($_SERVER); 
+$_SESSION["SITE_PATH"]=getcwd();
+//"/var/www/ulearn/branches/development";
+$_SESSION["DOMAIN_PATH"]=$_SERVER["SERVER_NAME"]."/ulearn/branches/development";
+$_SESSION["DB_NAME"]="ulearndb";
 require_once($_SESSION["SITE_PATH"]."/controllers/MainController.php");
 
 
