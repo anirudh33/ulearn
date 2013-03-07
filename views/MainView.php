@@ -5,14 +5,22 @@
   Version                     -  1.0
   Created by                  -  Kawaljeet Singh
   Created on                  -  March 01, 2013
- 
+ * **************************** Update Log ********************************
+  Sr.NO.        Version        Updated by           Updated on          Description
+  -------------------------------------------------------------------------
+    1            1.0            Anirudh Pandita     March 08, 2013      test language changes
+ * ************************************************************************
   -->
- 
 
+      <?php
+session_start();
+require_once $_SESSION["SITE_PATH"].'/libraries/Language.php';
+$lang=  Language::getinstance();
+?>
 
 <html>
     <head>
-        <title>	Home Page </title>
+        <title> <?php echo $lang->TITLE;  ?></title>
 							 <!-- Links for stylesheet -->
         <link rel="stylesheet" href="assets/style/MainViewStyle.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="assets/style/Slide.css" type="text/css" media="screen" />

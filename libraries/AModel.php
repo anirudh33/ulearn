@@ -9,13 +9,20 @@
  * Description of Model
  *
  * @author anirudh
+ * Sr.NO.        Version        Updated by           Updated on          Description
+  -------------------------------------------------------------------------
+    1            1.0            Anirudh Pandita     March 08, 2013      
+ * ************************************************************************
  */
+
 abstract class AModel {
 
     protected $db;
+    protected $lang;
 
     function __construct() {
         $this->db = DBConnection::Connect();
+        $this->lang = Language::getinstance();
     }
 
 }

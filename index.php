@@ -7,6 +7,10 @@ Version                     -  1.0
 Created by                  -  Anirudh Pandita
 Created on                  -  March 02, 2013
 ****************************************************************************
+ Sr.NO.        Version        Updated by           Updated on          Description
+  -------------------------------------------------------------------------
+    1            1.0            Anirudh Pandita     March 08, 2013      paths,language set in session
+ * ************************************************************************
 */
 //if(isset($_REQUEST[]))
 //{
@@ -25,6 +29,7 @@ $_SESSION["SITE_PATH"]=getcwd();
 //"/var/www/ulearn/branches/development";
 $_SESSION["DOMAIN_PATH"]=$_SERVER["SERVER_NAME"]."/ulearn/branches/development";
 $_SESSION["DB_NAME"]="ulearndb";
+$_SESSION['lang']="EN";
 require_once($_SESSION["SITE_PATH"]."/controllers/MainController.php");
 
 
