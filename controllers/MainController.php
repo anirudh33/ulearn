@@ -13,7 +13,7 @@
     1            1.0            Anirudh Pandita     March 08, 2013      paths corrected
  * ************************************************************************
  */
-session_start();
+//session_start();
   
 require_once ($_SESSION["SITE_PATH"]."/libraries/InitiateUser.php");
 require_once ($_SESSION["SITE_PATH"]."/controllers/AdminController.php");

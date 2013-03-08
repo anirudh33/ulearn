@@ -15,7 +15,7 @@
  * ************************************************************************
 
  */
-session_start();
+//session_start();
 
 /*Class having functions to convert to desired language */
 

@@ -14,7 +14,7 @@
  * 2            1.0            Anirudh Pandita     March 08, 2013     Paths set
  * ***************************************************************************
  */
-session_start();
+//session_start();
  require_once ($_SESSION["SITE_PATH"]."/libraries/AModel.php");
  require_once ($_SESSION["SITE_PATH"]."/libraries/DBConnect.php");
 

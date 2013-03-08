@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 require_once ($_SESSION["SITE_PATH"]."/models/Admin.php");
 require_once ($_SESSION["SITE_PATH"]."/models/Teacher.php");
 require_once ($_SESSION["SITE_PATH"]."/models/Student.php");
