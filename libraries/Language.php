@@ -58,15 +58,14 @@ class Language {
     'HINDI'=>array(
         'TITLE'=>"Ulearn में आपका स्वागत है",
         'HOME' => "Home in hindi",
-        'ABOUT US' => "About Us",
+        'ABOUTUS' => "About Us",
         'CONTACT' => "Contact Us",
         'RESOURCES' => "Resources",
         'WELCOME' => "Welcome",
         'USERNAME' => "Username",
         'PASSWORD' => "Password",
         'MEMBERLOGIN' => "Member Login",
-        'NOTAMEMBERYET?' => "Not A Member Yet?",
-        'SIGNUP' => "Sign Up",
+        'NOTAMEMBERYETSIGNUP' => "Not A Member Yet? Sign Up",
         'VALIDATIONMESSAGE' => "Validation Messages",
         'LOGINREGISTER' => "Login | Register",
         'HELLOGUEST' => "Hello Guest",
@@ -86,6 +85,8 @@ class Language {
         'MANAGESTUDENT' => "Manage Student Account",
         'VIEWEDITPROFILE' => "View / Edit Profile",
         'REPORT' => "Report Generation",
+        'LOGIN'=>"login in hindi",
+        'REGISTER'=>"register in hindi",
     ));
 
     private function __construct() {
@@ -101,7 +102,7 @@ class Language {
 
       public function __get($key){
       $this->getLangType();
-      return $this->_languageConstants[$this->_langType][$key];
+      return $this->_languageConstants[$this->_langType][$key]; 
 
       }
       //this function fetch the user selected language type from session

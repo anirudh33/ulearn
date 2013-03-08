@@ -17,9 +17,10 @@ session_start();
 require_once $_SESSION["SITE_PATH"].'/libraries/Language.php';
 $lang=  Language::getinstance();
 ?>
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
     <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title> <?php echo $lang->TITLE;  ?></title>
 							 <!-- Links for stylesheet -->
         <link rel="stylesheet" href="assets/style/MainViewStyle.css" type="text/css" media="screen" />
@@ -42,21 +43,23 @@ $lang=  Language::getinstance();
                 <div class="content clearfix">
 
                     <div class="left">
-                        <h1>Welcome to ULearn</h1>
+                        <h1><?php echo $lang->TITLE; ?></h1>
+                        
+                        
                     </div>
 
                     <div class="left">
                         <!-- Login Form -->
                         <form class="clearfix" action="controllers/MainController.php?method=initiateLogin" method="post" id="register-form">
                             <h1>Member Login</h1>
-                            <label class="grey" for="fieldEmail">Username:</label>
+                            <label class="grey" for="fieldEmail"><?php echo $lang->USERNAME;?></label>
                             <input class="field" type="text" name="fieldEmail" id="log" value="" size="23" />
-                            <label class="grey" for="pwd">Password:</label>
+                            <label class="grey" for="pwd"><?php echo $lang-> PASSWORD;?></label>
                             <input class="field" type="password" name="fieldPassword" id="pwd" size="23" />
-                            <label><input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever" /> &nbsp;Remember me</label>
+                            <label><input name="rememberme" id="rememberme" type="checkbox" checked="checked" value="forever" /> &nbsp;<?php echo $lang->REMEMBERME?></label>
                             <div class="clear"></div>
-                            <input type="submit" id="submit" name="submit" value="Login" class="bt_login" />
-                            <a class="lost-pwd" href="#">Lost your password?</a>
+                            <input type="submit" id="submit" name="submit" value="<?php echo  $lang->LOGIN; ?>" class="bt_login" />
+                            <a class="lost-pwd" href="#"><?php echo $lang->LOSTPASSWORD;?></a>
                         </form>
                     </div>
 
@@ -65,8 +68,8 @@ $lang=  Language::getinstance();
                     <div class="left right">			
                         <!-- Register Form -->
                         <form action="#" method="post">
-                            <h1>Not a member yet? Sign Up!</h1>				
-                            <input type="submit" name="submit" value="Register" class="bt_register" />
+                            <h1><?php echo $lang->NOTAMEMBERYETSIGNUP;?></h1>				
+                            <input type="submit" name="submit" value="<?php echo $lang-> REGISTER;?>" class="bt_register" />
                         </form>
                     </div>
                 </div>
@@ -76,11 +79,11 @@ $lang=  Language::getinstance();
             <div class="tab">
                 <ul class="login">
                     <li class="left">&nbsp;</li>
-                    <li>Hello Guest!</li>
+                    <li><?php echo $lang-> HELLOGUEST;?></li>
                     <li class="sep">|</li>
                     <li id="toggle">
-                        <a id="open" class="open" href="#">Log In | Register</a>
-                        <a id="close" style="display: none;" class="close" href="#">Close Panel</a>			
+                        <a id="open" class="open" href="#"><?php echo $lang-> LOGINREGISTER;?></a>
+                        <a id="close" style="display: none;" class="close" href="#"><?php echo $lang-> CLOSEPANEL;?></a>			
                     </li>
                     <li class="right">&nbsp;</li>
                 </ul> 
@@ -100,10 +103,10 @@ $lang=  Language::getinstance();
                 <div class="container">
 
                     <ul class="tabs">
-                        <li><a href="#tab1">Home</a></li>
-                        <li><a href="#tab2">About Us</a></li>
-                        <li><a href="#tab3">Resources</a></li>
-                        <li><a href="#tab4">Contact</a></li>
+                        <li><a href="#tab1"><?php echo $lang->HOME;?></a></li>
+                        <li><a href="#tab2"><?php echo $lang->ABOUTUS?>;</a></li>
+                        <li><a href="#tab3"><?php echo $lang->RESOURCES;?></a></li>
+                        <li><a href="#tab4"><?php echo $lang-> CONTACT;?></a></li>
 
                     </ul>
                     <div class="tab_container">

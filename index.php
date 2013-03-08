@@ -29,7 +29,7 @@ $_SESSION["SITE_PATH"]=getcwd();
 //"/var/www/ulearn/branches/development";
 $_SESSION["DOMAIN_PATH"]=$_SERVER["SERVER_NAME"]."/ulearn/branches/development";
 $_SESSION["DB_NAME"]="ulearndb";
-$_SESSION['lang']="EN";
+$_SESSION['lang']="HINDI";
 require_once($_SESSION["SITE_PATH"]."/controllers/MainController.php");
 
 
