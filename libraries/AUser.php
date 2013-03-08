@@ -19,7 +19,7 @@ abstract class AUser extends AModel{
     protected $id;
     protected $qualification;
     protected $createdby;
-    protected $updatedby
+    protected $updatedby;
     protected $createdon;
     protected $updatedon;
 
