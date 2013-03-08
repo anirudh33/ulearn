@@ -18,7 +18,9 @@
 --
 -- Table structure for table `admindetails`
 --
-
+DROP DATABASE IF EXISTS `ulearndb`;
+CREATE DATABASE `ulearndb`;
+USE `ulearndb`;
 DROP TABLE IF EXISTS `admindetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -364,6 +366,8 @@ LOCK TABLES `userdetails` WRITE;
 /*!40000 ALTER TABLE `userdetails` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+INSERT INTO 'userdetails` VALUES ("","root@osscube.com","root","admin");
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

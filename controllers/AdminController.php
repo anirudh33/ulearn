@@ -100,7 +100,21 @@ class AdminController {
 
         $this->showManageTeachersView();
     }
-
+    public function manageStudents() {
+    	$this->_objUser->fetchStudents();
+    
+    	$this->showManageStudentsView();
+    }
+    public function reportGeneration() {
+    	$this->_objUser->fetchReport();
+    
+    	$this->showreportView();
+    }
+    public function manageProfile() {
+    	$this->_objUser->fetchProfile();
+    
+    	$this->showProfileView();
+    }
 }
 //
 //if (isset($_REQUEST["method"])) {// initiate cant be called
