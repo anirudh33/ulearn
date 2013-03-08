@@ -4,9 +4,9 @@ session_start();
 
 
 require_once ($_SESSION["SITE_PATH"]. "/libraries/UserFactory.php");
-class AdminController {
+class TeacherController {
 
-    private $_requiredType = "admin";
+    private $_requiredType = "teacher";
     private $_objUser = "";
     private $_message = "";
 
@@ -94,7 +94,26 @@ class AdminController {
         session_destroy();
         header("Location:http://".$_SESSION["DOMAIN_PATH"]."/index.php");
     }
-
+ public function showMessage() {
+    	$this->_objUser->fetchshowMessage();
+    
+    	$this->showMessageView();
+    }
+    public function writeMessage() {
+    	$this->_objUser->fetchwriteMessage();
+    
+    	$this->showWriteMessageView();
+    }
+    public function manageProfile() {
+    	$this->_objUser->fetchProfile();
+    
+    	$this->showProfileView();
+    }
+    public function showStudyMaterial() {
+    	$this->_objUser->fetchUpload();
+    
+    	$this->showUploadView();
+    }
    
 }
 //
