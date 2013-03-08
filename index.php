@@ -12,6 +12,7 @@ Created on                  -  March 02, 2013
     1            1.0            Anirudh Pandita     March 08, 2013      paths,language set in session
  * ************************************************************************
 */
+
 //if(isset($_REQUEST[]))
 //{
 //    
@@ -36,7 +37,30 @@ require_once($_SESSION["SITE_PATH"]."/controllers/MainController.php");
 $obj= new MainController();
 if(isset($_REQUEST["msg"])){
 $message=$_REQUEST["msg"];
+
+?>
+<script type="text/javascript">
+
+showMessage(<?php echo $message?>);
+
+</script>
+<!--
+
+//-->
+</script>
+<?php 
 $obj->setMessage($message);
 }
 $obj->showMainView();
+if(isset($_REQUEST['method'])){
+	 
+	$obj->registerClick();
+	 
+}
+
+
 ?>
+
+
+
+

@@ -68,7 +68,7 @@ $lang=  Language::getinstance();
 
                     <div class="left right">			
                         <!-- Register Form -->
-                        <form action="#" method="post">
+                        <form action=index.php?method=registerClick method="post">
                             <h1><?php echo $lang->NOTAMEMBERYETSIGNUP;?></h1>				
                             <input type="submit" name="submit" value="<?php echo $lang-> REGISTER;?>" class="bt_register" />
                         </form>
@@ -141,6 +141,7 @@ $lang=  Language::getinstance();
                 </div>
             </div>	
         </div>
+        
         <div id="footer">
 
         </div>

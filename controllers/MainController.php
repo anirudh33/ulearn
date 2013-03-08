@@ -77,6 +77,11 @@ public function setMessage($message) {
         
        
     }
+    public function registerClick()
+    {
+    	
+    	require_once "./views/RegistrationView.php";
+    }
 
 }
 
