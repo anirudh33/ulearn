@@ -1,7 +1,16 @@
+<?php 
+session_start();
+
+require_once $_SESSION["SITE_PATH"].'/libraries/Language.php';
+$lang=  Language::getinstance();
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
     <head>
-        <title>	Administrator Home Page </title>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title><?php echo $lang->HELLOADMINISTRATOR?> </title>
 
 
         <link rel="stylesheet" href="../../assets/style/MainViewStyle.css" type="text/css" media="screen" />
@@ -33,20 +42,21 @@
             <div id="panel">
                 <div class="content clearfix">
                     <div class="left">
-                        <h1>Hello Administrator !!!!</h1>
-                        <h2>Functions You can perform</h2>
-                        <p class="grey">Choose the category of function you want to perform at the moment</p>
+                        <h1><?php echo $lang->HELLOADMINISTRATOR?></h1>
+                        
+                        <h2><p class="grey"><?php echo $lang->CHOOSEWORK?></p></h2>
 
                     </div>
 
                     <div class="left">
                         <!-- Login Form -->
 
-                        <h1>Categories</h1>
-                        <a href="" >Manage Teacher Account</a></br></br>
-                        <a href="" >Manage Student Account</a></br></br>
-                        <a href="" >View / Edit Profile</a></br></br>
-                        <a href="" >Report Generation</a></br>
+                        <h1><?php echo $lang->CATEGORIES?></h1>
+                        <a href="" ><?php echo $lang->MANAGETEACHER?></a></br></br>
+                        
+                        <a href="" ><?php echo $lang->MANAGESTUDENT?></a></br></br>
+                        <a href="" ><?php echo $lang->VIEWEDITPROFILE?></a></br></br>
+                        <a href="" ><?php echo $lang->REPORT?></a></br>
 
 
                         <div class="clear"></div>
@@ -59,9 +69,9 @@
                     <div class="left right">
                         <!-- Register Form -->
 
-                        <h1>Welcome to Ulearn</h1> </br>
+                        <h1><?php echo $lang->TITLE ?></h1> </br>
 
-                        <h3>Learning is a treasure which accompanies its owner everywhere.</h3>
+                        <h3>"<?php echo $lang->QUOTE?>"</h3>
 
 
                         </form>
@@ -78,11 +88,11 @@
             <div class="tab">
                 <ul class="login">
                     <li class="left">&nbsp;</li>
-                    <li>Hello Administrator!</li>
+                    <li><?php echo $lang-> HELLOADMINISTRATOR?></li>
                     <li class="sep">|</li>
                     <li id="toggle">
-                        <a id="open" class="open" href="#"><blink>Open Panel</blink></a>
-                        <a id="close" style="display: none;" class="close" href="#"><blink>Close Panel</blink></a>
+                        <a id="open" class="open" href="#"><blink><?php echo $lang->OPENPANEL?></blink></a>
+                        <a id="close" style="display: none;" class="close" href="#"><blink><?php echo $lang->CLOSEPANEL?></blink></a>
                     </li>
                     <li class="right">&nbsp;</li>
                 </ul>
@@ -113,7 +123,7 @@
             
             </div>
             	<div id="admincontent">
-          <h1>Welcome Administrator</h1>
+          <h1><?php echo $lang->WELCOMEADMINISTRATOR?></h1>
             </div>
             
 

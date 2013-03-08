@@ -9,11 +9,12 @@
   Sr.NO.        Version        Updated by           Updated on          Description
   -------------------------------------------------------------------------
     1            1.0            Anirudh Pandita     March 08, 2013      test language changes
+    2            1.0            Ujjwal Rawlley     March 09, 2013      	included constants from language file
  * ************************************************************************
   -->
 
       <?php
-session_start();
+//session_start();
 require_once $_SESSION["SITE_PATH"].'/libraries/Language.php';
 $lang=  Language::getinstance();
 ?>
@@ -51,7 +52,7 @@ $lang=  Language::getinstance();
                     <div class="left">
                         <!-- Login Form -->
                         <form class="clearfix" action="controllers/MainController.php?method=initiateLogin" method="post" id="register-form">
-                            <h1>Member Login</h1>
+                            <h1><?php echo $lang->MEMBERLOGIN?></h1>
                             <label class="grey" for="fieldEmail"><?php echo $lang->USERNAME;?></label>
                             <input class="field" type="text" name="fieldEmail" id="log" value="" size="23" />
                             <label class="grey" for="pwd"><?php echo $lang-> PASSWORD;?></label>
@@ -104,7 +105,7 @@ $lang=  Language::getinstance();
 
                     <ul class="tabs">
                         <li><a href="#tab1"><?php echo $lang->HOME;?></a></li>
-                        <li><a href="#tab2"><?php echo $lang->ABOUTUS?>;</a></li>
+                        <li><a href="#tab2"><?php echo $lang->ABOUTUS;?></a></li>
                         <li><a href="#tab3"><?php echo $lang->RESOURCES;?></a></li>
                         <li><a href="#tab4"><?php echo $lang-> CONTACT;?></a></li>
 
