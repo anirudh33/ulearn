@@ -23,12 +23,13 @@ DROP TABLE IF EXISTS `admindetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `admindetails` (
-  `admin_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of admin',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of admin',
   `firstname` char(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'firstname of admin',
   `lastname` char(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'lastname of admin',
   `gender` enum('m','f') DEFAULT NULL COMMENT 'gender of admin',
   `phone` char(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'phone number of admin',
   `dob` date NOT NULL COMMENT 'date of birth of admin',
+  `qualification` enum('graduate','postgraduate','doctorate','others') NOT NULL COMMENT 'qualification of admin',
   `address` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'address of admin',
   `profilepicture` mediumblob COMMENT 'profile photo of admin',
   `createdby` int(11) DEFAULT '0' COMMENT 'specifies who created admin',
@@ -38,7 +39,7 @@ CREATE TABLE `admindetails` (
   `language_id` int(11) DEFAULT NULL COMMENT 'foreign key of language table that specifies the language id admin selects',
   `status` enum('0','1','2') DEFAULT '1' COMMENT 'specifies the record is 0=deleted, 1=active, 2=deactive',
   `user_id` int(11) DEFAULT NULL COMMENT 'foreign key of userdetails table to specify id of admin',
-  PRIMARY KEY (`admin_id`),
+  PRIMARY KEY (`id`),
   KEY `language_id` (`language_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `admindetails_ibfk_1` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`),
@@ -95,7 +96,7 @@ CREATE TABLE `enrolls` (
   KEY `course_id` (`course_id`),
   KEY `student_id` (`student_id`),
   CONSTRAINT `enrolls_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  CONSTRAINT `enrolls_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `studentdetails` (`student_id`)
+  CONSTRAINT `enrolls_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `studentdetails` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -155,7 +156,7 @@ CREATE TABLE `lesson` (
   PRIMARY KEY (`lesson_id`),
   KEY `course_id` (`course_id`),
   KEY `teacher_id` (`teacher_id`),
-  CONSTRAINT `lesson_ibfk_2` FOREIGN KEY (`teacher_id`) REFERENCES `teacherdetails` (`teacher_id`),
+  CONSTRAINT `lesson_ibfk_2` FOREIGN KEY (`teacher_id`) REFERENCES `teacherdetails` (`id`),
   CONSTRAINT `lesson_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -177,7 +178,7 @@ DROP TABLE IF EXISTS `studentdetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `studentdetails` (
-  `student_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of student',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of student',
   `firstname` char(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'firstname of student',
   `lastname` char(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'lastname of student',
   `gender` enum('m','f') DEFAULT NULL COMMENT 'gender of student',
@@ -193,7 +194,7 @@ CREATE TABLE `studentdetails` (
   `status` enum('0','1','2') DEFAULT '1' COMMENT 'specifies the record is 0=deleted, 1=active, 2=deactive',
   `language_id` int(11) DEFAULT NULL COMMENT 'foreign key of language table that specifies the language id student selects',
   `user_id` int(11) DEFAULT NULL COMMENT 'foreign key of userdetails table to specify id of student',
-  PRIMARY KEY (`student_id`),
+  PRIMARY KEY (`id`),
   KEY `language_id` (`language_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `studentdetails_ibfk_1` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`),
@@ -226,8 +227,8 @@ CREATE TABLE `studentmessage` (
   PRIMARY KEY (`message_id`),
   KEY `sentfrom` (`sentfrom`),
   KEY `sentto` (`sentto`),
-  CONSTRAINT `studentmessage_ibfk_1` FOREIGN KEY (`sentfrom`) REFERENCES `studentdetails` (`student_id`),
-  CONSTRAINT `studentmessage_ibfk_2` FOREIGN KEY (`sentto`) REFERENCES `teacherdetails` (`teacher_id`)
+  CONSTRAINT `studentmessage_ibfk_1` FOREIGN KEY (`sentfrom`) REFERENCES `studentdetails` (`id`),
+  CONSTRAINT `studentmessage_ibfk_2` FOREIGN KEY (`sentto`) REFERENCES `teacherdetails` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -248,7 +249,7 @@ DROP TABLE IF EXISTS `teacherdetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teacherdetails` (
-  `teacher_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of teacher',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of teacher',
   `firstname` char(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'firstname of teacher',
   `lastname` char(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'lastname of teacher',
   `gender` enum('m','f') DEFAULT NULL COMMENT 'gender of teacher',
@@ -264,7 +265,7 @@ CREATE TABLE `teacherdetails` (
   `language_id` int(11) DEFAULT NULL COMMENT 'foreign key of language table that specifies the language id teacher selects',
   `status` enum('0','1','2') DEFAULT '1' COMMENT 'specifies the record is 0=deleted, 1=active, 2=deactive',
   `user_id` int(11) DEFAULT NULL COMMENT 'foreign key of userdetails table to specify id of teacher',
-  PRIMARY KEY (`teacher_id`),
+  PRIMARY KEY (`id`),
   KEY `language_id` (`language_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `teacherdetails_ibfk_1` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`),
@@ -297,8 +298,8 @@ CREATE TABLE `teachermessage` (
   PRIMARY KEY (`message_id`),
   KEY `sentfrom` (`sentfrom`),
   KEY `sentto` (`sentto`),
-  CONSTRAINT `teachermessage_ibfk_1` FOREIGN KEY (`sentfrom`) REFERENCES `teacherdetails` (`teacher_id`),
-  CONSTRAINT `teachermessage_ibfk_2` FOREIGN KEY (`sentto`) REFERENCES `studentdetails` (`student_id`)
+  CONSTRAINT `teachermessage_ibfk_1` FOREIGN KEY (`sentfrom`) REFERENCES `teacherdetails` (`id`),
+  CONSTRAINT `teachermessage_ibfk_2` FOREIGN KEY (`sentto`) REFERENCES `studentdetails` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -324,7 +325,7 @@ CREATE TABLE `teaches` (
   KEY `course_id` (`course_id`),
   KEY `teacher_id` (`teacher_id`),
   CONSTRAINT `teaches_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  CONSTRAINT `teaches_ibfk_2` FOREIGN KEY (`teacher_id`) REFERENCES `teacherdetails` (`teacher_id`)
+  CONSTRAINT `teaches_ibfk_2` FOREIGN KEY (`teacher_id`) REFERENCES `teacherdetails` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
