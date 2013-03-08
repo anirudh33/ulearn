@@ -26,15 +26,14 @@ class Language {
     private $_languageConstants = array( 'EN'=>array(
         'TITLE'=>"Welcome to ulearn",
         'HOME' => "Home",
-        'ABOUT US' => "About Us",
+        'ABOUTUS' => "About Us",
         'CONTACT' => "Contact Us",
         'RESOURCES' => "Resources",
         'WELCOME' => "Welcome",
         'USERNAME' => "Username",
         'PASSWORD' => "Password",
         'MEMBERLOGIN' => "Member Login",
-        'NOTAMEMBERYET?' => "Not A Member Yet?",
-        'SIGNUP' => "Sign Up",
+        'NOTAMEMBERYETSIGNUP' => "Not A Member Yet? Sign Up",
         'VALIDATIONMESSAGE' => "Validation Messages",
         'LOGINREGISTER' => "Login | Register",
         'HELLOGUEST' => "Hello Guest",
@@ -43,7 +42,7 @@ class Language {
         'PASSWORDREQUIRED' => "Password Required",
         'ENTERPASSWORD' => "Please enter your password",
         'NOTVALID' => "Not Valid",
-        'LOSTPASSWORD' => "Lost you password",
+        'LOSTPASSWORD' => "Lost your password ?",
         'REMEMBERME' => "Remember Me",
         'TO' => 'To',
         'HELLO' => 'Hello',
@@ -54,9 +53,10 @@ class Language {
         'MANAGESTUDENT' => "Manage Student Account",
         'VIEWEDITPROFILE' => "View / Edit Profile",
         'REPORT' => "Report Generation",
-        'LOGIN'=>"login in english",
-        'REGISTER'=>"register in english",
+        'LOGIN'=>"Login",
+        'REGISTER'=>"Register",
         'HELLOADMINISTRATOR'=>"Hello Administrator",
+        'LOGOUT'=>"Log Out",
     ),
     'HINDI'=>array(
         'TITLE'=>"Ulearn में आपका स्वागत है",
@@ -94,6 +94,7 @@ class Language {
         'CHOOSEWORK'=>"काम चुनें",
         'QUOTE'=>" बिना शिक्षा प्राप्त किये कोई व्यक्ति अपनी परम ऊँचाइयों को नहीं छू सकता.",
         'WELCOMEADMINISTRATOR'=>"व्यवस्थापक आपका स्वागत है ",
+        'LOGOUT'=>"Log Out Hindi",
     ));
 
     private function __construct() {

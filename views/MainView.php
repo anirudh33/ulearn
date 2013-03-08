@@ -51,7 +51,7 @@ $lang=  Language::getinstance();
 
                     <div class="left">
                         <!-- Login Form -->
-                        <form class="clearfix" action="controllers/MainController.php?method=initiateLogin" method="post" id="register-form">
+                        <form class="clearfix" action="index.php?method=initiateLogin" method="post" id="register-form">
                             <h1><?php echo $lang->MEMBERLOGIN?></h1>
                             <label class="grey" for="fieldEmail"><?php echo $lang->USERNAME;?></label>
                             <input class="field" type="text" name="fieldEmail" id="log" value="" size="23" />
@@ -68,7 +68,7 @@ $lang=  Language::getinstance();
 
                     <div class="left right">			
                         <!-- Register Form -->
-                        <form action=index.php?method=registerClick method="post">
+                        <form action="#" method="post">
                             <h1><?php echo $lang->NOTAMEMBERYETSIGNUP;?></h1>				
                             <input type="submit" name="submit" value="<?php echo $lang-> REGISTER;?>" class="bt_register" />
                         </form>

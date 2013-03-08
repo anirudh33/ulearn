@@ -1,6 +1,6 @@
 <?php 
 
-session_start();
+//session_start();
 require_once ($_SESSION["SITE_PATH"]."/libraries/AModel.php");
 abstract class AUser extends AModel{
     protected $user_id;

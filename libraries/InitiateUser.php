@@ -31,7 +31,7 @@ class InitiateUser extends AModel {
         
         parent::__construct();
        
-         echo "-----------Initiate con ------"; 
+         //echo "-----------Initiate con ------"; 
       
     }
 
@@ -81,7 +81,7 @@ class InitiateUser extends AModel {
 
     private function setSession() {
 
- echo "-----------setting session ------"; 
+ //echo "-----------setting session ------"; 	
         $_SESSION["userID"] = $this->getUserID();
 
         $_SESSION["userType"] = $this->getUserType();
@@ -92,13 +92,15 @@ class InitiateUser extends AModel {
     /* Ujjwal */
 
     //-------------------------------------------------//
-    public function login($fieldEmail, $fieldPassword) {  // Takes the username and the password as parameters and matches with the database.
+    public function login($fieldEmail, $fieldPassword) { 
+    	// Takes the username and the password as parameters and matches with the database.
         if ($this->fieldsValid($fieldEmail, $fieldPassword)) {
+        	
             $this->setEmailID($fieldEmail);
             $this->setPassword($fieldPassword);
             if ($this->exists($this->getEmailID(), $this->encryptPassword($this->getPassword())) == 1) {  //If the entries matches then it will return the boolean vale aS TRUe or FALSE
                 // and the page is redirected to the respective admin page.
-                 echo "-----------session does not ex ------"; 
+                // echo "-----------session does not exist ------";
                 $this->setSession();
                 return 1;
                 

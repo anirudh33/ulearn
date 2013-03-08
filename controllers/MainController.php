@@ -13,12 +13,12 @@
     1            1.0            Anirudh Pandita     March 08, 2013      paths corrected
  * ************************************************************************
  */
-//session_start();
+
   
 require_once ($_SESSION["SITE_PATH"]."/libraries/InitiateUser.php");
 require_once ($_SESSION["SITE_PATH"]."/controllers/AdminController.php");
-require_once ($_SESSION["SITE_PATH"]."/controllers/TeacherController.php");
-require_once ($_SESSION["SITE_PATH"]."/controllers/StudentController.php");
+//require_once ($_SESSION["SITE_PATH"]."/controllers/TeacherController.php");
+//require_once ($_SESSION["SITE_PATH"]."/controllers/StudentController.php");
 
 
 // The main controller for showing the main 
@@ -50,7 +50,8 @@ public function setMessage($message) {
     }
 
     public function initiateLogin() {
-        echo "initiating login";    
+        //echo "initiating login"; 
+        //die("i am here");  
         echo $fieldEmail= $_POST["fieldEmail"];
         echo $fieldPassword = $_POST["fieldPassword"];
        
@@ -68,25 +69,21 @@ public function setMessage($message) {
     public function showUserPanel()
     {
         
-        echo "Going to show User Panel"; 
+        //echo "Going to show User Panel"; 
         $controllerName=ucfirst($_SESSION["userType"])."Controller";
         $objController= new $controllerName();
-        
+        $objController->process();
         
                 
         
        
     }
-    public function registerClick()
-    {
-    	
-    	require_once "./views/RegistrationView.php";
-    }
+    
 
 }
 
 if(isset($_REQUEST['method'])){
-   
+//	echo  "2";die;
     $obj= new MainController();
     $obj->$_REQUEST['method']();
    

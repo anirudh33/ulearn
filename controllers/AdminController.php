@@ -20,29 +20,30 @@ class AdminController {
 
     public function __construct() {
 
-        $this->process();
+        //$this->process();
     }
 
     public function showView() {
-        header("Location:http://".$_SESSION["DOMAIN_PATH"]."/views/AdminViews/AdminView.php");
+    	require_once $_SESSION["SITE_PATH"].'/views/AdminViews/AdminView.php';
+    	//header("Location:http://".$_SESSION["DOMAIN_PATH"]."/views/AdminViews/AdminView.php");
     }
 
     public function process() {
-        echo "-----------processing started ------";
+        //echo "-----------processing started ------";
 
         if ($this->isValidUser() == 1) {
             $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
             $this->_objUser->setFirstName($_SESSION["emailID"]);
             $this->showView();
         } else {
-            echo "-----------user not valid ------";
-            echo $this->_message;
+            //echo "-----------user not valid ------";
+            //echo $this->_message;
             header("Location:http://".$_SESSION["DOMAIN_PATH"]."/index.php?msg=" . $this->_message . "");
         }
     }
 
     public function isValidUser() {
-        echo"check valid";
+        //echo"check valid";
         
         if ($this->sessionExists() == 1) {
 
@@ -62,7 +63,7 @@ class AdminController {
         
 
         if (isset($_SESSION['userID']) and isset($_SESSION['userType']) and $_SESSION['emailID']) {
-            echo "-----------session ex ------";
+            //echo "-----------session exists on controller ------";
             
             if ($this->isRequiredType() == 1) {
    
@@ -74,8 +75,8 @@ class AdminController {
                 return 0;
             }
         } else {
-            echo "-----------session does not ex ------";
-            die;
+            //echo "-----------session does not exist on controller ------";
+            
             return 0;
         }
     }
@@ -117,8 +118,12 @@ class AdminController {
     }
 }
 //
-//if (isset($_REQUEST["method"])) {// initiate cant be called
-  //  $obj1 = new AdminController();
-  //$obj1->$_REQUEST["method"]();
-//}
+if (isset($_REQUEST["method"])) {// initiate cant be called
+if($_REQUEST["method"]=="logout") {
+  $obj1 = new AdminController();
+  $obj1->$_REQUEST["method"]();
+ 
+}
+
+}
 ?>
