@@ -3,7 +3,7 @@
 
 
 require_once ($_SESSION["SITE_PATH"]. "/libraries/UserFactory.php");
-class AbstractController {
+abstract class AController {
 
     private $_requiredType = "";
     private $_objUser = "";

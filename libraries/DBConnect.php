@@ -17,63 +17,63 @@ class DBConnection {
     private static $_password = "root";
     private static $_database = "ulearndb";
     private $_tableName = "";
-	private $_join = "";
+    private $_join = "";
     private $_where = "";
-	private $_orderBy = "";
-	private $_groupBy = "";
+    private $_orderBy = "";
+    private $_groupBy = "";
     private $_keys = array();
     private $_values = array();
     private $_insertId;
     private $_errorLog = "";
     private $_query = "";
     private $_result = "";
-	private $_having="";
-	private $_between="";
-	//ani
-	
-	public function startTransaction()
-	{
-	//$this->_transaction.="SET autocommit=0;";
-	$this->_query="START TRANSACTION";
-	$this->_result = mysql_query($this->_query);
-	return $this;
-	}
-	
-	public function rollback()
-	{
-	//$this->_transaction.="rollback;";
-	$this->_query="rollback";
-	$this->_result = mysql_query($this->_query);
-	return $this;
-	}
-	
-	public function commit()
-	{
-	//$this->_transaction.="commit;";
-	$this->_query="commit";
-	$this->_result = mysql_query($this->_query);
-	return $this;
-	}
-	/* public function executeTransaction()
-	{
-	$this->_result = mysql_query($this->_transaction);
-	echo $this->_transaction;
-	$this->_transaction="";
-	
-	return $this;
-	} */
-	public function Between($min,$max)
-	{
-	$this->_between=" $min AND $max";
-	return $this;
-	}
+    private $_having = "";
+    private $_between = "";
+
+    //ani
+
+    public function startTransaction() {
+        //$this->_transaction.="SET autocommit=0;";
+        $this->_query = "START TRANSACTION";
+        $this->_result = mysql_query($this->_query);
+        return $this;
+    }
+
+    public function rollback() {
+        //$this->_transaction.="rollback;";
+        $this->_query = "rollback";
+        $this->_result = mysql_query($this->_query);
+        return $this;
+    }
+
+    public function commit() {
+        //$this->_transaction.="commit;";
+        $this->_query = "commit";
+        $this->_result = mysql_query($this->_query);
+        return $this;
+    }
+
+    /* public function executeTransaction()
+      {
+      $this->_result = mysql_query($this->_transaction);
+      echo $this->_transaction;
+      $this->_transaction="";
+
+      return $this;
+      } */
+
+    public function Between($min, $max) {
+        $this->_between = " $min AND $max";
+        return $this;
+    }
+
     private function __construct() {
         
     }
 
     public static function Connect() {
         if (is_null(DBConnection::$instance)) {
-            
+
             $db = mysql_connect(self::$_host, self::$_user, self::$_password);
             if ($db) {
                 mysql_select_db(self::$_database, $db);
@@ -91,8 +91,8 @@ class DBConnection {
     }
 
     public function Fields($data = array()) {
-		$this->_keys=array();
-		$this->_values=array();
+        $this->_keys = array();
+        $this->_values = array();
         $count = count($data);
         if ($count > 0) {
 
@@ -104,192 +104,196 @@ class DBConnection {
                 }
             }
         }
-		return $this;
+        return $this;
     }
 
     public function From($value) {
         if (!empty($value)) {
             $this->_tableName = $value;
         }
-		return $this;
+        return $this;
     }
 
-	public function Join($joinTable, $condition, $type="INNER"){
-		if(!empty($this->_tableName) && !empty($joinTable) && !empty($condition) && !empty($type)){
-		
-			$this->_join .= strtoupper(" ".$type." JOIN ").$joinTable." "; 
-			$this->_join .= " ON ".$condition." ";
-		}
-	}
+    public function Join($joinTable, $condition, $type = "INNER") {
+        if (!empty($this->_tableName) && !empty($joinTable) && !empty($condition) && !empty($type)) {
+
+            $this->_join .= strtoupper(" " . $type . " JOIN ") . $joinTable . " ";
+            $this->_join .= " ON " . $condition . " ";
+        }
+    }
+    
     public function Where($data = array(), $raw = false, $operator = "AND") {
-	$this->_where="";
+        $this->_where = "";
         $count = count($data);
         if ($count > 0) {
 
             $index = 0;
             foreach ($data as $key => $value) {
-			
-			
-              
+
+
+
                 if ($index >= 1 || !empty($this->_where)) {
-						$ope  = strtoupper($operator);
-						if(in_array($ope,array("AND","OR"))){
-							$this->_where .= " $ope ";
-						}
+                    $ope = strtoupper($operator);
+                    if (in_array($ope, array("AND", "OR"))) {
+                        $this->_where .= " $ope ";
+                    }
                 }
-				
-				if($raw){
-						$this->_where .= " ".$value;
-						break;
-				}
-				
-				if (is_string($value)) {
+
+                if ($raw) {
+                    $this->_where .= " " . $value;
+                    break;
+                }
+
+                if (is_string($value)) {
                     $value = " '$value' ";
                 }
 
-				
-				$op = array("=",">","<",">=","<=");
-				$opMatch = false;
-				for($i = 0;$i < count($op);$i++){
-				
-					if(strpos($key, $op[$i]) > 0){
-						$opMatch  = true;
-						break;
-					} 
-				}
-				if($opMatch){
-					$this->_where .= " $key $value";
-				} else {
-					$this->_where .= " $key =  $value";
-				}
+
+                $op = array("=", ">", "<", ">=", "<=");
+                $opMatch = false;
+                for ($i = 0; $i < count($op); $i++) {
+
+                    if (strpos($key, $op[$i]) > 0) {
+                        $opMatch = true;
+                        break;
+                    }
+                }
+                if ($opMatch) {
+                    $this->_where .= " $key $value";
+                } else {
+                    $this->_where .= " $key =  $value";
+                }
                 $index++;
             }
         }
-		return $this;
+        return $this;
     }
-	//--------------------------------------//
-	public function Having($data = array(), $raw = false, $operator = "AND") {
-	$this->_having="";
+
+    //--------------------------------------//
+    public function Having($data = array(), $raw = false, $operator = "AND") {
+        $this->_having = "";
         $count = count($data);
         if ($count > 0) {
 
             $index = 0;
             foreach ($data as $key => $value) {
-			
-			
-              
+
+
+
                 if ($index >= 1 || !empty($this->_having)) {
-						$ope  = strtoupper($operator);
-						if(in_array($ope,array("AND","OR"))){
-							$this->_having .= " $ope ";
-						}
+                    $ope = strtoupper($operator);
+                    if (in_array($ope, array("AND", "OR"))) {
+                        $this->_having .= " $ope ";
+                    }
                 }
-				
-				if($raw){
-						$this->_having .= " ".$value;
-						break;
-				}
-				
-				if (is_string($value)) {
+
+                if ($raw) {
+                    $this->_having .= " " . $value;
+                    break;
+                }
+
+                if (is_string($value)) {
                     $value = " '$value' ";
                 }
 
-				
-				$op = array("=",">","<",">=","<=");
-				$opMatch = false;
-				for($i = 0;$i < count($op);$i++){
-				
-					if(strpos($key, $op[$i]) > 0){
-						$opMatch  = true;
-						break;
-					} 
-				}
-				if($opMatch){
-					$this->_having .= " $key $value";
-				} else {
-					$this->_having .= " $key =  $value";
-				}
+
+                $op = array("=", ">", "<", ">=", "<=");
+                $opMatch = false;
+                for ($i = 0; $i < count($op); $i++) {
+
+                    if (strpos($key, $op[$i]) > 0) {
+                        $opMatch = true;
+                        break;
+                    }
+                }
+                if ($opMatch) {
+                    $this->_having .= " $key $value";
+                } else {
+                    $this->_having .= " $key =  $value";
+                }
                 $index++;
             }
         }
-		return $this;
+        return $this;
     }
-	//-------------------------------//
-	public function Like($key,$val, $operator = "AND"){
-	
-		if(!empty($key) && !empty($val)){
-			if(strlen($this->_where) == 0){
-				$this->_where .=  $key." LIKE \"%".$val."%\"";
-			} else {
-				$ope  = strtoupper($operator);
-				if(in_array($ope,array("AND","OR"))){
-					$this->_where .= " ".$ope ." ". $key." LIKE \"%".$val."%\"";
-				}
-			}
-		}
-		return $this;
-	}
-	
-	public function OrderBy($string = ""){
-		if(!empty($string)){
-			$this->_orderBy = " ORDER BY " .$string;
-		}
-		return $this;
-	}
-	public function GroupBy($string = ""){
-		if(!empty($string)){
-			$this->_groupBy = " GROUP BY ".$string;
-		}
-		return $this;
-	}
+
+    //-------------------------------//
+    public function Like($key, $val, $operator = "AND") {
+
+        if (!empty($key) && !empty($val)) {
+            if (strlen($this->_where) == 0) {
+                $this->_where .= $key . " LIKE \"%" . $val . "%\"";
+            } else {
+                $ope = strtoupper($operator);
+                if (in_array($ope, array("AND", "OR"))) {
+                    $this->_where .= " " . $ope . " " . $key . " LIKE \"%" . $val . "%\"";
+                }
+            }
+        }
+        return $this;
+    }
+
+    public function OrderBy($string = "") {
+        if (!empty($string)) {
+            $this->_orderBy = " ORDER BY " . $string;
+        }
+        return $this;
+    }
+
+    public function GroupBy($string = "") {
+        if (!empty($string)) {
+            $this->_groupBy = " GROUP BY " . $string;
+        }
+        return $this;
+    }
 
     public function Select() {
         $bool = FALSE;
         $this->_query = "";
-        
+
         $fields = " * ";
 
         if (count($this->_values) > 0) {
             $fields = implode(', ', $this->_values);
         }
 
-      
+
 
         $table = $this->_tableName;
 
         if (!empty($table)) {
-			$this->_query .= "SELECT ";
-			$this->_query .= $fields;
-			
-            $this->_query .= " FROM " . $this->_tableName. $this->_join;
+            $this->_query .= "SELECT ";
+            $this->_query .= $fields;
+
+            $this->_query .= " FROM " . $this->_tableName . $this->_join;
             $where = $this->_where;
-			$having = $this->_having;
-			$between=$this->_between;
+            $having = $this->_having;
+            $between = $this->_between;
             if (!empty($where)) {
                 $this->_query .= " WHERE " . $where;
             }
-			if (!empty($having)) {
+            if (!empty($having)) {
                 $this->_query .= " HAVING " . $having;
             }
-			if (!empty($between)) {
+            if (!empty($between)) {
                 $this->_query .= " BETWEEN " . $between;
             }
-			if (!empty($this->_groupBy)) {
+            if (!empty($this->_groupBy)) {
                 $this->_query .= $this->_groupBy;
             }
-			if (!empty($this->_orderBy)) {
+            if (!empty($this->_orderBy)) {
                 $this->_query .= $this->_orderBy;
             }
-			
-			// if(empty($this->_transaction))//ani
+
+            // if(empty($this->_transaction))//ani
 // {
             $this->_result = mysql_query($this->_query);
             $bool = TRUE;
-			// }
-			// else//ani
-			// {
-			// $this->_transaction.=$this->_query;//ani
-			// }
+            // }
+            // else//ani
+            // {
+            // $this->_transaction.=$this->_query;//ani
+            // }
         }
         return $bool;
     }
@@ -298,14 +302,14 @@ class DBConnection {
         $bool = false;
 
         $this->_query = "";
-       
+
 
         $countKey = count($this->_keys);
         $countValue = count($this->_values);
         $data = array();
 
         if (($countKey > 0 && $countValue > 0) && $countKey == $countValue) {
-			$this->_query .= "INSERT INTO  ";
+            $this->_query .= "INSERT INTO  ";
             $fields = " ";
             $valuesData = "";
 
@@ -333,11 +337,11 @@ class DBConnection {
                 if ($this->_insertId > 0) {
                     $bool = true;
                 }
-				// }
-				// else//ani
-				// {
-				// $this->_transaction.=$this->_query;//ani
-				// }
+                // }
+                // else//ani
+                // {
+                // $this->_transaction.=$this->_query;//ani
+                // }
             }
         }
 
@@ -348,14 +352,14 @@ class DBConnection {
         $bool = false;
 
         $this->_query = "";
-       
+
 
         $countKey = count($this->_keys);
         $countValue = count($this->_keys);
         $data = array();
 
         if (($countKey > 0 && $countValue > 0) && $countKey == $countValue) {
-			$this->_query .= "UPDATE ";
+            $this->_query .= "UPDATE ";
             $fields = "";
 
             for ($i = 0; $i < $countKey; $i++) {
@@ -391,13 +395,13 @@ class DBConnection {
         $bool = false;
 
         $this->_query = "";
-      
+
 
         $table = $this->_tableName;
         $where = $this->_where;
 
         if (!empty($table) && strlen($where) > 0) {
-			$this->_query .= "DELETE FROM ";
+            $this->_query .= "DELETE FROM ";
             $this->_query .= $this->_tableName;
 
             if (!empty($where)) {

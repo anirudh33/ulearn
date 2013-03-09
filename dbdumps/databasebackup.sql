@@ -367,7 +367,7 @@ LOCK TABLES `userdetails` WRITE;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-INSERT INTO 'userdetails' VALUES ('1','root@osscube.com','root','admin');
+INSERT INTO userdetails VALUES (1,'root@osscube.com','root','admin');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
