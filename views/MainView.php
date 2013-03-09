@@ -91,16 +91,13 @@ $lang=  Language::getinstance();
             </div> <!-- / top -->
         </div> <!--panel -->
 
-
-        <div id="cc">
+     <div id="cc">   
             <div id="header">
                 <img alt="" src="assets/images/Views/ulearn.gif" style="float:right;padding:50px;width:280px;">						
             </div>
 
             <div id="image">
-
-            </div>
-            <div id="content">
+			       <div id="content">
                 <div class="container">
 
                     <ul class="tabs">
@@ -113,7 +110,12 @@ $lang=  Language::getinstance();
                     <div class="tab_container">
                         <div id="tab1" class="tab_content">
                             <img alt="" src="assets/images/Views/tab1_image.jpg">
-                            <h2>E-learning refers to the use of various kinds of electronic media and information and communication technologies (ICT) in education. E-learning is an inclusive terminology for all forms of educational technology that electronically or technologically support learning and teaching, and may, depending on an emphasis on a particular aspect or component or delivery method, sometimes be termed technology-enhanced learning (TEL), computer-based training (CBT), internet-based training (IBT), web-based training (WBT), virtual education, or digital educational collaboration.
+                            <h2><p>Thank you for your interest in <b>Ulearn</b> and elearning!</p>
+
+In March 2013, we acquired Ulearn, bringing together  elearning leaders to offer customers one of the world's most comprehensive content collections. Skillsoft can now offer even more targeted learning assets covering key business issues such as leadership development, IT certification and performance support, compliance, performance management, and more.
+
+In addition, the combined company offers unparalleled service—our customers benefit from our decades of experience in the learning space. We're proud of our ability to help clients use learning to solve their critical business problems and deliver a measurable impact on business results.
+                            E-learning refers to the use of various kinds of electronic media and information and communication technologies (ICT) in education. E-learning is an inclusive terminology for all forms of educational technology that electronically or technologically support learning and teaching, and may, depending on an emphasis on a particular aspect or component or delivery method, sometimes be termed technology-enhanced learning (TEL), computer-based training (CBT), internet-based training (IBT), web-based training (WBT), virtual education, or digital educational collaboration.
 
                                 E-learning includes numerous types of media that deliver text, audio, images, animation, and streaming video and includes technology applications and processes such as audio or video tape, satellite TV, CD-ROM, and computer-based learning, as well as local intranet/extranet and web-based learning. Information and communication systems, whether free-standing or based on either local networks or the Internet in networked learning, underly many e-learning processes. [1]
 
@@ -139,11 +141,16 @@ $lang=  Language::getinstance();
                         </div>
                     </div>
                 </div>
-            </div>	
+            </div>	    
+            
+            </div>
+     
+       </div>
+     
+     
+     <div id="footer1">
+hhghghghgfhghgfh
         </div>
-        
-        <div id="footer">
-
-        </div>
+      
     </body>
 </html>
