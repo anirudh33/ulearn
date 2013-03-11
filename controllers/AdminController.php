@@ -59,7 +59,7 @@ class AdminController {
 
     public function sessionExists() {
 
-        print_r($_SESSION);
+        //print_r($_SESSION);
         
 
         if (isset($_SESSION['userID']) and isset($_SESSION['userType']) and $_SESSION['emailID']) {

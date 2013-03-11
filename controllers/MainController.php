@@ -53,8 +53,8 @@ public function setMessage($message) {
     public function initiateLogin() {
         //echo "initiating login"; 
         //die("i am here");  
-        echo $fieldEmail= $_POST["fieldEmail"];
-        echo $fieldPassword = $_POST["fieldPassword"];
+        $fieldEmail= $_POST["fieldEmail"];
+        $fieldPassword = $_POST["fieldPassword"];
        
 
         $objInitiateUser = new InitiateUser();
