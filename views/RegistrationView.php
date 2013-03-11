@@ -1,13 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <?php
+//session_start();
+require_once $_SESSION["SITE_PATH"].'/libraries/Language.php';
+$lang=  Language::getinstance();
+?>
+
+
+<html >
+
     <head>
-        <title>CSS Registration Form</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" type="text/css" href="./assets/style/css/default.css"/>
-    </head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> <?php echo $lang->TITLE;  ?></title>
+							 <!-- Links for stylesheet -->
+        <link rel="stylesheet" href="assets/style/Registration.css" type="text/css" media="screen" />
+        
+		
+		
+							 <!-- jquery source -->
+        <script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
+        <script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="assets/js/MainView.js" type="text/javascript"></script>
+	
+        	
+              
+    </head>	
+
     <body>
-       
-        <form action="" class="register">
+    
+     <div id="cc"> 
+    
+            <div id="header">
+            <a href="index.php"> <img alt="" src="assets/images/Views/ulearn.gif" style="float:left;padding:50px;width:280px;"> </a>  						
+            </div>
+			<div id="header2">
+			<a href="index.php"><h3>GO TO HOME</h3></a>
+			</div>
+            <div id="image">
+
+            <div id="registerdiv">
+            <form action="" class="register">
             <h1>Registration</h1>
             <fieldset class="row1">
                 <legend>Account Details
@@ -206,17 +238,56 @@
                 </p>
                 
             </fieldset>
-            <?php 
-
-include 'captcha.php';
-
-?>
+ 
             <div><button class="button">Register &raquo;</button></div>
         </form>
-    
+            </div>
+            
+            
+            
+            
+            
+            </div>
+     
+       </div>
+     
+     <div id="footer1">
+
+        </div>
+     
+      
     </body>
-    
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
