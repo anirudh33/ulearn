@@ -47,7 +47,17 @@ $lang = Language::getinstance ();
 		
 			<div id="functionpanel">
 			
-			kljhgifsdgfuy
+		<div class="arrowgreen">
+	<ul>
+		<li><a href="http://www.dynamicdrive.com" title="Home">Home</a></li>
+		<li><a href="http://www.dynamicdrive.com/style/" class="selected" title="CSS">CSS Library</a></li>
+		<li><a href="http://www.ddwhois.com" title="Whois">DD Whois</a></li>
+		<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Forums</a></li>
+		<li><a href="http://tools.dynamicdrive.com/" title="Tools">Webmaster Tools</a></li>
+		<li><a href="http://www.javascriptkit.com" title="JavaScript">JavaScript</a></li>
+	</ul>
+</div>
+		
 				</div>
 		
 		
