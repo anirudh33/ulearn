@@ -79,6 +79,7 @@ public function setMessage($message) {
         
        
     }
+    
    public function setLanguageClick()
    {
    
@@ -86,9 +87,18 @@ public function setMessage($message) {
    	
    	$objInitiateUser->setLanguage($_REQUEST["value"]);
    } 
+   
    public function registerClick()
    {
-   require_once "./views/RegistrationView.php";
+   	$_SESSION["register"]="active";
+   $this->showRegisterView();
+   }
+   
+   public function showRegisterView()
+   {
+   	require_once "./views/RegistrationView.php";
+   	
+   	
    }
 
 }

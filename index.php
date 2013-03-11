@@ -23,7 +23,13 @@ if (isset ( $_REQUEST ["msg"] )) {
 }
 if (isset ( $_SESSION ["userType"] )) {
 	$obj->showUserPanel ();
-} else {
+} 
+elseif(isset($_SESSION["register"]))
+{
+	$obj->showRegisterView();
+	unset($_SESSION["register"]);
+}
+else {
 	// echo "showing main view";*/
 	$obj->showMainView ();
 }
