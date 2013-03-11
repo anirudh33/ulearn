@@ -3,76 +3,13 @@
 require_once ($_SESSION["SITE_PATH"]."/libraries/AUser.php");
 class Admin extends AUser
 {
-    protected $firstname;
-    protected $lastname;
-    protected $phone;
-    protected $d_o_b;
-    protected $address;
-    protected $profilepicture;
-    protected $language;
-    protected $state;
-    
+   
     
     public function __construct() {
         parent::__construct();
         
     }
-    public function getFirstname() {
-        return $this->firstname;
-    }
-
-    public function setFirstname($firstname) {
-        $this->firstname = $firstname;
-    }
-    public function getLastname() {
-        return $this->lastname;
-    }
-
-    public function setLastname($lastname) {
-        $this->lastname = $lastname;
-    }
-    public function getPhone() {
-        return $this->phone;
-    }
-
-    public function setPhone($phone) {
-        $this->phone = $phone;
-    }
-    public function getDOB() {
-        return $this->d_o_b;
-    }
-
-    public function setDOB($d_o_b) {
-        $this->d_o_b = $d_o_b;
-    }
-    public function getAddress() {
-        return $this->address;
-    }
-
-    public function setAddress($address) {
-        $this->address = $address;
-    }
-    public function getLanguage() {
-        return $this->language;
-    }
-
-    public function setLanguage($language) {
-        $this->language = $language;
-    }
-    public function getProfilePicture() {
-        return $this->profilepicture;
-    }
-
-    public function setProfilePicture($profilepicture) {
-        $this->profilepicture = $profilepicture;
-    }
-    public function getState() {
-        return $this->state;
-    }
-
-    public function setState($state) {
-        $this->state = $state;
-    }
+    
     
 public function FindUsers() {
     
