@@ -95,22 +95,22 @@ class StudentController {
         header("Location:http://".$_SESSION["DOMAIN_PATH"]."/index.php");
     }
     public function showMessage() {
-    	$this->_objUser->fetchshowMessage();
+    	$this->_objUser->fetchUser();
     
     	$this->showMessageView();
     }
     public function writeMessage() {
-    	$this->_objUser->fetchwriteMessage();
+    	$this->_objUser->fetchUser();
     
     	$this->showWriteMessageView();
     }
     public function manageProfile() {
-    	$this->_objUser->fetchProfile();
+    	$this->_objUser->fetchUser();
     
     	$this->showProfileView();
     }
     public function showStudyMaterial() {
-    	$this->_objUser->fetchDownload();
+    	$this->_objUser->fetchUser();
     
     	$this->showDownloadView();
     }

@@ -154,7 +154,12 @@ public function FindUsers() {
 	 $this->db->Where(array("id >"=>"40"));
 	 $this->FindUsers();
 	 }
-
+public function fetchUser(){}
+public function showView(){}
+public function showManageTeachersView(){}
+public function showManageStudentsView(){}
+public function showProfileView(){}
+public function showreportView(){}
 }
 
 ?>

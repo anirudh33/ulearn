@@ -163,7 +163,10 @@ abstract class AUser extends AModel{
     public function setQualification($qualification) {
     	$this->qualification = $qualification;
     }
-
-	
+public function AddUser();
+public function UpdateUser();
+public function DeleteUser();
+public function fetchUser();
+public function showView();	
 }
 ?>

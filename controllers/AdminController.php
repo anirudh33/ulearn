@@ -97,22 +97,22 @@ class AdminController {
     }
 
     public function manageTeachers() {
-        $this->_objUser->fetchTeachers();
+        $this->_objUser->fetchUser();
 
         $this->showManageTeachersView();
     }
     public function manageStudents() {
-    	$this->_objUser->fetchStudents();
+    	$this->_objUser->fetchUser();
     
     	$this->showManageStudentsView();
     }
     public function reportGeneration() {
-    	$this->_objUser->fetchReport();
+    	$this->_objUser->fetchUser();
     
     	$this->showreportView();
     }
     public function manageProfile() {
-    	$this->_objUser->fetchProfile();
+    	$this->_objUser->fetchUser();
     
     	$this->showProfileView();
     }
