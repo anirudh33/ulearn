@@ -15,8 +15,8 @@ $lang = Language::getinstance ();
 <link rel="stylesheet" href="assets/style/AdminView.css"
 	type="text/css" media="screen" />
 
-<style>
-</style>
+
+</script>
 </head>
 
 <body>
@@ -41,24 +41,27 @@ $lang = Language::getinstance ();
 		<div id="image">
 		
 		<div id="admincontent">
+		
 			<h1><?php echo $lang->WELCOMEADMINISTRATOR?></h1>
 		</div>
+		
 		
 		
 			<div id="functionpanel">
 			
 		<div class="arrowgreen">
 	<ul>
-		<li><a href="http://www.dynamicdrive.com" title="Home">Home</a></li>
-		<li><a href="http://www.dynamicdrive.com/style/" class="selected" title="CSS">CSS Library</a></li>
-		<li><a href="http://www.ddwhois.com" title="Whois">DD Whois</a></li>
-		<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Forums</a></li>
-		<li><a href="http://tools.dynamicdrive.com/" title="Tools">Webmaster Tools</a></li>
-		<li><a href="http://www.javascriptkit.com" title="JavaScript">JavaScript</a></li>
+		<li><a href="er" id="link1" title="Home" >Manage Teacher Account</a></li>
+		<li><a href="http://www.dynamicdrive.com/style/" class="selected" title="CSS">Manage Student Account</a></li>
+		<li><a href="http://www.ddwhois.com" title="Whois">Edit Profile</a></li>
+		<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Report Generation</a></li>
+		
 	</ul>
-</div>
+	</div>
+	
 		
 				</div>
+				
 		
 		
 		</div>
