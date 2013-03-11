@@ -37,7 +37,7 @@ h1 {
     font-weight:200;
     color: #888888;
     font-size:16pt;
-    background: transparent url(../../images/img/h1.png) no-repeat center left;
+    background: transparent url(../../../assets/images/img/h1.png) no-repeat center left;
     padding-left:33px;
     margin:7px 5px 8px 8px;
 }
@@ -113,7 +113,7 @@ form.register .infobox{
     width:380px;
     height:98px;
     font-size:9px;
-    //background: #FDFEFA url(../../images/img/bg_infobox.gif) repeat-x top left;
+    //background: #FDFEFA url(../../../assets/images/img/bg_infobox.gif) repeat-x top left;
 }
 form.register .infobox h4{
     color: brown;
@@ -188,7 +188,7 @@ form.register input[type=password]
 }
 .button
 {
-    background: brown url(../../images/img/overlay.png) repeat-x;
+    background: brown url(../../../assets/images/img/overlay.png) repeat-x;
     padding: 8px 10px 8px;
     color: white;
     text-decoration: none;

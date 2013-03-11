@@ -48,6 +48,7 @@ public function setMessage($message) {
         require_once "./views/MainView.php";
         //$this->initiateLogin();
     }
+    
 
     public function initiateLogin() {
         //echo "initiating login"; 
@@ -78,7 +79,17 @@ public function setMessage($message) {
         
        
     }
-    
+   public function setLanguageClick()
+   {
+   
+   	$objInitiateUser = new InitiateUser();
+   	
+   	$objInitiateUser->setLanguage($_REQUEST["value"]);
+   } 
+   public function registerClick()
+   {
+   require_once "./views/RegistrationView.php";
+   }
 
 }
 

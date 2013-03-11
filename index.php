@@ -14,7 +14,7 @@ $_SESSION ["SITE_PATH"] = getcwd ();
 
 $_SESSION ["DOMAIN_PATH"] = $_SERVER ["SERVER_NAME"] . "/ulearn/branches/development";
 $_SESSION ["DB_NAME"] = "ulearndb";
-$_SESSION ['lang'] = "EN";
+//$_SESSION ['lang'] = "EN";
 require_once ($_SESSION ["SITE_PATH"] . "/controllers/MainController.php");
 
 $obj = new MainController ();

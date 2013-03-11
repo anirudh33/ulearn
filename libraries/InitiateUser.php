@@ -164,6 +164,15 @@ class InitiateUser extends AModel {
         return $password;
     }
 
+    public function setLanguage($value)
+    {
+    	$_SESSION["lang"]=$value;
+    }
+    public function showRegistrationView()
+    {
+    	require_once "./views/RegistrationView.php";
+    }
+    
 }
 
 ?>

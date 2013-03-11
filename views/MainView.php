@@ -68,7 +68,7 @@ $lang=  Language::getinstance();
 
                     <div class="left right">			
                         <!-- Register Form -->
-                        <form action="#" method="post">
+                        <form action="index.php?method=registerClick" method="post">
                             <h1><?php echo $lang->NOTAMEMBERYETSIGNUP;?></h1>				
                             <input type="submit" name="submit" value="<?php echo $lang-> REGISTER;?>" class="bt_register" />
                         </form>
@@ -91,11 +91,23 @@ $lang=  Language::getinstance();
             </div> <!-- / top -->
         </div> <!--panel -->
 
-     <div id="cc">   
+     <div id="cc"> 
+     <div id="langdiv">
+    <!-- to set the language-->
+     <div id="lang">
+    
+  <h3><a href="index.php?method=setLanguageClick&value=EN"><?php echo $lang-> ENGLISH;?></a> </h3>    
+ 	<h3><a href="index.php?method=setLanguageClick&value=HINDI"><?php echo $lang-> HINDI;?></a></h3> 
+ 
+ 
+     </div> 
+     </div> 
             <div id="header">
-                <img alt="" src="assets/images/Views/ulearn.gif" style="float:right;padding:50px;width:280px;">						
+                <img alt="" src="assets/images/Views/ulearn.gif" style="float:left;padding:50px;width:280px;">						
             </div>
-
+			<div id="header2">
+			
+			</div>
             <div id="image">
 			       <div id="content">
                 <div class="container">
@@ -105,7 +117,7 @@ $lang=  Language::getinstance();
                         <li><a href="#tab2"><?php echo $lang->ABOUTUS;?></a></li>
                         <li><a href="#tab3"><?php echo $lang->RESOURCES;?></a></li>
                         <li><a href="#tab4"><?php echo $lang-> CONTACT;?></a></li>
-
+						<li><a href="#tab4"><?php echo $lang-> COURSES;?></a></li>
                     </ul>
                     <div class="tab_container">
                         <div id="tab1" class="tab_content">
@@ -147,10 +159,10 @@ In addition, the combined company offers unparalleled service—our customers be
      
        </div>
      
-     
      <div id="footer1">
-hhghghghgfhghgfh
+
         </div>
+     
       
     </body>
 </html>

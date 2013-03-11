@@ -60,6 +60,9 @@ class Language {
         'CHOOSEWORK'=>"Choose from the categories to start",
         'QUOTE'=>"Education's purpose is to replace an empty mind with an open one.",
         'WELCOMEADMINISTRATOR'=>"Welcome Administrator",
+        'COURSES'=>"Courses",
+        'HINDI'=>"हिंदी",
+        'ENGLISH'=>"English",
     ),
     'HINDI'=>array(
         'TITLE'=>"Ulearn में आपका स्वागत है",
@@ -98,6 +101,12 @@ class Language {
         'QUOTE'=>" बिना शिक्षा प्राप्त किये कोई व्यक्ति अपनी परम ऊँचाइयों को नहीं छू सकता.",
         'WELCOMEADMINISTRATOR'=>"व्यवस्थापक आपका स्वागत है ",
         'LOGOUT'=>"Log Out Hindi",
+        'COURSES'=>"पाठ्यक्रम",
+        'HINDI'=>"हिंदी",
+        'ENGLISH'=>"अंग्रेज़ी",
+        'COURSES'=>"पाठ्यक्रम",
+        'HINDI'=>"हिंदी",
+        'ENGLISH'=>"अंग्रेज़ी",
     ));
 
     private function __construct() {
