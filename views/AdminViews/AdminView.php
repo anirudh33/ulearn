@@ -42,7 +42,7 @@ $("button").click(function(){
 
 			<img alt="" src="../../assets/images/Views/ulearn.gif"
 				style="float: right; padding: 50px; width: 280px;">
-				<a href="index.php?method=logout">LOG OUT</a>
+				<a href="index.php?method=logout&controller=Admin">LOG OUT</a>
 
 		</div>
 

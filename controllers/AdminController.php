@@ -117,13 +117,5 @@ class AdminController {
     	$this->showProfileView();
     }
 }
-//
-if (isset($_REQUEST["method"])) {// initiate cant be called
-if($_REQUEST["method"]=="logout") {
-  $obj1 = new AdminController();
-  $obj1->$_REQUEST["method"]();
- 
-}
 
-}
 ?>

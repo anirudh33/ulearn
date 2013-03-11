@@ -91,11 +91,13 @@ public function setMessage($message) {
    public function registerClick()
    {
    	$_SESSION["register"]="active";
+   	//header('Location: http://localhost/ulearn/branches/development/index.php');
    $this->showRegisterView();
    }
    
    public function showRegisterView()
    {
+   	
    	require_once "./views/RegistrationView.php";
    	
    	
@@ -103,16 +105,7 @@ public function setMessage($message) {
 
 }
 
-if(isset($_REQUEST['method'])){
-//	echo  "2";die;
-    $obj= new MainController();
-    $obj->$_REQUEST['method']();
-   
-}
- else {
 
-    // ECHO "<br>NAAAAAAA"; 
-}
 //$obj= new MainController();
 //$obj->initiateLogin();
 ?>
