@@ -114,6 +114,11 @@ class TeacherController {
     
     	$this->showUploadView();
     }
+ public function showCourse() {
+    	
+    
+    	$this->addCourse();
+    }
    
 }
 //

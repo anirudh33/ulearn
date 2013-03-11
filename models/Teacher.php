@@ -42,6 +42,6 @@ public function showMessageView(){}
 public function showWriteMessageView(){}
 public function showProfileView(){}
 public function showUploadView(){}
+public function addCourse(){}    	
 }
-
 ?>
