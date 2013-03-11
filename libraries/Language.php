@@ -57,6 +57,9 @@ class Language {
         'REGISTER'=>"Register",
         'HELLOADMINISTRATOR'=>"Hello Administrator",
         'LOGOUT'=>"Log Out",
+        'CHOOSEWORK'=>"Choose from the categories to start",
+        'QUOTE'=>"Education's purpose is to replace an empty mind with an open one.",
+        'WELCOMEADMINISTRATOR'=>"Welcome Administrator",
     ),
     'HINDI'=>array(
         'TITLE'=>"Ulearn में आपका स्वागत है",

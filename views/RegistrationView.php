@@ -206,6 +206,11 @@
                 </p>
                 
             </fieldset>
+            <?php 
+
+include 'captcha.php';
+
+?>
             <div><button class="button">Register &raquo;</button></div>
         </form>
     

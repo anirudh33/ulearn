@@ -31,13 +31,13 @@ a img {
 }
 
 h1 {
-	font-size: 1.6em;
+	font-size: 1em;
 	height: 20px;
 	padding-top: 0;
 }
 
 h2{
-	font-size: 1.2em;
+	font-size: 1em;
 	height: 20px;
 	padding-top: 0;
 }
@@ -63,7 +63,7 @@ h2{
             	border: 2px solid red;
                 position: absolute; 
                 top: 400px; 
-				
+							
             	padding: 10px;
                 width: 70%;
             }
