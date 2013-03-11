@@ -20,11 +20,6 @@ $lang = Language::getinstance ();
 </head>
 
 <body>
-	
-
-
-
-
 
 	<div id="cc">
 
@@ -82,7 +77,11 @@ $lang = Language::getinstance ();
 
 
 
-
+$("button").click(function(){
+  $.ajax({url:"demo_test.txt",success:function(result){
+    $("#div1").html(result);
+  }});
+});
 
 
 
