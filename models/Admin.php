@@ -11,7 +11,7 @@ class Admin extends AUser
     }
     
     
-public function FindUsers() {
+public function fetchUser() {
     
       $this->db->Fields(array("firstname as f","lastname","email"));
 //	  $this->db->Where(array("firstname"=>"ambar"));
@@ -91,8 +91,6 @@ public function FindUsers() {
 	 $this->db->Where(array("id >"=>"40"));
 	 $this->FindUsers();
 	 }
-public function fetchUser(){}
-public function showView(){}
 public function showManageTeachersView(){}
 public function showManageStudentsView(){}
 public function showProfileView(){}
