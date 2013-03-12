@@ -96,8 +96,8 @@ $lang=  Language::getinstance();
     <!-- to set the language-->
      <div id="lang">
     
-  <h3><a href="index.php?method=setLanguageClick&value=EN"><?php echo $lang-> ENGLISH;?></a> </h3>    
- 	<h3><a href="index.php?method=setLanguageClick&value=HINDI"><?php echo $lang-> HINDI;?></a></h3>
+  <h3><a href="index.php?method=setLanguageClick&controller=Main&value=EN"><?php echo $lang-> ENGLISH;?></a> </h3>    
+ 	<h3><a href="index.php?method=setLanguageClick&controller=Main&value=HINDI"><?php echo $lang-> HINDI;?></a></h3>
  	 
  
  
