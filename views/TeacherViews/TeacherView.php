@@ -12,8 +12,8 @@ $lang = Language::getinstance ();
 <title><?php echo $lang->HELLOTEACHER?> </title>
 
 
-<link rel="stylesheet" href="assets/style/AdminView.css"
-	type="text/css" media="screen" />
+<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
+	media="screen" />
 
 <style>
 </style>
@@ -34,30 +34,34 @@ $lang = Language::getinstance ();
 
 
 		<div id="image">
-		
-		<div id="admincontent">
-			<h1><?php echo $lang->WELCOMETEACHER?></h1>
-		</div>
-		
-		
+
+			<div id="admincontent">
+				<h1><?php echo $lang->WELCOMETEACHER?></h1>
+			</div>
+
+
 			<div id="functionpanel">
-			
-		<div class="arrowgreen">
-	<ul>
-		<li><a href="http://www.dynamicdrive.com" title="Home">Home</a></li>
-		<li><a href="http://www.dynamicdrive.com/style/" class="selected" title="CSS">Write Message</a></li>
-		<li><a href="http://www.ddwhois.com" title="Whois">View Message</a></li>
-		<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Content Upload</a></li>
-		<li><a href="http://tools.dynamicdrive.com/" title="Tools">Edit Profile</a></li>
-		<li><a href="http://www.javascriptkit.com" title="JavaScript">Add Course</a></li>
-	</ul>
-</div>
-		
+
+				<div class="arrowgreen">
+					<ul>
+						<li><a href="http://www.dynamicdrive.com" title="Home">Home</a></li>
+						<li><a href="http://www.dynamicdrive.com/style/" class="selected"
+							title="CSS">Write Message</a></li>
+						<li><a href="http://www.ddwhois.com" title="Whois">View Message</a></li>
+						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Content
+								Upload</a></li>
+						<li><a href="http://tools.dynamicdrive.com/" title="Tools">Edit
+								Profile</a></li>
+						<li><a href="http://www.javascriptkit.com" title="JavaScript">Add
+								Course</a></li>
+					</ul>
 				</div>
-		
-		
+
+			</div>
+
+
 		</div>
-		
+
 
 
 
@@ -78,10 +82,8 @@ $lang = Language::getinstance ();
 
 
 $("button").click(function(){
-  $.ajax({url:"demo_test.txt",success:function(result){
-    $("#div1").html(result);
-  }});
-});
+$.ajax({url:"demo_test.txt",success:function(result){
+$("#div1").html(result); }}); });
 
 
 

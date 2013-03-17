@@ -1,30 +1,25 @@
 <?php
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in the editor.
  */
 
 /**
  * Description of Model
  *
  * @author anirudh
- * Sr.NO.        Version        Updated by           Updated on          Description
-  -------------------------------------------------------------------------
-    1            1.0            Anirudh Pandita     March 08, 2013      
- * ************************************************************************
+ *         Sr.NO. Version Updated by Updated on Description
+ *         -------------------------------------------------------------------------
+ *         1 1.0 Anirudh Pandita March 08, 2013
+ *         ************************************************************************
  */
-
 abstract class AModel {
-
-    protected $db;
-   // protected $lang;
-
-    function __construct() {
-        $this->db = DBConnection::Connect();
-        //$this->lang = Language::getinstance();
-    }
-
+	protected $db;
+	// protected $lang;
+	function __construct() {
+		$this->db = DBConnection::Connect ();
+		// $this->lang = Language::getinstance();
+	}
 }
 
 ?>

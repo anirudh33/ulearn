@@ -48,8 +48,15 @@ $("button").click(function(){
 		<div id="image">
 
 			<div id="admincontent">
+			
+			Showing teacher data
+<?php 
+$objAdmin = new Admin();
+$objAdmin = unserialize($_SESSION["adminObj"]);
 
-				<h1><?php echo $lang->WELCOMEADMINISTRATOR?></h1>
+print_r($objAdmin->tdata);
+?>
+				
 			</div>
 
 
@@ -60,7 +67,7 @@ $("button").click(function(){
 				<div class="arrowgreen">
 					<ul>
 						<button>hello</button>
-						<li><a href="index.php?method=manageTeachersClick&controller=Admin" id="link1">Manage Teacher Account</a></li>
+						<li><a href="index.php?method=manageTeachersClick&controller=Admin" id="link1">Manage Teachers Account</a></li>
 						<li><a href="http://www.dynamicdrive.com/style/" class="selected"
 							title="CSS">Manage Student Account</a></li>
 						<li><a href="http://www.ddwhois.com" title="Whois">Edit Profile</a></li>
@@ -73,6 +80,7 @@ $("button").click(function(){
 
 			</div>
 
+			
 
 
 		</div>

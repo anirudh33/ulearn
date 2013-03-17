@@ -1,70 +1,92 @@
 /***** Author : Kawaljeet Singh *****/
 
-
-
 /***** clearfix *****/
-.clear {clear: both;height: 0;line-height: 0;}
-.clearfix:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
-.clearfix {display: inline-block;}
+.clear {
+	clear: both;
+	height: 0;
+	line-height: 0;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	display: inline-block;
+}
 /* Hides from IE-mac \*/
-* html .clearfix {height: 1%;}
-.clearfix {display: block;}
+* html .clearfix {
+	height: 1%;
+}
+
+.clearfix {
+	display: block;
+}
 /* End hide from IE-mac */
-.clearfix {height: 1%;}
-.clearfix {display: block;}
+.clearfix {
+	height: 1%;
+}
+
+.clearfix {
+	display: block;
+}
 
 /* Panel Tab/button */
 .tab {
-  	background: url(../images/Slide/tab_b.png) repeat-x 0 0;
+	background: url(../images/Slide/tab_b.png) repeat-x 0 0;
 	height: 42px;
 	position: relative;
-    top: 0;
-    z-index: 999;
+	top: 0;
+	z-index: 999;
 }
 
 .tab ul.login {
 	display: block;
 	position: relative;
-  	float: right;
-  	clear: right;
-  	height: 42px;
+	float: right;
+	clear: right;
+	height: 42px;
 	width: auto;
-  	font-weight: bold;
+	font-weight: bold;
 	line-height: 42px;
 	margin: 0;
 	right: 150px;
-  	color: white;
-  	font-size: 100%;
+	color: white;
+	font-size: 100%;
 	text-align: center;
 }
 
 .tab ul.login li.left {
-  	background: url(../images/Slide/tab_l.png) no-repeat left 0;
-  	height: 42px;
+	background: url(../images/Slide/tab_l.png) no-repeat left 0;
+	height: 42px;
 	width: 30px;
 	padding: 0;
 	margin: 0;
-  	display: block;
+	display: block;
 	float: left;
 }
 
 .tab ul.login li.right {
-  	background: url(../images/Slide/tab_r.png) no-repeat left 0;
-  	height: 42px;
+	background: url(../images/Slide/tab_r.png) no-repeat left 0;
+	height: 42px;
 	width: 30px;
 	padding: 0;
 	margin: 0;
-  	display: block;
+	display: block;
 	float: left;
 }
 
 .tab ul.login li {
- 	text-align: left;
-  	padding: 0 6px;
+	text-align: left;
+	padding: 0 6px;
 	display: block;
 	float: left;
 	height: 42px;
-  	background: url(../images/Slide/tab_m.png) repeat-x 0 0;
+	background: url(../images/Slide/tab_m.png) repeat-x 0 0;
 }
 
 .tab ul.login li a {
@@ -75,9 +97,11 @@
 	color: white;
 }
 
-.tab .sep {color:#414141}
+.tab .sep {
+	color: #414141
+}
 
-.tab a.open, .tab a.close {
+.tab a.open,.tab a.close {
 	height: 20px;
 	line-height: 20px !important;
 	padding-left: 30px !important;
@@ -88,21 +112,32 @@
 	top: 11px;
 }
 
-.tab a.open {background: url(../images/Slide/bt_open.png) no-repeat left 0;}
-.tab a.close {background: url(../images/Slide/bt_close.png) no-repeat left 0;}
-.tab a:hover.open {background: url(../images/Slide/bt_open.png) no-repeat left -19px;}
-.tab a:hover.close {background: url(../images/Slide/bt_close.png) no-repeat left -19px;}
+.tab a.open {
+	background: url(../images/Slide/bt_open.png) no-repeat left 0;
+}
+
+.tab a.close {
+	background: url(../images/Slide/bt_close.png) no-repeat left 0;
+}
+
+.tab a:hover.open {
+	background: url(../images/Slide/bt_open.png) no-repeat left -19px;
+}
+
+.tab a:hover.close {
+	background: url(../images/Slide/bt_close.png) no-repeat left -19px;
+}
 
 /* sliding panel */
 #toppanel {
-    position: absolute;   /*Panel will overlap  content */
-    /*position: relative;*/   /*Panel will "push" the content down */
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+	position: absolute; /*Panel will overlap  content */
+	/*position: relative;*/ /*Panel will "push" the content down */
+	top: 0;
+	width: 100%;
+	z-index: 999;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #panel {
@@ -123,7 +158,7 @@
 	color: white;
 }
 
-#panel h2{
+#panel h2 {
 	font-size: 1.2em;
 	padding: 10px 0 5px;
 	margin: 0;
@@ -196,8 +231,7 @@
 
 /* BUTTONS */
 /* Login and Register buttons */
-#panel .content input.bt_login,
-#panel .content input.bt_register {
+#panel .content input.bt_login,#panel .content input.bt_register {
 	display: block;
 	float: left;
 	clear: left;
@@ -217,15 +251,15 @@
 #panel .content input.bt_register {
 	width: 94px;
 	color: white;
-	background: transparent url(../images/Slide/bt_register.png) no-repeat 0 0;
+	background: transparent url(../images/Slide/bt_register.png) no-repeat 0
+		0;
 }
 
 #panel .lost-pwd {
 	display: block;
-	float:left;
+	float: left;
 	clear: right;
 	padding: 15px 5px 0;
 	font-size: 0.95em;
 	text-decoration: underline;
 }
-
