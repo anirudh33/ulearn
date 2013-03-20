@@ -13,13 +13,16 @@
  *         1 1.0 Anirudh Pandita March 08, 2013
  *         ************************************************************************
  */
-abstract class AModel {
-	protected $db;
-	// protected $lang;
-	function __construct() {
-		$this->db = DBConnection::Connect ();
-		// $this->lang = Language::getinstance();
-	}
+abstract class AModel
+{
+
+    protected $db;
+    // protected $lang;
+    function __construct ()
+    {
+        $this->db = DBConnection::Connect();
+        // $this->lang = Language::getinstance();
+    }
 }
 
 ?>

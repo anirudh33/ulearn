@@ -1,4 +1,5 @@
 <?php
+
 class Admin extends AUser
 {
 
@@ -8,9 +9,9 @@ class Admin extends AUser
     }
 
     private $tdata = array();
-    
-    
+
     /**
+     *
      * @return the $tdata
      */
     public function getTdata ()
@@ -18,15 +19,16 @@ class Admin extends AUser
         return $this->tdata;
     }
 
-	/**
-     * @param multitype: $tdata
+    /**
+     *
+     * @param multitype: $tdata            
      */
     private function setTdata ($tdata)
     {
         $this->tdata = $tdata;
     }
 
-	public function fetchUser ()
+    public function fetchUser ()
     {
         DBConnection::Connect();
         $this->db->Fields(array(
@@ -36,11 +38,8 @@ class Admin extends AUser
         $this->db->From("teacherdetails");
         $this->db->Where();
         $this->db->Select();
-      
+        
         $this->setTdata($this->db->resultArray());
-         
-        
-        
         
         // $this->tdata=array("teacher1","teacher2");
     }

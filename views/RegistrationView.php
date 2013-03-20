@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <?php
 // session_start();
-require_once $_SESSION ["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance ();
+require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance();
 ?>
 
 

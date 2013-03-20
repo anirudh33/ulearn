@@ -32,15 +32,11 @@ class AdminController
 
     public function process ()
     {
-        // echo "-----------processing started ------";
+        
         if ($this->isValidUser() == 1) {
             $this->createUser();
-            
-            // $_SESSION["objAC"]=serialize($this);
             $this->showAdminView();
         } else {
-            // echo "-----------user not valid ------";
-            // echo $this->_message;
             header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/index.php?msg=" . $this->_message . "");
         }
     }
@@ -49,13 +45,15 @@ class AdminController
      */
     private function createUser ()
     {
+        echo ("i am here");
         $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
         $this->_objUser->setFirstName($_SESSION["emailID"]);
     }
-
+    
+    /*Check if user has logged in*/
     public function isValidUser ()
     {
-        // echo"check valid";
+     
         if ($this->sessionExists() == 1) {
             
             return 1;
@@ -66,7 +64,7 @@ class AdminController
             return 0;
         }
     }
-
+/*Check if user session exists*/
     public function sessionExists ()
     {
         
@@ -89,7 +87,7 @@ class AdminController
             return 0;
         }
     }
-
+/*Check if user in session is of this particular type like Admin in this case*/
     public function isRequiredType ()
     {
         if ($_SESSION['userType'] == $this->getRequiredType()) { // If the session has been maintained and the user type is of Admin then an instance of Admin
@@ -108,20 +106,14 @@ class AdminController
 
     public function manageTeachersClick ()
     {
-        // $objAC = new AdminController();
-        // $objAC = unserialize($_SESSION["objAC"]);
-        if ($this->isValidUser() == 1) {
+         if ($this->isValidUser() == 1) {
             $this->createUser();
             $this->_objUser->fetchUser();
             /* Showing AdminView with teacher data */
             $this->showAdminView($this->_objUser->getTdata());
         }
     }
-    // public function showManageTeachersView($data=array())
-    // {
     
-    // require_once $_SESSION ["SITE_PATH"] . "/views/AdminViews/ManageTeacherView.php";
-    // }
     public function manageStudents ()
     {
         $this->_objUser->fetchUser();

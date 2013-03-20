@@ -51,9 +51,14 @@ $("button").click(function(){
 
 				<h1><?php echo $lang->WELCOMEADMINISTRATOR?></h1>
 				<center>
-				<?php if(!empty($data)){
-								    require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
-				}?>
+				<?php
+    
+if (! empty($data)) {
+        
+        require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
+    }
+    
+    ?>
 				</center>
 			</div>
 
@@ -65,7 +70,9 @@ $("button").click(function(){
 				<div class="arrowgreen">
 					<ul>
 						<button>hello</button>
-						<li><a href="index.php?method=manageTeachersClick&controller=Admin" id="link1">Manage Teacher Account</a></li>
+						<li><a
+							href="index.php?method=manageTeachersClick&controller=Admin"
+							id="link1">Manage Teacher Account</a></li>
 						<li><a href="http://www.dynamicdrive.com/style/" class="selected"
 							title="CSS">Manage Student Account</a></li>
 						<li><a href="http://www.ddwhois.com" title="Whois">Edit Profile</a></li>
