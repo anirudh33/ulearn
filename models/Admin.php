@@ -7,33 +7,37 @@ class Admin extends AUser
         parent::__construct();
     }
 
-    public $tdata = array();
+    private $tdata = array();
+    
+    
+    /**
+     * @return the $tdata
+     */
+    public function getTdata ()
+    {
+        return $this->tdata;
+    }
 
-    public function fetchUser ()
+	/**
+     * @param multitype: $tdata
+     */
+    private function setTdata ($tdata)
+    {
+        $this->tdata = $tdata;
+    }
+
+	public function fetchUser ()
     {
         DBConnection::Connect();
         $this->db->Fields(array(
             "firstname",
             "lastname"
         ));
-        // $this->db->Where(array("firstname"=>"ambar"));
-        // $this->db->Where(array("(firstname = 'ambar' OR lastname = 'sharma')"),true);
-        // $this->db->Where(array("(email = 'amber.sharma@osscube.com' OR phone = '2121222121')"),true);
-        // $this->db->where(array("u.id IN(1,2,3,4,5,6,7,8,9)"),true,"OR");
-        // $this->db->Like("firstname","am");
-        // $this->db->Like("password","abc","OR");
         $this->db->From("teacherdetails");
-        // $this->db->Join("profile as p"," u.id = p.user_id ");
-        // $this->db->Join("details as d","u.id = d.user_id","left");
-        // $this->db->OrderBy("username asc");
-        // $this->db->GroupBy("username");
-        // $this->db->Having(array("f"=>"zero"));
-        // $this->db->Where(array("id"),true);
-        // $this->db->Between(5,10);
         $this->db->Where();
         $this->db->Select();
       
-        $this->tdata = $this->db->resultArray();
+        $this->setTdata($this->db->resultArray());
          
         
         

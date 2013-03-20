@@ -1,111 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+	table{
+		border : 3px solid red;
+		
+	}
+	td {
+border: 2px solid green;
+	}
+	tr {
+		border: 1px solid blue;
+	}
 
-<title><?php echo $lang->HELLOADMINISTRATOR?> </title>
-
-<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
-	media="screen" />
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-<script>
-$(document).ready(function(){
-	
-
-$("button").click(function(){
-	 $.ajax({url:"test.txt",success:function(result){
-	   $("#div1").html(result);
-	 }});
-	});
-});
-</script>
+</style>
 </head>
-
 <body>
-
-	<div id="div1">hello</div>
-
-
-
-
-	<div id="cc">
-
-		<div id="header">
-
-			<img alt="" src="../../assets/images/Views/ulearn.gif"
-				style="float: right; padding: 50px; width: 280px;"> <a
-				href="index.php?method=logout&controller=Admin">LOG OUT</a>
-
-		</div>
+<table>
+<tr>
+					
+					<td>FirstName</td>
+					<td>LastName</td>
 
 
+</tr>
 
-
-		<div id="image">
-
-			<div id="admincontent">
-			
-			Showing teacher data
-<?php 
-$objAdmin = new Admin();
-$objAdmin = unserialize($_SESSION["adminObj"]);
-
-print_r($objAdmin->tdata);
+<?php
+foreach ($data as $resp) 
+{
+	?>
+	
+	<tr>
+					
+					<td><?php echo $resp['firstname']?></td>
+					<td><?php echo $resp['lastname']?></td>
+					<td><a href="#" onClick="myFunction('delete.php?id=<?php echo $id;?>')">Delete</a></td>
+					<td><a href="#" onClick="myFunction('update.php?id=<?php echo $id;?>')">Update</a></td>
+	</tr>
+	<?php 
+}
 ?>
-				
-			</div>
-
-
-
-			<div id="functionpanel">
-
-
-				<div class="arrowgreen">
-					<ul>
-						<button>hello</button>
-						<li><a href="index.php?method=manageTeachersClick&controller=Admin" id="link1">Manage Teachers Account</a></li>
-						<li><a href="http://www.dynamicdrive.com/style/" class="selected"
-							title="CSS">Manage Student Account</a></li>
-						<li><a href="http://www.ddwhois.com" title="Whois">Edit Profile</a></li>
-						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Report
-								Generation</a></li>
-
-					</ul>
-				</div>
-
-
-			</div>
-
-			
-
-
-		</div>
-
-
-
-
-	</div>
-
-
-
-
-
-
-
-
-
-
+</table>
 </body>
-
-
-
-
-
-
-
-
 </html>

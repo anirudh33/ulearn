@@ -50,6 +50,11 @@ $("button").click(function(){
 			<div id="admincontent">
 
 				<h1><?php echo $lang->WELCOMEADMINISTRATOR?></h1>
+				<center>
+				<?php if(!empty($data)){
+								    require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
+				}?>
+				</center>
 			</div>
 
 

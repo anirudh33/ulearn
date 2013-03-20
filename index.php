@@ -54,12 +54,12 @@ $obj = new MainController ();
 if (isset ( $_REQUEST ["msg"] )) {
 	$message = $_REQUEST ["msg"];
 }
-if (isset ( $_SESSION ["userType"] )) {
+if (isset ( $_SESSION ["userType"] ) and !isset($_REQUEST["method"])) {
 	$obj->showUserPanel ();
 } elseif (isset ( $_SESSION ["register"] )) {
 	$obj->showRegisterView ();
 	unset ( $_SESSION ["register"] );
-} else {
+} elseif(!isset($_REQUEST["method"])) {
 	// echo "showing main view";*/
 	$obj->showMainView ();
 }
