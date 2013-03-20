@@ -55,7 +55,7 @@ $("button").click(function(){
     
 if (! empty($data)) {
         
-        require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
+        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
     }
     
     ?>
@@ -70,9 +70,9 @@ if (! empty($data)) {
 				<div class="arrowgreen">
 					<ul>
 						<!-- <button>hello</button> -->
-						<li><a href="index.php?method=manageTeachersClick&controller=Teacher" id="link1">Upload Study Material</a></li>
+						<li><a href="http://www.dynamicdrive.com/style/" id="link1">Upload Study Material</a></li>
 						<li><a href="http://www.dynamicdrive.com/style/" class="selected" title="CSS">Message</a></li>
-						<li><a href="index.php?method=manageTeachersClick&controller=Teacher" id="link1">Edit Profile</a></li>
+						<li><a href="index.php?method=editProfileClick&controller=Teacher" id="link1">Edit Profile</a></li>
 						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Add Course</a></li>
 
 					</ul>

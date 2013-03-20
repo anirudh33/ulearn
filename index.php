@@ -16,6 +16,7 @@ require_once ($_SESSION["SITE_PATH"] . '/libraries/Language.php');
 require_once ($_SESSION["SITE_PATH"] . "/libraries/UserFactory.php");
 require_once ($_SESSION["SITE_PATH"] . "/controllers/MainController.php");
 require_once ($_SESSION["SITE_PATH"] . "/controllers/AdminController.php");
+require_once ($_SESSION["SITE_PATH"] . "/controllers/TeacherController.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Admin.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Teacher.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Student.php");

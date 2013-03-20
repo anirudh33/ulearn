@@ -18,7 +18,7 @@ class DBConnection
 
     private static $_user = "root";
 
-    private static $_password = "root";
+    private static $_password = "tanu@321";
 
     private static $_database = "ulearndb";
 

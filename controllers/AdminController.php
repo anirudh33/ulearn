@@ -45,7 +45,7 @@ class AdminController
      */
     private function createUser ()
     {
-        echo ("i am here");
+        
         $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
         $this->_objUser->setFirstName($_SESSION["emailID"]);
     }
