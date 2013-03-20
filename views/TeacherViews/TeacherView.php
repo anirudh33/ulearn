@@ -49,7 +49,6 @@ $("button").click(function(){
 
 			<div id="admincontent">
 
-				<h1><?php echo $lang->WELCOMETEACHER?></h1>
 				<center>
 				<?php
     
@@ -73,7 +72,7 @@ if (! empty($data)) {
 						<li><a href="http://www.dynamicdrive.com/style/" id="link1">Upload Study Material</a></li>
 						<li><a href="http://www.dynamicdrive.com/style/" class="selected" title="CSS">Message</a></li>
 						<li><a href="index.php?method=editProfileClick&controller=Teacher" id="link1">Edit Profile</a></li>
-						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Add Course</a></li>
+						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add Course</a></li>
 
 					</ul>
 				</div>

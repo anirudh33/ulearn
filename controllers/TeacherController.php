@@ -114,9 +114,12 @@ class TeacherController
             /* Showing AdminView with teacher data */
             $this->showTeacherView($this->_objUser->getTdata());
         }
+        
     }
     
-
+    public function addCourseClick ()
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
     
 }
 
