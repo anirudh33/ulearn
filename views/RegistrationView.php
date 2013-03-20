@@ -43,16 +43,16 @@ $lang = Language::getinstance();
 		<div id="image">
 
 			<div id="registerdiv">
-				<form action="" class="register">
+				<form action="./models/Registration.php" method="POST" class="register">
 					<h1>Registration</h1>
 					<fieldset class="row1">
 						<legend>Account Details </legend>
 						<p>
-							<label>Email * </label> <input type="text" /> <label>Repeat email
+							<label>Email * </label> <input type="text" name="email"/> <label>Repeat email
 								* </label> <input type="text" />
 						</p>
 						<p>
-							<label>Password* </label> <input type="text" /> <label>Repeat
+							<label>Password* </label> <input type="text" name="password" /> <label>Repeat
 								Password* </label> <input type="text" /> <label class="obinfo">*
 								obligatory fields </label>
 						</p>
@@ -60,39 +60,36 @@ $lang = Language::getinstance();
 					<fieldset class="row2">
 						<legend>Personal Details </legend>
 						<p>
-							<label>First Name * </label> <input type="text" class="long" />
+							<label>First Name * </label> <input type="text" class="long" name="firstname" />
 						</p>
 						<p>
-							<label>Last Name * </label> <input type="text" class="long" />
+							<label>Last Name * </label> <input type="text" class="long" name="lastname"/>
 						</p>
 						<p>
-							<label>Phone * </label> <input type="text" maxlength="10" />
+							<label>Phone * </label> <input type="text" maxlength="10" name="phone"/>
 						</p>
 
 						<p>
-							<label>Address * </label> <input type="text" class="long" />
+							<label>Address * </label> <input type="text" class="long" name="address"/>
 						</p>
 
+						
 						<p>
-							<label>Country * </label> <select>
-								<option></option>
-								<option value="1">United States</option>
-							</select>
+							<label>Qualification </label> <input type="text" class="long" name="qualification"/>
 						</p>
 						<p>
-							<label>Qualification </label> <input type="text" class="long" />
+						<label>Profile Picture</label><input type="file" size="10" name="profilepicture">
 						</p>
-
 					</fieldset>
 					<fieldset class="row3">
 						<legend>Further Information </legend>
 						<p>
-							<label>Gender *</label> <input type="radio" value="radio" /> <label
-								class="gender">Male</label> <input type="radio" value="radio" />
+							<label>Gender *</label> <input type="checkbox" name="checkbox[]" /> <label
+								class="gender">Male</label> <input type="checkbox" name="checkbox[]"  />
 							<label class="gender">Female</label>
 						</p>
 						<p>
-							<label>Birthdate * </label> <select class="date">
+							<label>Birthdate * </label> <select class="date" name="birthdate">
 								<option value="1">01</option>
 								<option value="2">02</option>
 								<option value="3">03</option>
@@ -124,7 +121,7 @@ $lang = Language::getinstance();
 								<option value="29">29</option>
 								<option value="30">30</option>
 								<option value="31">31</option>
-							</select> <select>
+							</select name="month"> <select>
 								<option value="1">January</option>
 								<option value="2">February</option>
 								<option value="3">March</option>
@@ -137,12 +134,12 @@ $lang = Language::getinstance();
 								<option value="10">October</option>
 								<option value="11">November</option>
 								<option value="12">December</option>
-							</select> <input class="year" type="text" size="4" maxlength="4" />e.g
+							</select> <input class="year" type="text" size="4" name="year" maxlength="4" />e.g
 							1976
 						</p>
 						<p>
 							<label>User Type * </label> <label>Student </label><input
-								type="checkbox"> <label>Teacher </label> <input type="checkbox"></input>
+								type="checkbox" name="checkbox[]"> <label>Teacher </label> <input type="checkbox" name="checkbox[]"></input>
 						</p>
 
 
