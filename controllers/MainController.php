@@ -6,7 +6,7 @@
 require_once ($_SESSION["SITE_PATH"] . "/libraries/InitiateUser.php");
 require_once ($_SESSION["SITE_PATH"] . "/controllers/AdminController.php");
 // require_once ($_SESSION["SITE_PATH"]."/controllers/TeacherController.php");
-// require_once ($_SESSION["SITE_PATH"]."/controllers/StudentController.php");
+require_once ($_SESSION["SITE_PATH"]."/controllers/StudentController.php");
 
 // The main controller for showing the main
 class MainController
@@ -85,6 +85,30 @@ class MainController
     public function showRegisterView ()
     {
         require_once "./views/RegistrationView.php";
+    }
+    public function registerUser()
+    {
+    	$email=$_POST["email"];
+    	$password=$_POST["password"];
+    	$firstname=$_POST["firstname"];
+    	$lastname=$_POST["lastname"];
+    	$phone=$_POST["phone"];
+    	$address=$_POST["address"];
+    	$qualification=$_POST["qualification"];
+    	$gender=$_POST["gender"];
+    	$date=$_POST["date"];
+    	$usertype=$_POST["usertype"];
+    	
+    	if($_POST["usertype"]=="student")
+    	{
+    		//echo"student";
+    		$obj=new Registration();
+    		$obj->userRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype);
+    	}
+    	else
+    	{
+    		
+    	}
     }
 }
 

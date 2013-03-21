@@ -17,14 +17,21 @@ class StudentController
         return $this->_requiredType;
     }
 
+    private function createUser ()
+    {
+    
+    	$this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
+    	$this->_objUser->setFirstName($_SESSION["emailID"]);
+    }
+    
     public function setRequiredType ($requiredType)
     {
         $this->_requiredType = $requiredType;
     }
 
-    public function __construct ()
+   public function __construct ()
     {
-        $this->process();
+       $this->process();
     }
 
     public function showView ()
@@ -32,19 +39,20 @@ class StudentController
         header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/views/StudentViews/StudentView.php");
     }
 
-    public function process ()
+  public function process ()
     {
-        echo "-----------processing started ------";
-        
-        if ($this->isValidUser() == 1) {
-            $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
+      echo "-----------processing started ------";
+      // $_SESSION["userType"]="student";
+       if ($this->isValidUser() == 1) {
+           $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
             $this->_objUser->setFirstName($_SESSION["emailID"]);
             $this->showView();
+           // $this->studentRegistration($email);
         } else {
             echo "-----------user not valid ------";
             echo $this->_message;
             header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/index.php?msg=" . $this->_message . "");
-        }
+       }
     }
 
     public function isValidUser ()
@@ -128,6 +136,11 @@ class StudentController
         
         $this->showDownloadView();
     }
+   public function studentRegistration($email)
+   {
+   	echo $email;
+   	
+   }
 }
 //
 // if (isset($_REQUEST["method"])) {// initiate cant be called

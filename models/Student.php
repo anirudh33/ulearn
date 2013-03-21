@@ -40,6 +40,10 @@ class Student extends AUser
         print_r($result);
     }
 
+    public function insertUser()
+    {
+    	 
+    }
     public function showMessageView ()
     {}
 
