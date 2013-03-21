@@ -122,5 +122,6 @@ class TeacherController
     	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
     
 }
+}
 
 ?>
