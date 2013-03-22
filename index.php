@@ -62,7 +62,7 @@ if (isset($_SESSION["userType"])) {
 }
 
 /* If no method has been called show the main view/homepage */
-elseif (! isset($_REQUEST["method"])) {
+elseif (! isset($_REQUEST["method"]) or isset($_REQUEST["value"])) {
     
     // echo "showing main view";*/
     $obj->showMainView();
