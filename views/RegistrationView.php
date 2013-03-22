@@ -115,7 +115,14 @@ $lang = Language::getinstance();
 						</p>
 
 					</fieldset>
-
+<!-- 					http://www.phpcaptcha.org/documentation/quickstart-guide/ -->
+<div id="captcha">
+<img id="captcha" src="libraries/securimage/securimage_show.php" alt="CAPTCHA Image" />
+<input type="text" name="captcha_code" size="10" maxlength="6" />
+2	<a href="#" onclick="document.getElementById('captcha').src = 
+	'/libraries/securimage/securimage_show.php?' + Math.random();
+	return false">[ Different Image ]</a>
+</div>
 					<div>
 						<button class="button">Register &raquo;</button>
 					</div>

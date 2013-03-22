@@ -52,8 +52,9 @@ class MainController
         $fieldPassword = $_POST["fieldPassword"];
         
         $objInitiateUser = new InitiateUser();
-        // $objInitiateUser->login($fieldEmail, $fieldPassword);
-        $this->setAuthenticationStatus($objInitiateUser->login($fieldEmail, $fieldPassword));
+        
+        $this->setAuthenticationStatus
+        ($objInitiateUser->login($fieldEmail, $fieldPassword));
         if ($this->getAuthenticationStatus() == 1) {
             $this->showUserPanel();
         }
