@@ -30,7 +30,7 @@
 
 			<img alt="" src="../../assets/images/Views/ulearn.gif"
 				style="float: right; padding: 50px; width: 280px;"> <a
-				href="index.php?method=logout&controller=student">LOG OUT</a>
+				href="index.php?method=logout&controller=Student">LOG OUT</a>
 
 		</div>
 

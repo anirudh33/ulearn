@@ -30,7 +30,7 @@ $lang = Language::getinstance();
 
 			<div id="registerdiv" >
 			
-				<form action="index.php?method=addCourse&controller=Teacher"
+				<form action="index.php?method=addCourseButtonClick&controller=Teacher"
 					method="POST" class="register">
 				
 					<h1>Add Course</h1>

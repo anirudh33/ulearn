@@ -122,7 +122,7 @@ class StudentController
         
     }
 
-public function editTeacherClick()
+public function editStudentClick()
     {
     	$firstname=$_POST["firstname"];
     	$lastname=$_POST["lastname"];
@@ -135,7 +135,7 @@ public function editTeacherClick()
 if ($this->isValidUser() == 1) {
             $this->createUser();
               		
-    $this->_objUser->editTeacher($firstname,$lastname,$phone,$address,$qualification,$gender,$dob);
+    $this->_objUser->editStudent($firstname,$lastname,$phone,$address,$qualification,$gender,$dob);
     	}
     	}
 
