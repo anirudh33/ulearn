@@ -1,14 +1,11 @@
-
 <?php
-// session_start();
-require_once ($_SESSION["SITE_PATH"] . "/libraries/UserFactory.php");
 
 class StudentController
 {
 
     private $_requiredType = "student";
 
-    private $_objUser = "";
+    private $_objUser;
 
     private $_message = "";
 
@@ -17,48 +14,53 @@ class StudentController
         return $this->_requiredType;
     }
 
-    private function createUser ()
-    {
-    
-    	$this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
-    	$this->_objUser->setFirstName($_SESSION["emailID"]);
-    }
-    
     public function setRequiredType ($requiredType)
     {
         $this->_requiredType = $requiredType;
     }
 
-   public function __construct ()
+    public function __construct ()
     {
-       $this->process();
+        
+        // $this->process();
     }
 
-    public function showView ()
+    public function showStudentView ($data = array())
     {
-        header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/views/StudentViews/StudentView.php");
+    	
+    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/StudentView.php';
     }
 
-  public function process ()
+    public function showSubStudentViews ($viewName)
     {
-      echo "-----------processing started ------";
-      // $_SESSION["userType"]="student";
-       if ($this->isValidUser() == 1) {
-           $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
-            $this->_objUser->setFirstName($_SESSION["emailID"]);
-            $this->showView();
-           // $this->studentRegistration($email);
+    	 
+    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/StudentView.php';
+    }
+    public function process ()
+    {
+        
+        if ($this->isValidUser() == 1) {
+            $this->createUser();
+            $this->showStudentView();
         } else {
-            echo "-----------user not valid ------";
-            echo $this->_message;
             header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/index.php?msg=" . $this->_message . "");
-       }
+        }
     }
 
+    /**
+     */
+    private function createUser ()
+    {
+       
+        $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
+        $this->_objUser->setFirstName($_SESSION["emailID"]);
+     
+    }
+    
+    /*Check if user has logged in*/
     public function isValidUser ()
     {
-        echo "check valid";
-        
+     
         if ($this->sessionExists() == 1) {
             
             return 1;
@@ -69,13 +71,13 @@ class StudentController
             return 0;
         }
     }
-
+/*Check if user session exists*/
     public function sessionExists ()
     {
         
         // print_r($_SESSION);
         if (isset($_SESSION['userID']) and isset($_SESSION['userType']) and $_SESSION['emailID']) {
-            echo "-----------session ex ------";
+            // echo "-----------session exists on controller ------";
             
             if ($this->isRequiredType() == 1) {
                 
@@ -87,15 +89,15 @@ class StudentController
                 return 0;
             }
         } else {
-            echo "-----------session does not ex ------";
-            die();
+            // echo "-----------session does not exist on controller ------";
+            
             return 0;
         }
     }
-
+/*Check if user in session is of this particular type like Admin in this case*/
     public function isRequiredType ()
     {
-        if ($_SESSION['userType'] == $this->getRequiredType()) { // If the session has been maintained and the user type is of Student then an instance of Admin
+        if ($_SESSION['userType'] == $this->getRequiredType()) { // If the session has been maintained and the user type is of Admin then an instance of Admin
             return 1;
         } else {
             
@@ -109,42 +111,92 @@ class StudentController
         header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/index.php");
     }
 
-    public function showMessage ()
+    public function editProfileClick ()
     {
-        $this->_objUser->fetchUser();
+         if ($this->isValidUser() == 1) {
+            $this->createUser();
+            $this->_objUser->fetchUser();
+            /* Showing AdminView with teacher data */
+            $this->showStudentView($this->_objUser->getTdata());
+        }
         
-        $this->showMessageView();
     }
 
-    public function writeMessage ()
+public function editTeacherClick()
     {
-        $this->_objUser->fetchUser();
-        
-        $this->showWriteMessageView();
-    }
+    	$firstname=$_POST["firstname"];
+    	$lastname=$_POST["lastname"];
+    	$phone=$_POST["phone"];
+    	$address=$_POST["address"];
+    	$qualification=$_POST["qualification"];
+    	$gender=$_POST["gender"];
+    	$dob=$_POST["dob"];
+    	
+if ($this->isValidUser() == 1) {
+            $this->createUser();
+              		
+    $this->_objUser->editTeacher($firstname,$lastname,$phone,$address,$qualification,$gender,$dob);
+    	}
+    	}
 
-    public function manageProfile ()
-    {
-        $this->_objUser->fetchUser();
-        
-        $this->showProfileView();
-    }
+    
+    public function registerCourseClick (){
+    	$this->showSubStudentViews("registerCourse");
 
-    public function showStudyMaterial ()
-    {
-        $this->_objUser->fetchUser();
-        
-        $this->showDownloadView();
-    }
-   public function studentRegistration($email)
-   {
-   	echo $email;
-   	
-   }
+    
 }
-//
-// if (isset($_REQUEST["method"])) {// initiate cant be called
-// $obj1 = new AdminController();
-// $obj1->$_REQUEST["method"]();
-// }
+public function registerCourseButtonClick()
+    {
+    	$course_id=$_POST["course_id"];
+    	$student_id=$_POST["student_id"];
+    	
+  	
+ 	
+if ($this->isValidUser() == 1) {
+            $this->createUser();
+              		
+    $this->_objUser->registerCourse($course_id,$student_id);
+    	}
+    	}
+
+public function messageClick ()
+    {
+    	$this->showSubStudentViews("message");
+    	
+    
+}
+
+public function writeMessage()
+    {
+    	$message_id=$_POST["message_id"];
+     $body=$_POST["body"];
+    	$subject=$_POST["subject"];
+     $sentfrom=$_POST["sentfrom"];
+     $sentto=$_POST["sentto"];
+
+
+ 	
+if ($this->isValidUser() == 1) {
+            $this->createUser();
+              		
+    $this->_objUser->messageSend($message_id,$body,$subject,$sentfrom,$sentto);
+    	}
+    	}
+
+public function downloadClick ()
+    {
+    	
+    	$this->showSubStudentViews("download");
+}
+
+public function downloadFile ()
+    {
+    	
+    	$this->createUser();
+    	$this->_objUser->downloadContent();
+}
+
+
+}
+
 ?>

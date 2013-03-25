@@ -155,7 +155,7 @@ public function addCourseButtonClick()
 if ($this->isValidUser() == 1) {
             $this->createUser();
               		
-    $this->_objUser->add($course_id,$coursename,$description);
+    $this->_objUser->addCourse($course_id,$coursename,$description);
     	}
     	}
 
@@ -191,7 +191,7 @@ public function uploadClick ()
 
 public function uploadFile ()
     {
-    	//require_once $_SESSION["SITE_PATH"] . '/models/Upload.php';
+    	
     	$this->createUser();
     	$this->_objUser->uploadContent();
 }

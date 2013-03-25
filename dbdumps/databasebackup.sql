@@ -369,6 +369,7 @@ UNLOCK TABLES;
 
 INSERT INTO userdetails VALUES (1,'root@osscube.com','root','admin');
 INSERT INTO userdetails VALUES (2,'teacher@osscube.com','root','teacher');
+INSERT INTO userdetails VALUES (3,'student@osscube.com','root','student');
 INSERT INTO admindetails (id, firstname, lastname, dob, qualification, updatedon) VALUES (1,'anirudh','pandita', '1-jan-1990', 'postgraduate','11-mar-2013');
 
 INSERT INTO studentdetails (id, firstname, lastname, dob, qualification, updatedon) VALUES (1,'kawaljeet','singh', '2-jan-1990', 'postgraduate','11-mar-2013');

@@ -39,7 +39,7 @@ class Teacher extends AUser {
 		
 		$this->setTdata ( $this->db->resultArray () );
 	}
-
+	
 public function editTeacher($firstname,$lastname,$phone,$address,$qualification,$gender,$dob)
 	{
 		DBConnection::Connect();
