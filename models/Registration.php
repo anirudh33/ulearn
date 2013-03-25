@@ -13,7 +13,7 @@
 class Registration extends AUser
 {
 	
-	public function newStudentRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype)
+	public function newStudentRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype,$profilepicture)
 	{
 		DBConnection::Connect();
 		$this->db->From("userdetails");
@@ -23,21 +23,21 @@ class Registration extends AUser
 		$i=$this->db->lastInsertId();
 		//echo "$i";
 		$this->db->From("studentdetails");
-		$this->db->Fields(array("user_id"=>"$i","firstname"=>"$firstname","lastname"=>"$lastname","phone"=>"$phone","address"=>"$address","qualification"=>"$qualification","gender"=>"$gender","dob"=>"$date"));
+		$this->db->Fields(array("user_id"=>"$i","firstname"=>"$firstname","lastname"=>"$lastname","phone"=>"$phone","address"=>"$address","qualification"=>"$qualification","gender"=>"$gender","dob"=>"$date","profilepicture"=>"$profilepicture"));
 		$this->db->Insert();
 		echo $this->db->lastQuery();
 	}
-	public function newteacherRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype)
+	public function newteacherRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype,$profilepicture)
 	{
 		DBConnection::Connect();
-		$this->db->From("teacherdetails");
+		$this->db->From("userdetails");
 		$this->db->Fields(array("user_id"=>"","email"=>"$email","password"=>"$password","user_type"=>"$usertype"));
 		$this->db->Insert();
 		echo $this->db->lastQuery();
 		$i=$this->db->lastInsertId();
 		//echo "$i";
 		$this->db->From("teacherdetails");
-		$this->db->Fields(array("user_id"=>"$i","firstname"=>"$firstname","lastname"=>"$lastname","phone"=>"$phone","address"=>"$address","qualification"=>"$qualification","gender"=>"$gender","dob"=>"$date"));
+		$this->db->Fields(array("user_id"=>"$i","firstname"=>"$firstname","lastname"=>"$lastname","phone"=>"$phone","address"=>"$address","qualification"=>"$qualification","gender"=>"$gender","dob"=>"$date","profilepicture"=>"$profilepicture"));
 		$this->db->Insert();
 		echo $this->db->lastQuery();
 	}

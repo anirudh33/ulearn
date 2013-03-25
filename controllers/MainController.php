@@ -101,17 +101,18 @@ class MainController
     	$gender=$_POST["gender"];
     	$date=$_POST["date"];
     	$usertype=$_POST["usertype"];
+    	$profilepicture=addslashes(file_get_contents($_FILES["profilepicture"]["tmp_name"]));
     	
     	if($_POST["usertype"]=="student")
     	{
     		//echo"student";
     		$obj=new Registration();
-    		$obj->newStudentRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype);
+    		$obj->newStudentRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype,$profilepicture);
     	}
     	elseif($_POST["usertype"]=="teacher") 
     	{
     		$obj=new Registration();
-    		$obj->newTeacherRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype);
+    		$obj->newTeacherRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype,$profilepicture);
     	}
     }
 }

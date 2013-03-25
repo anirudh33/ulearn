@@ -47,7 +47,7 @@ $lang = Language::getinstance ();
 
 			<div id="registerdiv">
 				<form action="index.php?method=registerUser&controller=Main"
-					method="POST" class="register">
+					method="POST" class="register" enctype="multipart/form-data">
 					<h1>Registration</h1>
 					<fieldset class="row1">
 						<legend>Account Details </legend>
@@ -56,8 +56,8 @@ $lang = Language::getinstance ();
 								email * </label> <input type="text" />
 						</p>
 						<p>
-							<label>Password* </label> <input type="text" name="password" /> <label>Repeat
-								Password* </label> <input type="text" /> <label class="obinfo">*
+							<label>Password* </label> <input type="password" name="password" /> <label>Repeat
+								Password* </label> <input type="password" /> <label class="obinfo">*
 								obligatory fields </label>
 						</p>
 					</fieldset>
@@ -100,7 +100,7 @@ $lang = Language::getinstance ();
 								class="gender">Female</label>
 						</p>
 						<p>
-							<label>Date:</label> <input type="text" name="date"
+							<label>Date Of Birth:</label> <input type="text" name="date"
 								id="datepicker" />
 						</p>
 
