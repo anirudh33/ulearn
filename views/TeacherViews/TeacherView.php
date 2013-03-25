@@ -13,24 +13,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script>
-/* $(document).ready(function(){
-	
 
-$("button").click(function(){
-	 $.ajax({url:"test.txt",success:function(result){
-	   $("#div1").html(result);
-	 }});
-	});
-}); */
 </script>
 </head>
 
 <body>
-
-	<!--  <div id="div1">hello</div>-->
-
-
-
 
 	<div id="cc">
 
@@ -68,6 +55,10 @@ if (! empty($data)) {
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
     }
+    if($viewName=="registerCourse")
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
+    }
     
     ?>
 				</center>
@@ -85,6 +76,7 @@ if (! empty($data)) {
 						<li><a href="index.php?method=messageClick&controller=Teacher" id="link1">Message</a></li>
 						<li><a href="index.php?method=editProfileClick&controller=Teacher" id="link1">Edit Profile</a></li>
 						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add Course</a></li>
+						<li><a href="index.php?method=registerCourseClick&controller=Teacher">Register Course</a></li>
 
 					</ul>
 				</div>

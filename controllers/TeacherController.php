@@ -158,6 +158,25 @@ if ($this->isValidUser() == 1) {
     $this->_objUser->addCourse($course_id,$coursename,$description);
     	}
     	}
+    	
+    	public function registerCourseClick (){
+    		$this->showSubTeacherViews("registerCourse");
+    	
+    	
+    	}
+    	public function registerCourseButtonClick()
+    	{
+    		$course_id=$_POST["course_id"];
+    		$teacher_id=$_POST["teacher_id"];
+    		 
+    		 
+    	
+    		if ($this->isValidUser() == 1) {
+    			$this->createUser();
+    	
+    			$this->_objUser->registerCourse($course_id,$teacher_id);
+    		}
+    	}
 
 public function messageClick ()
     {

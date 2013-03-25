@@ -49,6 +49,15 @@ public function editTeacher($firstname,$lastname,$phone,$address,$qualification,
 		echo $this->db->lastQuery();
 	}
 
+	public function registerCourse($course_id,$teacher_id)
+	{
+		DBConnection::Connect();
+		$this->db->From("teaches");
+		$this->db->Fields(array("course_id"=>"$course_id","teacher_id"=>"$teacher_id"));
+		$this->db->Insert();
+		echo $this->db->lastQuery();
+	}
+	
 public function addCourse($course_id,$coursename,$description)
 	{
 		DBConnection::Connect();
