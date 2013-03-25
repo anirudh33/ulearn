@@ -31,6 +31,11 @@ class TeacherController
     	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
     }
 
+    public function showSubTeacherViews ($viewName)
+    {
+    	 
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
+    }
     public function process ()
     {
         
@@ -135,12 +140,12 @@ if ($this->isValidUser() == 1) {
     	}
 
     
-    public function addCourseClick ()
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
+    public function addCourseClick (){
+    	$this->showSubTeacherViews("addCourse");
+
     
 }
-public function addCourse()
+public function addCourseButtonClick()
     {
     	$course_id=$_POST["course_id"];
     	$coursename=$_POST["coursename"];
@@ -156,7 +161,8 @@ if ($this->isValidUser() == 1) {
 
 public function messageClick ()
     {
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
+    	$this->showSubTeacherViews("message");
+    	
     
 }
 
@@ -179,14 +185,15 @@ if ($this->isValidUser() == 1) {
 
 public function uploadClick ()
     {
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
-    
+    	
+    	$this->showSubTeacherViews("upload");
 }
 
 public function uploadFile ()
     {
-    	require_once $_SESSION["SITE_PATH"] . '/models/Upload.php';
-    
+    	//require_once $_SESSION["SITE_PATH"] . '/models/Upload.php';
+    	$this->createUser();
+    	$this->_objUser->uploadContent();
 }
 
 

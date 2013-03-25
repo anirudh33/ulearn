@@ -49,7 +49,7 @@ public function editTeacher($firstname,$lastname,$phone,$address,$qualification,
 		echo $this->db->lastQuery();
 	}
 
-public function add($course_id,$coursename,$description)
+public function addCourse($course_id,$coursename,$description)
 	{
 		DBConnection::Connect();
 		$this->db->From("course");
@@ -67,18 +67,53 @@ public function messageSend($message_id,$body,$subject,$sentfrom,$sentto)
 		echo $this->db->lastQuery();
 	}
 
-
+public function uploadContent(){
+	$n=count($_FILES['upload']['name']);
+	echo $n;
+	for($i=0;$i<$n;$i++)
+	{
+		if($_FILES['upload']['name'][$i])
+		{
+			//if no errors...
+			if(!$_FILES['upload']['error'][$i])
+			{
+				$newname = strtolower($_FILES['upload']['tmp_name'][$i]);
+	
+				 
+				$allowedExts = array("doc", "pdf", "jpg");
+				$extension = end(explode(".", $_FILES['upload']['name'][$i]));
+				if ((($_FILES['upload']['type'] == "/doc")
+	
+						|| ($_FILES['upload']['type'] == "text/pdf")
+						|| ($_FILES['upload']['type'] == "image/jpg")
+				)
+				&& ($_FILES['upload']['size'] < 1024000)
+				|| in_array($extension, $allowedExts))
+				{
+	
+					$path="uploads/";
+					$path=$path.basename( $_FILES['upload']['name'][$i]);
+	
+					if(move_uploaded_file($_FILES['upload']['tmp_name'][$i], $path.$_FILES['upload']['name'][$i])) {
+	
+						echo "The file ".  basename( $_FILES['upload']['name'][$i]).
+						" has been uploaded";
+					}
+					else {
+						echo "there";
+					}
+				}
+			}
+			else
+			{
+				echo "not a valid file";
+			}
+		}
+	}
+}
 	
 
-	public function showMessageView() {
-	}
-	public function showWriteMessageView() {
-	}
-	public function showProfileView() {
-	}
-	public function showUploadView() {
-	}
-	public function addCourse() {
-	}
+	
+	
 }
 ?>

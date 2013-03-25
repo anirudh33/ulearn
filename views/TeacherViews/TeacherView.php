@@ -56,6 +56,18 @@ if (! empty($data)) {
         
         require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
     }
+    if($viewName=="addCourse")
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
+    }
+    if($viewName=="message")
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
+    }
+    if($viewName=="upload")
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
+    }
     
     ?>
 				</center>
