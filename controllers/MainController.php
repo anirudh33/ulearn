@@ -89,6 +89,8 @@ class MainController
     }
     public function registerUser()
     {
+    	
+    	
     	$email=$_POST["email"];
     	$password=$_POST["password"];
     	$firstname=$_POST["firstname"];
@@ -104,11 +106,12 @@ class MainController
     	{
     		//echo"student";
     		$obj=new Registration();
-    		$obj->userRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype);
+    		$obj->newStudentRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype);
     	}
-    	else
+    	elseif($_POST["usertype"]=="teacher") 
     	{
-    		
+    		$obj=new Registration();
+    		$obj->newTeacherRegistration($email,$password,$firstname,$lastname,$phone,$address,$qualification,$gender,$date,$usertype);
     	}
     }
 }
