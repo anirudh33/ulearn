@@ -28,7 +28,67 @@ $lang = Language::getinstance ();
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
+<script type="text/javascript">
 
+$(document).ready(function() {
+	 
+    $('#submit').click(function() { 
+
+        $(".error").hide();
+        var hasError = false;
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        var passwordval = $("#password").val();
+        var emailaddressVal = $("#email").val();
+		var firstnameval=$("#firstname").val();
+		var lastnameval=$("#lastname").val();
+        if(emailaddressVal == '' && passwordval=='') {
+            $("#email").val('Email required.');
+            $("#password").val(' Password required.');
+            
+            hasError = true;
+        }
+
+
+
+        else if(emailaddressVal == '') {
+            $("#email").val('Email required.');
+            hasError = true;
+        }
+        else if(passwordval == '') 
+        {		        
+    	
+            $("#password").after('Please enter your password.');
+            hasError = true;
+        }
+        else if(!emailReg.test(emailaddressVal)) {
+            $("#email").val('Not valid.');
+            hasError = true;
+        }
+
+        if(firstnameval == '') 
+        {		        
+    	
+            $("#firstname").val('Please enter your password.');
+            hasError = true;
+        }
+        if(firstnameval == '') 
+        {		        
+    	
+            $("#lastname").val('Please enter your password.');
+            hasError = true;
+        }
+        if(hasError == true) { return false; }
+
+    });
+});
+
+
+
+
+
+
+
+</script>
 </head>
 
 <body>
@@ -52,11 +112,11 @@ $lang = Language::getinstance ();
 					<fieldset class="row1">
 						<legend>Account Details </legend>
 						<p>
-							<label>Email * </label> <input type="text" name="email" /> <label>Repeat
+							<label>Email * </label> <input type="text" name="email" id="email" /> <label>Repeat
 								email * </label> <input type="text" />
 						</p>
 						<p>
-							<label>Password* </label> <input type="password" name="password" /> <label>Repeat
+							<label>Password* </label> <input type="password" name="password" id="password" /> <label>Repeat
 								Password* </label> <input type="password" /> <label class="obinfo">*
 								obligatory fields </label>
 						</p>
@@ -65,11 +125,11 @@ $lang = Language::getinstance ();
 						<legend>Personal Details </legend>
 						<p>
 							<label>First Name * </label> <input type="text" class="long"
-								name="firstname" />
+								name="firstname" id="firstname" />
 						</p>
 						<p>
 							<label>Last Name * </label> <input type="text" class="long"
-								name="lastname" />
+								name="lastname" id="lastname" />
 						</p>
 						<p>
 							<label>Phone * </label> <input type="text" maxlength="10"
@@ -140,7 +200,7 @@ $lang = Language::getinstance ();
 				
 					
 					<div>
-						<button class="button">Register &raquo;</button>
+						<button class="button" id="submit">Register &raquo;</button>
 					</div>
 				</form>
 			</div>
