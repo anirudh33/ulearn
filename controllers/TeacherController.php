@@ -116,12 +116,80 @@ class TeacherController
         }
         
     }
+
+public function editTeacherClick()
+    {
+    	$firstname=$_POST["firstname"];
+    	$lastname=$_POST["lastname"];
+    	$phone=$_POST["phone"];
+    	$address=$_POST["address"];
+    	$qualification=$_POST["qualification"];
+    	$gender=$_POST["gender"];
+    	$dob=$_POST["dob"];
+    	
+if ($this->isValidUser() == 1) {
+            $this->createUser();
+              		
+    $this->_objUser->editTeacher($firstname,$lastname,$phone,$address,$qualification,$gender,$dob);
+    	}
+    	}
+
     
     public function addCourseClick ()
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
     
 }
+public function addCourse()
+    {
+    	$course_id=$_POST["course_id"];
+    	$coursename=$_POST["coursename"];
+    	$description=$_POST["description"];
+  	
+ 	
+if ($this->isValidUser() == 1) {
+            $this->createUser();
+              		
+    $this->_objUser->add($course_id,$coursename,$description);
+    	}
+    	}
+
+public function messageClick ()
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
+    
+}
+
+public function writeMessage()
+    {
+    	$message_id=$_POST["message_id"];
+     $body=$_POST["body"];
+    	$subject=$_POST["subject"];
+     $sentfrom=$_POST["sentfrom"];
+     $sentto=$_POST["sentto"];
+
+
+ 	
+if ($this->isValidUser() == 1) {
+            $this->createUser();
+              		
+    $this->_objUser->messageSend($message_id,$body,$subject,$sentfrom,$sentto);
+    	}
+    	}
+
+public function uploadClick ()
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
+    
+}
+
+public function uploadFile ()
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/models/Upload.php';
+    
+}
+
+
 }
 
 ?>

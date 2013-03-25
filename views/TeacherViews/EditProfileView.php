@@ -23,39 +23,41 @@ $lang = Language::getinstance();
 
 <body>
 
-	<div id="cc" width="5px" height="150px" align="left">
+	<div id="cc" width="5px" height="150px" align="right">
 
 		  
 		 
 
 			<div id="registerdiv" >
 			
-				<form action="" class="register">
+				<form action="index.php?method=editTeacherClick&controller=Teacher"
+					method="POST" class="register">
+				
 					<h1>Edit Profile</h1>
 					
 					<fieldset class="row2">
 						<legend>Personal Details </legend>
 						<p>
-							<label>First Name * </label> <input type="text" class="long" 
+							<label>First Name * </label> <input type="text" name="firstname" class="long" 
 							value=<?php echo $data[0]['firstname']?>>
 						</p>
 						<p>
-							<label>Last Name * </label> <input type="text" class="long" 
+							<label>Last Name * </label> <input type="text" name="lastname" class="long" 
 							value=<?php echo $data[0]['lastname']?>>
 						</p>
 						<p>
-							<label>Phone * </label> <input type="text" maxlength="10" 
+							<label>Phone * </label> <input type="text" name="phone" maxlength="10" 
 							value=<?php echo $data[0]['phone']?>>
 						</p>
 
 						<p>
-							<label>Address * </label> <input type="text" class="long" 
+							<label>Address * </label> <input type="text" name="address" class="long" 
 							value=<?php echo $data[0]['address']?>>
 						</p>
 
 				
 						<p>
-							<label>Qualification </label> <input type="text" class="long" 
+							<label>Qualification </label> <input type="text" name="qualification" class="long" 
 							value=<?php echo $data[0]['qualification']?>>
 						</p>
 
@@ -63,12 +65,12 @@ $lang = Language::getinstance();
 					<fieldset class="row3">
 						<legend>Further Information </legend>
 						<p>
-							<label>Gender *</label> <input type="text" class="long" 
+							<label>Gender *</label> <input type="text" name="gender" class="long" 
 							value=<?php echo $data[0]['gender']?>>
 						</p>
 						<p>
 							<label>Birthdate * </label> 
-							<input type="text" class="long" 
+							<input type="text" name="dob" class="long" 
 							value=<?php echo $data[0]['dob']?>>
 						</p>
 						
@@ -112,7 +114,6 @@ $lang = Language::getinstance();
 
 </body>
 </html>
-
 
 
 

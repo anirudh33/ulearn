@@ -69,8 +69,8 @@ if (! empty($data)) {
 				<div class="arrowgreen">
 					<ul>
 						<!-- <button>hello</button> -->
-						<li><a href="http://www.dynamicdrive.com/style/" id="link1">Upload Study Material</a></li>
-						<li><a href="http://www.dynamicdrive.com/style/" class="selected" title="CSS">Message</a></li>
+						<li><a href="index.php?method=uploadClick&controller=Teacher" id="link1">Upload Study Material</a></li>
+						<li><a href="index.php?method=messageClick&controller=Teacher" id="link1">Message</a></li>
 						<li><a href="index.php?method=editProfileClick&controller=Teacher" id="link1">Edit Profile</a></li>
 						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add Course</a></li>
 

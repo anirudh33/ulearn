@@ -39,6 +39,37 @@ class Teacher extends AUser {
 		
 		$this->setTdata ( $this->db->resultArray () );
 	}
+
+public function editTeacher($firstname,$lastname,$phone,$address,$qualification,$gender,$dob)
+	{
+		DBConnection::Connect();
+		$this->db->From("teacherdetails");
+		$this->db->Fields(array("firstname"=>"$firstname","lastname"=>"$lastname","phone"=>"$phone","address"=>"$address","qualification"=>"$qualification","gender"=>"$gender","dob"=>"$dob"));
+		$this->db->Update();
+		echo $this->db->lastQuery();
+	}
+
+public function add($course_id,$coursename,$description)
+	{
+		DBConnection::Connect();
+		$this->db->From("course");
+		$this->db->Fields(array("course_id"=>"$course_id","coursename"=>"$coursename","description"=>"$description","createdon"=>date("Y/m/d")));
+		$this->db->Insert();
+		echo $this->db->lastQuery();
+	}
+
+public function messageSend($message_id,$body,$subject,$sentfrom,$sentto)
+	{
+		DBConnection::Connect();
+		$this->db->From("teachermessage");
+		$this->db->Fields(array("message_id"=>"$message_id","body"=>"$body","subject"=>"$subject","sentfrom"=>"$sentfrom","sentto"=>"$sentto"));
+		$this->db->Insert();
+		echo $this->db->lastQuery();
+	}
+
+
+	
+
 	public function showMessageView() {
 	}
 	public function showWriteMessageView() {
