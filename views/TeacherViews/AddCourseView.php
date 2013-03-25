@@ -23,7 +23,7 @@ $lang = Language::getinstance();
 
 <body>
 
-	<div id="cc" width="5px" height="150px" align="right">
+	<div id="cc" width="5px" height="150px" align="center">
 
 		  
 		 
@@ -45,17 +45,17 @@ $lang = Language::getinstance();
 							<label>Course Name * </label> <input type="text" name="coursename" class="long" >
 						</p>
 						<p>
-							<label>Description * </label> <input type="text" name="description" class="long">
+							<label>Description * </label> <textarea name="description" rows="6" cols="20" class="long">
+						</textarea>
 						</p>
-						
+						</br></br>
+						<button class="button">Add &raquo;</button>
 					
 					</fieldset>
 									
 
 		
-					<div>
-						<button class="button">Add &raquo;</button>
-					</div>
+					
 				</form>
 			</div>
 
@@ -72,7 +72,6 @@ $lang = Language::getinstance();
 
 </body>
 </html>
-
 
 
 
