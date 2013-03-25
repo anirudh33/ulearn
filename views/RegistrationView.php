@@ -41,6 +41,10 @@ $(document).ready(function() {
         var emailaddressVal = $("#email").val();
 		var firstnameval=$("#firstname").val();
 		var lastnameval=$("#lastname").val();
+		var phoneval=$("#phone").val();
+		var addressval=$("#address").val();
+		var qualificationval=$("#qualification").val();
+		
         if(emailaddressVal == '' && passwordval=='') {
             $("#email").val('Email required.');
             $("#password").val(' Password required.');
@@ -71,14 +75,34 @@ $(document).ready(function() {
             $("#firstname").val('Please enter your password.');
             hasError = true;
         }
-        if(firstnameval == '') 
+        if(lastnameval == '') 
         {		        
     	
             $("#lastname").val('Please enter your password.');
             hasError = true;
         }
+        
         if(hasError == true) { return false; }
 
+        if(phoneval == '') 
+        {		        
+    	
+            $("#phone").val('Please enter your password.');
+            hasError = true;
+        }
+        
+        if(hasError == true) { return false; }
+
+
+        if(addressval == '') 
+        {		        
+    	
+            $("#address").val('Please enter your password.');
+            hasError = true;
+        }
+        
+        if(hasError == true) { return false; }
+		
     });
 });
 
@@ -133,18 +157,18 @@ $(document).ready(function() {
 						</p>
 						<p>
 							<label>Phone * </label> <input type="text" maxlength="10"
-								name="phone" />
+								name="phone" id="phone"/>
 						</p>
 
 						<p>
 							<label>Address * </label> <input type="text" class="long"
-								name="address" />
+								name="address" id="address"/>
 						</p>
 
 
 						<p>
 							<label>Qualification </label> <input type="text" class="long"
-								name="qualification" />
+								name="qualification" id="qualification"/>
 						</p>
 						<p>
 							<label>Profile Picture</label><input type="file" size="10"
