@@ -5,7 +5,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title><?php echo $lang->HELLOADMINISTRATOR?> </title>
+<title>HELLOADMINISTRATOR </title>
 
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />
@@ -27,7 +27,7 @@ $("button").click(function(){
 
 <body>
 
-	<div id="div1">hello</div>
+	<div id="div1"></div>
 
 
 
@@ -49,13 +49,17 @@ $("button").click(function(){
 
 			<div id="admincontent">
 
-				<h1><?php echo $lang->WELCOMEADMINISTRATOR?></h1>
+				<h4>WELCOMEADMINISTRATOR</h4>
 				<center>
 				<?php
     
-if (! empty($data)) {
+if (! empty($teacherdata)) {
         
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
+    }
+    if (! empty($studentdata)) {
+    
+    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageStudentView.php';
     }
     
     ?>
@@ -73,8 +77,9 @@ if (! empty($data)) {
 						<li><a
 							href="index.php?method=manageTeachersClick&controller=Admin"
 							id="link1">Manage Teacher Account</a></li>
-						<li><a href="http://www.dynamicdrive.com/style/" class="selected"
-							title="CSS">Manage Student Account</a></li>
+							
+						<li><a href="index.php?method=manageStudentsClick&controller=Admin" id="link2">Manage Student Account</a></li>
+						
 						<li><a href="http://www.ddwhois.com" title="Whois">Edit Profile</a></li>
 						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Report
 								Generation</a></li>

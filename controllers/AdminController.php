@@ -6,6 +6,7 @@ class AdminController
     private $_requiredType = "admin";
 
     private $_objUser;
+   
 
     private $_message = "";
 
@@ -27,7 +28,18 @@ class AdminController
 
     public function showAdminView ($data = array())
     {
+    	 
+    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+    }
+    public function showManageTeacherView ($teacherdata = array(),$teacherRecordsCount)
+    {
+    	
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+    }
+    public function showManageStudentView ($studentdata = array())
+    {
+    	 
+    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
     }
 
     public function process ()
@@ -106,20 +118,56 @@ class AdminController
 
     public function manageTeachersClick ()
     {
-         if ($this->isValidUser() == 1) {
+         if ($this->isValidUser() == 1) 
+         {
             $this->createUser();
-            $this->_objUser->fetchUser();
+            //creating object of paging classs
+            $obj_paging = new paging();
+            
+            if (isset($_GET['page']))
+            	$page = $_GET['page'];
+            else
+            	$page = 1;
+            $obj_paging->set_page($page);
+            
+            $limit = $obj_paging->get_limit();
+            $obj_paging->set_page_length(10);
+            $page_length = $obj_paging->page_length;
+            $start_limit = $obj_paging->get_limit_start();
+            $limit = $start_limit . "," . $page_length;
+            
+            $this->_objUser->fetchTeacher($limit);
+         
             /* Showing AdminView with teacher data */
-            $this->showAdminView($this->_objUser->getTdata());
+            $this->_objUser->fetchTeacherCount();
+            $this->showManageTeacherView($this->_objUser->getTeacherdata(),$this->_objUser->getTotalTeacherRecords());
         }
     }
-    
-    public function manageStudents ()
+    public function deleteTeacherClick()
     {
-        $this->_objUser->fetchUser();
-        
-        $this->showManageStudentsView();
+    	if($this->isValidUser()==1)
+    	{
+    		$this->createUser();
+    		$this->_objUser->deleteTeacher();
+    		
+    	}
+    	
     }
+    
+    public function manageStudentsClick ()
+    {
+    	if ($this->isValidUser() == 1) 
+    	{
+    		$this->createUser();
+    
+    		$this->_objUser->fetchStudent();
+    		 
+    		/* Showing AdminView with teacher data */
+    		$this->showManageStudentView($this->_objUser->getStudentdata());
+    	}
+    }
+    
+   
 
     public function reportGeneration ()
     {

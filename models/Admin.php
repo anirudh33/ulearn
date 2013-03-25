@@ -3,47 +3,132 @@
 class Admin extends AUser
 {
 
+		
     public function __construct ()
     {
         parent::__construct();
     }
 
-    private $tdata = array();
-
+    private $teacherdata = array();
+    private $studentdata = array();
+    private $totalTeacherRecords;
+  
+  
     /**
+	 * @return the $totalTeacherRecords
+	 */
+	public function getTotalTeacherRecords() {
+		return $this->totalTeacherRecords;
+	}
+
+	/**
+	 * @param field_type $totalTeacherRecords
+	 */
+	public function setTotalTeacherRecords($totalTeacherRecords) {
+		$this->totalTeacherRecords = $totalTeacherRecords;
+	}
+
+	/**
      *
      * @return the $tdata
      */
-    public function getTdata ()
+    public function getStudentdata ()
     {
-        return $this->tdata;
+    	return $this->studentdata;
+    }
+    private function setStudentdata ($studentdata)
+    {
+    	$this->studentdata = $studentdata;
+    }
+    public function getTeacherdata ()
+    {
+        return $this->teacherdata;
     }
 
     /**
      *
      * @param multitype: $tdata            
      */
-    private function setTdata ($tdata)
+    private function setTeacherdata ($teacherdata)
     {
-        $this->tdata = $tdata;
+        $this->teacherdata = $teacherdata;
     }
 
-    public function fetchUser ()
-    {
+
+    public function fetchTeacher ($limit = "0,10")
+    {        
+    	if (empty($limit)) {
+    		$limit="0,10";
+    	}
+    	
         DBConnection::Connect();
         $this->db->Fields(array(
+        	"id",	
             "firstname",
-            "lastname"
+            "lastname",
+        		"status"
         ));
         $this->db->From("teacherdetails");
         $this->db->Where();
+
+        $this->db->Limit($limit);
         $this->db->Select();
+        $this->setTeacherdata($this->db->resultArray());
+        //echo "<pre>";
         
-        $this->setTdata($this->db->resultArray());
-        
+        //echo $this->db->lastQuery();
         // $this->tdata=array("teacher1","teacher2");
     }
-
+    
+    public function fetchTeacherCount(){
+    	
+    	DBConnection::Connect();
+    	$this->db->Fields(array(
+    			"id",
+    			"firstname",
+    			"lastname",
+    			"status"
+    	));
+    	$this->db->From("teacherdetails");
+    	$this->db->Where();
+    	$this->db->Limit("");
+    	$this->db->Select();
+    	
+    	$this->setTotalTeacherRecords(count($this->db->resultArray()));
+ 
+    }
+    
+    
+    public function fetchStudent ()
+    {
+    	DBConnection::Connect();
+    	$this->db->Fields(array(
+    			"firstname",
+    			"lastname"
+    	));
+    	$this->db->From("studentdetails");
+    	$this->db->Where();
+    	$this->db->Select();
+    
+    	$this->setStudentdata($this->db->resultArray());
+    
+    	// $this->tdata=array("teacher1","teacher2");
+    }
+    public function deleteTeacher()
+    {
+    	DBConnection::Connect();
+    	//$this->db->
+    }
+    
+  /* public function fetchUserCount()
+   {
+   	DBConnection::Connect();
+   	$this->db->Fields(array("id"));
+   	$this->db->From("teacherdetails");
+   	$this->db->Select();
+   	$this->setcountData($this->db->resultArray());
+   	
+   }*/
     public function AddUser ()
     {
         $this->db->Fields(array(

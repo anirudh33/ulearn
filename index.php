@@ -21,6 +21,8 @@ require_once ($_SESSION["SITE_PATH"] . "/models/Admin.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Teacher.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Student.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Registration.php");
+require_once ($_SESSION["SITE_PATH"] . "/libraries/Paging.php");
+
 
 /* Getting default Language */
 $lang = Language::getinstance();
