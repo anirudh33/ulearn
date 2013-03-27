@@ -47,7 +47,7 @@ $("button").click(function(){
 
 		<div id="image">
 
-			<div id="admincontent">
+			<div id="admincontent" align="center">
 
 				<h4>WELCOMEADMINISTRATOR</h4>
 				<center>
@@ -62,6 +62,15 @@ if (! empty($teacherdata)) {
     	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageStudentView.php';
     }
     
+    if (! empty($admindata)) {
+    
+    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/EditAdminProfileView.php';
+    }
+    if(isset($var))
+    {?>
+    	<h1> The Records have been updated</h1>
+    	
+    <?php }
     ?>
 				</center>
 			</div>
@@ -73,14 +82,14 @@ if (! empty($teacherdata)) {
 
 				<div class="arrowgreen">
 					<ul>
-						<button>hello</button>
+						
 						<li><a
 							href="index.php?method=manageTeachersClick&controller=Admin"
 							id="link1">Manage Teacher Account</a></li>
 							
 						<li><a href="index.php?method=manageStudentsClick&controller=Admin" id="link2">Manage Student Account</a></li>
 						
-						<li><a href="http://www.ddwhois.com" title="Whois">Edit Profile</a></li>
+						<li><a href="index.php?method=editProfileClick&controller=Admin">Edit Profile</a></li>
 						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Report
 								Generation</a></li>
 

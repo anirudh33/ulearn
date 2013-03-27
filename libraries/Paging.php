@@ -48,9 +48,9 @@ class paging {
 		parse_str ( $_SERVER ['QUERY_STRING'], $get_vars );
 		if ($this->get_pages () > 1) {
 			//echo "=============$limit======$no"; die;
-			$link = "<span style='font-weight:bold;'> " . PAGINATIONPAGES . "</span>";
+			$link = "<span style='font-weight:bold;'></span>";
 		} else {
-			$link = "<span style='font-weight:bold;'> " . PAGINATIONPAGE . "</span>";
+			$link = "<span style='font-weight:bold;'> </span>";
 		}
 		
 		for($i = 1; $i <= $this->get_pages (); $i ++) {

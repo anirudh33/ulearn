@@ -27,10 +27,12 @@ require_once ($_SESSION["SITE_PATH"] . "/libraries/Paging.php");
 /* Getting default Language */
 $lang = Language::getinstance();
 
+
 /* --------------------------------------- Method Handling from Views --------------------------------- */
 if (isset($_REQUEST['method'])) {
-    if (isset($_REQUEST["controller"])) {
-        if ($_REQUEST["controller"] == "Admin") {
+	  if (isset($_REQUEST["controller"])) {
+	  	 if ($_REQUEST["controller"] == "Admin"){
+	  	 	
             $obj1 = new AdminController();
         } elseif ($_REQUEST["controller"] == "Student") {
             $obj1 = new StudentController();
@@ -44,8 +46,10 @@ if (isset($_REQUEST['method'])) {
         // echo "2";die;
     }
    //@todo default authentication check method to be called before calling any method
+   
     $obj1->$_REQUEST['method']();
 }
+
 
 /* Creating MainController Object as no method was called */
 $obj = new MainController();

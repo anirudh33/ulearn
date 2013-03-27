@@ -36,9 +36,15 @@ class AdminController
     	
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
     }
-    public function showManageStudentView ($studentdata = array())
+    public function showManageStudentView ($studentdata = array(),$studentRecordsCount)
     {
     	 
+    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+    }
+    
+    public function showManageAdminView ($admindata = array())
+    {
+    
     	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
     }
 
@@ -145,6 +151,11 @@ class AdminController
     }
     public function deleteTeacherClick()
     {
+    	echo "hellooo";
+    	
+    die;
+    	
+    	
     	if($this->isValidUser()==1)
     	{
     		$this->createUser();
@@ -156,19 +167,63 @@ class AdminController
     
     public function manageStudentsClick ()
     {
-    	if ($this->isValidUser() == 1) 
-    	{
-    		$this->createUser();
-    
-    		$this->_objUser->fetchStudent();
-    		 
-    		/* Showing AdminView with teacher data */
-    		$this->showManageStudentView($this->_objUser->getStudentdata());
-    	}
+    if ($this->isValidUser() == 1) 
+         {
+            $this->createUser();
+            //creating object of paging classs
+            $obj_paging = new paging();
+            
+            if (isset($_GET['page']))
+            	$page = $_GET['page'];
+            else
+            	$page = 1;
+            $obj_paging->set_page($page);
+            
+            $limit = $obj_paging->get_limit();
+            $obj_paging->set_page_length(10);
+            $page_length = $obj_paging->page_length;
+            $start_limit = $obj_paging->get_limit_start();
+            $limit = $start_limit . "," . $page_length;
+            
+            $this->_objUser->fetchStudent($limit);
+         
+            /* Showing AdminView with teacher data */
+            $this->_objUser->fetchStudentCount();
+            $this->showManageStudentView($this->_objUser->getStudentdata(),$this->_objUser->getTotalStudentRecords());
+        }
     }
     
+    public function editProfileClick ()
+    {
+    	if ($this->isValidUser() == 1) {
+    		$this->createUser();
+    		$this->_objUser->fetchUser();
+    		/* Showing Teacher View with teacher data */
+    		$this->showManageAdminView($this->_objUser->getAdmindata());
+    	}
+    
+    }
    
-
+    public function editAdminClick()
+    {
+    	$firstname=$_POST["firstname"];
+    	$lastname=$_POST["lastname"];
+    	$phone=$_POST["phone"];
+    	$address=$_POST["address"];
+    	$qualification=$_POST["qualification"];
+    	$gender=$_POST["gender"];
+    	$dob=$_POST["dob"];
+    	 
+    	if ($this->isValidUser() == 1) {
+    		$this->createUser();
+    
+    		$var=$this->_objUser->editAdmin($firstname,$lastname,$phone,$address,$qualification,$gender,$dob);
+    		if($var==true)
+    		{
+    			require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+    		}
+    	}
+    }
     public function reportGeneration ()
     {
         $this->_objUser->fetchUser();

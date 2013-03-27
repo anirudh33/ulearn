@@ -33,25 +33,20 @@ $pages = $obj_paging->get_pages();
 ?>
 <html>
     <head>
-     <link rel="stylesheet" type="text/css" href="assets/style/layout.css" media="screen" />
-        
-        <link rel="stylesheet" type="text/css" href="assets/style/style.css" media="screen" />
+     <link rel="stylesheet" type="text/css" href="assets/style/ManageTeacherView.css" media="screen" />
+     
     </head>
     <body>
         <div class="row-whiteBox">
+        <div id="divfr"></div>
             <p class="headingsBig">
-                <h3 class="head2">VIEWUSER</h3>
+                <h3 class="head2">Registered Teacher Details</h3>
             </p>
 
         <span id="middle"></span>
-        <div id="myDivId" class="popdiv" style="display: none">
-
-            <div id="dvListGraph"></div>
-            </br> <input id="btnSubmit" type="submit" value="Close" style="" />
-        </div>
-
+       
         <div class="tabular-cnt">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <table width="100%"  cellspacing="10" cellpadding="5">
                 <tr class="tbl-hd">
                 	<td>ID</td>	
                     <td>FIRSTNAME</td>
@@ -68,16 +63,16 @@ $pages = $obj_paging->get_pages();
                             $class= "atnate";
                         }
                         ?>
-                        <tr class="<?PHP echo $class; ?>">
+                        <tr id=row class="<?PHP echo $class; ?>">
                         	<td><?php echo $row['id']?></td>
                             <td><?php echo $row['firstname']?></td>
                             <td><?php echo $row['lastname']?></td>
-                            <td><?php if($row['status']==1)
+                            <td id=rr><?php if($row['status']==1)
                             		{?>
                   					 <img src="../big-tick-green.jpg"/>  
                             			<?php echo "Active" ;
-                            			}?></td>
-                            <td><a href= "index.php?method=deleteTeacherClick&controller=Admin?id=<?php  $row['id'];?> " > DELETE </a></td>    
+                            			 }?></td>
+                            <td><a href= "index.php?method=deleteTeacherClick&controller=Admin?id=<?php echo $row['id'];?>" > DELETE </a></td>    
                         </tr>
                         <? $i++; 
                     }
@@ -89,7 +84,8 @@ $pages = $obj_paging->get_pages();
                    
                         <td colspan="6"><p align="left" style="margin: 10px;">
                
-                        <?php echo $obj_paging -> get_link($limit);?></p></td>
+                        <?php echo $obj_paging -> get_link(10);?>
+                        </p></td>
                     </tr>    
                     <?php
                 } else {?>

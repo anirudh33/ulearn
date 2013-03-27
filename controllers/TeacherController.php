@@ -116,7 +116,7 @@ class TeacherController
          if ($this->isValidUser() == 1) {
             $this->createUser();
             $this->_objUser->fetchUser();
-            /* Showing AdminView with teacher data */
+            /* Showing Teacher View with teacher data */
             $this->showTeacherView($this->_objUser->getTdata());
         }
         
