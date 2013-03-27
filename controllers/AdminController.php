@@ -151,7 +151,7 @@ class AdminController
     }
     public function deleteTeacherClick()
     {
-    	echo "hellooo";
+    	echo "=====hellooo=====";
     	
     die;
     	

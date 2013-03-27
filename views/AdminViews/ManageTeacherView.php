@@ -72,7 +72,7 @@ $pages = $obj_paging->get_pages();
                   					 <img src="../big-tick-green.jpg"/>  
                             			<?php echo "Active" ;
                             			 }?></td>
-                            <td><a href= "index.php?method=deleteTeacherClick&controller=Admin?id=<?php echo $row['id'];?>" > DELETE </a></td>    
+                            <td><a href= "index.php?method=deleteTeacherClick&controller=Admin&id=<?php echo $row['id'];?>" > DELETE </a></td>    
                         </tr>
                         <? $i++; 
                     }
