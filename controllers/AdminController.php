@@ -151,15 +151,14 @@ class AdminController
     }
     public function deleteTeacherClick()
     {
-    	echo "=====hellooo=====";
+    	$uid=$_REQUEST['id'];
     	
-    die;
     	
     	
     	if($this->isValidUser()==1)
     	{
     		$this->createUser();
-    		$this->_objUser->deleteTeacher();
+    		$this->_objUser->deleteTeacher($uid);
     		
     	}
     	

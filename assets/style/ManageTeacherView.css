@@ -49,8 +49,12 @@ text-decoration: none;
 .row_setting td{padding:4px;}
 
 
-#rr{
+#r1{
 	color:green;
+		
+}
+#r2{
+	color:red;
 		
 }
 #row

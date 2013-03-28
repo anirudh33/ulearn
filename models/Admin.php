@@ -173,18 +173,26 @@ class Admin extends AUser
     	return true;
     }
     
-    public function deleteTeacher()
+    public function deleteTeacher($uid)
     {
-    	ECHO "HERE";
-    	die;
+    	
     	DBConnection::Connect();
-    	 $this->db->Fields(array(
-            "status" => "0"
+    	
+
+    	$this->db->From("teacherdetails");
+    	
+    	
+       $this->db->Where(array(
+            "id"=>$uid
         ));
-        $this->db->From("teacherdetails");
+       $this->db->Fields(array(
+       		"status" => "2"
+       ));
+        
+       $this->db->Update();
+     //  $this->db->lastQuery();
+       echo $this->db->lastQuery();
        
-        $this->db->Update();
-        echo $this->db->lastQuery();
     }
     
   /* public function fetchUserCount()

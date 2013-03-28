@@ -149,6 +149,8 @@ class DBConnection
 
     public function Where ($data = array(), $raw = false, $operator = "AND")
     {
+    
+    	
         $this->_where = "";
         $count = count($data);
         if ($count > 0) {
@@ -403,6 +405,7 @@ class DBConnection
 
     public function Update ()
     {
+    	
         $bool = false;
         
         $this->_query = "";
@@ -435,8 +438,11 @@ class DBConnection
                 if (! empty($where)) {
                     $this->_query .= " WHERE " . $where;
                 }
-                
+            //    echo $this->_query;
+              //  die;
+               
                 $sql = mysql_query($this->_query);
+                
                 $bool = true;
             }
         }

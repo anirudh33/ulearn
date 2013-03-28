@@ -67,11 +67,15 @@ $pages = $obj_paging->get_pages();
                         	<td><?php echo $row['id']?></td>
                             <td><?php echo $row['firstname']?></td>
                             <td><?php echo $row['lastname']?></td>
-                            <td id=rr><?php if($row['status']==1)
-                            		{?>
-                  					 <img src="../big-tick-green.jpg"/>  
-                            			<?php echo "Active" ;
-                            			 }?></td>
+                            
+                            <td>	<?php if($row['status']=='1')
+                            		{
+                  					   
+		                     			 echo "<font color=green>Active</font>" ;
+		                     		
+                            			 }
+                            			 elseif ($row['status']=='2')
+                            			 	echo "<font color=red>Inactive</font>";?></td>
                             <td><a href= "index.php?method=deleteTeacherClick&controller=Admin&id=<?php echo $row['id'];?>" > DELETE </a></td>    
                         </tr>
                         <? $i++; 
