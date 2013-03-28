@@ -1,18 +1,52 @@
 <?php
 /*
- * *************************** Creation Log *******************************
-* File Name - MainController.php Description - Main Controller Version - 1.0
-* Created by - Anirudh Pandita Created on - March 08, 2013
-* ***************************************************************************
-* Sr.NO. Version Updated by Updated on Description
-* -------------------------------------------------------------------------
-* 
-* ************************************************************************
+ * *************************** Creation Log ******************************* 
+ * File Name - Authenticate.php 
+ * Description - Class file for Authentication of users credentials 
+ * Version - 1.0 Created by - Anirudh Pandita Created on - March 02, 2013 
+ * *************************************************************************** 
+ * Sr.NO. Version Updated by Updated on Description 
+ * ------------------------------------------------------------------------- 
+ * 1			1.0			Anirudh Pandita	28/04/2013	Being used in various controllers
+ * ************************************************************************
 */
 class Authenticate
 {
 
     private $_message = "";
+    private $_requiredType="";
+    
+    
+    
+    /**
+	 * @return the $_message
+	 */
+	public function getMessage() {
+		return $this->_message;
+	}
+
+	/**
+	 * @param string $_message
+	 */
+	public function setMessage($_message) {
+		$this->_message = $_message;
+	}
+
+	public function getRequiredType ()
+    {
+    	return $this->_requiredType;
+    }
+    
+    public function setRequiredType ($requiredType)
+    {
+    	$this->_requiredType = $requiredType;
+    }
+    
+    public function __construct($requiredType)
+    {
+    	$this->setRequiredType ($requiredType);
+    }
+    
     /* Check if user has logged in */
     public function isValidUser ()
     {
@@ -54,12 +88,16 @@ class Authenticate
     /* Check if user in session is of this particular type like Admin in this case */
     public function isRequiredType ()
     {
-        if ($_SESSION['userType'] == $this->getRequiredType()) { // If the session has been maintained and the user type is of Admin then an instance of Admin
+    	if ($_SESSION['userType'] == $this->getRequiredType()) { 
             return 1;
         } else {
-            
             return 0;
         }
+    }
+    
+    public function validate($Fields)
+    {
+    	
     }
 }
 

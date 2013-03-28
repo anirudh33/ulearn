@@ -51,6 +51,7 @@ class MainController
     /* Starts login procedure by fetching username password from POST */
     public function initiateLogin ()
     {
+    	
         $fieldEmail = $_POST["fieldEmail"];
         $fieldPassword = $_POST["fieldPassword"];
         
@@ -71,8 +72,11 @@ class MainController
         
         //@todo check to see if direct call has been made and throw 
         //respective error if session not set
+        
+    	
         $controllerName = ucfirst($_SESSION["userType"]) . "Controller";
         $objController = new $controllerName();
+       
         $objController->process();
     }
     
