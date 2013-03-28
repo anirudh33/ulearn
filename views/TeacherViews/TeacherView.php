@@ -39,25 +39,21 @@
 				<center>
 				<?php
     
-if (! empty($data)) {
+    if (! empty($data)) {
         
         require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
     }
-    if($viewName=="addCourse")
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
+    if ($viewName == "addCourse") {
+        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
     }
-    if($viewName=="message")
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
+    if ($viewName == "message") {
+        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
     }
-    if($viewName=="upload")
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
+    if ($viewName == "upload") {
+        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
     }
-    if($viewName=="registerCourse")
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
+    if ($viewName == "registerCourse") {
+        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
     }
     
     ?>
@@ -72,11 +68,17 @@ if (! empty($data)) {
 				<div class="arrowgreen">
 					<ul>
 						<!-- <button>hello</button> -->
-						<li><a href="index.php?method=uploadClick&controller=Teacher" id="link1">Upload Study Material</a></li>
-						<li><a href="index.php?method=messageClick&controller=Teacher" id="link1">Message</a></li>
-						<li><a href="index.php?method=editProfileClick&controller=Teacher" id="link1">Edit Profile</a></li>
-						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add Course</a></li>
-						<li><a href="index.php?method=registerCourseClick&controller=Teacher">Register Course</a></li>
+						<li><a href="index.php?method=uploadClick&controller=Teacher"
+							id="link1">Upload Study Material</a></li>
+						<li><a href="index.php?method=messageClick&controller=Teacher"
+							id="link1">Message</a></li>
+						<li><a href="index.php?method=editProfileClick&controller=Teacher"
+							id="link1">Edit Profile</a></li>
+						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add
+								Course</a></li>
+						<li><a
+							href="index.php?method=registerCourseClick&controller=Teacher">Register
+								Course</a></li>
 
 					</ul>
 				</div>

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <?php
 // session_start();
-require_once $_SESSION ["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance ();
+require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance();
 ?>
 
 
@@ -136,13 +136,13 @@ $(document).ready(function() {
 					<fieldset class="row1">
 						<legend>Account Details </legend>
 						<p>
-							<label>Email * </label> <input type="text" name="email" id="email" /> <label>Repeat
-								email * </label> <input type="text" />
+							<label>Email * </label> <input type="text" name="email"
+								id="email" /> <label>Repeat email * </label> <input type="text" />
 						</p>
 						<p>
-							<label>Password* </label> <input type="password" name="password" id="password" /> <label>Repeat
-								Password* </label> <input type="password" /> <label class="obinfo">*
-								obligatory fields </label>
+							<label>Password* </label> <input type="password" name="password"
+								id="password" /> <label>Repeat Password* </label> <input
+								type="password" /> <label class="obinfo">* obligatory fields </label>
 						</p>
 					</fieldset>
 					<fieldset class="row2">
@@ -157,18 +157,18 @@ $(document).ready(function() {
 						</p>
 						<p>
 							<label>Phone * </label> <input type="text" maxlength="10"
-								name="phone" id="phone"/>
+								name="phone" id="phone" />
 						</p>
 
 						<p>
 							<label>Address * </label> <input type="text" class="long"
-								name="address" id="address"/>
+								name="address" id="address" />
 						</p>
 
 
 						<p>
 							<label>Qualification </label> <input type="text" class="long"
-								name="qualification" id="qualification"/>
+								name="qualification" id="qualification" />
 						</p>
 						<p>
 							<label>Profile Picture</label><input type="file" size="10"
@@ -213,16 +213,15 @@ $(document).ready(function() {
 						</p>
 						<p>
 							<img id="captcha" src="libraries/securimage/securimage_show.php"
-								alt="CAPTCHA Image" /> 
-								<br>
-								<input type="text" name="captcha_code" size="10" maxlength="6" /> 
-								<a href="#" onclick="document.getElementById('captcha').src = 
+								alt="CAPTCHA Image" /> <br> <input type="text"
+								name="captcha_code" size="10" maxlength="6" /> <a href="#"
+								onclick="document.getElementById('captcha').src = 
 									'libraries/securimage/securimage_show.php?' + Math.random(); 
 								return false">[Different Image ]</a>
-					</p>
+						</p>
 					</fieldset>
-				
-					
+
+
 					<div>
 						<button class="button" id="submit">Register &raquo;</button>
 					</div>

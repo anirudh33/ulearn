@@ -5,7 +5,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title>HELLOADMINISTRATOR </title>
+<title>HELLOADMINISTRATOR</title>
 
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />
@@ -52,25 +52,25 @@ $("button").click(function(){
 				<h4>WELCOMEADMINISTRATOR</h4>
 				<center>
 				<?php
-    
-if (! empty($teacherdata)) {
+    if (! empty($teacherdata)) {
         
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
     }
     if (! empty($studentdata)) {
-    
-    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageStudentView.php';
+        
+        require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageStudentView.php';
     }
     
     if (! empty($admindata)) {
-    
-    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/EditAdminProfileView.php';
+        
+        require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/EditAdminProfileView.php';
     }
-    if(isset($var))
-    {?>
-    	<h1> The Records have been updated</h1>
+    if (isset($var)) {
+        ?>
+    	<h1>The Records have been updated</h1>
     	
-    <?php }
+    <?php
+    }
     ?>
 				</center>
 			</div>
@@ -82,14 +82,17 @@ if (! empty($teacherdata)) {
 
 				<div class="arrowgreen">
 					<ul>
-						
+
 						<li><a
 							href="index.php?method=manageTeachersClick&controller=Admin"
 							id="link1">Manage Teacher Account</a></li>
-							
-						<li><a href="index.php?method=manageStudentsClick&controller=Admin" id="link2">Manage Student Account</a></li>
-						
-						<li><a href="index.php?method=editProfileClick&controller=Admin">Edit Profile</a></li>
+
+						<li><a
+							href="index.php?method=manageStudentsClick&controller=Admin"
+							id="link2">Manage Student Account</a></li>
+
+						<li><a href="index.php?method=editProfileClick&controller=Admin">Edit
+								Profile</a></li>
 						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Report
 								Generation</a></li>
 

@@ -1,6 +1,6 @@
 <?php
 
-// session_start();
+
 abstract class AUser extends AModel
 {
 

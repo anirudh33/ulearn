@@ -110,11 +110,11 @@ $lang = Language::getinstance();
 
 				<h3>
 					<a
-						href="index.php?method=setLanguageClick&controller=Main&value=EN"><?php echo $lang-> ENGLISH;?></a>
+						href="index.php?method=setLanguageClick&controller=Main&language=EN"><?php echo $lang-> ENGLISH;?></a>
 				</h3>
 				<h3>
 					<a
-						href="index.php?method=setLanguageClick&controller=Main&value=HINDI"><?php echo $lang-> HINDI;?></a>
+						href="index.php?method=setLanguageClick&controller=Main&language=HINDI"><?php echo $lang-> HINDI;?></a>
 				</h3>
 
 

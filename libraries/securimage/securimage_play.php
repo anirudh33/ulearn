@@ -33,7 +33,6 @@
  * @package Securimage
  *
  */
-
 require_once dirname(__FILE__) . '/securimage.php';
 
 $img = new Securimage();

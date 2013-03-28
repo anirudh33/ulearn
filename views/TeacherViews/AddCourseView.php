@@ -25,49 +25,53 @@ $lang = Language::getinstance();
 
 	<div id="cc" width="5px" height="150px" align="center">
 
-		  
-		 
 
-			<div id="registerdiv" >
-			
-				<form action="index.php?method=addCourseButtonClick&controller=Teacher"
-					method="POST" class="register">
-				
-					<h1>Add Course</h1>
-					
-					<fieldset class="row2">
-						<legend>Course Details </legend>
-<p>
-							<label>Course Id * </label> <input type="text" name="course_id" class="long" >
-						</p>
-						
-						<p>
-							<label>Course Name * </label> <input type="text" name="coursename" class="long" >
-						</p>
-						<p>
-							<label>Description * </label> <textarea name="description" rows="6" cols="20" class="long">
+
+
+		<div id="registerdiv">
+
+			<form
+				action="index.php?method=addCourseButtonClick&controller=Teacher"
+				method="POST" class="register">
+
+				<h1>Add Course</h1>
+
+				<fieldset class="row2">
+					<legend>Course Details </legend>
+					<p>
+						<label>Course Id * </label> <input type="text" name="course_id"
+							class="long">
+					</p>
+
+					<p>
+						<label>Course Name * </label> <input type="text" name="coursename"
+							class="long">
+					</p>
+					<p>
+						<label>Description * </label>
+						<textarea name="description" rows="6" cols="20" class="long">
 						</textarea>
-						</p>
-						</br></br>
-						<button class="button">Add &raquo;</button>
-					
-					</fieldset>
-									
+					</p>
+					</br> </br>
+					<button class="button">Add &raquo;</button>
 
-		
-					
-				</form>
-			</div>
+				</fieldset>
 
 
 
 
+			</form>
+		</div>
 
-	
+
+
+
+
+
 
 	</div>
 
-	
+
 
 
 </body>

@@ -100,8 +100,8 @@ class InitiateUser extends AModel
             $this->setEmailID($fieldEmail);
             $this->setPassword($fieldPassword);
             if ($this->exists($this->getEmailID(), $this->encryptPassword($this->getPassword())) == 1) { // If the entries matches then it will return the boolean vale aS TRUe or FALSE
-                                                                                                                 // and the page is redirected to the respective admin page.
-                                                                                                                 // echo "-----------session does not exist ------";
+                                                                                                         // and the page is redirected to the respective admin page.
+                                                                                                         // echo "-----------session does not exist ------";
                 $this->setSession();
                 return 1;
             } else {

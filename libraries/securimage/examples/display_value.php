@@ -34,13 +34,15 @@ require_once '../securimage.php';
 // sending headers, you can capture the output and save it to file or serve it
 // to the browser
 
-$options = array('display_value' => date('h:i:s a'),
-                 'captchaId'     => sha1(uniqid($_SERVER['REMOTE_ADDR'] . $_SERVER['REMOTE_PORT'])),
-                 'image_width'   => 250,
-                 'no_session'    => true,
-                 'no_exit'       => true,
-                 'use_sqlite_db' => false,
-                 'send_headers'  => false);
+$options = array(
+    'display_value' => date('h:i:s a'),
+    'captchaId' => sha1(uniqid($_SERVER['REMOTE_ADDR'] . $_SERVER['REMOTE_PORT'])),
+    'image_width' => 250,
+    'no_session' => true,
+    'no_exit' => true,
+    'use_sqlite_db' => false,
+    'send_headers' => false
+);
 
 // construct new Securimage object with the given options
 $img = new Securimage($options);
@@ -48,7 +50,7 @@ $img = new Securimage($options);
 // show the image using the supplied display_value
 // this demonstrates how to use output buffering to capture the output
 
-ob_start();   // start the output buffer
+ob_start(); // start the output buffer
 $img->show(); // output the image so it is captured by the buffer
 $imgBinary = ob_get_contents(); // get contents of the buffer
 ob_end_clean(); // turn off buffering and clear the buffer

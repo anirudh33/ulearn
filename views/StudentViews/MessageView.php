@@ -25,65 +25,67 @@ $lang = Language::getinstance();
 
 	<div id="cc" width="5px" height="150px" align="center">
 
-		  
-		 
 
-			<div id="registerdiv" >
-			
-				<form action="index.php?method=writeMessage&controller=Student"
-					method="POST" class="register">
-				
-					<h1>Write Message</h1>
-					
-					<fieldset class="row2">
-						<legend>Message Details </legend>
-<p>
-							<label>Message Id * </label> <input type="text" name="message_id" class="long" >
-						</p>
 
-<p>
-							<label>To * </label> <input type="text" name="sentto" class="long" >
-							
-						</p>
-						
-						<p>
-							<label>Subject * </label> <input type="text" name="subject" class="long" >
-						</p>
-						<p>
-							<label>Message * </label> <textarea name="body" rows="6" cols="20" class="long"></textarea>
-						</p>
 
-						<p>
-						</br>	
-						<label>From * </label> <input type="text" name="sentfrom" class="long">
-						</p>
-						</br>
-						<button class="button">Send &raquo;</button>
-					
-					</fieldset>
-									
+		<div id="registerdiv">
 
-		
+			<form action="index.php?method=writeMessage&controller=Student"
+				method="POST" class="register">
 
-				</form>
-			</div>
+				<h1>Write Message</h1>
+
+				<fieldset class="row2">
+					<legend>Message Details </legend>
+					<p>
+						<label>Message Id * </label> <input type="text" name="message_id"
+							class="long">
+					</p>
+
+					<p>
+						<label>To * </label> <input type="text" name="sentto" class="long">
+
+					</p>
+
+					<p>
+						<label>Subject * </label> <input type="text" name="subject"
+							class="long">
+					</p>
+					<p>
+						<label>Message * </label>
+						<textarea name="body" rows="6" cols="20" class="long"></textarea>
+					</p>
+
+					<p>
+						</br> <label>From * </label> <input type="text" name="sentfrom"
+							class="long">
+					</p>
+					</br>
+					<button class="button">Send &raquo;</button>
+
+				</fieldset>
 
 
 
 
+			</form>
+		</div>
 
-	
+
+
+
+
+
 
 	</div>
 
-	
+
 
 
 </body>
 </html>
 
 
- 
 
 
 
@@ -114,4 +116,4 @@ $lang = Language::getinstance();
 
 
 
-                            
+

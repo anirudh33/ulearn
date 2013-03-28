@@ -29,32 +29,30 @@ $captchaId = (isset($_GET['id'])) ? $_GET['id'] : '';
 if (isset($_GET['validate'])) {
     // get the user input of the captcha code
     $input = (isset($_GET['input'])) ? $_GET['input'] : '';
-
+    
     // call Securimage::checkCaptchaId to validate input
     // returns true if the code and id are a valid pair, false if not
     if (Securimage::checkByCaptchaId($captchaId, $input) == true) {
-        echo "<h2>Success</h2>"
-            ."<span style='color: #33cc00'>The captcha code entered was correct!</span>"
-            ."<br /><br />";
+        echo "<h2>Success</h2>" . "<span style='color: #33cc00'>The captcha code entered was correct!</span>" . "<br /><br />";
     } else {
-        echo "<h2>Incorrect Code</h2>"
-            ."<span style='color: #f00'>Incorrect captcha code, try again.</span>"
-            ."<br /><br />";
+        echo "<h2>Incorrect Code</h2>" . "<span style='color: #f00'>Incorrect captcha code, try again.</span>" . "<br /><br />";
     }
-
-} else if (isset($_GET['display'])) {
-    // display the captcha with the supplied ID from the URL
-
-    // construct options specifying the existing captcha ID
-    // also tell securimage not to start a session
-    $options = array('captchaId'  => $captchaId,
-                     'no_session' => true);
-    $captcha = new Securimage($options);
-
-    // show the image, this sends proper HTTP headers
-    $captcha->show();
-    exit;
-}
+} else 
+    if (isset($_GET['display'])) {
+        // display the captcha with the supplied ID from the URL
+        
+        // construct options specifying the existing captcha ID
+        // also tell securimage not to start a session
+        $options = array(
+            'captchaId' => $captchaId,
+            'no_session' => true
+        );
+        $captcha = new Securimage($options);
+        
+        // show the image, this sends proper HTTP headers
+        $captcha->show();
+        exit();
+    }
 
 // generate a new captcha ID and challenge
 $captchaId = Securimage::getCaptchaId();

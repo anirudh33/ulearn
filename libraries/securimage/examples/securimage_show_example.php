@@ -43,12 +43,11 @@
  * @package Securimage
  *
  */
-
 require_once '../securimage.php';
 
 $img = new Securimage();
 
-//Change some settings
+// Change some settings
 $img->image_width = 250;
 $img->image_height = 80;
 $img->perturbation = 0.85;

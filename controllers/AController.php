@@ -21,11 +21,6 @@ abstract class AController
         $this->_requiredType = $requiredType;
     }
 
-    public function __construct ()
-    {
-        $this->process();
-    }
-
     public function showView ()
     {
         header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/views/AdminViews/AdminView.php");

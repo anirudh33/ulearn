@@ -27,18 +27,16 @@ class TeacherController
 
     public function showTeacherView ($data = array())
     {
-    	
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
+        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
     }
 
     public function showSubTeacherViews ($viewName)
     {
-    	 
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
+        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
     }
+
     public function process ()
     {
-        
         if ($this->isValidUser() == 1) {
             $this->createUser();
             $this->showTeacherView();
@@ -51,16 +49,13 @@ class TeacherController
      */
     private function createUser ()
     {
-       
         $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
         $this->_objUser->setFirstName($_SESSION["emailID"]);
-     
     }
     
-    /*Check if user has logged in*/
+    /* Check if user has logged in */
     public function isValidUser ()
     {
-     
         if ($this->sessionExists() == 1) {
             
             return 1;
@@ -71,7 +66,7 @@ class TeacherController
             return 0;
         }
     }
-/*Check if user session exists*/
+    /* Check if user session exists */
     public function sessionExists ()
     {
         
@@ -94,7 +89,7 @@ class TeacherController
             return 0;
         }
     }
-/*Check if user in session is of this particular type like Admin in this case*/
+    /* Check if user in session is of this particular type like Admin in this case */
     public function isRequiredType ()
     {
         if ($_SESSION['userType'] == $this->getRequiredType()) { // If the session has been maintained and the user type is of Admin then an instance of Admin
@@ -113,109 +108,96 @@ class TeacherController
 
     public function editProfileClick ()
     {
-         if ($this->isValidUser() == 1) {
+        if ($this->isValidUser() == 1) {
             $this->createUser();
             $this->_objUser->fetchUser();
             /* Showing Teacher View with teacher data */
             $this->showTeacherView($this->_objUser->getTdata());
         }
-        
     }
 
-public function editTeacherClick()
+    public function editTeacherClick ()
     {
-    	$firstname=$_POST["firstname"];
-    	$lastname=$_POST["lastname"];
-    	$phone=$_POST["phone"];
-    	$address=$_POST["address"];
-    	$qualification=$_POST["qualification"];
-    	$gender=$_POST["gender"];
-    	$dob=$_POST["dob"];
-    	
-if ($this->isValidUser() == 1) {
+        $firstname = $_POST["firstname"];
+        $lastname = $_POST["lastname"];
+        $phone = $_POST["phone"];
+        $address = $_POST["address"];
+        $qualification = $_POST["qualification"];
+        $gender = $_POST["gender"];
+        $dob = $_POST["dob"];
+        
+        if ($this->isValidUser() == 1) {
             $this->createUser();
-              		
-    $this->_objUser->editTeacher($firstname,$lastname,$phone,$address,$qualification,$gender,$dob);
-    	}
-    	}
+            
+            $this->_objUser->editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
+        }
+    }
 
-    
-    public function addCourseClick (){
-    	$this->showSubTeacherViews("addCourse");
-
-    
-}
-public function addCourseButtonClick()
+    public function addCourseClick ()
     {
-    	$course_id=$_POST["course_id"];
-    	$coursename=$_POST["coursename"];
-    	$description=$_POST["description"];
-  	
- 	
-if ($this->isValidUser() == 1) {
+        $this->showSubTeacherViews("addCourse");
+    }
+
+    public function addCourseButtonClick ()
+    {
+        $course_id = $_POST["course_id"];
+        $coursename = $_POST["coursename"];
+        $description = $_POST["description"];
+        
+        if ($this->isValidUser() == 1) {
             $this->createUser();
-              		
-    $this->_objUser->addCourse($course_id,$coursename,$description);
-    	}
-    	}
-    	
-    	public function registerCourseClick (){
-    		$this->showSubTeacherViews("registerCourse");
-    	
-    	
-    	}
-    	public function registerCourseButtonClick()
-    	{
-    		$course_id=$_POST["course_id"];
-    		$teacher_id=$_POST["teacher_id"];
-    		 
-    		 
-    	
-    		if ($this->isValidUser() == 1) {
-    			$this->createUser();
-    	
-    			$this->_objUser->registerCourse($course_id,$teacher_id);
-    		}
-    	}
+            
+            $this->_objUser->addCourse($course_id, $coursename, $description);
+        }
+    }
 
-public function messageClick ()
+    public function registerCourseClick ()
     {
-    	$this->showSubTeacherViews("message");
-    	
-    
-}
+        $this->showSubTeacherViews("registerCourse");
+    }
 
-public function writeMessage()
+    public function registerCourseButtonClick ()
     {
-    	$message_id=$_POST["message_id"];
-     $body=$_POST["body"];
-    	$subject=$_POST["subject"];
-     $sentfrom=$_POST["sentfrom"];
-     $sentto=$_POST["sentto"];
-
-
- 	
-if ($this->isValidUser() == 1) {
+        $course_id = $_POST["course_id"];
+        $teacher_id = $_POST["teacher_id"];
+        
+        if ($this->isValidUser() == 1) {
             $this->createUser();
-              		
-    $this->_objUser->messageSend($message_id,$body,$subject,$sentfrom,$sentto);
-    	}
-    	}
+            
+            $this->_objUser->registerCourse($course_id, $teacher_id);
+        }
+    }
 
-public function uploadClick ()
+    public function messageClick ()
     {
-    	
-    	$this->showSubTeacherViews("upload");
-}
+        $this->showSubTeacherViews("message");
+    }
 
-public function uploadFile ()
+    public function writeMessage ()
     {
-    	
-    	$this->createUser();
-    	$this->_objUser->uploadContent();
-}
+        $message_id = $_POST["message_id"];
+        $body = $_POST["body"];
+        $subject = $_POST["subject"];
+        $sentfrom = $_POST["sentfrom"];
+        $sentto = $_POST["sentto"];
+        
+        if ($this->isValidUser() == 1) {
+            $this->createUser();
+            
+            $this->_objUser->messageSend($message_id, $body, $subject, $sentfrom, $sentto);
+        }
+    }
 
+    public function uploadClick ()
+    {
+        $this->showSubTeacherViews("upload");
+    }
 
+    public function uploadFile ()
+    {
+        $this->createUser();
+        $this->_objUser->uploadContent();
+    }
 }
 
 ?>

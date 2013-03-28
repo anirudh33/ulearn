@@ -6,6 +6,8 @@ ini_set("display_errors", "1");
  * @author anirudh
  * @access
  *
+ *
+ *
  * @package DB
  *         
  */
@@ -47,8 +49,8 @@ class DBConnection
     private $_having = "";
 
     private $_between = "";
-    
-    private $_limit="";
+
+    private $_limit = "";
     
     // ani
     public function startTransaction ()
@@ -125,10 +127,9 @@ class DBConnection
         }
         return $this;
     }
-    public function UpdateTeacher()
-    {
-    	
-    }
+
+    public function UpdateTeacher ()
+    {}
 
     public function From ($value)
     {
@@ -285,20 +286,16 @@ class DBConnection
         return $this;
     }
 
-    public function Limit($limit="")
+    public function Limit ($limit = "")
     {
-    	
-    	if (! empty($limit)) {
-    		$this->_limit = " LIMIT " . $limit;
-    	}
-    	else 
-    	{
-    		$this->_limit="";
-    	}
-    	return $this;
+        if (! empty($limit)) {
+            $this->_limit = " LIMIT " . $limit;
+        } else {
+            $this->_limit = "";
+        }
+        return $this;
     }
-    
-    
+
     public function GroupBy ($string = "")
     {
         if (! empty($string)) {
@@ -344,7 +341,7 @@ class DBConnection
                 $this->_query .= $this->_orderBy;
             }
             if (! empty($this->_limit)) {
-            	$this->_query .= $this->_limit;
+                $this->_query .= $this->_limit;
             }
             $this->_result = mysql_query($this->_query);
             

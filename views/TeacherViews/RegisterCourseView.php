@@ -25,46 +25,49 @@ $lang = Language::getinstance();
 
 	<div id="cc" width="5px" height="150px" align="center">
 
-		  
-		 
 
-			<div id="registerdiv" >
-			
-				<form action="index.php?method=registerCourseButtonClick&controller=Teacher"
-					method="POST" class="register">
-				
-					<h1>Register Course</h1>
-					
-					<fieldset class="row2">
-						<legend>Course Details </legend>
-<p>
-							<label>Course Id * </label> <input type="text" name="course_id" class="long" >
-						</p>
-						
-						<p>
-							<label>Teacher Id * </label> <input type="text" name="teacher_id" class="long" >
-						</p>
-						
-						</br></br>
-						<button class="button">Add &raquo;</button>
-					
-					</fieldset>
-									
 
-		
-					
-				</form>
-			</div>
+
+		<div id="registerdiv">
+
+			<form
+				action="index.php?method=registerCourseButtonClick&controller=Teacher"
+				method="POST" class="register">
+
+				<h1>Register Course</h1>
+
+				<fieldset class="row2">
+					<legend>Course Details </legend>
+					<p>
+						<label>Course Id * </label> <input type="text" name="course_id"
+							class="long">
+					</p>
+
+					<p>
+						<label>Teacher Id * </label> <input type="text" name="teacher_id"
+							class="long">
+					</p>
+
+					</br> </br>
+					<button class="button">Add &raquo;</button>
+
+				</fieldset>
 
 
 
 
+			</form>
+		</div>
 
-	
+
+
+
+
+
 
 	</div>
 
-	
+
 
 
 </body>

@@ -5,8 +5,7 @@ class AdminController
 
     private $_requiredType = "admin";
 
-    private $_objUser;
-   
+    private $_objUser="";
 
     private $_message = "";
 
@@ -20,37 +19,28 @@ class AdminController
         $this->_requiredType = $requiredType;
     }
 
-    public function __construct ()
+    private function showAdminView ($data = array())
     {
-        
-        // $this->process();
-    }
-
-    public function showAdminView ($data = array())
-    {
-    	 
-    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
-    }
-    public function showManageTeacherView ($teacherdata = array(),$teacherRecordsCount)
-    {
-    	
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
     }
-    public function showManageStudentView ($studentdata = array(),$studentRecordsCount)
+
+    public function showManageTeacherView ($teacherdata = array(), $teacherRecordsCount)
     {
-    	 
-    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+        require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
     }
-    
+
+    public function showManageStudentView ($studentdata = array(), $studentRecordsCount)
+    {
+        require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+    }
+
     public function showManageAdminView ($admindata = array())
     {
-    
-    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+        require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
     }
 
     public function process ()
     {
-        
         if ($this->isValidUser() == 1) {
             $this->createUser();
             $this->showAdminView();
@@ -63,15 +53,13 @@ class AdminController
      */
     private function createUser ()
     {
-        
         $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
         $this->_objUser->setFirstName($_SESSION["emailID"]);
     }
     
-    /*Check if user has logged in*/
+    /* Check if user has logged in */
     public function isValidUser ()
     {
-     
         if ($this->sessionExists() == 1) {
             
             return 1;
@@ -82,12 +70,14 @@ class AdminController
             return 0;
         }
     }
-/*Check if user session exists*/
+    /* Check if user session exists */
     public function sessionExists ()
     {
         
         // print_r($_SESSION);
-        if (isset($_SESSION['userID']) and isset($_SESSION['userType']) and $_SESSION['emailID']) {
+        if (isset($_SESSION['userID']) and isset($_SESSION['userType']) 
+        and $_SESSION['emailID']) {
+            
             // echo "-----------session exists on controller ------";
             
             if ($this->isRequiredType() == 1) {
@@ -105,7 +95,7 @@ class AdminController
             return 0;
         }
     }
-/*Check if user in session is of this particular type like Admin in this case*/
+    /* Check if user in session is of this particular type like Admin in this case */
     public function isRequiredType ()
     {
         if ($_SESSION['userType'] == $this->getRequiredType()) { // If the session has been maintained and the user type is of Admin then an instance of Admin
@@ -124,16 +114,15 @@ class AdminController
 
     public function manageTeachersClick ()
     {
-         if ($this->isValidUser() == 1) 
-         {
+        if ($this->isValidUser() == 1) {
             $this->createUser();
-            //creating object of paging classs
+            // creating object of paging classs
             $obj_paging = new paging();
             
             if (isset($_GET['page']))
-            	$page = $_GET['page'];
+                $page = $_GET['page'];
             else
-            	$page = 1;
+                $page = 1;
             $obj_paging->set_page($page);
             
             $limit = $obj_paging->get_limit();
@@ -143,13 +132,14 @@ class AdminController
             $limit = $start_limit . "," . $page_length;
             
             $this->_objUser->fetchTeacher($limit);
-         
+            
             /* Showing AdminView with teacher data */
             $this->_objUser->fetchTeacherCount();
-            $this->showManageTeacherView($this->_objUser->getTeacherdata(),$this->_objUser->getTotalTeacherRecords());
+            $this->showManageTeacherView($this->_objUser->getTeacherdata(), $this->_objUser->getTotalTeacherRecords());
         }
     }
-    public function deleteTeacherClick()
+
+    public function deleteTeacherClick ()
     {
     	$uid=$_REQUEST['id'];
     	
@@ -163,19 +153,18 @@ class AdminController
     	}
     	
     }
-    
+
     public function manageStudentsClick ()
     {
-    if ($this->isValidUser() == 1) 
-         {
+        if ($this->isValidUser() == 1) {
             $this->createUser();
-            //creating object of paging classs
+            // creating object of paging classs
             $obj_paging = new paging();
             
             if (isset($_GET['page']))
-            	$page = $_GET['page'];
+                $page = $_GET['page'];
             else
-            	$page = 1;
+                $page = 1;
             $obj_paging->set_page($page);
             
             $limit = $obj_paging->get_limit();
@@ -185,44 +174,43 @@ class AdminController
             $limit = $start_limit . "," . $page_length;
             
             $this->_objUser->fetchStudent($limit);
-         
+            
             /* Showing AdminView with teacher data */
             $this->_objUser->fetchStudentCount();
-            $this->showManageStudentView($this->_objUser->getStudentdata(),$this->_objUser->getTotalStudentRecords());
+            $this->showManageStudentView($this->_objUser->getStudentdata(), $this->_objUser->getTotalStudentRecords());
         }
     }
-    
+
     public function editProfileClick ()
     {
-    	if ($this->isValidUser() == 1) {
-    		$this->createUser();
-    		$this->_objUser->fetchUser();
-    		/* Showing Teacher View with teacher data */
-    		$this->showManageAdminView($this->_objUser->getAdmindata());
-    	}
-    
+        if ($this->isValidUser() == 1) {
+            $this->createUser();
+            $this->_objUser->fetchUser();
+            /* Showing Teacher View with teacher data */
+            $this->showManageAdminView($this->_objUser->getAdmindata());
+        }
     }
-   
-    public function editAdminClick()
+
+    public function editAdminClick ()
     {
-    	$firstname=$_POST["firstname"];
-    	$lastname=$_POST["lastname"];
-    	$phone=$_POST["phone"];
-    	$address=$_POST["address"];
-    	$qualification=$_POST["qualification"];
-    	$gender=$_POST["gender"];
-    	$dob=$_POST["dob"];
-    	 
-    	if ($this->isValidUser() == 1) {
-    		$this->createUser();
-    
-    		$var=$this->_objUser->editAdmin($firstname,$lastname,$phone,$address,$qualification,$gender,$dob);
-    		if($var==true)
-    		{
-    			require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
-    		}
-    	}
+        $firstname = $_POST["firstname"];
+        $lastname = $_POST["lastname"];
+        $phone = $_POST["phone"];
+        $address = $_POST["address"];
+        $qualification = $_POST["qualification"];
+        $gender = $_POST["gender"];
+        $dob = $_POST["dob"];
+        
+        if ($this->isValidUser() == 1) {
+            $this->createUser();
+            
+            $var = $this->_objUser->editAdmin($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
+            if ($var == true) {
+                require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+            }
+        }
     }
+
     public function reportGeneration ()
     {
         $this->_objUser->fetchUser();
