@@ -179,7 +179,7 @@ html ul.tabs li.active,html ul.tabs li.active a:hover {
 }
 
 .arrowgreen {
-	width: 100%; /*width of menu*/
+	width: 125%; /*width of menu*/
 	border-style: solid;
 	border-color: #94AA74;
 	border-size: 1px;

@@ -17,6 +17,7 @@ abstract class AController {
 		$authObject->setRequiredType($this->getRequiredType () );
 		if ($authObject->isValidUser () != 1) {
 			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $authObject->getMessage () . "" );
+			
 		}
 	}
 	public function process() 

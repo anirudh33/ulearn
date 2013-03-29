@@ -26,10 +26,28 @@ $pages = $obj_paging->get_pages();
 <head>
 <link rel="stylesheet" type="text/css"
 	href="assets/style/ManageTeacherView.css" media="screen" />
-
+	
+	 <script type="text/javascript" src="jquery-1.3.2.js"></script>
+	 
+<script language="JavaScript" type="text/javascript">
+ function func() 
+  {
+     opener.location.reload(true);
+     self.close();
+  }
+</script>
+	
+	 
+       
 </head>
 <body>
+
+
+
+
+
 	<div class="row-whiteBox">
+	
 		<div id="divfr"></div>
 		<p class="headingsBig">
 		
@@ -40,6 +58,8 @@ $pages = $obj_paging->get_pages();
 		<span id="middle"></span>
 
 		<div class="tabular-cnt">
+		
+		
 			<table width="100%" cellspacing="10" cellpadding="5">
 				<tr class="tbl-hd">
 					<td>ID</td>
@@ -65,12 +85,15 @@ $pages = $obj_paging->get_pages();
                             <td>	<?php if($row['status']=='1')
                             		{
                   					   
-		                     			 echo "<font color=green>Active</font>" ;
-		                     		
-                            			 }
+		                     			 echo "<font color=green>Active</font>" ;?>
+		                     			 <td><a href= "index.php?method=deleteTeacherClick&controller=Admin&id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure you want to delete <?php echo $row['firstname'];?> &nbsp <?php echo $row['lastname'];?> ?'); "   >DELETE </a></td>
+                            			<?php  }
                             			 elseif ($row['status']=='2')
+                            			 {
                             			 	echo "<font color=red>Inactive</font>";?></td>
-                            <td><a href= "index.php?method=deleteTeacherClick&controller=Admin&id=<?php echo $row['id'];?>" > DELETE </a></td>    
+                            			 	<td><a href= "index.php?method=activateTeacherClick&controller=Admin&id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to activate <?php echo $row['firstname'];?> &nbsp <?php echo $row['lastname'];?> ?');">ACTIVATE  </a></td>
+                            			 	<?php }?>
+                           
                         </tr>
                         <? $i++; 
                     }
@@ -97,4 +120,4 @@ $pages = $obj_paging->get_pages();
 		</div>
 	</div>
 </body>
-</htm>
+</htm>	

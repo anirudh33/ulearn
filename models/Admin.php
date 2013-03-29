@@ -14,6 +14,7 @@ class Admin extends AUser
     private $studentdata = array();
 
     private $admindata = array();
+    private $adminprofiledata=array();
 
     private $totalTeacherRecords;
 
@@ -71,12 +72,19 @@ class Admin extends AUser
     {
         $this->admindata = $admindata;
     }
+    private function setAdminProfiledata ($adminprofiledata)
+    {
+    	$this->adminprofiledata = $adminprofiledata;
+    }
 
     public function getAdmindata ()
     {
         return $this->admindata;
     }
-
+    public function getAdminProfiledata ()
+    {
+    	return $this->adminprofiledata;
+    }
     public function fetchUser ()
     {
         DBConnection::Connect();
@@ -95,6 +103,25 @@ class Admin extends AUser
         $this->db->Select();
         
         $this->setAdmindata($this->db->resultArray());
+    }
+    public function fetchadminUser ()
+    {
+    	DBConnection::Connect();
+    	$this->db->Fields(array(
+    			"firstname",
+    			"lastname",
+    
+    			"phone",
+    			"address",
+    			"qualification",
+    			"gender",
+    			"dob"
+    	));
+    	$this->db->From("admindetails");
+    	$this->db->Where();
+    	$this->db->Select();
+    
+    	$this->setAdminProfiledata($this->db->resultArray());
     }
 
     public function fetchTeacher ($limit = "0,10")
@@ -213,6 +240,28 @@ class Admin extends AUser
      //  $this->db->lastQuery();
        echo $this->db->lastQuery();
         
+    }
+    
+    public function activateTeacher($uid)
+    {
+    	 
+    	DBConnection::Connect();
+    	 
+    
+    	$this->db->From("teacherdetails");
+    	 
+    	 
+    	$this->db->Where(array(
+    			"id"=>$uid
+    	));
+    	$this->db->Fields(array(
+    			"status" => "1"
+    	));
+    
+    	$this->db->Update();
+    	//  $this->db->lastQuery();
+    	echo $this->db->lastQuery();
+    
     }
     
     /*

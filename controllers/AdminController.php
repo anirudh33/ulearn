@@ -25,7 +25,11 @@ class AdminController extends AController
     {
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
     }
-
+    public function showAdminProfileView ($adminprofiledata = array())
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+    }
+    
     public function manageTeachersClick ()
     {
         
@@ -59,14 +63,23 @@ class AdminController extends AController
     	
     	
     	
-    	if($this->isValidUser()==1)
-    	{
+    	
     		$this->createUser();
     		$this->_objUser->deleteTeacher($uid);
-    		
-    	}
-    	
+    	 	
     }
+    public function activateTeacherClick ()
+    {
+    	$uid=$_REQUEST['id'];
+    	 
+    	 
+    	 
+    	 
+    	$this->createUser();
+    	$this->_objUser->activateTeacher($uid);
+    	 
+    }
+    
 
     public function manageStudentsClick ()
     {
@@ -123,6 +136,15 @@ class AdminController extends AController
                 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
             }
        
+    }
+    public function showProfile ()
+    {
+    	 
+    	$this->createUser();
+    	$this->_objUser->fetchadminUser();
+    	/* Showing Teacher View with teacher data */
+    	$this->showAdminProfileView($this->_objUser->getAdminProfiledata());
+    
     }
 
     public function reportGeneration ()
