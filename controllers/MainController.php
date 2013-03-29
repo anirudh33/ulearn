@@ -48,19 +48,22 @@ class MainController
         require_once "./views/MainView.php";        
     }
     
-    /* Starts login procedure by fetching username password from POST */
+    /* Starts login procedure by fetching username, password from POST */
     public function initiateLogin ()
     {
+    	$authObject= new Authenticate();
+    	$authObject->validate();
     	
         $fieldEmail = $_POST["fieldEmail"];
         $fieldPassword = $_POST["fieldPassword"];
-        
+       
         $objInitiateUser = new InitiateUser();
         
         $this->setAuthenticationStatus(
             $objInitiateUser->login($fieldEmail, $fieldPassword));
-        
+       
         if ($this->getAuthenticationStatus() == 1) {
+        		
             $this->showUserPanel();
         }
     }
@@ -100,6 +103,8 @@ class MainController
 
     public function registerUser ()
     {
+//     	$authObject= new Authenticate();
+//     	$authObject->validateRegistration();
         $email = $_POST["email"];
         $password = $_POST["password"];
         $firstname = $_POST["firstname"];

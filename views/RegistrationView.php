@@ -223,7 +223,7 @@ $(document).ready(function() {
 
 
 					<div>
-						<button class="button" id="submit">Register &raquo;</button>
+						<button class="button" >Register &raquo;</button>
 					</div>
 				</form>
 			</div>
