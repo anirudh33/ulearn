@@ -15,6 +15,7 @@ class Registration extends AUser
 
     public function newStudentRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture)
     {
+    	
         DBConnection::Connect();
         $this->db->From("userdetails");
         $this->db->Fields(array(
@@ -37,7 +38,8 @@ class Registration extends AUser
             "qualification" => "$qualification",
             "gender" => "$gender",
             "dob" => "$date",
-            "profilepicture" => "$profilepicture"
+            "profilepicture" => "$profilepicture",
+        	"createdon"=>date("Y/m/d")	
         ));
         $this->db->Insert();
         echo $this->db->lastQuery();
@@ -67,7 +69,8 @@ class Registration extends AUser
             "qualification" => "$qualification",
             "gender" => "$gender",
             "dob" => "$date",
-            "profilepicture" => "$profilepicture"
+            "profilepicture" => "$profilepicture",
+        	"createdon"=>date("Y/m/d")
         ));
         $this->db->Insert();
         echo $this->db->lastQuery();

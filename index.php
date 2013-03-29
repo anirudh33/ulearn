@@ -27,15 +27,18 @@ require_once ($_SESSION["SITE_PATH"] . '/libraries/AModel.php');
 require_once ($_SESSION["SITE_PATH"] . '/libraries/AUser.php');
 require_once ($_SESSION["SITE_PATH"] . '/libraries/InitiateUser.php');
 require_once ($_SESSION["SITE_PATH"] . '/libraries/Language.php');
-require_once ($_SESSION["SITE_PATH"] . "/libraries/Paging.php");
-require_once ($_SESSION["SITE_PATH"] . "/libraries/UserFactory.php");
-require_once ($_SESSION["SITE_PATH"] . "/libraries/Authenticate.php");
+require_once ($_SESSION["SITE_PATH"] . '/libraries/Paging.php');
+require_once ($_SESSION["SITE_PATH"] . '/libraries/UserFactory.php');
+require_once ($_SESSION["SITE_PATH"] . '/libraries/Authenticate.php');
+require_once ($_SESSION["SITE_PATH"] . '/libraries/securimage/securimage.php');
+
 
 /* Models */
 require_once ($_SESSION["SITE_PATH"] . "/models/Admin.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Teacher.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Student.php");
 require_once ($_SESSION["SITE_PATH"] . "/models/Registration.php");
+require_once ($_SESSION["SITE_PATH"] . "/models/Course.php");
 
 /* Controllers  */
 require_once ($_SESSION["SITE_PATH"] . "/controllers/AController.php");

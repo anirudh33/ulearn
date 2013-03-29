@@ -1,8 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <?php
 // session_start();
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
+require_once $_SESSION ["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance ();
+
 ?>
 
 
@@ -37,13 +38,27 @@ $lang = Language::getinstance();
 
 				<fieldset class="row2">
 					<legend>Message Details </legend>
-					<p>
-						<label>Message Id * </label> <input type="text" name="message_id"
-							class="long">
-					</p>
+
 
 					<p>
-						<label>To * </label> <input type="text" name="sentto" class="long">
+						<label>To * </label> <select name="sentto">
+                            <?php
+																												
+																												foreach ( $messages as $key => $value ) {
+																													
+																													?>
+                            
+                            <option
+								value="<?php echo $value["email"];?>"> 
+                            <?php echo $value["email"];?> </option>
+
+                            <?php
+																												}
+																												?>
+                           </select>
+
+
+
 
 					</p>
 
@@ -56,31 +71,14 @@ $lang = Language::getinstance();
 						<textarea name="body" rows="6" cols="20" class="long"></textarea>
 					</p>
 
-					<p>
-						</br> <label>From * </label> <input type="text" name="sentfrom"
-							class="long">
-					</p>
-					</br>
+
+
 					<button class="button">Send &raquo;</button>
 
 				</fieldset>
-
-
-
-
 			</form>
 		</div>
-
-
-
-
-
-
-
 	</div>
-
-
-
 
 </body>
 </html>

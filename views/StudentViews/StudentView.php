@@ -19,7 +19,7 @@
 
 <body>
 
-
+	
 
 
 
@@ -44,18 +44,26 @@
 				<center>
 				<?php
     
-    if (! empty($data)) {
+if (! empty($data)) {
         
         require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/EditProfileView.php';
     }
-    if ($viewName == "registerCourse") {
-        require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/RegisterCourseView.php';
+    if($viewName=="registerCourse")
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/RegisterCourseView.php';
     }
-    if ($viewName == "message") {
-        require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/MessageView.php';
+    if($viewName=="writeMessage"&& (! empty($messages)))
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/MessageView.php';
     }
-    if ($viewName == "download") {
-        require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
+    if($viewName=="download")
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
+    }
+    if ($viewName=="viewMessage"&& (! empty($messages)))
+    
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/ShowMessageView.php';
     }
     
     ?>
@@ -70,15 +78,11 @@
 				<div class="arrowgreen">
 					<ul>
 						<!-- <button>hello</button> -->
-						<li><a href="index.php?method=downloadClick&controller=Student"
-							id="link1">Download Study Material</a></li>
-						<li><a href="index.php?method=messageClick&controller=Student"
-							id="link1">Message</a></li>
-						<li><a href="index.php?method=editProfileClick&controller=Student"
-							id="link1">Edit Profile</a></li>
-						<li><a
-							href="index.php?method=registerCourseClick&controller=Student">Register
-								Course</a></li>
+						<li><a href="index.php?method=downloadClick&controller=Student" id="link1">Download Study Material</a></li>
+						<li><a href="index.php?method=messageClick&controller=Student" id="link1">Write Message</a></li>
+						<li><a href="index.php?method=editProfileClick&controller=Student" id="link1">Edit Profile</a></li>
+						<li><a href="index.php?method=registerCourseClick&controller=Student">Register Course</a></li>
+						<li><a href="index.php?method=viewMessageClick&controller=Student">View Messages</a></li>
 
 					</ul>
 				</div>

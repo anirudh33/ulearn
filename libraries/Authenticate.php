@@ -89,25 +89,52 @@ class Authenticate {
 	}
 	/* Function to validate Registration form data */
 	public function validateRegistration() {
-		echo "<pre>";
-		print_r($_POST);
-		die;
+		
+		
 		if (array_filter ( $_POST )) {
 			if (! filter_var ( $_POST ["email"], FILTER_VALIDATE_EMAIL )) {
 				$this->setMessage ( "Email not valid" );
 			}
 			if (! filter_var ( $_POST ["phone"], FILTER_VALIDATE_INT)) {
-				$this->setMessage ( "Phone no not valid, enter only the numbers" );
+				$this->setMessage ( "Phone no not valid, enter numbers only" );
 			}
+			
+			$securimage = new Securimage();
+			if ($securimage->check($_POST['captcha_code']) == false) {
+				$this->setMessage ( "The security code entered was incorrect.<br /><br />" );
+				
+			}
+				
 			
 		}else {
 			$this->setMessage ( "Fields cant be left empty" );
 		}
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $this->getMessage () . "" );
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 
+			"/index.php?method=registerClick&controller=Main&msg=" . $this->getMessage () . "" );
 			die ();
 		}
+	}
+	
+	public function logIP(){
+		echo "<pre>".$_SERVER[REMOTE_ADDR];
+		$_SESSION["logged"][]=$_SERVER[REMOTE_ADDR];
+	}
+	public function checkIPExists()
+	{
+		print_r($_SESSION["logged"]);
+		foreach ($_SESSION["logged"] as $key=>$value)
+		{
+			if($_SERVER[REMOTE_ADDR]==$value)
+			{
+				echo "disallow";
+			}
+			else {
+				echo "allow";
+			}
+		}
+		die;
 	}
 }
 

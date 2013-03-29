@@ -11,14 +11,14 @@ class StudentController extends AController
         require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/StudentView.php';
     }
 
-    public function showSubStudentViews ($viewName)
+    public function showSubStudentViews ($viewName,$messages=array())
     {
         require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/StudentView.php';
     }
 
-    public function editProfileClick ()
+     public function editProfileClick ()
     {
-        
+       
             $this->createUser();
             $this->_objUser->fetchUser();
             /* Showing AdminView with teacher data */
@@ -36,11 +36,11 @@ class StudentController extends AController
         $gender = $_POST["gender"];
         $dob = $_POST["dob"];
         
-        if ($this->isValidUser() == 1) {
+       
             $this->createUser();
             
             $this->_objUser->editStudent($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
-        }
+        
     }
 
     public function registerCourseClick ()
@@ -53,31 +53,47 @@ class StudentController extends AController
         $course_id = $_POST["course_id"];
         $student_id = $_POST["student_id"];
         
-        if ($this->isValidUser() == 1) {
+       
             $this->createUser();
             
             $this->_objUser->registerCourse($course_id, $student_id);
-        }
+       
     }
 
     public function messageClick ()
     {
-        $this->showSubStudentViews("message");
-    }
+    	
+    		$this->createUser();
+    		$emailList=$this->_objUser->fetchEmailID();
+    	$this->showSubStudentViews("writeMessage",$emailList);
+    	
+    
+}
 
-    public function writeMessage ()
+public function viewMessageClick ()
+{
+
+		$this->createUser();
+
+		$messages= $this->_objUser->messageShow();
+	
+	$this->showSubStudentViews("viewMessage",$messages);
+
+}
+
+public function writeMessage()
     {
-        $message_id = $_POST["message_id"];
+        //$message_id = $_POST["message_id"];
         $body = $_POST["body"];
         $subject = $_POST["subject"];
-        $sentfrom = $_POST["sentfrom"];
+        //$sentfrom = $_POST["sentfrom"];
         $sentto = $_POST["sentto"];
         
-        if ($this->isValidUser() == 1) {
+       
             $this->createUser();
             
-            $this->_objUser->messageSend($message_id, $body, $subject, $sentfrom, $sentto);
-        }
+            $this->_objUser->messageSend($body, $subject, $sentto);
+       
     }
 
     public function downloadClick ()

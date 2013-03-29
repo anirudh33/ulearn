@@ -1,11 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<?php
-// session_start();
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
-?>
-
-
 <html>
 
 <head>
@@ -37,18 +30,15 @@ $(document).ready(function() {
     $('#button').click(function() { 
 
     	<?php
-    			
-    			$to = "kawaljeet.singh@osscube.com";
-    			$subject = "Contact from Website";
-
-    		
-    			$body = " ghghgent";
-
-    			mail($to, $subject, $body);
-
-    			
-    			
-    			?>
+					
+					$to = "kawaljeet.singh@osscube.com";
+					$subject = "Contact from Website";
+					
+					$body = " ghghgent";
+					
+					mail ( $to, $subject, $body );
+					
+					?>
 		
         $(".error").hide();
         var hasError = false;
@@ -185,38 +175,48 @@ $(document).ready(function() {
 						<legend>Account Details </legend>
 						<p>
 							<label>Email * </label> <input type="text" name="email"
-								id="email" onfocus="if(this.value === 'Email required') this.value = '';" /> <label>Repeat email * </label> <input type="text" id="repeatemail" />
+								id="email"
+								onfocus="if(this.value === 'Email required') this.value = '';" />
+							<label>Repeat email * </label> <input type="text"
+								id="repeatemail" name="repeatEmail" />
 						</p>
 						<p>
 							<label>Password* </label> <input type="password" name="password"
 								id="password" /> <label>Repeat Password* </label> <input
-								type="password" id="repeatpassword"onfocus="if(this.value === 'Email required') this.value = '';"/> <label class="obinfo">* obligatory fields </label>
+								type="password" id="repeatpassword" name="repeatPassword"
+								onfocus="if(this.value === 'Email required') this.value = '';" />
+							<label class="obinfo">* obligatory fields </label>
 						</p>
 					</fieldset>
 					<fieldset class="row2">
 						<legend>Personal Details </legend>
 						<p>
 							<label>First Name * </label> <input type="text" class="long"
-								name="firstname" id="firstname" onfocus="if(this.value === 'Firstname required') this.value = '';"/>
+								name="firstname" id="firstname"
+								onfocus="if(this.value === 'Firstname required') this.value = '';" />
 						</p>
 						<p>
 							<label>Last Name * </label> <input type="text" class="long"
-								name="lastname" id="lastname" onfocus="if(this.value === 'Lastname required') this.value = '';"/>
+								name="lastname" id="lastname"
+								onfocus="if(this.value === 'Lastname required') this.value = '';" />
 						</p>
 						<p>
 							<label>Phone * </label> <input type="text" maxlength="10"
-								name="phone" id="p" onfocus="if(this.value === 'Phone required') this.value = '';"/>
+								name="phone" id="p"
+								onfocus="if(this.value === 'Phone required') this.value = '';" />
 						</p>
 
 						<p>
 							<label>Address * </label> <input type="text" class="long"
-								name="address" id="address" onfocus="if(this.value === 'Address required') this.value = '';"/>
+								name="address" id="address"
+								onfocus="if(this.value === 'Address required') this.value = '';" />
 						</p>
 
 
 						<p>
-							<label>Qualification </label> <input type="text" class="long"
-								name="qualification" id="qualification" onfocus="if(this.value === 'Qualification required') this.value = '';"/>
+							<label>Qualification(graduate, postgraduate, doctorate, others) </label> <input type="text" class="long"
+								name="qualification" id="qualification"
+								onfocus="if(this.value === 'Qualification required') this.value = '';" />
 						</p>
 						<p>
 							<label>Profile Picture</label><input type="file" size="10"
@@ -226,20 +226,21 @@ $(document).ready(function() {
 					<fieldset class="row3">
 						<legend>Further Information </legend>
 						<p>
-							<label >Gender *</label> <input type="radio" name="gender"
-								value="male" checked/> <label class="gender">Male</label> <input
-								type="radio" name="gender" value="female" /> <label
-								class="gender" ">Female</label>
+							<label>Gender *</label> <input type="radio" name="gender"
+								value="m" checked /> <label class="gender">Male</label> <input
+								type="radio" name="gender" value="f" /> <label
+								class="gender"">Female</label>
 						</p>
 						<p>
-							<label>Date Of Birth:</label> <input type="text" name="date"
-								id="datepicker" onfocus="if(this.value === 'Date required') this.value = '';"/>
+							<label>Date Of Birth(YMD):</label> <input type="text" name="date"
+								id="datepicker"
+								onfocus="if(this.value === 'Date required') this.value = '';" />
 						</p>
 
 						<p>
 							<label>User Type * </label> <label>Student </label><input
-								type="radio" name="usertype" value="student" checked/> <label>Teacher </label>
-							<input type="radio" name="usertype" value="teacher" />
+								type="radio" name="usertype" value="student" checked /> <label>Teacher
+							</label> <input type="radio" name="usertype" value="teacher" />
 						</p>
 
 
@@ -261,9 +262,9 @@ $(document).ready(function() {
 						</p>
 						<p>
 							<img id="captcha" src="libraries/securimage/securimage_show.php"
-								alt="CAPTCHA Image" /> <br> <input type="text"
-								name="captcha_code" size="10" maxlength="6" /> <a href="#"
-								onclick="document.getElementById('captcha').src = 
+								alt="CAPTCHA Image" /> <br> 
+								<input type="text" name="captcha_code" size="10" maxlength="6" /> 
+								<a href="#"	onclick="document.getElementById('captcha').src = 
 									'libraries/securimage/securimage_show.php?' + Math.random(); 
 								return false">[Different Image ]</a>
 						</p>

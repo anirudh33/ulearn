@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <?php
 // session_start();
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
+require_once $_SESSION ["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance ();
 ?>
 
 
@@ -38,10 +38,7 @@ $lang = Language::getinstance();
 
 				<fieldset class="row2">
 					<legend>Course Details </legend>
-					<p>
-						<label>Course Id * </label> <input type="text" name="course_id"
-							class="long">
-					</p>
+
 
 					<p>
 						<label>Course Name * </label> <input type="text" name="coursename"
@@ -52,7 +49,8 @@ $lang = Language::getinstance();
 						<textarea name="description" rows="6" cols="20" class="long">
 						</textarea>
 					</p>
-					</br> </br>
+					<br>
+					<br>
 					<button class="button">Add &raquo;</button>
 
 				</fieldset>

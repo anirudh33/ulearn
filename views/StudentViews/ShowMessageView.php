@@ -30,31 +30,35 @@ $lang = Language::getinstance();
 
 			<div id="registerdiv" >
 			
-				<form action="index.php?method=registerCourseButtonClick&controller=Teacher"
-					method="POST" class="register">
 				
-					<h1>Register Course</h1>
+				
+					<h1>Show Message</h1>
 					
 					<fieldset class="row2">
-						<legend>Course Details </legend>
-<p>
-							<label>Course Id * </label> <input type="text" name="course_id" class="long" >
-						</p>
+						<legend>Message Details </legend>
+          				<table id="tt" border="1px">
+						<tr><th>Body</th><th>Subject</th><th>Sent From</th></tr>
+						<?php 
+					   foreach($messages as $key=>$value)
+					   { ?><tr><?php 
+					   foreach($value as $key1=>$value1)
+					   { ?>
+					   	<td><?php echo $value1?></td>
+					   	<?php 
+					   }?></tr><?php 
+					   }
+						?>
 						
-						<p>
-							<label>Teacher Id * </label> <input type="text" name="teacher_id" class="long" >
-						</p>
+						</table>
+			
 						
-						</br></br>
-						<button class="button">Add &raquo;</button>
 					
 					</fieldset>
 									
 
 		
-					
-				</form>
-			</div>
+
+					</div>
 
 
 
@@ -71,6 +75,7 @@ $lang = Language::getinstance();
 </html>
 
 
+ 
 
 
 
@@ -101,5 +106,4 @@ $lang = Language::getinstance();
 
 
 
-
-
+                            

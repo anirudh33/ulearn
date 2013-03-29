@@ -10,19 +10,21 @@ class TeacherController extends AController
         require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
     }
 
-    public function showSubTeacherViews ($viewName)
+    public function showSubTeacherViews ($viewName,$messages=array())
     {
+    	
         require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
+       
     }
 
     public function editProfileClick ()
     {
-        
+       
             $this->createUser();
             $this->_objUser->fetchUser();
             /* Showing Teacher View with teacher data */
             $this->showView($this->_objUser->getTdata());
-       
+        
     }
 
     public function editTeacherClick ()
@@ -35,11 +37,11 @@ class TeacherController extends AController
         $gender = $_POST["gender"];
         $dob = $_POST["dob"];
         
-        if ($this->isValidUser() == 1) {
+        
             $this->createUser();
             
             $this->_objUser->editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
-        }
+        
     }
 
     public function addCourseClick ()
@@ -49,63 +51,81 @@ class TeacherController extends AController
 
     public function addCourseButtonClick ()
     {
-        $course_id = $_POST["course_id"];
-        $coursename = $_POST["coursename"];
-        $description = $_POST["description"];
-        
-        if ($this->isValidUser() == 1) {
-            $this->createUser();
-            
-            $this->_objUser->addCourse($course_id, $coursename, $description);
-        }
+        //$course_id = $_POST["course_id"];
+        //$coursename = $_POST["coursename"];
+        //$description = $_POST["description"];
+        //$this->createUser();
+        //$this->_objUser->addCourse($course_id, $coursename, $description);
+        $objCourse= new Course();
+        $objCourse->addCourse();
     }
 
-    public function registerCourseClick ()
+    
+public function registerCourseClick ()
     {
         $this->showSubTeacherViews("registerCourse");
     }
+public function registerCourseButtonClick()
+{ 
 
-    public function registerCourseButtonClick ()
-    {
-        $course_id = $_POST["course_id"];
-        $teacher_id = $_POST["teacher_id"];
-        
-        if ($this->isValidUser() == 1) {
-            $this->createUser();
-            
-            $this->_objUser->registerCourse($course_id, $teacher_id);
-        }
-    }
+	$coursename=$_POST['course_id'];//to be changed
+	$objCourse= new Course();
+$objCourse->registerCourse($coursename);
+	
+}
 
-    public function messageClick ()
+public function messageClick ()
     {
-        $this->showSubTeacherViews("message");
-    }
+    	 
+    		$this->createUser();
+    		$emailList=$this->_objUser->fetchEmailID();
+    	$this->showSubTeacherViews("writeMessage",$emailList);
+    	
+    
+}
 
-    public function writeMessage ()
+public function viewMessageClick ()
+{
+	 
+		$this->createUser();
+	
+		$messages= $this->_objUser->messageShow();
+	
+	$this->showSubTeacherViews("viewMessage",$messages);
+	 
+}
+
+public function writeMessage()
     {
-        $message_id = $_POST["message_id"];
+        //$message_id = $_POST["message_id"];
         $body = $_POST["body"];
         $subject = $_POST["subject"];
-        $sentfrom = $_POST["sentfrom"];
+        //$sentfrom = $_POST["sentfrom"];
         $sentto = $_POST["sentto"];
         
-        if ($this->isValidUser() == 1) {
+         
             $this->createUser();
             
-            $this->_objUser->messageSend($message_id, $body, $subject, $sentfrom, $sentto);
-        }
+            $this->_objUser->messageSend($body, $subject,  $sentto);
+        
     }
 
     public function uploadClick ()
     {
-        $this->showSubTeacherViews("upload");
+
+		 
+    		$this->createUser();
+    		$courseList=$this->_objUser->fetchCoursename();
+    	
+        $this->showSubTeacherViews("upload",$courseList);
     }
 
     public function uploadFile ()
     {
         $this->createUser();
+       
         $this->_objUser->uploadContent();
     }
 }
+
 ?>

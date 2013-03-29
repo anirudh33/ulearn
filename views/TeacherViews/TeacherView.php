@@ -38,25 +38,31 @@
 
 				<center>
 				<?php
-    
-    if (! empty($data)) {
-        
-        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
-    }
-    if ($viewName == "addCourse") {
-        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
-    }
-    if ($viewName == "message") {
-        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
-    }
-    if ($viewName == "upload") {
-        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
-    }
-    if ($viewName == "registerCourse") {
-        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
-    }
-    
-    ?>
+				
+				if (! empty ( $data )) {
+					
+					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
+				}
+				if ($viewName == "addCourse") {
+					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
+				}
+				if ($viewName == "writeMessage" && (! empty ( $messages ))) {
+					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
+				}
+				if ($viewName == "upload" && (! empty ( $messages ))) {
+					echo "hello";
+					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
+				}
+				if ($viewName == "registerCourse") {
+					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
+				}
+				if ($viewName == "viewMessage" && (! empty ( $messages ))) 
+
+				{
+					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessageView.php';
+				}
+				
+				?>
 				</center>
 			</div>
 
@@ -71,7 +77,7 @@
 						<li><a href="index.php?method=uploadClick&controller=Teacher"
 							id="link1">Upload Study Material</a></li>
 						<li><a href="index.php?method=messageClick&controller=Teacher"
-							id="link1">Message</a></li>
+							id="link1">Write Message</a></li>
 						<li><a href="index.php?method=editProfileClick&controller=Teacher"
 							id="link1">Edit Profile</a></li>
 						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add
@@ -79,6 +85,8 @@
 						<li><a
 							href="index.php?method=registerCourseClick&controller=Teacher">Register
 								Course</a></li>
+						<li><a href="index.php?method=viewMessageClick&controller=Teacher">View
+								Messages</a></li>
 
 					</ul>
 				</div>

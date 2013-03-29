@@ -52,6 +52,8 @@ class MainController
     public function initiateLogin ()
     {
     	$authObject= new Authenticate();
+    	//$authObject->logIP();
+    	//$authObject->checkIPExists();
     	$authObject->validate();
     	
         $fieldEmail = $_POST["fieldEmail"];
@@ -103,8 +105,8 @@ class MainController
 
     public function registerUser ()
     {
-//     	$authObject= new Authenticate();
-//     	$authObject->validateRegistration();
+    	$authObject= new Authenticate();
+    	$authObject->validateRegistration();
         $email = $_POST["email"];
         $password = $_POST["password"];
         $firstname = $_POST["firstname"];
