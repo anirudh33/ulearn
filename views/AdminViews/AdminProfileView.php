@@ -59,7 +59,7 @@
 
 This individual will assist project teams with technical issues in the Initiation and Planning phases of our standard Project Management Methodology. These activities include the definition of needs, benefits, and technical strategy; research & development within the project life-cycle; technical analysis and design; and support of operations staff in executing, testing and rolling-out the solutions. Participation on projects is focused on smoothing the transition of projects from development staff to production staff by performing operations activities within the project life-cycle.
 
-This individual is accountable for the following systems: Linux and Windows systems that support GIS infrastructure; Linux, Windows and Application systems that support Asset Management; Responsibilities on these systems include SA engineering and provisioning, operations and support, maintenance and research and development to ensure continual innovation.
+
 		</section>
 		
 		
