@@ -31,21 +31,53 @@ $lang = Language::getinstance();
 	media="screen" />
 <link rel="stylesheet" href="assets/style/MainView.css" type="text/css"
 	media="screen" />
+	<link rel="stylesheet" href="assets/style/curtains.css" type="text/css"
+	media="screen" />
 <!-- jquery source -->
 <script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
 <script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="assets/js/MainView.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.js"></script>
+	<script src="assets/js/jquery/jquery.easing.1.3.js" type="text/javascript"></script>  
 
-
+<script type="text/javascript">
+		$(document).ready(function() {
+		
+			$curtainopen = false;
+		
+			$(".rope").click(function(){
+				$(this).blur();
+				if ($curtainopen == false){ 
+					$(this).stop().animate({top: '0px' }, {queue:false, duration:350, easing:'easeOutBounce'}); 
+					$(".leftcurtain").stop().animate({width:'20px'}, 2000 );
+					$(".rightcurtain").stop().animate({width:'20px'},2000 );
+					$curtainopen = true;
+				}else{
+					$(this).stop().animate({top: '-40px' }, {queue:false, duration:350, easing:'easeOutBounce'}); 
+					$(".leftcurtain").stop().animate({width:'50%'}, 2000 );
+					$(".rightcurtain").stop().animate({width:'51%'}, 2000 );
+					$curtainopen = false;
+				}
+				return false;
+			});
+			
+		});	
+	</script>
 
 </head>
 
 <body>
+
 	<!-- Panel -->
+	<div class="leftcurtain"><img src="assets/images/img/frontcurtain.jpg"/></div>
+	
+	<div class="rightcurtain"><img src="assets/images/img/frontcurtain.jpg"/></div>
 	<div id="toppanel">
+	
 		<div id="panel">
+		
 			<div class="content clearfix">
 
 				<div class="left">
@@ -121,6 +153,7 @@ $lang = Language::getinstance();
 
 			</div>
 		</div>
+		
 		<div id="header">
 			<img alt="" src="assets/images/Views/ulearn.gif"
 				style="float: left; padding: 50px; width: 280px;">
@@ -137,9 +170,10 @@ $lang = Language::getinstance();
 						<li><a href="#tab4"><?php echo $lang-> CONTACT;?></a></li>
 						<li><a href="#tab4"><?php echo $lang-> COURSES;?></a></li>
 					</ul>
+					
 					<div class="tab_container">
 						<div id="tab1" class="tab_content">
-							<img alt="" src="assets/images/Views/tab1_image.jpg">
+							<img alt="" src="assets/images/img/tab1_image.jpg">
 							<h2>
 								<p>
 									Thank you for your interest in <b>Ulearn</b> and elearning!
@@ -223,6 +257,9 @@ $lang = Language::getinstance();
 							</h2>
 						</div>
 					</div>
+					<a class="rope" href="#">
+		<img src="assets/images/img/rope.png"/>
+	</a>
 				</div>
 			</div>
 
