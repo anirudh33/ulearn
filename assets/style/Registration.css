@@ -920,7 +920,7 @@ input.ui-button::-moz-focus-inner,button.ui-button::-moz-focus-inner {
 	padding-left: 2em;
 }
 
-/* left-aligned */
+/* left-aligned onfocus="if(this.value === 'Email required') this.value = '';" */
 .ui-menu .ui-icon {
 	position: absolute;
 	top: .2em;

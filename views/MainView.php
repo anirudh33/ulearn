@@ -42,38 +42,26 @@ $lang = Language::getinstance();
 <script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.js"></script>
 	<script src="assets/js/jquery/jquery.easing.1.3.js" type="text/javascript"></script>  
 
-<script type="text/javascript">
-		$(document).ready(function() {
-		
-			$curtainopen = false;
-		
-			$(".rope").click(function(){
-				$(this).blur();
-				if ($curtainopen == false){ 
-					$(this).stop().animate({top: '0px' }, {queue:false, duration:350, easing:'easeOutBounce'}); 
-					$(".leftcurtain").stop().animate({width:'20px'}, 2000 );
-					$(".rightcurtain").stop().animate({width:'20px'},2000 );
-					$curtainopen = true;
-				}else{
-					$(this).stop().animate({top: '-40px' }, {queue:false, duration:350, easing:'easeOutBounce'}); 
-					$(".leftcurtain").stop().animate({width:'50%'}, 2000 );
-					$(".rightcurtain").stop().animate({width:'51%'}, 2000 );
-					$curtainopen = false;
-				}
-				return false;
-			});
-			
-		});	
-	</script>
+<style>
+#header3
+{
+	font-size:20px;
+	color:green;
+	background-color:white;
+	
+}
+
+
+</style>
 
 </head>
 
 <body>
 
 	<!-- Panel -->
-	<div class="leftcurtain"><img src="assets/images/img/frontcurtain.jpg"/></div>
 	
-	<div class="rightcurtain"><img src="assets/images/img/frontcurtain.jpg"/></div>
+	
+	
 	<div id="toppanel">
 	
 		<div id="panel">
@@ -148,17 +136,30 @@ $lang = Language::getinstance();
 					<a
 						href="index.php?method=setLanguageClick&controller=Main&language=HINDI"><?php echo $lang-> HINDI;?></a>
 				</h3>
-
-
-
-			</div>
+	</div>
 		</div>
 		
 		<div id="header">
 			<img alt="" src="assets/images/Views/ulearn.gif"
 				style="float: left; padding: 50px; width: 280px;">
 		</div>
-		<div id="header2"></div>
+		<div id="header2">
+		
+		
+
+</div>
+	<div id="header3">
+	
+		<?php 
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+    
+    
+}
+?>
+		
+		</div>
 		<div id="image">
 			<div id="content">
 				<div class="container">
@@ -257,15 +258,15 @@ $lang = Language::getinstance();
 							</h2>
 						</div>
 					</div>
-					<a class="rope" href="#">
-		<img src="assets/images/img/rope.png"/>
-	</a>
+	
 				</div>
 			</div>
 
 		</div>
 
 	</div>
+
+
 
 	<div id="footer1"></div>
 

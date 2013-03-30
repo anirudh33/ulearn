@@ -76,9 +76,7 @@ if (isset($_REQUEST['method'])) {
 $obj = new MainController();
 
 /* Getting any error messages set */
-if (isset($_REQUEST["msg"])) {
-    $message = $_REQUEST["msg"];
-}
+
 
 /*
  * Check if a user is logged in using session variable which is set everytime a 

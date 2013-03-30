@@ -13,143 +13,15 @@
 <!-- jquery source -->
 <script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
 <script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="assets/js/MainView.js" type="text/javascript"></script>
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
+
+<link rel="stylesheet"href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
-<script type="text/javascript">
 
-$(document).ready(function() {
-
-	
-	 
-    $('#button').click(function() { 
-
-    	<?php
-					
-					$to = "kawaljeet.singh@osscube.com";
-					$subject = "Contact from Website";
-					
-					$body = " ghghgent";
-					
-					mail ( $to, $subject, $body );
-					
-					?>
-		
-        $(".error").hide();
-        var hasError = false;
-        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-        var passwordval = $("#password").val();
-        var emailaddressVal = $("#email").val();
-		var firstnameval=$("#firstname").val();
-		var lastnameval=$("#lastname").val();
-		var phoneval=$("#p").val();
-		var addressval=$("#address").val();
-		var qualificationval=$("#qualification").val();
-		var dateval=$("#datepicker").val();
-		var gendervalmale=$("#male").val();
-		var gendervalfemale=$("#female").val();
-		var repeatpasswordval = $("#repeatpassword").val();
-        var repeatemailaddressVal = $("#repeatemail").val();
-
-		
-        if(emailaddressVal == '' && passwordval=='') {
-            $("#email").val('Email required');
-            $("#password").after('*');
-            
-            hasError = true;
-        }
-        
-
-
-        else if(emailaddressVal == '') {
-            $("#email").val('Email required');
-            hasError = true;
-        }
-        else if(passwordval == '') 
-        {		        
-    	
-            $("#password").after('*');
-            hasError = true;
-        }
-        else if(!emailReg.test(emailaddressVal)) {
-            $("#email").val('Not valid.');
-            hasError = true;
-        }
-
-        if(firstnameval == '') 
-        {		        
-    	
-            $("#firstname").val('Firstname required');
-            hasError = true;
-        }
-        if(lastnameval == '') 
-        {		        
-    	
-            $("#lastname").val('Lastname required');
-            hasError = true;
-        }
-        
-      
-        if(phoneval == '') 
-        {		        
-    		
-            $("#p").val('Phone required');
-            hasError = true;
-        }
-        if(repeatpasswordval == '') 
-      {		        
-    		
-          $("#repeatpassword").after('*');
-           hasError = true;
-       }
-        if(repeatemailaddressVal == '') 
-        {		        
-    		
-           $("#repeatemail").val('Email required');
-            hasError = true;
-        }
-
-
-        if(addressval == '') 
-        {		        
-    	
-            $("#address").val('Address required');
-            hasError = true;
-        }
-
-
-        if(qualificationval == '') 
-        {		        
-    	
-            $("#qualification").val('Qualification required');
-            hasError = true;
-        }
-        if(dateval == '') 
-        {		        
-    	
-            $("#datepicker").val('Date required');
-            hasError = true;
-        }
-       
-
-        if(hasError == true) { return false; }
-      
-    });
-   
-});
-
-
-
-
-
-
-
-</script>
 </head>
 
 <body>
@@ -178,7 +50,7 @@ $(document).ready(function() {
 								id="email"
 								onfocus="if(this.value === 'Email required') this.value = '';" />
 							<label>Repeat email * </label> <input type="text"
-								id="repeatemail" name="repeatEmail" />
+								id="repeatemail" name="repeatEmail" onfocus="if(this.value === 'Email required') this.value = '';"  />
 						</p>
 						<p>
 							<label>Password* </label> <input type="password" name="password"
@@ -212,12 +84,20 @@ $(document).ready(function() {
 								onfocus="if(this.value === 'Address required') this.value = '';" />
 						</p>
 
-
-						<p>
-							<label>Qualification(graduate, postgraduate, doctorate, others) </label> <input type="text" class="long"
+							<p>
+							<label>Qualification</label> <select >
+							<option>graduate</option>
+							<option>postgraduate</option>
+							<option>doctorate</option>
+							<option>others</option>
+							</select>
+						</p>
+					<!-- 	<p>
+							<label>Qualification</label> <input type="text" class="long"
 								name="qualification" id="qualification"
 								onfocus="if(this.value === 'Qualification required') this.value = '';" />
 						</p>
+					-->
 						<p>
 							<label>Profile Picture</label><input type="file" size="10"
 								name="profilepicture">
@@ -229,10 +109,10 @@ $(document).ready(function() {
 							<label>Gender *</label> <input type="radio" name="gender"
 								value="m" checked /> <label class="gender">Male</label> <input
 								type="radio" name="gender" value="f" /> <label
-								class="gender"">Female</label>
+								class="gender">Female</label>
 						</p>
 						<p>
-							<label>Date Of Birth(YMD):</label> <input type="text" name="date"
+							<label>Date Of Birth(Y/M/D):</label> <input type="text" name="date"
 								id="datepicker"
 								onfocus="if(this.value === 'Date required') this.value = '';" />
 						</p>
@@ -257,8 +137,8 @@ $(document).ready(function() {
 								href="#">Terms and Conditions</a></label>
 						</p>
 						<p class="agreement">
-							<input type="checkbox" value="" /> <label>I want to receive
-								personalized offers by your site</label>
+							<input type="checkbox" value="" name="checkmail"/> <label>Please send the confirmation mail
+								</label>
 						</p>
 						<p>
 							<img id="captcha" src="libraries/securimage/securimage_show.php"

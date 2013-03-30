@@ -13,6 +13,15 @@
 class Registration extends AUser
 {
 
+	public 	$message="added";
+	public function setmessage()
+	{
+		$this->message="successful";
+	}
+	public function getmessage()
+	{
+		return $this->message;
+	}
     public function newStudentRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture)
     {
     	
@@ -42,7 +51,7 @@ class Registration extends AUser
         	"createdon"=>date("Y/m/d")	
         ));
         $this->db->Insert();
-        echo $this->db->lastQuery();
+		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );
     }
 
     public function newteacherRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture)
@@ -73,8 +82,7 @@ class Registration extends AUser
         	"createdon"=>date("Y/m/d")
         ));
         $this->db->Insert();
-        echo $this->db->lastQuery();
-    }
+		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );    }
 }
 
 ?>

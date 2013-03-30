@@ -9,6 +9,11 @@
  * ------------------------------------------------------------------------- 
  * 1 1.0 Anirudh Pandita March 08, 2013 paths corrected 
  * ************************************************************************
+ * * *************************************************************************** 
+ * Sr.NO. Version Updated by Updated on Description 
+ * ------------------------------------------------------------------------- 
+ * 1 1.0 Kawaljeet Singh March 15, 2013 Registration 
+ * ************************************************************************
  */
 
 /* The main controller for showing the main view */
@@ -120,6 +125,23 @@ class MainController
         $profilepicture = addslashes(file_get_contents
             ($_FILES["profilepicture"]["tmp_name"]));
         
+   if(isset($_POST['checkmail']))
+{
+	$to = "kawaljeet.singh@osscube.com";
+	$subject = "Test mail";
+	$message = "Hello! This is a simple email message.";
+	$from = "ujjwal.rawlley@osscube.com";
+	$headers = "From:" . $from;
+	mail($to,$subject,$message,$headers);
+	echo "Mail Sent.";
+	
+ }
+ else
+{
+   //alternate code
+}
+        
+      
         if ($_POST["usertype"] == "student") {
             // echo"student";
             $obj = new Registration();
