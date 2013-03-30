@@ -15,7 +15,7 @@
 
 $(document).ready(function() {
 
-	
+
 	 
     $('#button').click(function() { 
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
 		var gendervalfemale=$("#female").val();
 		var repeatpasswordval = $("#repeatpassword").val();
         var repeatemailaddressVal = $("#repeatemail").val();
-
+        var captchaval=$("#captcha_code").val();
 		
         if(emailaddressVal == '' && passwordval=='') {
             $("#email").val('Email required');
@@ -45,8 +45,7 @@ $(document).ready(function() {
             hasError = true;
         }
         
-
-
+        
         else if(emailaddressVal == '') {
             $("#email").val('Email required');
             hasError = true;
@@ -74,7 +73,13 @@ $(document).ready(function() {
             $("#lastname").val('Lastname required');
             hasError = true;
         }
+        if(captchaval == '') 
+        {		        
+        	
         
+            $("#captcha_code").val('Fill Code');
+            hasError = true;
+        }
       
         if(phoneval == '') 
         {		        
@@ -117,10 +122,11 @@ $(document).ready(function() {
             hasError = true;
         }
        
-
         if(hasError == true) { return false; }
       
     });
    
 });
+
+
 

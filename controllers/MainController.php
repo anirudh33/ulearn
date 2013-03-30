@@ -124,13 +124,13 @@ class MainController
         $usertype = $_POST["usertype"];
         $profilepicture = addslashes(file_get_contents
             ($_FILES["profilepicture"]["tmp_name"]));
-        
-   if(isset($_POST['checkmail']))
+       
+  /* if(isset($_POST['checkmail']))
 {
-	$to = "kawaljeet.singh@osscube.com";
+	$to = $_POST["email"];
 	$subject = "Test mail";
 	$message = "Hello! This is a simple email message.";
-	$from = "ujjwal.rawlley@osscube.com";
+	$from = "kawaljeet.singh@osscube.com";
 	$headers = "From:" . $from;
 	mail($to,$subject,$message,$headers);
 	echo "Mail Sent.";
@@ -138,14 +138,22 @@ class MainController
  }
  else
 {
-   //alternate code
+   echo "not sent ";
 }
         
-      
+    */  
+        if(empty($_POST[""]))
+        {
+        
+        	
+        }
+        	
+        
+        
         if ($_POST["usertype"] == "student") {
             // echo"student";
             $obj = new Registration();
-            $obj->newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture);
+            $obj->newStudentRegistration($_POST);
         } elseif ($_POST["usertype"] == "teacher") {
             $obj = new Registration();
             $obj->newTeacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture);

@@ -24,7 +24,7 @@ class Registration extends AUser
 	}
     public function newStudentRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture)
     {
-    	
+    	$new_date = date('Y-m-d', strtotime($date));
         DBConnection::Connect();
         $this->db->From("userdetails");
         $this->db->Fields(array(
@@ -46,7 +46,7 @@ class Registration extends AUser
             "address" => "$address",
             "qualification" => "$qualification",
             "gender" => "$gender",
-            "dob" => "$date",
+            "dob" => "$new_date",
             "profilepicture" => "$profilepicture",
         	"createdon"=>date("Y/m/d")	
         ));
@@ -56,6 +56,7 @@ class Registration extends AUser
 
     public function newteacherRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture)
     {
+    	$new_date = date('Y-m-d', strtotime($date));
         DBConnection::Connect();
         $this->db->From("userdetails");
         $this->db->Fields(array(
@@ -77,7 +78,7 @@ class Registration extends AUser
             "address" => "$address",
             "qualification" => "$qualification",
             "gender" => "$gender",
-            "dob" => "$date",
+            "dob" => "$new_date",
             "profilepicture" => "$profilepicture",
         	"createdon"=>date("Y/m/d")
         ));

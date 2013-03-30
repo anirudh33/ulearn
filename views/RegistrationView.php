@@ -15,12 +15,11 @@
 <script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
 <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="assets/js/MainView.js" type="text/javascript"></script>
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
+ <script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
 
-<link rel="stylesheet"href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css" />
 
 </head>
 
@@ -85,7 +84,7 @@
 						</p>
 
 							<p>
-							<label>Qualification</label> <select >
+							<label>Qualification</label> <select name="qualification" >
 							<option>graduate</option>
 							<option>postgraduate</option>
 							<option>doctorate</option>
@@ -143,7 +142,8 @@
 						<p>
 							<img id="captcha" src="libraries/securimage/securimage_show.php"
 								alt="CAPTCHA Image" /> <br> 
-								<input type="text" name="captcha_code" size="10" maxlength="6" /> 
+								<input type="text" name="captcha_code" id="captcha_code" size="10" maxlength="6"
+								onfocus="if(this.value === 'Fill Code') this.value = '';" /> 
 								<a href="#"	onclick="document.getElementById('captcha').src = 
 									'libraries/securimage/securimage_show.php?' + Math.random(); 
 								return false">[Different Image ]</a>
