@@ -31,6 +31,7 @@ require_once ($_SESSION["SITE_PATH"] . '/libraries/Paging.php');
 require_once ($_SESSION["SITE_PATH"] . '/libraries/UserFactory.php');
 require_once ($_SESSION["SITE_PATH"] . '/libraries/Authenticate.php');
 require_once ($_SESSION["SITE_PATH"] . '/libraries/securimage/securimage.php');
+require_once ($_SESSION["SITE_PATH"] . "/libraries/Authenticate.php");
 
 
 /* Models */

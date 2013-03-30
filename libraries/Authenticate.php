@@ -35,7 +35,7 @@ class Authenticate {
 			return 1;
 		} else {
 			
-			$this->_message .= "Session has expired or doesnt exist";
+			$this->setMessage("Session has expired or doesnt exist");
 			
 			return 0;
 		}
