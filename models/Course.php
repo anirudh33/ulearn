@@ -43,7 +43,7 @@ class Course extends AModel {
 		    $this->db->Insert ();
 		    //echo $this->db->lastQuery ();
 		    	
-		    $this->registerCourse($_POST ["coursename"]);
+		    $this->registerTeacherCourse($_POST ["coursename"]);
 		}
 	    }else {?>
 	       <script> confirm('Course name already exists, please re-enter')</script>

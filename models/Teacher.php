@@ -199,8 +199,8 @@ class Teacher extends AUser {
 	 			"coursename" => $coursenamelist
 	 	) );
 	 	$this->db->Select ();
-	 	$id1 = $this->db->resultArray ();
-	 	$cid = $id [0] ['id1'];
+	 	$id = $this->db->resultArray ();
+	 	$cid = $id [0] ['id'];
 	 		 			 		
 	 	 		$this->db->From ( "course" );
 	 	 		$this->db->Fields ( array (

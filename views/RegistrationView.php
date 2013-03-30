@@ -39,7 +39,7 @@
 		<div id="image">
 
 			<div id="registerdiv">
-				<form action="index.php?method=registerUser&controller=Main"
+				<form id="frmForm" action="index.php?method=registerUser&controller=Main"
 					method="POST" class="register" enctype="multipart/form-data">
 					<h1>Registration</h1>
 					<fieldset class="row1">
@@ -152,7 +152,7 @@
 
 
 					<div>
-						<button class="button" id="button">Register</button>
+						<button class="button" id="register">Register</button>
 					</div>
 				</form>
 			</div>

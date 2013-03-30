@@ -17,11 +17,9 @@ $(document).ready(function() {
 
 
 	 
-    $('#button').click(function() { 
+    $('#register').click(function() { 
 
-    	
-		
-        $(".error").hide();
+    	$(".error").hide();
         var hasError = false;
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         var passwordval = $("#password").val();
@@ -33,10 +31,8 @@ $(document).ready(function() {
 		var repeatpasswordval = $("#repeatpassword").val();
         var repeatemailaddressVal = $("#repeatemail").val();
         var captchaval=$("#captcha_code").val();
-var coursenameval =$("#coursename").val();
-var lessonnoval =$("#lesson_no").val();
-var lessonnameval =$("#lesson_name").val();
-var dobval =$("#dob").val();
+
+        
 
         if(emailaddressVal == '' && passwordval=='') {
             $("#email").val('Email required');
@@ -94,9 +90,113 @@ var dobval =$("#dob").val();
            $("#repeatemail").val('Email required');
             hasError = true;
         }
+                             
+                 
+         if(qualificationval == '') 
+        {		        
+    	
+            $("#qualification").val('Qualification required');
+            hasError = true;
+        }
+        if(dateval == '') 
+        {		        
+    	
+            $("#datepicker").val('Date required');
+            hasError = true;
+        }
+       
+        if(hasError == true) {
+             	return false; 
+        }
+        else {
+              	$('#frmForm').submit();
+        	return true;
+        }
+                   
+    });
+    
+    $('#edit').click(function() { 
 
-
+    	$(".error").hide();
+        var hasError = false;
         
+		var firstnameval=$("#firstname").val();
+		var lastnameval=$("#lastname").val();
+		var qualificationval=$("#qualification").val();
+			
+        var dobval =$("#dob").val();
+
+       
+
+        if(firstnameval == '') 
+        {		        
+    	
+            $("#firstname").val('Firstname required');
+            hasError = true;
+        }
+        if(lastnameval == '') 
+        {		        
+    	
+            $("#lastname").val('Lastname required');
+            hasError = true;
+        }
+       
+                                    
+           if(dobval == '') 
+        {		        
+    	
+            $("#dob").val('DOB required');
+            hasError = true;
+        }
+        
+         if(qualificationval == '') 
+        {		        
+    	
+            $("#qualification").val('Qualification required');
+            hasError = true;
+        }
+       
+        if(hasError == true) {
+             	return false; 
+        }
+        else {
+              	$('#frmForm').submit();
+        	return true;
+        }
+                   
+    });
+    
+    $('#addCourse').click(function() { 
+
+    	$(".error").hide();
+        var hasError = false;
+        
+        var coursenameval =$("#coursename").val();
+        
+        if(coursenameval == '') {		        
+    	    $("#coursename").val('Course name required');
+            hasError = true;
+        }
+
+        if(hasError == true) {
+          	return false; 
+        } 
+        
+        else {
+              	$('#form').submit();
+        	return true;
+        }
+        
+                           
+    });
+    
+    $('#button').click(function() { 
+
+    	$(".error").hide();
+        var hasError = false;
+        
+        var lessonnoval =$("#lesson_no").val();
+        var lessonnameval =$("#lesson_name").val();
         
         if(lessonnoval == '') 
         {		        
@@ -111,40 +211,17 @@ var dobval =$("#dob").val();
             $("#lesson_name").val('Lesson name required');
             hasError = true;
         }
-        
-      
-        
-       
-        if(dobval == '') 
-        {		        
-    	
-            $("#dob").val('DOB required');
-            hasError = true;
-        }
-        
-        if(coursenameval == '') 
-        {		        
-    	
-            $("#coursename").val('Course name required');
-            hasError = true;
-        }
 
-
-        if(qualificationval == '') 
-        {		        
-    	
-            $("#qualification").val('Qualification required');
-            hasError = true;
+        if(hasError == true) {
+          	return false; 
+        } 
+        
+        else {
+              	$('#Form').submit();
+        	return true;
         }
-        if(dateval == '') 
-        {		        
-    	
-            $("#datepicker").val('Date required');
-            hasError = true;
-        }
-       
-        if(hasError == true) { return false; }
-      
+        
+                           
     });
    
 });

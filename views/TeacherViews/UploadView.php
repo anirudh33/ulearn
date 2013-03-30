@@ -12,7 +12,7 @@ $("#more").append('<label>Lesson Name:</label><input type="text" name="lesson_na
 </script>
 </head>
 <body>
-<form method="post" action="index.php?method=uploadFile&controller=Teacher" enctype="multipart/form-data" name="frm1" > 
+<form id="Form" method="post" action="index.php?method=uploadFile&controller=Teacher" enctype="multipart/form-data" name="frm1" > 
 Lesson No:*<input type="text" id="lesson_no" name="lesson_no" class="long" onfocus="if(this.value === 'Lesson no required') this.value = '';"><br>
 Lesson Name:* <input type="text" id="lesson_name" name="lesson_name" class="long" onfocus="if(this.value === 'Lesson name required') this.value = '';">><br>
 Select course: 

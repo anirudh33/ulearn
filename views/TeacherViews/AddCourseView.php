@@ -30,7 +30,7 @@ $lang = Language::getinstance ();
 
 		<div id="registerdiv">
 
-			<form
+			<form id="frm"
 				action="index.php?method=addCourseButtonClick&controller=Teacher"
 				method="POST" class="register">
 
@@ -51,7 +51,7 @@ $lang = Language::getinstance ();
 					</p>
 					<br>
 					<br>
-					<button class="button" id="button">Add &raquo;</button>
+					<button class="button" id="addCourse">Add &raquo;</button>
 
 				</fieldset>
 
