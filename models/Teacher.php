@@ -199,10 +199,10 @@ class Teacher extends AUser {
 	 			"coursename" => $coursenamelist
 	 	) );
 	 	$this->db->Select ();
-	 	$id = $this->db->resultArray ();
-	 	$cid = $id [0] ['id'];
+	 	$id1 = $this->db->resultArray ();
+	 	$cid = $id1 [0] ['course_id'];
 	 		 			 		
-	 	 		$this->db->From ( "course" );
+	 	 		$this->db->From ( "lesson" );
 	 	 		$this->db->Fields ( array (
 	 					"lesson_no" => "$lesson_no",
 	 					"lesson_name" => "$lesson_name",
@@ -265,6 +265,8 @@ class Teacher extends AUser {
 // 					if (! is_dir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["course_id"] )) {
 // 					mkdir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["course_id"] );
 // 				}
+
+						//throw message if file format not supported or any other error
 						$path = "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["coursenamelist"] . "/";
 						$path = $path . basename ( $_FILES ['upload'] ['name'] [$i] );
 						
