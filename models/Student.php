@@ -71,14 +71,14 @@ public function editStudent($firstname,$lastname,$phone,$address,$qualification,
 		echo $this->db->lastQuery();
 	}
 
-public function registerCourse($course_id,$student_id)
+/* public function registerCourse($course_id,$student_id)
 	{
 		DBConnection::Connect();
 		$this->db->From("enrolls");
 		$this->db->Fields(array("course_id"=>"$course_id","student_id"=>"$student_id"));
 		$this->db->Insert();
 		echo $this->db->lastQuery();
-	}
+	} */
 
 public function messageSend($body,$subject,$sentto)
 	{

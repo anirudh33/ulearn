@@ -83,7 +83,7 @@ public function registerCourseButtonClick()
 
 	$coursename=$_POST['coursenamelist'];//to be changed
 	$objCourse= new Course();
-$objCourse->registerCourse($coursename);
+    $objCourse->registerTeacherCourse($coursename);
 	
 }
 
@@ -144,9 +144,14 @@ public function writeMessage()
 
     public function uploadFile ()
     {
+    	$lesson_no = $_POST["lesson_no"];
+    	$lesson_name = $_POST["lesson_name"];
+    	$coursenamelist = $_POST["coursenamelist"];
+    	
         $this->createUser();
        
         $this->_objUser->uploadContent();
+        $this->_objUser->lesson($lesson_no,$lesson_name,$coursenamelist);
     }
 }
 

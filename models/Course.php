@@ -50,7 +50,7 @@ class Course extends AModel {
 	    }
 	}
 	
-	public function registerCourse($coursename) {
+	public function registerTeacherCourse($coursename) {
 	    echo $coursename;
 	
 		/* fetch id of Teacher */
@@ -84,6 +84,42 @@ class Course extends AModel {
 		$this->db->Insert ();
 		echo $this->db->lastQuery ();
 		}
+	}
+	
+	public function registerStudentCourse($coursename) {
+		DBConnection::Connect ();
+		//fetch cid and tid
+		/* fetch id of Teacher */
+		$this->db->Fields ( array (
+				"id"
+		) );
+		$this->db->From ( "studentdetails" );
+		$this->db->Where ( array (
+				"user_id" => $_SESSION["userID"]
+		) );
+		$this->db->Select ();
+		$id = $this->db->resultArray ();
+		$tid = $id [0] ['id'];
+	
+		/* fetch id of course */
+		$this->db->Fields ( array (
+				"id"
+		) );
+		$this->db->From ( "course" );
+		$this->db->Where ( array (
+				"name" => $coursename
+		) );
+		$this->db->Select ();
+		$id = $this->db->resultArray ();
+		$cid = $id [0] ['id'];
+	
+		$this->db->From ( "enrolls" );
+		$this->db->Fields ( array (
+				"course_id" => $cid,
+				"student_id" => $tid
+		) );
+		$this->db->Insert ();
+		echo $this->db->lastQuery ();
 	}
 	
 	public function fetchCoursename() {

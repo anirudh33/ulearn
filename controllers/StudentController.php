@@ -45,19 +45,19 @@ class StudentController extends AController
 
     public function registerCourseClick ()
     {
-        $this->showSubStudentViews("registerCourse");
+    	$objCourse= new Course();
+    	$result=$objCourse->fetchCoursename();
+        $this->showSubStudentViews("registerCourse",$result);
     }
 
     public function registerCourseButtonClick ()
     {
-        $course_id = $_POST["course_id"];
-        $student_id = $_POST["student_id"];
         
-       
-            $this->createUser();
-            
-            $this->_objUser->registerCourse($course_id, $student_id);
-       
+        $coursename=$_POST['coursenamelist'];//to be changed
+        $objCourse= new Course();
+        $objCourse->registerStudentCourse($coursename);
+        
+                                
     }
 
     public function messageClick ()

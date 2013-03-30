@@ -28,16 +28,16 @@ $(document).ready(function() {
         var emailaddressVal = $("#email").val();
 		var firstnameval=$("#firstname").val();
 		var lastnameval=$("#lastname").val();
-		var phoneval=$("#p").val();
-		var addressval=$("#address").val();
 		var qualificationval=$("#qualification").val();
 		var dateval=$("#datepicker").val();
-		var gendervalmale=$("#male").val();
-		var gendervalfemale=$("#female").val();
 		var repeatpasswordval = $("#repeatpassword").val();
         var repeatemailaddressVal = $("#repeatemail").val();
         var captchaval=$("#captcha_code").val();
-		
+var coursenameval =$("#coursename").val();
+var lessonnoval =$("#lesson_no").val();
+var lessonnameval =$("#lesson_name").val();
+var dobval =$("#dob").val();
+
         if(emailaddressVal == '' && passwordval=='') {
             $("#email").val('Email required');
             $("#password").after('*');
@@ -81,12 +81,7 @@ $(document).ready(function() {
             hasError = true;
         }
       
-        if(phoneval == '') 
-        {		        
-    		
-            $("#p").val('Phone required');
-            hasError = true;
-        }
+        
         if(repeatpasswordval == '') 
       {		        
     		
@@ -101,10 +96,36 @@ $(document).ready(function() {
         }
 
 
-        if(addressval == '') 
+        
+        
+        if(lessonnoval == '') 
         {		        
     	
-            $("#address").val('Address required');
+            $("#lesson_no").val('Lesson no required');
+            hasError = true;
+        }
+        
+        if(lessonnameval == '') 
+        {		        
+    	
+            $("#lesson_name").val('Lesson name required');
+            hasError = true;
+        }
+        
+      
+        
+       
+        if(dobval == '') 
+        {		        
+    	
+            $("#dob").val('DOB required');
+            hasError = true;
+        }
+        
+        if(coursenameval == '') 
+        {		        
+    	
+            $("#coursename").val('Course name required');
             hasError = true;
         }
 

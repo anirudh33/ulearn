@@ -14,7 +14,7 @@ $lang = Language::getinstance ();
 <!-- Links for stylesheet -->
 <link rel="stylesheet" href="assets/style/Registration.css"
 	type="text/css" media="screen" />
-
+<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
 
 
 
@@ -41,8 +41,8 @@ $lang = Language::getinstance ();
 
 
 					<p>
-						<label>Course Name * </label> <input type="text" name="coursename"
-							class="long">
+						<label>Course Name * </label> <input type="text" id="coursename" name="coursename"
+							class="long" onfocus="if(this.value === 'Course name required') this.value = '';">
 					</p>
 					<p>
 						<label>Description  </label>
@@ -51,7 +51,7 @@ $lang = Language::getinstance ();
 					</p>
 					<br>
 					<br>
-					<button class="button">Add &raquo;</button>
+					<button class="button" id="button">Add &raquo;</button>
 
 				</fieldset>
 

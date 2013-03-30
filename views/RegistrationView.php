@@ -73,7 +73,7 @@
 						</p>
 						<p>
 							<label>Phone * </label> <input type="text" maxlength="10"
-								name="phone" id="p"
+								name="phone" id="phone"
 								onfocus="if(this.value === 'Phone required') this.value = '';" />
 						</p>
 

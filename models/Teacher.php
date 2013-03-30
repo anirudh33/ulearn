@@ -177,6 +177,44 @@ class Teacher extends AUser {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
+	
+	 public function lesson($lesson_no,$lesson_name,$coursenamelist) {
+	 	DBConnection::Connect ();
+	 	$this->db->Fields ( array (
+	 			"id"
+	 	) );
+	 	$this->db->From ( "teacherdetails" );
+	 	$this->db->Where ( array (
+	 			"user_id" => $_SESSION["userID"]
+	 	) );
+	 	$this->db->Select ();
+	 	$id = $this->db->resultArray ();
+	 	$tid = $id [0] ['id'];
+	 	
+	 	$this->db->Fields ( array (
+	 			"course_id"
+	 	) );
+	 	$this->db->From ( "course" );
+	 	$this->db->Where ( array (
+	 			"coursename" => $coursenamelist
+	 	) );
+	 	$this->db->Select ();
+	 	$id1 = $this->db->resultArray ();
+	 	$cid = $id [0] ['id1'];
+	 		 			 		
+	 	 		$this->db->From ( "course" );
+	 	 		$this->db->Fields ( array (
+	 					"lesson_no" => "$lesson_no",
+	 					"lesson_name" => "$lesson_name",
+	 					"createdon" => date ( "Y/m/d" ),
+	 	 				"course_id" => "$cid" ,
+	 	 				"teacher_id" => "$tid"
+	 	 		) );
+	 	 		$this->db->Insert ();
+	 	 		echo $this->db->lastQuery ();
+	 		 	 	
+	}
+	 
 	public function fetchEmailID() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (

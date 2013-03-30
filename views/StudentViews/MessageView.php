@@ -14,7 +14,7 @@ $lang = Language::getinstance();
 <!-- Links for stylesheet -->
 <link rel="stylesheet" href="assets/style/Registration.css"
 	type="text/css" media="screen" />
-
+<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
 
 
 
@@ -40,8 +40,8 @@ $lang = Language::getinstance();
 
 
 <p>
-							<label>To * </label> 
-							<select name="sentto">
+							<label>To  </label> 
+							<select name="sentto" id="sentto">
                             <?php
                            
                             foreach ($messages as $key=>$value)
@@ -60,10 +60,10 @@ $lang = Language::getinstance();
 						</p>
 						
 						<p>
-							<label>Subject * </label> <input type="text" name="subject" class="long" >
+							<label>Subject  </label> <input type="text" name="subject" class="long" >
 						</p>
 						<p>
-							<label>Message * </label> <textarea name="body" rows="6" cols="20" class="long"></textarea>
+							<label>Message </label> <textarea name="body" rows="6" cols="20" class="long"></textarea>
 						</p>
 
 						
