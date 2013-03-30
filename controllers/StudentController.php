@@ -95,6 +95,15 @@ public function writeMessage()
             $this->_objUser->messageSend($body, $subject, $sentto);
        
     }
+    
+    public function showProfile ()
+    {
+    	$this->createUser();
+    	$studentdetails=$this->_objUser->fetchStudent();
+    	/* Showing Teacher View with teacher data */
+    	$this->showSubStudentViews("showProfile",$studentdetails);
+    
+    }
 
     public function downloadClick ()
     {

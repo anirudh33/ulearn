@@ -12,8 +12,8 @@ $("#more").append('<label>Lesson Name:</label><input type="text" name="lesson_na
 </head>
 <body>
 <form method="post" action="index.php?method=uploadFile&controller=Teacher" enctype="multipart/form-data" name="frm1" > 
-Lesson No: <input type="text" name="lesson_no" class="long" ><br>
-Lesson Name: <input type="text" name="lesson_name" class="long" ><br>
+Lesson No:*<input type="text" name="lesson_no" class="long" ><br>
+Lesson Name:* <input type="text" name="lesson_name" class="long" ><br>
 Select course: 
 
 <select name="coursenamelist">
@@ -33,7 +33,7 @@ Select course:
                            </select> </br>
 
 
-Choose file: <input type="file" name="upload[]"/></br>
+Choose file:* <input type="file" name="upload[]"/></br>
  <input type="submit" value="OK"/> 
 <input type="button" value="add more" onclick="show()"/>
 <div id="more"></div>

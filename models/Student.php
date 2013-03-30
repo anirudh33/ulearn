@@ -40,6 +40,28 @@ class Student extends AUser {
 		$this->setTdata ( $this->db->resultArray () );
 	}
 	
+
+public function fetchStudent() {
+		
+		DBConnection::Connect ();
+		$this->db->Fields ( array (
+				"firstname",
+				"lastname",
+				"phone",
+				"address",
+				"qualification",
+				"gender",
+				"dob"
+		) );
+		$this->db->From ( "studentdetails" );
+		$this->db->Where (array (
+				"user_id" => $_SESSION["userID"]));
+		$this->db->Select ();
+	
+		$result=$this->db->resultArray () ;
+		return $result;
+	}
+
 public function editStudent($firstname,$lastname,$phone,$address,$qualification,$gender,$dob)
 	{
 		DBConnection::Connect();

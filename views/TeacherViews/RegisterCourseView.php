@@ -38,7 +38,7 @@ $lang = Language::getinstance();
 					<fieldset class="row2">
 						<legend>Course Details </legend>
 <p>
-							<label>Course Name* </label> 
+							<label>Course Name </label> 
 							 <select name="coursenamelist">
 							 <?php
 							 

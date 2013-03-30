@@ -48,22 +48,28 @@ if (! empty($data)) {
         
         require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/EditProfileView.php';
     }
-    if($viewName=="registerCourse")
+    elseif($viewName=="registerCourse")
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/RegisterCourseView.php';
     }
-    if($viewName=="writeMessage"&& (! empty($messages)))
+    elseif($viewName=="writeMessage"&& (! empty($messages)))
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/MessageView.php';
     }
-    if($viewName=="download")
+    elseif($viewName=="download")
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
     }
-    if ($viewName=="viewMessage"&& (! empty($messages)))
+    elseif ($viewName=="viewMessage"&& (! empty($messages)))
     
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/ShowMessageView.php';
+    }
+    
+    elseif($viewName == "showProfile" && (! empty ( $messages )))
+    
+    {
+    	require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/StudentProfileView.php';
     }
     
     ?>

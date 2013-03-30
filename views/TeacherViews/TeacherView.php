@@ -50,7 +50,7 @@
 					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
 				}
 				elseif ($viewName == "upload" && (! empty ( $messages ))) {
-					echo "hello";
+					
 					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
 				}
 				elseif ($viewName == "registerCourse"&& (! empty ( $messages ))) {
@@ -80,7 +80,7 @@
 
 				<div class="arrowgreen">
 					<ul>
-						<!-- <button>hello</button> -->
+						
 						<li><a href="index.php?method=uploadClick&controller=Teacher"
 							id="link1">Upload Study Material</a></li>
 						<li><a href="index.php?method=messageClick&controller=Teacher"

@@ -45,7 +45,7 @@ $lang = Language::getinstance ();
 							class="long">
 					</p>
 					<p>
-						<label>Description * </label>
+						<label>Description  </label>
 						<textarea name="description" rows="6" cols="20" class="long">
 						</textarea>
 					</p>
