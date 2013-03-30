@@ -108,6 +108,15 @@ class MainController
         require_once "./views/RegistrationView.php";
     }
 
+    public function confirm()
+    {
+    	$email=$_GET['email'];
+    	$pass=$_GET['passkey'];
+    	$obj = new Registration();
+    	$obj->confirmEmail($email,$pass);
+    
+    }
+    
     public function registerUser ()
     {
     	$authObject= new Authenticate();
@@ -124,12 +133,14 @@ class MainController
         $usertype = $_POST["usertype"];
         $profilepicture = addslashes(file_get_contents
             ($_FILES["profilepicture"]["tmp_name"]));
+        $confirm_code=md5(uniqid(rand()));
        
-  /* if(isset($_POST['checkmail']))
+       
+   if(isset($_POST['checkmail']))
 {
 	$to = $_POST["email"];
-	$subject = "Test mail";
-	$message = "Hello! This is a simple email message.";
+	$subject = "Confirmation Mail from Ulearn";
+	$message = "http://localhost/ulearn/branches/development/index.php?method=confirm&controller=Main&passkey=$confirm_code&email=$email";
 	$from = "kawaljeet.singh@osscube.com";
 	$headers = "From:" . $from;
 	mail($to,$subject,$message,$headers);
@@ -140,23 +151,17 @@ class MainController
 {
    echo "not sent ";
 }
-        
-    */  
-        if(empty($_POST[""]))
-        {
-        
-        	
-        }
-        	
-        
+       
+    
+
         
         if ($_POST["usertype"] == "student") {
             // echo"student";
             $obj = new Registration();
-            $obj->newStudentRegistration($_POST);
+            $obj->newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code);
         } elseif ($_POST["usertype"] == "teacher") {
             $obj = new Registration();
-            $obj->newTeacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture);
+            $obj->newTeacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code);
         }
     }
 }

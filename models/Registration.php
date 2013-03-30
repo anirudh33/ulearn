@@ -11,8 +11,11 @@ class Registration extends AUser
 	{
 		return $this->message;
 	}
-    public function newStudentRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture)
+    public function newStudentRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code)
     {
+    	
+    	
+    	
     	$new_date = date('Y-m-d', strtotime($date));
         DBConnection::Connect();
         $this->db->From("userdetails");
@@ -20,7 +23,8 @@ class Registration extends AUser
             "user_id" => "",
             "email" => "$email",
             "password" => "$password",
-            "user_type" => "$usertype"
+            "user_type" => "$usertype",
+        		"confirm_code"=>"$confirm_code"
         ));
         $this->db->Insert();
 //        echo $this->db->lastQuery();
@@ -43,7 +47,32 @@ class Registration extends AUser
 		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );
     }
 
-    public function newteacherRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture)
+    public function confirmEmail($email,$pass)
+    {
+    	DBConnection::Connect();
+    	$this->db->From("userdetails");
+    	$this->db->Fields(array(
+    			 
+    			"confirm_code"
+    	));
+    	$this->db->Where(array("email"=>$email));
+    	$this->db->Select();
+    	//echo
+    	$a=$this->db->resultArray();
+    	//echo $this->db->lastQuery();
+    	//print_r($a) ;
+    	//echo $email.$pass;
+    	//die;
+    	
+    	if($a)
+    	{
+    		echo "YOU HAVE BEEN ACTIVATED";
+    	}
+    	 
+    
+    }
+    
+    public function newteacherRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code)
     {
     	$new_date = date('Y-m-d', strtotime($date));
         DBConnection::Connect();
@@ -52,7 +81,8 @@ class Registration extends AUser
             "user_id" => "",
             "email" => "$email",
             "password" => "$password",
-            "user_type" => "$usertype"
+            "user_type" => "$usertype",
+        		"confirm_code"=>"$confirm_code"
         ));
         $this->db->Insert();
     //    echo $this->db->lastQuery();
@@ -72,5 +102,9 @@ class Registration extends AUser
         	"createdon"=>date("Y/m/d")
         ));
         $this->db->Insert();
-		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );    }
+		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );    
+    }
 }
+
+
+?>

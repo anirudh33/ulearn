@@ -15,12 +15,19 @@
 <script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
 <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="assets/js/MainView.js" type="text/javascript"></script>
- <script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
+ <script src="assets/js/RegistrationView.js" type="text/javascript"></script>  
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<style type="text/css">
 
+#error
+{
+	background-color:white;
+}
+
+</style>
 </head>
 
 <body>
@@ -35,6 +42,19 @@
 		</div>
 		<div id="header2">
 			<a href="index.php"><h3>GO TO HOME</h3></a>
+		</div>
+		<div id="error">
+		<?php 
+		if(isset($_REQUEST["msg"]))
+		{
+			echo $_REQUEST["msg"];
+			
+		}
+		
+		
+		?>
+		
+		
 		</div>
 		<div id="image">
 
