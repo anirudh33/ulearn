@@ -45,9 +45,9 @@ class Course extends AModel {
 		    	
 		    $this->registerCourse($_POST ["coursename"]);
 		}
-	    }else {
-	        echo "<script> alert('Course name already exists, please re-enter');</script>";
-	    }
+	    }else {?>
+	       <script> confirm('Course name already exists, please re-enter')</script>
+	<?php     }
 	}
 	
 	public function registerTeacherCourse($coursename) {

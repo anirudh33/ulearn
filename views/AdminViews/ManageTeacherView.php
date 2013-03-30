@@ -1,4 +1,9 @@
 <?php
+
+require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance();
+
+
 $obj_paging = new paging();
 
 if (isset($_GET['page']))
@@ -28,45 +33,22 @@ $pages = $obj_paging->get_pages();
 	href="assets/style/ManageTeacherView.css" media="screen" />
 	
 	 <script type="text/javascript" src="jquery-1.3.2.js"></script>
-	 
-<script language="JavaScript" type="text/javascript">
- function func() 
-  {
-     opener.location.reload(true);
-     self.close();
-  }
-</script>
-	
-	 
-       
 </head>
 <body>
-
-
-
-
-
 	<div class="row-whiteBox">
-	
 		<div id="divfr"></div>
 		<p class="headingsBig">
-		
-		
-		<h3 class="head2">Registered Teacher Details</h3>
+		<h3 class="head2"><?php echo $lang-> REGISTEREDTEACHERDETAILS;?></h3>
 		</p>
-
 		<span id="middle"></span>
-
 		<div class="tabular-cnt">
-		
-		
 			<table width="100%" cellspacing="10" cellpadding="5">
 				<tr class="tbl-hd">
-					<td>ID</td>
-					<td>FIRSTNAME</td>
-					<td>LASTNAME</td>
-					<td>STATUS</td>
-					<td>OPTIONS</td>
+					<td><?php echo $lang->ID;?></td>
+					<td><?php echo $lang->FIRSTNAME;?></td>
+					<td><?php echo $lang->LASTNAME;?></td>
+					<td><?php echo $lang-> STATUS;?></td>
+					<td><?php echo $lang-> OPTIONS;?></td>
 				</tr>
                 <?php
                 if ($teacherdata) {
@@ -86,12 +68,12 @@ $pages = $obj_paging->get_pages();
                             		{
                   					   
 		                     			 echo "<font color=green>Active</font>" ;?>
-		                     			 <td><a href= "index.php?method=deleteTeacherClick&controller=Admin&id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure you want to delete <?php echo $row['firstname'];?> &nbsp <?php echo $row['lastname'];?> ?'); "   >DELETE </a></td>
+		                     			 <td><a onclick=fncDelete("<?php echo $row['id'];?>") href= "javascript:void(0)"  >DELETE </a></td>
                             			<?php  }
                             			 elseif ($row['status']=='2')
                             			 {
                             			 	echo "<font color=red>Inactive</font>";?></td>
-                            			 	<td><a href= "index.php?method=activateTeacherClick&controller=Admin&id=<?php echo $row['id'];?>" onclick="return confirm('Are you sure you want to activate <?php echo $row['firstname'];?> &nbsp <?php echo $row['lastname'];?> ?');">ACTIVATE  </a></td>
+                            			 	<td><a onclick=fncActivate("<?php echo $row['id'];?>") href= "javascript:void(0)"  >ACTIVATE </a></td>
                             			 	<?php }?>
                            
                         </tr>
@@ -121,3 +103,40 @@ $pages = $obj_paging->get_pages();
 	</div>
 </body>
 </htm>	
+
+<script>
+
+function fncDelete(argId) {
+
+	$.ajax({ 
+     type: "POST",
+     url: 'index.php?method=deleteTeacherClick&controller=Admin',          
+     data: "id="+argId,                        
+       success: function(data){
+           data = $.trim(data);
+           if(data=="1") {
+        	   window.location.reload();
+           } else {
+               alert("Problem in deleting record!");
+           }
+       },
+   });
+}
+
+function fncActivate(argId) {
+
+	$.ajax({ 
+     type: "POST",
+     url: 'index.php?method=activateTeacherClick&controller=Admin',          
+     data: "id="+argId,                        
+       success: function(data){
+           data = $.trim(data);
+           if(data=="1") {
+        	   window.location.reload();
+           } else {
+               alert("Problem in deleting record!");
+           }
+       },
+   });
+}
+</script>

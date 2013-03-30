@@ -66,8 +66,7 @@ class MainController
        
         $objInitiateUser = new InitiateUser();
         
-        $this->setAuthenticationStatus(
-            $objInitiateUser->login($fieldEmail, $fieldPassword));
+        $this->setAuthenticationStatus($objInitiateUser->login($fieldEmail, $fieldPassword));
        
         if ($this->getAuthenticationStatus() == 1) {
         		
@@ -88,6 +87,7 @@ class MainController
         $objController = new $controllerName();
        
         $objController->process();
+        
     }
     
     /* Change language called on clicking the desired language on mainview */

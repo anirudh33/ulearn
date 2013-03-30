@@ -1,4 +1,10 @@
 <?php
+
+require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance();
+
+
+
 $obj_paging = new paging();
 
 if (isset($_GET['page']))
@@ -34,7 +40,7 @@ $pages = $obj_paging->get_pages();
 		<p class="headingsBig">
 		
 		
-		<h3 class="head2">Registered Student Details</h3>
+		<h3 class="head2"><?php echo $lang-> REGISTEREDSTUDENTDETAILS;?></h3>
 		</p>
 
 		<span id="middle"></span>
@@ -42,11 +48,11 @@ $pages = $obj_paging->get_pages();
 		<div class="tabular-cnt">
 			<table width="100%" cellspacing="10" cellpadding="5">
 				<tr class="tbl-hd">
-					<td>ID</td>
-					<td>FIRSTNAME</td>
-					<td>LASTNAME</td>
-					<td>STATUS</td>
-					<td>OPTIONS</td>
+					<td><?php echo $lang->ID;?></td>
+					<td><?php echo $lang->FIRSTNAME;?></td>
+					<td><?php echo $lang->LASTNAME;?></td>
+					<td><?php echo $lang-> STATUS;?></td>
+					<td><?php echo $lang-> OPTIONS;?></td>
 				</tr>
                 <?php
                 if ($studentdata) {

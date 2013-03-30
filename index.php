@@ -87,6 +87,7 @@ $obj = new MainController();
 if (isset($_SESSION["userType"])) {
 	
     $obj->showUserPanel();
+    die;
 }
 
 /* If no method has been called show the main view/homepage */

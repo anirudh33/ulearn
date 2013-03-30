@@ -1,15 +1,4 @@
-<!-- Creation Log
- 
-  File Name                   -  Registration.php
-  Description                 -  Registration 
-  Version                     -  1.0
-  Created by                  -  Kawaljeet Singh
-  Created on                  -  March 25, 2013
- 
-  -->
-
 <?php
-
 class Registration extends AUser
 {
 
@@ -34,7 +23,7 @@ class Registration extends AUser
             "user_type" => "$usertype"
         ));
         $this->db->Insert();
-        echo $this->db->lastQuery();
+//        echo $this->db->lastQuery();
         $i = $this->db->lastInsertId();
         // echo "$i";
         $this->db->From("studentdetails");
@@ -66,7 +55,7 @@ class Registration extends AUser
             "user_type" => "$usertype"
         ));
         $this->db->Insert();
-        echo $this->db->lastQuery();
+    //    echo $this->db->lastQuery();
         $i = $this->db->lastInsertId();
         // echo "$i";
         $this->db->From("teacherdetails");
@@ -85,5 +74,3 @@ class Registration extends AUser
         $this->db->Insert();
 		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );    }
 }
-
-?>

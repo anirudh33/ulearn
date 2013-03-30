@@ -1,6 +1,4 @@
 <?php
-
-
 class Admin extends AUser
 {
 
@@ -236,9 +234,10 @@ class Admin extends AUser
        		"status" => "2"
        ));
         
-       $this->db->Update();
+       $objReturn = $this->db->Update();
+       return $objReturn;
      //  $this->db->lastQuery();
-       echo $this->db->lastQuery();
+       //echo $this->db->lastQuery();
         
     }
     
@@ -258,9 +257,10 @@ class Admin extends AUser
     			"status" => "1"
     	));
     
-    	$this->db->Update();
+    	$objReturn = $this->db->Update();
+    	return $objReturn;
     	//  $this->db->lastQuery();
-    	echo $this->db->lastQuery();
+    	//echo $this->db->lastQuery();
     
     }
     
@@ -275,7 +275,7 @@ class Admin extends AUser
         ));
         $this->db->From("users");
         $this->db->Insert();
-        echo $this->db->lastQuery();
+        //echo $this->db->lastQuery();
     }
 
     public function UpdateUser ()
@@ -288,7 +288,7 @@ class Admin extends AUser
             "firstname" => "hihi"
         ));
         $this->db->Update();
-        echo $this->db->lastQuery();
+     //   echo $this->db->lastQuery();
     }
 
     public function DeleteUser ()
@@ -298,7 +298,7 @@ class Admin extends AUser
             "id" => 42
         ));
         $this->db->Delete();
-        echo $this->db->lastQuery();
+        //echo $this->db->lastQuery();
     }
 
     public function doTransaction ()
@@ -314,7 +314,7 @@ class Admin extends AUser
         $this->FindUsers();
         // echo "+++++".$this->db->lastQuery()."++++++";
         $this->db->startTransaction();
-        echo $this->db->lastQuery();
+        //echo $this->db->lastQuery();
         $this->AddUser();
         // $this->UpdateUser();
         // echo "<br> Adding-----------------------<br>";
@@ -322,7 +322,7 @@ class Admin extends AUser
         // $this->db->Where(array("id >"=>"40"));
         // $this->FindUsers();
         $this->db->rollback();
-        echo $this->db->lastQuery();
+        //echo $this->db->lastQuery();
         
         // echo "<br> Rolling back-----------------------<br>";
         // $this->db->Fields(array("firstname","lastname","email"));
@@ -359,5 +359,4 @@ class Admin extends AUser
     public function showreportView ()
     {}
 }
-
 ?>

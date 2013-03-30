@@ -33,10 +33,10 @@ $lang = Language::getinstance();
 			<form action="index.php?method=editAdminClick&controller=Admin"
 				method="POST" class="register">
 
-				<h1>Edit Profile</h1>
+				<h1><?php echo $lang->EDITPROFILE;?></h1>
 
 				<fieldset class="row2">
-					<legend>Personal Details </legend>
+					<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 					<p>
 						<label>First Name * </label> <input type="text" id="firstname" name="firstname"
 							class="long" value=<?php echo $admindata[0]['firstname']?>
@@ -61,7 +61,7 @@ $lang = Language::getinstance();
 
 
 					<p>
-						<label>Qualification </label> <input type="text"
+						<label><?php echo $lang->QUALIFICATION;?> </label> <input type="text"
 							name="qualification" id="qualification" class="long"
 							value=<?php echo $admindata[0]['qualification']?>
 							onfocus="if(this.value === 'Qualification required') this.value = '';">
@@ -70,7 +70,7 @@ $lang = Language::getinstance();
 
 				</fieldset>
 				<fieldset class="row3">
-					<legend>Further Information </legend>
+					<legend><?php echo $lang->FURTHERINFO;?></legend>
 					<p>
 						<label>Gender </label> <input type="text" id="gender" name="gender"
 							class="long" value=<?php echo $admindata[0]['gender']?>>
@@ -85,20 +85,18 @@ $lang = Language::getinstance();
 
 
 					<div class="infobox">
-						<h4>Helpful Information</h4>
-						<p>From now your email will be used as Username for further
-							process....</p>
+						<h4><?php echo $lang->HELPFULINFO;?></h4>
+						<p><?php echo $lang->INSTRUCTION;?></p>
 					</div>
 				</fieldset>
 				<fieldset class="row4">
-					<legend>Terms and Mailing </legend>
+					<legend><?php echo $lang->TERMS;?> </legend>
 					<p class="agreement">
 						<input type="checkbox" value="" /> <label> I accept the <a
 							href="#">Terms and Conditions</a></label>
 					</p>
 					<p class="agreement">
-						<input type="checkbox" value="" /> <label>I want to receive
-							personalized offers by your site</label>
+						<input type="checkbox" value="" /> <label><?php echo $lang->RECIEVE;?></label>
 					</p>
 
 				</fieldset>

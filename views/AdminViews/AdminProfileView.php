@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<?php
+require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance();
+?>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -11,8 +16,8 @@
 	
 		<div class="wrapper">
 			
-			<span id="leftusernav">Welcome <?php echo $adminprofiledata[0]['firstname'];?></span>
-			<span id="usernav"><a href="index.php?method=logout&controller=Admin">Logout</a>- <a href="index.php?method=showProfile&controller=Admin">My Profile</a> 
+			<span id="leftusernav"><?php echo $lang-> WELCOME;?><?php echo $adminprofiledata[0]['firstname'];?></span>
+			<span id="usernav"><a href="index.php?method=logout&controller=Admin"><?php echo $lang-> LOGOUT;?></a>- <a href="index.php?method=showProfile&controller=Admin"><?php echo $lang-> MYPROFILE;?></a> 
 			
 		</div>
 	</header>
@@ -54,7 +59,7 @@
 				
 			</div>
 			
-			<h1>About Me:</h1>
+			<h1><?php echo $lang-> ABOUTME;?></h1>
 			<p>The System Administrator (SA) is responsible for effective provisioning, installation/configuration, operation, and maintenance of systems hardware and software and related infrastructure. This individual participates in technical research and development to enable continuing innovation within the infrastructure. This individual ensures that system hardware, operating systems, software systems, and related procedures adhere to organizational values, enabling staff, volunteers, and Partners.
 
 This individual will assist project teams with technical issues in the Initiation and Planning phases of our standard Project Management Methodology. These activities include the definition of needs, benefits, and technical strategy; research & development within the project life-cycle; technical analysis and design; and support of operations staff in executing, testing and rolling-out the solutions. Participation on projects is focused on smoothing the transition of projects from development staff to production staff by performing operations activities within the project life-cycle.

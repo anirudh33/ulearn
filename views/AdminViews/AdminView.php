@@ -1,11 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<?php
+require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance();
+?>
+
+
+
 <html>
 
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title>HELLOADMINISTRATOR</title>
+<title><?php echo $lang-> HELLOADMINISTRATOR;?></title>
 
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />
@@ -20,17 +28,7 @@
 
 <script type="text/javascript">
 
-$(function(){
-	
-	
-	$('.nav2').flashyNav({
-		rolloverColor: '#00d2ff',	//the default color of the rollover element
-		rolloverDuration: 800,	//the default duration for the rollover
-		easingMethod: 'easeOutBounce'	//easing method used for animation
-	});
 
-	
-});
 
 
 </script>
@@ -79,6 +77,10 @@ $("button").click(function(){
 				<center>
 				
 				<?php
+				
+				
+				
+				
     if (! empty($teacherdata)) {
         
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
@@ -118,21 +120,19 @@ $("button").click(function(){
 
 				<div class="arrowgreen">
 					 <ul class="nav nav2">
-      <li><a href="index.php?method=showProfile&controller=Admin">View Profile</a></li>
+      <li><a href="index.php?method=showProfile&controller=Admin"><?php echo $lang-> VIEWPROFILE;?></a></li>
 						<li><a
 							href="index.php?method=manageTeachersClick&controller=Admin"
-							id="link1">Manage Teacher Account</a></li>
+							id="link1"><?php echo $lang-> MANAGETEACHER;?></a></li>
 
 						<li><a
 							href="index.php?method=manageStudentsClick&controller=Admin"
-							id="link2">Manage Student Account</a></li>
+							id="link2"><?php echo $lang->MANAGESTUDENT;?></a></li>
 
-						<li><a href="index.php?method=editProfileClick&controller=Admin">Edit
-								Profile</a></li>
+						<li><a href="index.php?method=editProfileClick&controller=Admin"><?php echo $lang->EDITPROFILE;?></a></li>
 								
 								
-						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums">Report
-								Generation</a></li>
+						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums"><?php echo $lang->REPORTGENERATION;?></a></li>
     </ul>
     
 				</div>

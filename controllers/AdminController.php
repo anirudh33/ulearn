@@ -1,5 +1,4 @@
 <?php
-
 class AdminController extends AController
 {
 
@@ -61,13 +60,14 @@ class AdminController extends AController
     {
     	$uid=$_REQUEST['id'];
     	
-    	
-    	
-    	
     		$this->createUser();
-    		$this->_objUser->deleteTeacher($uid);
-    	 	
-    }
+    		$objReturn = $this->_objUser->deleteTeacher($uid);
+    		if($objReturn) {
+    			die("1");
+    		} else {
+    			die("0");
+    		}
+	}
     public function activateTeacherClick ()
     {
     	$uid=$_REQUEST['id'];
@@ -76,7 +76,12 @@ class AdminController extends AController
     	 
     	 
     	$this->createUser();
-    	$this->_objUser->activateTeacher($uid);
+    	$objReturn = $this->_objUser->activateTeacher($uid);
+    	if($objReturn) {
+    		die("1");
+    	} else {
+    		die("0");
+    	}
     	 
     }
     
@@ -161,5 +166,4 @@ class AdminController extends AController
         $this->showProfileView();
     }
 }
-
 ?>
