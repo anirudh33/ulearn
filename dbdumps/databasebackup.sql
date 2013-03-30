@@ -370,11 +370,11 @@ UNLOCK TABLES;
 INSERT INTO userdetails VALUES (1,'root@osscube.com','root','admin');
 INSERT INTO userdetails VALUES (2,'teacher@osscube.com','root','teacher');
 INSERT INTO userdetails VALUES (3,'student@osscube.com','root','student');
-INSERT INTO admindetails (id, firstname, lastname, dob, qualification, updatedon) VALUES (1,'anirudh','pandita', '1-jan-1990', 'postgraduate','11-mar-2013');
+INSERT INTO admindetails (id, firstname, lastname, dob, qualification, updatedon,user_id) VALUES (1,'anirudh','pandita', '1-jan-1990', 'postgraduate','11-mar-2013',1);
 
-INSERT INTO studentdetails (id, firstname, lastname, dob, qualification, updatedon) VALUES (1,'kawaljeet','singh', '2-jan-1990', 'postgraduate','11-mar-2013');
+INSERT INTO studentdetails (id, firstname, lastname, dob, qualification, updatedon,user_id) VALUES (1,'kawaljeet','singh', '2-jan-1990', 'postgraduate','11-mar-2013',3);
 
-INSERT INTO teacherdetails (id, firstname, lastname, dob, qualification, updatedon) VALUES (1,'tanu','trehan', '25-dec-1989', 'postgraduate','11-mar-2013');
+INSERT INTO teacherdetails (id, firstname, lastname, dob, qualification, updatedon,user_id) VALUES (1,'tanu','trehan', '25-dec-1989', 'postgraduate','11-mar-2013',2);
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

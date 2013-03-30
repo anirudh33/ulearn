@@ -43,23 +43,30 @@
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
 				}
-				if ($viewName == "addCourse") {
+				elseif ($viewName == "addCourse") {
 					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
 				}
-				if ($viewName == "writeMessage" && (! empty ( $messages ))) {
+				elseif ($viewName == "writeMessage" && (! empty ( $messages ))) {
 					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
 				}
-				if ($viewName == "upload" && (! empty ( $messages ))) {
+				elseif ($viewName == "upload" && (! empty ( $messages ))) {
 					echo "hello";
 					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
 				}
-				if ($viewName == "registerCourse") {
+				elseif ($viewName == "registerCourse"&& (! empty ( $messages ))) {
 					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
 				}
-				if ($viewName == "viewMessage" && (! empty ( $messages ))) 
+				elseif ($viewName == "viewMessage" && (! empty ( $messages ))) 
 
 				{
 					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessageView.php';
+				}
+	
+
+				elseif ($viewName == "showProfile" && (! empty ( $messages )))
+				
+			 	{
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/TeacherProfileView.php';
 				}
 				
 				?>

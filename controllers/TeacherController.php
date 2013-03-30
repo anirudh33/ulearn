@@ -7,16 +7,25 @@ class TeacherController extends AController
 
     public function showView ($data = array())
     {
-        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
-    }
-
-    public function showSubTeacherViews ($viewName,$messages=array())
-    {
-    	
-        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
+        $this->showProfile ();
        
-    }
+      }
+    
+    
+    public function showSubTeacherViews ($viewName,$messages=array())
+    {  
+    	if($viewName=="showProfile")
+    	{
+    		//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] ."/index.php");
+    		
 
+    	}
+    	else {
+    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
+    	}
+    }
+ 
     public function editProfileClick ()
     {
        
@@ -24,6 +33,7 @@ class TeacherController extends AController
             $this->_objUser->fetchUser();
             /* Showing Teacher View with teacher data */
             $this->showView($this->_objUser->getTdata());
+            
         
     }
 
@@ -63,12 +73,15 @@ class TeacherController extends AController
     
 public function registerCourseClick ()
     {
-        $this->showSubTeacherViews("registerCourse");
+    	$objCourse= new Course();
+    	$result=$objCourse->fetchCoursename();
+        $this->showSubTeacherViews("registerCourse",$result);
+        
     }
 public function registerCourseButtonClick()
 { 
 
-	$coursename=$_POST['course_id'];//to be changed
+	$coursename=$_POST['coursenamelist'];//to be changed
 	$objCourse= new Course();
 $objCourse->registerCourse($coursename);
 	
@@ -109,14 +122,23 @@ public function writeMessage()
             $this->_objUser->messageSend($body, $subject,  $sentto);
         
     }
+    
+    public function showProfile ()
+    {
+    	$this->createUser();
+    	$teacherdetails=$this->_objUser->fetchTeacher();
+    	/* Showing Teacher View with teacher data */
+    	$this->showSubTeacherViews("showProfile",$teacherdetails);
+    
+    }
+    
 
     public function uploadClick ()
     {
 
-		 
-    		$this->createUser();
-    		$courseList=$this->_objUser->fetchCoursename();
-    	
+    	$objCourse= new Course();
+    	$courseList=$objCourse->fetchCoursename();
+    		    			
         $this->showSubTeacherViews("upload",$courseList);
     }
 

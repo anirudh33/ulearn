@@ -25,6 +25,7 @@ abstract class AController {
 		$this->createUser ();
 		
 		$this->showView ();
+		
 	}
 	
 	protected function showView ($data = array())

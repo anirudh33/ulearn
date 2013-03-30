@@ -38,15 +38,30 @@ $lang = Language::getinstance();
 					<fieldset class="row2">
 						<legend>Course Details </legend>
 <p>
-							<label>Course Id * </label> <input type="text" name="course_id" class="long" >
+							<label>Course Name* </label> 
+							 <select name="coursenamelist">
+							 <?php
+							 
+                            foreach ($messages as $key=>$value)
+							{
+								
+                            ?>
+                            
+                            <option value="<?php echo $value["coursename"];?>"> 
+                            <?php echo $value["coursename"];?> </option>
+
+                            <?php
+                            }
+                            ?>
+                           </select> </br>
+							
+							
 						</p>
 						
-						<p>
-							<label>Teacher Id * </label> <input type="text" name="teacher_id" class="long" >
-						</p>
+						
 						
 						</br></br>
-						<button class="button">Add &raquo;</button>
+						<button class="button">Register &raquo;</button>
 					
 					</fieldset>
 									

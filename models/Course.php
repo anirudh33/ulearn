@@ -18,7 +18,7 @@ class Course extends AModel {
 			mkdir ( "uploads/" . $_SESSION ['emailID'] );
 		}
 		if (! is_dir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["coursename"] )) {
-			mkdir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["description"]);
+			mkdir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["coursename"]);
 		}
 		$this->registerCourse($_POST ["coursename"]);
 	}
@@ -57,6 +57,18 @@ class Course extends AModel {
 		) );
 		$this->db->Insert ();
 		echo $this->db->lastQuery ();
+	}
+	
+	public function fetchCoursename() {
+		DBConnection::Connect ();
+		$this->db->Fields ( array (
+				"coursename"
+		) );
+		$this->db->From ( "course" );
+		$this->db->Where ();
+		$this->db->Select ();
+		$result = $this->db->resultArray ();
+		return $result;
 	}
 }
 

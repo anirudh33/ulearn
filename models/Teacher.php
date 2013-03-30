@@ -36,9 +36,30 @@ class Teacher extends AUser {
 		$this->db->From ( "teacherdetails" );
 		$this->db->Where ();
 		$this->db->Select ();
-		
 		$this->setTdata ( $this->db->resultArray () );
 	}
+	
+	public function fetchTeacher() {
+		
+		DBConnection::Connect ();
+		$this->db->Fields ( array (
+				"firstname",
+				"lastname",
+				"phone",
+				"address",
+				"qualification",
+				"gender",
+				"dob"
+		) );
+		$this->db->From ( "teacherdetails" );
+		$this->db->Where (array (
+				"user_id" => $_SESSION["userID"]));
+		$this->db->Select ();
+	
+		$result=$this->db->resultArray () ;
+		return $result;
+	}
+	
 	public function editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {
 		DBConnection::Connect ();
 		$this->db->From ( "teacherdetails" );
@@ -169,7 +190,7 @@ class Teacher extends AUser {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
-	public function fetchCoursename() {
+	/* public function fetchCoursename() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"coursename" 
@@ -179,7 +200,7 @@ class Teacher extends AUser {
 		$this->db->Select ();
 		$result = $this->db->resultArray ();
 		return $result;
-	}
+	} */
 	public function uploadContent() {
 		$n = count ( $_FILES ['upload'] ['name'] );
 		echo $n;
@@ -199,13 +220,13 @@ class Teacher extends AUser {
 
 					($_FILES ['upload'] ['type'] == "text/pdf") || ($_FILES ['upload'] ['type'] == "image/jpg")) && ($_FILES ['upload'] ['size'] < 1024000) || in_array ( $extension, $allowedExts )) {
 						
-// 						/* Check if directory exists if not then create */
+// 					//Check if directory exists if not then create 
 // 						if (! is_dir ( "uploads/" . $_SESSION ['emailID'] )) {
-// 							mkdir ( "uploads/" . $_SESSION ['emailID'] );
-// 						}
-// 						if (! is_dir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["course_id"] )) {
-// 							mkdir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["course_id"] );
-// 						}
+// 						mkdir ( "uploads/" . $_SESSION ['emailID'] );
+// 					}
+// 					if (! is_dir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["course_id"] )) {
+// 					mkdir ( "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["course_id"] );
+// 				}
 						$path = "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["coursenamelist"] . "/";
 						$path = $path . basename ( $_FILES ['upload'] ['name'] [$i] );
 						
