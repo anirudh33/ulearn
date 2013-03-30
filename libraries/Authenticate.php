@@ -118,8 +118,8 @@ class Authenticate {
 	}
 	
 	public function logIP(){
-		echo "<pre>".$_SERVER[REMOTE_ADDR];
-		$_SESSION["logged"][]=$_SERVER[REMOTE_ADDR];
+		echo "<pre>".$_SERVER['REMOTE_ADDR'];
+		$_SESSION["logged"][]=$_SERVER['REMOTE_ADDR'];
 	}
 	public function checkIPExists()
 	{

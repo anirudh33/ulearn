@@ -69,7 +69,7 @@ class MainController
         $this->setAuthenticationStatus($objInitiateUser->login($fieldEmail, $fieldPassword));
        
         if ($this->getAuthenticationStatus() == 1) {
-        		
+        	$authObject->logIP();	
             $this->showUserPanel();
         }
     }
