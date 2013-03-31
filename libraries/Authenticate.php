@@ -35,7 +35,7 @@ class Authenticate {
 			return 1;
 		} else {
 			
-			$this->setMessage("Session has expired or doesnt exist");
+			$this->setMessage ( "Session has expired or doesnt exist" );
 			
 			return 0;
 		}
@@ -89,76 +89,58 @@ class Authenticate {
 	}
 	/* Function to validate Registration form data */
 	public function validateRegistration() {
-		
-		
 		if (array_filter ( $_POST )) {
 			if (! filter_var ( $_POST ["email"], FILTER_VALIDATE_EMAIL )) {
 				$this->setMessage ( "Email not valid" );
 			}
-			if (! filter_var ( $_POST ["phone"], FILTER_VALIDATE_INT)) {
+			if (! filter_var ( $_POST ["phone"], FILTER_VALIDATE_INT )) {
 				$this->setMessage ( "Phone no not valid, enter numbers only" );
 			}
 			
-			$securimage = new Securimage();
-			if ($securimage->check($_POST['captcha_code']) == false) {
+			$securimage = new Securimage ();
+			if ($securimage->check ( $_POST ['captcha_code'] ) == false) {
 				$this->setMessage ( "The security code entered was incorrect.<br /><br />" );
-				
 			}
-				
-			
-		}else {
+		} else {
 			$this->setMessage ( "Fields cant be left empty" );
 		}
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 
-			"/index.php?method=registerClick&controller=Main&msg=" . $this->getMessage () . "" );
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?method=registerClick&controller=Main&msg=" . $this->getMessage () . "" );
 			die ();
 		}
 	}
-	
-	public function logIP(){
-		$line = date('Y-m-d H:i:s') .",".session_id().",". " - $_SERVER[REMOTE_ADDR]";
-		file_put_contents('visitors.log', $line . PHP_EOL, FILE_APPEND);
-		
-				
+	public function logIP() {
+		$line = date ( 'Y-m-d H:i:s' ) . "," . session_id () . "," . $_SERVER ['REMOTE_ADDR'];
+		file_put_contents ( 'visitors.log', $line . PHP_EOL, FILE_APPEND );
 	}
-	public function checkIPExists()
-	{
-		
-		$lines=file('visitors.log');
-		//$visitors[]=array();
-		foreach($lines as $key=>$value)
-		{
-			$visitors[][]=explode(',',$value);
-			
-			if($key[1]!=session_id()&& $key[2]!=$_SERVER['REMOTE_ADDR'] )
-			{
-				print_r($key);
-				echo $_SERVER['REMOTE_ADDR'];
-				
-				//(new MainController())->logout();
-			}
+	public function checkIPExists() {
+		if (file ( 'visitors.log' ) == false) {
+			die ( "file not found" );
 		}
-		echo "<pre><br><br><br><br><br><br><br><br>";
-		print_r($lines);
-		print_r($visitors);
+		$lines = file ( 'visitors.log' );
+		$i = 0;
+		$flag = 0;
 		
-		session_destroy();
-		die;
-// 		$visitors=file_get_contents('visitors.log');
-		
-// 		foreach ($_SESSION["logged"] as $key=>$value)
-// 		{
-// 			if($_SERVER[REMOTE_ADDR]==$value)
-// 			{
-// 				echo "disallow";
-// 			}
-// 			else {
-// 				echo "allow";
-// 			}
-// 		}
-// 		die;
+		foreach ( $lines as $key => $value ) {
+			$visitors [] = explode ( ',', $value );
+			
+			if (trim ( $visitors [$i] [2], PHP_EOL ) == trim ( $_SERVER ['REMOTE_ADDR'], " " )) {
+				
+				if ($visitors [$i] [1] == session_id ()) {
+					$dt = $visitors [$i] [0];
+					$flag = 0;
+				} elseif (! empty ( $dt )) {
+					
+					$flag = 1;
+				}
+			}
+			$i ++;
+		}
+		if ($flag == 1) {
+			(new MainController ())->logout ();
+		}
+		$dt = "";
 	}
 }
 
