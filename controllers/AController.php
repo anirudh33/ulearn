@@ -13,7 +13,9 @@ abstract class AController {
 	}
 	public function __construct() 
 	{
+		
 		$authObject = new Authenticate ( );
+		//$authObject->checkIPExists();
 		$authObject->setRequiredType($this->getRequiredType () );
 		if ($authObject->isValidUser () != 1) {
 			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $authObject->getMessage () . "" );

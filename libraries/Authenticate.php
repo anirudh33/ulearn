@@ -118,23 +118,47 @@ class Authenticate {
 	}
 	
 	public function logIP(){
-		echo "<pre>".$_SERVER['REMOTE_ADDR'];
-		$_SESSION["logged"][]=$_SERVER['REMOTE_ADDR'];
+		$line = date('Y-m-d H:i:s') .",".session_id().",". " - $_SERVER[REMOTE_ADDR]";
+		file_put_contents('visitors.log', $line . PHP_EOL, FILE_APPEND);
+		
+				
 	}
 	public function checkIPExists()
 	{
-		print_r($_SESSION["logged"]);
-		foreach ($_SESSION["logged"] as $key=>$value)
+		
+		$lines=file('visitors.log');
+		//$visitors[]=array();
+		foreach($lines as $key=>$value)
 		{
-			if($_SERVER[REMOTE_ADDR]==$value)
+			$visitors[][]=explode(',',$value);
+			
+			if($key[1]!=session_id()&& $key[2]!=$_SERVER['REMOTE_ADDR'] )
 			{
-				echo "disallow";
-			}
-			else {
-				echo "allow";
+				print_r($key);
+				echo $_SERVER['REMOTE_ADDR'];
+				
+				//(new MainController())->logout();
 			}
 		}
+		echo "<pre><br><br><br><br><br><br><br><br>";
+		print_r($lines);
+		print_r($visitors);
+		
+		session_destroy();
 		die;
+// 		$visitors=file_get_contents('visitors.log');
+		
+// 		foreach ($_SESSION["logged"] as $key=>$value)
+// 		{
+// 			if($_SERVER[REMOTE_ADDR]==$value)
+// 			{
+// 				echo "disallow";
+// 			}
+// 			else {
+// 				echo "allow";
+// 			}
+// 		}
+// 		die;
 	}
 }
 

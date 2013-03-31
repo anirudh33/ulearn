@@ -57,7 +57,7 @@ class MainController
     public function initiateLogin ()
     {
     	$authObject= new Authenticate();
-    	//$authObject->logIP();
+    	$authObject->logIP();
     	//$authObject->checkIPExists();
     	$authObject->validate();
     	
@@ -163,6 +163,10 @@ class MainController
             $obj = new Registration();
             $obj->newTeacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code);
         }
+    }
+    public function logout() {
+    	session_destroy ();
+    	header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
     }
 }
 ?>
