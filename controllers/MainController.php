@@ -57,8 +57,8 @@ class MainController
     public function initiateLogin ()
     {
     	$authObject= new Authenticate();
-    	$authObject->logIP();
-    	//$authObject->checkIPExists();
+    	
+    	
     	$authObject->validate();
     	
         $fieldEmail = $_POST["fieldEmail"];

@@ -12,8 +12,11 @@
  * 
  * ************************************************************************
  */
-
+//@todo log errors to a specific file to your project use ini_set or htaccess
+//@todo search filters on manage teacher view in Admin views
 /* Starting session and creating session variables to store paths and default database */
+ini_set("log_errors",1);
+ini_set("error_log",getcwd()."/errors.log");
 session_start();
 
 $_SESSION["SITE_PATH"] = getcwd();

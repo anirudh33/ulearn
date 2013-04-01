@@ -143,7 +143,12 @@ class InitiateUser extends AModel
         if ($bool == 1) {
             $this->_result = $this->db->resultArray();
             
-            if (! empty($this->_result[0]["user_id"])) {
+            /* Check if user active or not returns true if active */
+            $status=$this->fetchStatus(
+                $this->_result[0]["user_type"]."details",
+                $this->_result[0]["user_id"]);
+            
+            if (! empty($this->_result[0]["user_id"]) && $status==true) {
                 
                 $this->_userID = $this->_result[0]["user_id"];
                 $this->_userType = $this->_result[0]["user_type"];
@@ -157,6 +162,23 @@ class InitiateUser extends AModel
         return $bool;
     }
 
+    private function fetchStatus($table,$uid)
+    {
+        $this->db->Fields(array("status"));
+        $this->db->Where(array("user_id" => $uid,"status"=>"1"));
+        $this->db->From($table);
+        $bool = $this->db->select();
+        $result = $this->db->resultArray();
+        
+        if(empty($result[0]["status"])) {
+            return false;
+        }else {
+            return true;
+        }
+        
+        
+    }
+    
     private function fieldsValid ($fieldEmail, $fieldPassword)
     {
         $bool = TRUE;

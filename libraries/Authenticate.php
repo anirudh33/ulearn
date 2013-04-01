@@ -106,17 +106,22 @@ class Authenticate {
 		}
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?method=registerClick&controller=Main&msg=" . $this->getMessage () . "" );
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 
+			"/index.php?method=registerClick&controller=Main&msg=" . $this->getMessage () . "" );
 			die ();
 		}
 	}
 	public function logIP() {
-		$line = date ( 'Y-m-d H:i:s' ) . "," . session_id () . "," . $_SERVER ['REMOTE_ADDR'];
+		$line = date ( 'Y-m-d H:i:s' ) . "," . session_id () . "," . 
+		$_SERVER ['REMOTE_ADDR'].",".$_SESSION["emailID"];
+// 		echo "logging ------".$_SESSION["emailID"];
+// 		die;
 		file_put_contents ( 'visitors.log', $line . PHP_EOL, FILE_APPEND );
 	}
 	public function checkIPExists() {
+	    fopen("visitors.log","a");
 		if (file ( 'visitors.log' ) == false) {
-			die ( "file not found" );
+			//die ( "file not found" );
 		}
 		$lines = file ( 'visitors.log' );
 		$i = 0;
@@ -126,13 +131,14 @@ class Authenticate {
 			$visitors [] = explode ( ',', $value );
 			
 			if (trim ( $visitors [$i] [2], PHP_EOL ) == trim ( $_SERVER ['REMOTE_ADDR'], " " )) {
-				
+				if(trim ( $visitors [$i] [3], PHP_EOL)==$_SESSION["emailID"] ) {
 				if ($visitors [$i] [1] == session_id ()) {
 					$dt = $visitors [$i] [0];
 					$flag = 0;
 				} elseif (! empty ( $dt )) {
 					
 					$flag = 1;
+				}
 				}
 			}
 			$i ++;
