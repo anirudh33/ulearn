@@ -42,11 +42,8 @@ class StudentController extends AController
             $this->_objUser->editStudent($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
         
     }
-    
-    
-    
-
-    public function registerCourseClick ()
+        
+      public function registerCourseClick ()
     {
     	$objCourse= new Course();
     	$result=$objCourse->fetchCoursename();

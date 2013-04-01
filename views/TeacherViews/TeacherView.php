@@ -38,35 +38,55 @@
 
 				<center>
 				<?php
-				
-				if (! empty ( $data )) {
+				// if(isset($data) or isset($viewName) or isset($messages)) {
+				if (isset ( $data )) {
+					if (! empty ( $data )) {
+						
+						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
+					}
+				} 
+				if (isset ( $viewName )) {
 					
-					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
-				}
-				elseif ($viewName == "addCourse") {
-					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
-				}
-				elseif ($viewName == "writeMessage" && (! empty ( $messages ))) {
-					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
-				}
-				elseif ($viewName == "upload" && (! empty ( $messages ))) {
+				if ($viewName == "addCourse") 
 					
-					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
-				}
-				elseif ($viewName == "registerCourse"&& (! empty ( $messages ))) {
-					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
-				}
-				elseif ($viewName == "viewMessage" && (! empty ( $messages ))) 
+					{
+						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
+					}
+					if(isset($messages))
+					{
+				if ($viewName == "writeMessage" && (! empty ( $messages ))) 
+					
+					{
+						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
+					}
+				if ($viewName == "upload" && (! empty ( $messages ))) 
+					
+					{
+						
+						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
+					}
+				if ($viewName == "registerCourse"&& (! empty ( $messages ))) 
+					
+					{
+						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
+					}
+				if ($viewName == "viewMessage" && (! empty ( $messages ))) 
 
-				{
-					require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessageView.php';
-				}
+				
+					
+					{
+						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessageView.php';
+					}
 	
 
-				elseif ($viewName == "showProfile" && (! empty ( $messages )))
+				if ($viewName == "showProfile" && (! empty ( $messages )))
 				
-			 	{
-							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/TeacherProfileView.php';
+			 	
+					
+					{
+						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/TeacherProfileView.php';
+					}
+					}
 				}
 				
 				?>
@@ -80,7 +100,7 @@
 
 				<div class="arrowgreen">
 					<ul>
-						
+
 						<li><a href="index.php?method=uploadClick&controller=Teacher"
 							id="link1">Upload Study Material</a></li>
 						<li><a href="index.php?method=messageClick&controller=Teacher"

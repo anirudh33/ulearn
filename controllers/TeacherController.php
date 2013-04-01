@@ -8,22 +8,22 @@ class TeacherController extends AController
     public function showView ($data = array())
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
-        $this->showProfile ();
-       
+    	//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?method=showProfile&controller=Teacher");
+		       
       }
     
     
     public function showSubTeacherViews ($viewName,$messages=array())
-    {  
+    {  /* 
     	if($viewName=="showProfile")
     	{
     		//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] ."/index.php");
     		
 
     	}
-    	else {
+    	else { */
     	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
-    	}
+    
     }
  
     public function editProfileClick ()
