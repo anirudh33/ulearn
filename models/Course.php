@@ -103,15 +103,15 @@ class Course extends AModel {
 	
 		/* fetch id of course */
 		$this->db->Fields ( array (
-				"id"
+				"course_id"
 		) );
 		$this->db->From ( "course" );
 		$this->db->Where ( array (
-				"name" => $coursename
+				"coursename" => $coursename
 		) );
 		$this->db->Select ();
 		$id = $this->db->resultArray ();
-		$cid = $id [0] ['id'];
+		$cid = $id [0] ['course_id'];
 	
 		$this->db->From ( "enrolls" );
 		$this->db->Fields ( array (

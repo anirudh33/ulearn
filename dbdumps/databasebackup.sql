@@ -349,9 +349,9 @@ DROP TABLE IF EXISTS `userdetails`;
 CREATE TABLE `userdetails` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of teachers, students, admin',
   `email` char(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'email id of teachers, students, admin',
-  `confirm_code` char(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'confirm id of teachers, students, admin',
-  `password` char(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'passwords of teachers, students, admin',
+   `password` char(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'passwords of teachers, students, admin',
   `user_type` enum('superadmin','admin','teacher','student') NOT NULL COMMENT 'specifies type of user is teacher, student, admin',
+`confirm_code` char(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'confirm id of teachers, students, admin',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -367,9 +367,9 @@ LOCK TABLES `userdetails` WRITE;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-INSERT INTO userdetails VALUES (1,'root@osscube.com','root','admin');
-INSERT INTO userdetails VALUES (2,'teacher@osscube.com','root','teacher');
-INSERT INTO userdetails VALUES (3,'student@osscube.com','root','student');
+INSERT INTO userdetails VALUES (1,'root@osscube.com','root','admin','sss');
+INSERT INTO userdetails VALUES (2,'teacher@osscube.com','root','teacher','ttt');
+INSERT INTO userdetails VALUES (3,'student@osscube.com','root','student','ggg');
 INSERT INTO admindetails (id, firstname, lastname, dob, qualification, updatedon,user_id) VALUES (1,'anirudh','pandita', '1-jan-1990', 'postgraduate','11-mar-2013',1);
 
 INSERT INTO studentdetails (id, firstname, lastname, dob, qualification, updatedon,user_id) VALUES (1,'kawaljeet','singh', '2-jan-1990', 'postgraduate','11-mar-2013',3);
