@@ -11,7 +11,7 @@ class Registration extends AUser
 	{
 		return $this->message;
 	}
-    public function newStudentRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code)
+    public function newStudentRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype,$status, $profilepicture,$confirm_code)
     {
     	
     	
@@ -40,6 +40,7 @@ class Registration extends AUser
             "qualification" => "$qualification",
             "gender" => "$gender",
             "dob" => "$new_date",
+        		"status"=>"$status",
             "profilepicture" => "$profilepicture",
         	"createdon"=>date("Y/m/d")	
         ));
@@ -53,26 +54,89 @@ class Registration extends AUser
     	$this->db->From("userdetails");
     	$this->db->Fields(array(
     			 
-    			"confirm_code"
+    			"email","user_type"
     	));
-    	$this->db->Where(array("email"=>$email));
+    	$this->db->Where(array("confirm_code"=>$pass));
     	$this->db->Select();
     	//echo
     	$a=$this->db->resultArray();
-    	//echo $this->db->lastQuery();
+    	echo $this->db->lastQuery();
+    	//echo"<pre>";
     	//print_r($a) ;
-    	//echo $email.$pass;
-    	//die;
+    	 $rr=$a[0]["user_type"];
+    	 //echo $rr;
     	
-    	if($a)
+    	//echo $email.$pass;
+    	
+    	
+    	if(!empty($a))
     	{
-    		echo "YOU HAVE BEEN ACTIVATED";
+    		
+    		$this->db->From("userdetails");
+    		$this->db->Fields(array(
+    		
+    				"user_id"
+    		));
+    		$this->db->Where(array("email"=>$email));
+    		$this->db->Select();
+    		//echo
+    		$b=$this->db->resultArray();
+    		
+    		//print_r($b) ;
+    	
+    		
+    		if($rr=='student')
+    		{
+    			//echo "YOU HAVE BEEN ACTIVATED";
+    			
+    			$this->db->From("studentdetails");
+    			
+    			
+    			$this->db->Where(array(
+    					"user_id"=>$b[0]["user_id"]
+    			));
+    			$this->db->Fields(array(
+    					"status" => "1"
+    			));
+    			
+    			 echo $this->db->Update();
+    			 
+    			 echo $this->db->lastQuery();
+    			//return $objReturn;
+    			
+    			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
+    			//  $this->db->lastQuery();
+    			//echo $this->db->lastQuery();
+    			
+    			
+    		}if($rr=='teacher')
+    			
+    		{
+    			echo "YOU HAVE BEEN ACTIVATED";
+    			 
+    			$this->db->From("teacherdetails");
+    			 
+    			 
+    			$this->db->Where(array(
+    					"user_id"=>$b[0]["user_id"]
+    			));
+    			$this->db->Fields(array(
+    					"status" => "1"
+    			));
+    			 
+    			 $this->db->Update();
+    			 header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
+    			//return $objReturn;
+    			//  $this->db->lastQuery();
+    			//echo $this->db->lastQuery();
+    	
+    		}
+ 	   		
     	}
-    	 
-    
+
     }
     
-    public function newteacherRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code)
+    public function newteacherRegistration ($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype,$status, $profilepicture,$confirm_code)
     {
     	$new_date = date('Y-m-d', strtotime($date));
         DBConnection::Connect();
@@ -98,6 +162,7 @@ class Registration extends AUser
             "qualification" => "$qualification",
             "gender" => "$gender",
             "dob" => "$new_date",
+        		"status"=>"$status",
             "profilepicture" => "$profilepicture",
         	"createdon"=>date("Y/m/d")
         ));

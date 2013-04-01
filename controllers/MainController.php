@@ -130,6 +130,7 @@ class MainController
         $gender = $_POST["gender"];
         $date = $_POST["date"];
         $usertype = $_POST["usertype"];
+        $status='2';
         $profilepicture = addslashes(file_get_contents
             ($_FILES["profilepicture"]["tmp_name"]));
         $confirm_code=md5(uniqid(rand()));
@@ -157,10 +158,10 @@ class MainController
         if ($_POST["usertype"] == "student") {
             // echo"student";
             $obj = new Registration();
-            $obj->newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code);
+            $obj->newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype,$status, $profilepicture,$confirm_code);
         } elseif ($_POST["usertype"] == "teacher") {
             $obj = new Registration();
-            $obj->newTeacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $profilepicture,$confirm_code);
+            $obj->newTeacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype,$status, $profilepicture,$confirm_code);
         }
     }
     public function logout() {
