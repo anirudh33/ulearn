@@ -138,9 +138,15 @@ class Authenticate {
 			$i ++;
 		}
 		if ($flag == 1) {
-			(new MainController ())->logout ();
+			$o=new MainController ();
+			$o->logout ();
 		}
 		$dt = "";
+	}
+	
+	public function countRegistration()
+	{
+	    
 	}
 }
 

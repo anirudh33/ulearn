@@ -79,8 +79,7 @@ class MainController
     public function showUserPanel ()
     {
         
-        //@todo check to see if direct call has been made and throw 
-        //respective error if session not set
+        
         
     	
         $controllerName = ucfirst($_SESSION["userType"]) . "Controller";

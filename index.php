@@ -68,7 +68,7 @@ if (isset($_REQUEST['method'])) {
             $obj1 = new MainController();
         }      
     }
-    // @todo default authentication check method to be called before calling any method
+    
     
     $obj1->$_REQUEST['method']();
 }
