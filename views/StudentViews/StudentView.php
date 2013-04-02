@@ -44,33 +44,47 @@
 				<center>
 				<?php
     
+
+if (isset ( $data )) {
+
 if (! empty($data)) {
         
         require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/EditProfileView.php';
     }
-    elseif($viewName=="registerCourse")
+}
+
+if (isset ( $viewName )) {
+
+    if($viewName=="registerCourse")
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/RegisterCourseView.php';
     }
-    elseif($viewName=="writeMessage"&& (! empty($messages)))
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/MessageView.php';
-    }
-    elseif($viewName=="download")
+
+if($viewName=="download")
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
     }
-    elseif ($viewName=="viewMessage"&& (! empty($messages)))
+
+if(isset($messages))
+{
+    if($viewName=="writeMessage"&& (! empty($messages)))
+    {
+    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/MessageView.php';
+    }
+    
+    if ($viewName=="viewMessage"&& (! empty($messages)))
     
     {
     	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/ShowMessageView.php';
     }
     
-    elseif($viewName == "showProfile" && (! empty ( $messages )))
+    if($viewName == "showProfile" && (! empty ( $messages )))
     
     {
     	require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/StudentProfileView.php';
     }
+}
+}
     
     ?>
 				</center>
