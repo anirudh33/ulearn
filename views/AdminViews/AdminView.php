@@ -13,7 +13,7 @@ $lang = Language::getinstance();
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title><?php echo $lang-> HELLOADMINISTRATOR;?></title>
+<title><?php if(isset($lang->HELLOADMINISTRATOR)){echo $lang->HELLOADMINISTRATOR;} else {echo "Welcome Administrator";} ?></title>
 
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <?php
 // session_start();
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
+require_once $_SESSION ["SITE_PATH"] . '/libraries/Language.php';
+$lang = Language::getinstance ();
 ?>
 
 
@@ -25,57 +25,61 @@ $lang = Language::getinstance();
 
 	<div id="cc" width="5px" height="150px" align="center">
 
-		  
-		 
 
-			<div id="registerdiv" >
-			
-				
-				
-					<h1>Show Message</h1>
-					
-					<fieldset class="row2">
-						<legend>Message Details </legend>
-          				<table id="tt" border="1px">
-						<tr><th>Body</th><th>Subject</th><th>Sent From</th></tr>
-						<?php 
-					   foreach($messages as $key=>$value)
-					   { ?><tr><?php 
-					   foreach($value as $key1=>$value1)
-					   { ?>
+
+
+		<div id="registerdiv">
+
+
+
+			<h1>Show Message</h1>
+
+			<fieldset class="row2">
+				<legend>Message Details </legend>
+				<table id="tt" border="1px">
+					<tr>
+						<th>Body</th>
+						<th>Subject</th>
+						<th>Sent From</th>
+					</tr>
+						<?php
+						foreach ( $data as $key => $value ) {
+							?><tr><?php
+							foreach ( $value as $key1 => $value1 ) {
+								?>
 					   	<td><?php echo $value1?></td>
-					   	<?php 
-					   }?></tr><?php 
-					   }
+					   	<?php
+							}
+							?></tr><?php
+						}
 						?>
 						
 						</table>
-			
-						
-					
-					</fieldset>
-									
 
-		
 
-					</div>
+
+			</fieldset>
 
 
 
 
+		</div>
 
-	
+
+
+
+
+
 
 	</div>
 
-	
+
 
 
 </body>
 </html>
 
 
- 
 
 
 
@@ -106,4 +110,5 @@ $lang = Language::getinstance();
 
 
 
-                            
+
+

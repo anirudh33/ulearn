@@ -1,7 +1,7 @@
 <html>
 <head>
 <style type="text/css"> </style>
-<script type="text/javascript" src="ulearn\branches\development\assets\js\jquery\jquery.js"></script>
+
 <script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
 <script type="text/javascript">
 function show() {
@@ -20,7 +20,7 @@ Select course:
 <select name="coursenamelist">
                             <?php
                            
-                            foreach ($messages as $key=>$value)
+                            foreach ($data as $key=>$value)
 							{
 								
                             ?>
@@ -36,7 +36,8 @@ Select course:
 
 Choose file:* <input type="file" name="upload[]"/></br>
  <input type="submit" id="button" value="OK"/> 
-<input type="button" value="add more" onclick="show()"/>
+ <!-- <input type="button" value="add more" onclick="show()"/> -->
+
 <div id="more"></div>
 </form>
 </body>

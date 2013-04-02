@@ -44,7 +44,7 @@ $lang = Language::getinstance();
 							<select name="sentto" id="sentto">
                             <?php
                            
-                            foreach ($messages as $key=>$value)
+                            foreach ($data as $key=>$value)
 							{
 								
                             ?>

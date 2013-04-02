@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
 <script>
 
@@ -38,14 +38,7 @@
 
 				<center>
 				<?php
-				// if(isset($data) or isset($viewName) or isset($messages)) {
 				
-				if (isset ( $data )) {
-					if (! empty ( $data )) {
-						
-						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
-					}
-				}
 				
 				if (isset ( $viewName )) {
 					
@@ -54,30 +47,35 @@
 					{
 						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
 					}
-					if (isset ( $messages )) {
-						if ($viewName == "writeMessage" && (! empty ( $messages ))) 
+					if (isset ( $data )) {
+						if ($viewName == "editProfile" && (! empty ( $data )))
+						
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
+						}
+						if ($viewName == "writeMessage" && (! empty ( $data ))) 
 
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
 						}
-						if ($viewName == "upload" && (! empty ( $messages ))) 
+						if ($viewName == "upload" && (! empty ( $data ))) 
 
 						{
 							
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
 						}
-						if ($viewName == "registerCourse" && (! empty ( $messages ))) 
+						if ($viewName == "registerCourse" && (! empty ( $data ))) 
 
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
 						}
-						if ($viewName == "viewMessage" && (! empty ( $messages ))) 
+						if ($viewName == "viewMessage" && (! empty ( $data ))) 
 
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessageView.php';
 						}
 						
-						if ($viewName == "showProfile" && (! empty ( $messages ))) 
+						if ($viewName == "showProfile" && (! empty ( $data ))) 
 
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/TeacherProfileView.php';

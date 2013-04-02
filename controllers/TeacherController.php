@@ -5,13 +5,12 @@ class TeacherController extends AController
 
     protected  $_requiredType = "teacher";
 
-    public function showView ($data = array())
+    public function showView ()
     {    	
     	$this->showProfile();       
     }
-    
-    
-    public function showSubTeacherViews ($viewName,$messages=array())
+        
+    public function showSubTeacherViews ($viewName,$data=array())
     {  
     		
     	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
@@ -24,7 +23,7 @@ class TeacherController extends AController
             $this->createUser();
             $this->_objUser->fetchUser();
             /* Showing Teacher View with teacher data */
-            $this->showView($this->_objUser->getTdata());
+            $this->showSubTeacherViews("editProfile",$this->_objUser->getTdata());
             
         
     }
@@ -143,7 +142,7 @@ public function writeMessage()
     	
         $this->createUser();
        
-        $this->_objUser->uploadContent();
+        $this->_objUser->uploadContent($lesson_no,$lesson_name);
         $this->_objUser->lesson($lesson_no,$lesson_name,$coursenamelist);
     }
 }

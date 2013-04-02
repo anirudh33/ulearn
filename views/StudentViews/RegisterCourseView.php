@@ -42,7 +42,7 @@ $lang = Language::getinstance();
 							<select name="coursenamelist">
 							 <?php
 							 
-                            foreach ($messages as $key=>$value)
+                            foreach ($data as $key=>$value)
 							{
 								
                             ?>

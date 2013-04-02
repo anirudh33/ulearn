@@ -39,7 +39,7 @@ $lang = Language::getinstance();
           				<table id="tt" border="1px">
 						<tr><th>Body</th><th>Subject</th><th>Sent From</th></tr>
 						<?php 
-					   foreach($messages as $key=>$value)
+					   foreach($data as $key=>$value)
 					   { ?><tr><?php 
 					   foreach($value as $key1=>$value1)
 					   { ?>

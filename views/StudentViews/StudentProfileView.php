@@ -11,8 +11,8 @@
 	
 		<div class="wrapper">
 			
-			<span id="leftusernav">Welcome <?php echo $messages[0]['firstname'];?></span>
-			<span id="usernav"><a href="index.php?method=showProfile&controller=Student">My Profile</a> 
+			<span id="leftusernav">Welcome <?php echo $data[0]['firstname'];?></span>
+			<span id="usernav"><a href="index.php?method=showProfile&controller=Student">My Profile</a></span> 
 			
 		</div>
 	</header>
@@ -25,13 +25,13 @@
 				<div class="pic">
 					<a href="#"><img src="assets/images/img/ap.jpg" width="150" height="250" /></a>
 				</div>
-				<?php if(!empty($messages))
+				<?php if(!empty($data))
 				{?>
 					
 				<div class="data">
-					<h1><?php echo $messages[0]['firstname'];?> &nbsp <?php echo $messages[0]['lastname'];
+					<h1><?php echo $data[0]['firstname'];?> &nbsp <?php echo $data[0]['lastname'];
 					?></h1>
-					<h3><?php echo $messages[0]['qualification'];
+					<h3><?php echo $data[0]['qualification'];
 					?></h3>
 					
 					<h4><a href="http://ulearn.com/">http://ulearn.com/</a></h4>

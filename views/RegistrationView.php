@@ -11,15 +11,17 @@
 
 
 <!-- jquery source -->
-<script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
-<script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
-<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- <script src="assets/js/jquery/jquery.js" type="text/javascript"></script> -->
+<!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+<script src="assets/js/MainViewSlide.js" type="text/javascript"></script>	
 <script src="assets/js/MainView.js" type="text/javascript"></script>
- <script src="assets/js/RegistrationView.js" type="text/javascript"></script>  
+<script src="assets/js/RegistrationView.js" type="text/javascript"></script>  
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+
 <style type="text/css">
 
 #error

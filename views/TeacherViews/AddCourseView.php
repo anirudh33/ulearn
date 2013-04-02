@@ -14,7 +14,7 @@ $lang = Language::getinstance ();
 <!-- Links for stylesheet -->
 <link rel="stylesheet" href="assets/style/Registration.css"
 	type="text/css" media="screen" />
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
+<script src="assets/js/RegistrationView.js" type="text/javascript"></script>
 
 
 
@@ -41,16 +41,16 @@ $lang = Language::getinstance ();
 
 
 					<p>
-						<label>Course Name * </label> <input type="text" id="coursename" name="coursename"
-							class="long" onfocus="if(this.value === 'Course name required') this.value = '';">
+						<label>Course Name * </label> <input type="text" id="coursename"
+							name="coursename" class="long"
+							onfocus="if(this.value === 'Course name required') this.value = '';">
 					</p>
 					<p>
-						<label>Description  </label>
+						<label>Description </label>
 						<textarea name="description" rows="6" cols="20" class="long">
 						</textarea>
 					</p>
-					<br>
-					<br>
+					<br> <br>
 					<button class="button" id="addCourse">Add &raquo;</button>
 
 				</fieldset>

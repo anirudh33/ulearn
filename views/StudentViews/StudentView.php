@@ -10,16 +10,12 @@
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<script>
-
-</script>
 </head>
 
 <body>
 
-	
+
 
 
 
@@ -43,50 +39,41 @@
 
 				<center>
 				<?php
-    
+				
+				if (isset ( $viewName )) {
+					
+					if ($viewName == "registerCourse") {
+						require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/RegisterCourseView.php';
+					}
+					
+					if ($viewName == "download") {
+						require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
+					}
+					
+					if (isset ( $data )) {
+						if ($viewName == "editProfile" && (! empty ( $data ))) {
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/EditProfileView.php';
+						}
+						
+						if ($viewName == "writeMessage" && (! empty ( $data ))) {
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/MessageView.php';
+						}
+						
+						if ($viewName == "viewMessage" && (! empty ( $data ))) 
 
-if (isset ( $data )) {
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/ShowMessageView.php';
+						}
+						
+						if ($viewName == "showProfile" && (! empty ( $data ))) 
 
-if (! empty($data)) {
-        
-        require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/EditProfileView.php';
-    }
-}
-
-if (isset ( $viewName )) {
-
-    if($viewName=="registerCourse")
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/RegisterCourseView.php';
-    }
-
-if($viewName=="download")
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
-    }
-
-if(isset($messages))
-{
-    if($viewName=="writeMessage"&& (! empty($messages)))
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/MessageView.php';
-    }
-    
-    if ($viewName=="viewMessage"&& (! empty($messages)))
-    
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/ShowMessageView.php';
-    }
-    
-    if($viewName == "showProfile" && (! empty ( $messages )))
-    
-    {
-    	require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/StudentProfileView.php';
-    }
-}
-}
-    
-    ?>
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/StudentProfileView.php';
+						}
+					}
+				}
+				
+				?>
 				</center>
 			</div>
 
@@ -98,11 +85,17 @@ if(isset($messages))
 				<div class="arrowgreen">
 					<ul>
 						<!-- <button>hello</button> -->
-						<li><a href="index.php?method=downloadClick&controller=Student" id="link1">Download Study Material</a></li>
-						<li><a href="index.php?method=messageClick&controller=Student" id="link1">Write Message</a></li>
-						<li><a href="index.php?method=editProfileClick&controller=Student" id="link1">Edit Profile</a></li>
-						<li><a href="index.php?method=registerCourseClick&controller=Student">Register Course</a></li>
-						<li><a href="index.php?method=viewMessageClick&controller=Student">View Messages</a></li>
+						<li><a href="index.php?method=downloadClick&controller=Student"
+							id="link1">Download Study Material</a></li>
+						<li><a href="index.php?method=messageClick&controller=Student"
+							id="link1">Write Message</a></li>
+						<li><a href="index.php?method=editProfileClick&controller=Student"
+							id="link1">Edit Profile</a></li>
+						<li><a
+							href="index.php?method=registerCourseClick&controller=Student">Register
+								Course</a></li>
+						<li><a href="index.php?method=viewMessageClick&controller=Student">View
+								Messages</a></li>
 
 					</ul>
 				</div>

@@ -6,23 +6,22 @@ class StudentController extends AController
     protected  $_requiredType = "student";
 
   
-    public function showView ($data = array())
+    public function showView ()
     {
 		$this->showProfile();
     }
 
-    public function showSubStudentViews ($viewName,$messages=array())
+    public function showSubStudentViews ($viewName,$data=array())
     {
         require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/StudentView.php';
     }
 
-     public function editProfileClick ()
+    public function editProfileClick ()
     {
        
             $this->createUser();
             $this->_objUser->fetchUser();
-            /* Showing AdminView with teacher data */
-            $this->showView($this->_objUser->getTdata());
+            $this->showSubStudentViews("editProfile",$this->_objUser->getTdata());
         
     }
 

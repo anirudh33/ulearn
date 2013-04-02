@@ -19,16 +19,16 @@ class Course extends AModel {
 			return false;
 		}
 	}
-	public function courseRegistered($courseid, $id, $table) {
+	public function courseRegistered($courseid, $id, $table,$user) {
 		/* fetch id of course */
 		$this->db->Fields ( array (
 				"course_id",
-				"teacher_id" 
+				$user
 		) );
 		$this->db->From ( $table );
 		$this->db->Where ( array (
 				"course_id" => $courseid,
-				"teacher_id" => $id 
+				$user => $id 
 		) );
 		$this->db->Select ();
 		
@@ -108,7 +108,7 @@ class Course extends AModel {
 		 * Insert record into teaches table showing which course is taught by teacher
 		 */
 		if (! empty ( $cid ) && ! empty ( $tid )) {
-			if (! $this->courseRegistered ( $cid, $tid, "teaches" )) {
+			if (! $this->courseRegistered ( $cid, $tid, "teaches","teacher_id" )) {
 				$this->db->From ( "teaches" );
 				$this->db->Fields ( array (
 						"course_id" => $cid,
@@ -150,7 +150,7 @@ class Course extends AModel {
 		$this->db->Select ();
 		$id = $this->db->resultArray ();
 		$cid = $id [0] ['course_id'];
-		if (! $this->courseRegistered ( $cid, $sid, "enrolls" )) {
+		if (! $this->courseRegistered ( $cid, $sid, "enrolls","student_id" )) {
 			$this->db->From ( "enrolls" );
 			$this->db->Fields ( array (
 					"course_id" => $cid,

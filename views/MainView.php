@@ -32,17 +32,17 @@ $lang = Language::getinstance();
 <link rel="stylesheet" href="assets/style/MainViewStyle.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="assets/style/Slide.css" 		 type="text/css" media="screen" />
 <link rel="stylesheet" href="assets/style/MainView.css" 	 type="text/css" media="screen" />
-<link rel="stylesheet" href="assets/style/curtains.css" 	 type="text/css" media="screen" />
+<!-- <link rel="stylesheet" href="assets/style/curtains.css" 	 type="text/css" media="screen" /> -->
 	
 <!-- jquery source -->
-
-<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>	
-<script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
-<script src="assets/js/jquery/jquery.easing.1.3.js"	type="text/javascript"></script>
+<!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>	 -->
+<!-- <script src="assets/js/jquery/jquery.js" type="text/javascript"></script> -->
+<!-- <script src="assets/js/jquery/jquery.easing.1.3.js"	type="text/javascript"></script> -->
 
 <!-- Other javascript source  -->
 <script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
 <script src="assets/js/MainView.js" type="text/javascript"></script>
+
 
 <style>
 #header3 {
@@ -51,6 +51,7 @@ $lang = Language::getinstance();
 	background-color: white;
 }
 </style>
+
 </head>
 
 <body>
@@ -60,6 +61,7 @@ $lang = Language::getinstance();
 	
 	
 	<div id="toppanel">
+ 
 	
 		<div id="panel">
 		
