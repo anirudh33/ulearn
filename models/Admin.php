@@ -17,6 +17,8 @@ class Admin extends AUser
     private $totalTeacherRecords;
 
     private $totalStudentRecords;
+private $studentqualificationdata;
+private $teacherqualificationdata;
 
     /**
      *
@@ -55,6 +57,27 @@ class Admin extends AUser
     {
         $this->studentdata = $studentdata;
     }
+private function setStudentqualificationdata ($studentqualificationdata)
+    {
+        $this->studentqualificationdata = $studentqualificationdata;
+    }
+
+    public function getStudentqualificationdata ()
+    {	
+	
+        return $this->studentqualificationdata;
+    }
+private function setTeacherqualificationdata ($teacherqualificationdata)
+    {
+        $this->teacherqualificationdata = $teacherqualificationdata;
+    }
+
+    public function getTeacherqualificationdata ()
+    {	
+	
+        return $this->teacherqualificationdata;
+    }
+
 
     public function getTeacherdata ()
     {
@@ -199,6 +222,40 @@ class Admin extends AUser
         
         $this->setTotalStudentRecords(count($this->db->resultArray()));
     }
+public function fetchstudentqualification($qualification)
+	{
+		 DBConnection::Connect();
+        $this->db->Fields(array(
+           
+            "firstname",
+            "lastname",
+            "status"
+        ));
+        $this->db->From("studentdetails");
+       	$this->db->Where(array(
+    			"qualification"=>$qualification
+    	));
+        $this->db->Limit("");
+        $this->db->Select();
+	$this->setStudentqualificationdata(count($this->db->resultArray()));
+	}
+public function fetchteacherqualification($qualification)
+	{
+		 DBConnection::Connect();
+        $this->db->Fields(array(
+           
+            "firstname",
+            "lastname",
+            "status"
+        ));
+        $this->db->From("teacherdetails");
+       	$this->db->Where(array(
+    			"qualification"=>$qualification
+    	));
+        $this->db->Limit("");
+        $this->db->Select();
+	$this->setTeacherqualificationdata(count($this->db->resultArray()));
+	}
 
     public function editAdmin ($firstname, $lastname, $phone, $address, $qualification, $gender, $dob)
     {

@@ -104,11 +104,41 @@ $("button").click(function(){
 
 	  require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminProfileView.php';
 	  }
-	  else 
-	  {
-	  	require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminProfileView.php';
-	  	
-	  }
+	 
+
+
+if(isset($reportdata))
+{
+
+	 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/reportView.php';	
+
+} 
+elseif(!empty($studentreportcount))
+{
+//	echo "here also";
+	 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/reportView.php';	
+
+} 
+
+elseif(!empty($teacherreportcount))
+{
+//	echo "here also";
+	 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/reportView.php';	
+
+}
+if(isset($studentqualificationcount))
+{
+	
+	 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/reportView.php';	
+
+}
+if(isset($teacherqualificationcount))
+{
+	
+	 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/reportView.php';	
+
+}
+
     ?>
 				</center>
 			</div>
@@ -132,7 +162,7 @@ $("button").click(function(){
 						<li><a href="index.php?method=editProfileClick&controller=Admin"><?php echo $lang->EDITPROFILE;?></a></li>
 								
 								
-						<li><a href="http://www.dynamicdrive.com/forums/" title="Forums"><?php echo $lang->REPORTGENERATION;?></a></li>
+						<li><a href="index.php?method=generateReport&controller=Admin" title="Forums"><?php echo $lang->REPORTGENERATION;?></a></li>
     </ul>
     
 				</div>
