@@ -104,6 +104,8 @@ class MainController
 
     public function showRegisterView ()
     {
+    	$authObject= new Authenticate();
+    	$authObject->addRegistrationCount(3);
         require_once "./views/RegistrationView.php";
     }
 
@@ -134,39 +136,34 @@ class MainController
         $profilepicture = addslashes(file_get_contents
             ($_FILES["profilepicture"]["tmp_name"]));
         $confirm_code=md5(uniqid(rand()));
-       
-       
-   if(isset($_POST['checkmail']))
-{
-	$to = $_POST["email"];
-	$subject = "Confirmation Mail from Ulearn";
-	$message = "http://localhost/ulearn/branches/development/index.php?method=confirm&controller=Main&passkey=$confirm_code&email=$email";
-	$from = "kawaljeet.singh@osscube.com";
-	$headers = "From:" . $from;
-	mail($to,$subject,$message,$headers);
-	echo "Mail Sent.";
-	
- }
- else
-{
-   echo "not sent ";
-}
-       
-    
-
-        
-        if ($_POST["usertype"] == "student") {
-            // echo"student";
-            $obj = new Registration();
-            $obj->newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype,$status, $profilepicture,$confirm_code);
-        } elseif ($_POST["usertype"] == "teacher") {
-            $obj = new Registration();
-            $obj->newTeacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype,$status, $profilepicture,$confirm_code);
-        }
-    }
-    public function logout() {
-    	session_destroy ();
-    	header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
-    }
+		if (isset ( $_POST ['checkmail'] )) {
+			$to = $_POST ["email"];
+			$subject = "Confirmation Mail from Ulearn";
+			$message = "http://localhost/ulearn/branches/development/index.php?method=confirm&controller=Main&passkey=$confirm_code&email=$email";
+			$from = "kawaljeet.singh@osscube.com";
+			$headers = "From:" . $from;
+			$bool = mail ( $to, $subject, $message, $headers );
+			if ($bool == true) {
+				echo "Mail Sent.";
+			} else {
+				echo "Mail not sent";
+			}
+		}
+		
+		if ($_POST ["usertype"] == "student") {
+			// echo"student";
+			$obj = new Registration ();
+			$obj->newStudentRegistration ( $email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code );
+		} elseif ($_POST ["usertype"] == "teacher") {
+			$obj = new Registration ();
+			$obj->newTeacherRegistration ( $email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code );
+		}
+		/* Count no of times registration done from this ip */
+		
+	}
+	public function logout() {
+		session_destroy ();
+		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+	}
 }
 ?>

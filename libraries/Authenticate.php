@@ -111,11 +111,10 @@ class Authenticate {
 			die ();
 		}
 	}
+	/*logs ip addresses with date and session*/
 	public function logIP() {
 		$line = date ( 'Y-m-d H:i:s' ) . "," . session_id () . "," . 
 		$_SERVER ['REMOTE_ADDR'].",".$_SESSION["emailID"];
-// 		echo "logging ------".$_SESSION["emailID"];
-// 		die;
 		file_put_contents ( 'visitors.log', $line . PHP_EOL, FILE_APPEND );
 	}
 	public function checkIPExists() {
@@ -149,11 +148,64 @@ class Authenticate {
 		}
 		$dt = "";
 	}
-	
-	public function countRegistration()
+	//Logs IP for registration count and prevents registration if greater than 10
+	public function addRegistrationCount($noOfAttempts)
 	{
+		fopen("register.log","a");
+		$regArray=file('register.log');
+		$i = 0;
+		$flag=0;
+		$count = 1;
+		
+		
+		if(!empty($regArray)) {
+			$flag=1;
+			
+		foreach ( $regArray as $key => $value ) {
+			
+			
+		
+			if(trim($value,PHP_EOL)==$_SERVER["REMOTE_ADDR"]) {
+			
+				$count++;
+			}elseif(trim($value,PHP_EOL)!=date( "w")) {
+				fopen("register.log","w");
+			}
+			
+			
+			$i++;
+		}
+		}
+		if($count>=$noOfAttempts) {
+			
+			$this->setMessage("Registration not allowed, max no of attempts 
+					to register from a ip are <b>$noOfAttempts</b>");
+			$msg = $this->getMessage ();
+			if (! empty ( $msg )) {
+				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+				"/index.php?msg=" . $this->getMessage () . "" );
+				die ();
+			}
+			
+		}
+			
+			//logging user ip 
+			if($flag==1) {
+				$register=$_SERVER["REMOTE_ADDR"];
+				
+				file_put_contents ( 'register.log', $register . PHP_EOL, FILE_APPEND );
+			}else {
+				
+				file_put_contents ( 'register.log', date( "w") . PHP_EOL, FILE_APPEND );
+			}
+			
+		
+		
+		
+		
 	    
 	}
+	
 }
 
 ?>
