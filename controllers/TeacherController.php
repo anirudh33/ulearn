@@ -6,24 +6,16 @@ class TeacherController extends AController
     protected  $_requiredType = "teacher";
 
     public function showView ($data = array())
-    {
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
-    	//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?method=showProfile&controller=Teacher");
-		       
-      }
+    {    	
+    	$this->showProfile();       
+    }
     
     
     public function showSubTeacherViews ($viewName,$messages=array())
-    {  /* 
-    	if($viewName=="showProfile")
-    	{
-    		//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] ."/index.php");
+    {  
     		
-
-    	}
-    	else { */
     	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
-    
+    	    
     }
  
     public function editProfileClick ()
@@ -127,6 +119,7 @@ public function writeMessage()
     {
     	$this->createUser();
     	$teacherdetails=$this->_objUser->fetchTeacher();
+    	
     	/* Showing Teacher View with teacher data */
     	$this->showSubTeacherViews("showProfile",$teacherdetails);
     

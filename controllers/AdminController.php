@@ -7,7 +7,8 @@ class AdminController extends AController
     protected function showView ($data = array())
     {  	
     	
-        require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+        //require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+        $this->showProfile();
     }
 
     public function showManageTeacherView ($teacherdata = array(), $teacherRecordsCount)

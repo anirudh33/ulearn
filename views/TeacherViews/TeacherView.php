@@ -5,7 +5,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title><?php echo $lang->HELLOTEACHER?> </title>
+<title><?php  if(isset($lang->HELLOTEACHER)){echo $lang->HELLOTEACHER;} else {echo "Welcome Teacher";} ?> </title>
 
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />
@@ -39,53 +39,49 @@
 				<center>
 				<?php
 				// if(isset($data) or isset($viewName) or isset($messages)) {
+				
 				if (isset ( $data )) {
 					if (! empty ( $data )) {
 						
 						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
 					}
-				} 
+				}
+				
 				if (isset ( $viewName )) {
 					
-				if ($viewName == "addCourse") 
-					
+					if ($viewName == "addCourse") 
+
 					{
 						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
 					}
-					if(isset($messages))
-					{
-				if ($viewName == "writeMessage" && (! empty ( $messages ))) 
-					
-					{
-						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
-					}
-				if ($viewName == "upload" && (! empty ( $messages ))) 
-					
-					{
+					if (isset ( $messages )) {
+						if ($viewName == "writeMessage" && (! empty ( $messages ))) 
+
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
+						}
+						if ($viewName == "upload" && (! empty ( $messages ))) 
+
+						{
+							
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
+						}
+						if ($viewName == "registerCourse" && (! empty ( $messages ))) 
+
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
+						}
+						if ($viewName == "viewMessage" && (! empty ( $messages ))) 
+
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessageView.php';
+						}
 						
-						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
-					}
-				if ($viewName == "registerCourse"&& (! empty ( $messages ))) 
-					
-					{
-						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
-					}
-				if ($viewName == "viewMessage" && (! empty ( $messages ))) 
+						if ($viewName == "showProfile" && (! empty ( $messages ))) 
 
-				
-					
-					{
-						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessageView.php';
-					}
-	
-
-				if ($viewName == "showProfile" && (! empty ( $messages )))
-				
-			 	
-					
-					{
-						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/TeacherProfileView.php';
-					}
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/TeacherProfileView.php';
+						}
 					}
 				}
 				

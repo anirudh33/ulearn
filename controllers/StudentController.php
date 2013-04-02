@@ -8,7 +8,7 @@ class StudentController extends AController
   
     public function showView ($data = array())
     {
-        require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/StudentView.php';
+		$this->showProfile();
     }
 
     public function showSubStudentViews ($viewName,$messages=array())

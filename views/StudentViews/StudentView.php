@@ -5,7 +5,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title><?php echo $lang->HELLOSTUDENT?> </title>
+<title><?php if(isset($lang->HELLOSTUDENT)){echo $lang->HELLOSTUDENT;} else {echo "Welcome Student";} ?> </title>
 
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />
