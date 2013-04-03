@@ -160,14 +160,14 @@ public function messageSend($body,$subject,$sentto)
 	
 	public function downloadContent($coursenamelist,$teachernamelist)
 	{
-	$files=array();
+	$files="";
 		$path = $_SESSION['SITE_PATH']."/uploads/".$teachernamelist."/".$coursenamelist;
 		if ($handle = opendir($path)) {
 			while (false !== ($file = readdir($handle)))
 			{
 				if ($file != "." && $file != "..")
 				{
-					$files .= '<a href="'.$file.'">'.$file.'</a><br>';
+					$files .= '<a id="files" href="'."uploads/".$teachernamelist."/".$coursenamelist."/".$file.'">'.$file.'</a><br>';
 				}
 			}
 			closedir($handle);

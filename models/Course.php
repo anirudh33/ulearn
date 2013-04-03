@@ -185,7 +185,7 @@ class Course extends AModel {
 				"email"
 		) );
 		$this->db->From ( "userdetails" );
-		$this->db->Where ();
+		$this->db->Where (array("user_type"=>"teacher"));
 		$this->db->Select ();
 		$result1 = $this->db->resultArray ();
 		return $result1;

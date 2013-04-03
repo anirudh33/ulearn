@@ -78,15 +78,17 @@ class Authenticate {
 			if (! filter_var ( $_POST ["fieldEmail"], FILTER_VALIDATE_EMAIL )) {
 				$this->setMessage ( "Email not valid" );
 			}
-		} else {
-			$this->setMessage ( "Fields cant be left empty" );
+		}else {
+				$this->setMessage ( "Fields cant be left empty" );
 		}
+		
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
 			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $this->getMessage () . "" );
 			die ();
 		}
 	}
+	
 	/* Function to validate Registration form data */
 	public function validateRegistration() {
 		if (array_filter ( $_POST )) {
@@ -95,6 +97,16 @@ class Authenticate {
 			}
 			if (! filter_var ( $_POST ["phone"], FILTER_VALIDATE_INT )) {
 				$this->setMessage ( "Phone no not valid, enter numbers only" );
+			}
+			if(preg_match("^[a-zA-Z][a-zA-Z0-9.,$;]+$", $_POST["firstname"])===1)
+			{				$this->setMessage ( "Name must be from letters and must not start with numbers" );
+			}
+			if(preg_match("^[a-zA-Z][a-zA-Z0-9.,$;]+$", $_POST["lastname"])===0)
+			{				$this->setMessage ( "Name must be from letters and must not start with numbers" );
+			}
+			if(preg_match("/^.*(?=.{8,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$/", $_POST["password"]) === 0)
+			{
+				$this->setMessage ( "Password must be at least 8 characters and must contain at least one lower case letter, one upper case letter and one digit" );
 			}
 			
 			$securimage = new Securimage ();

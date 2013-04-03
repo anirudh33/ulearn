@@ -19,7 +19,7 @@ $(document).ready(function() {
 	 
     $('#register').click(function() { 
 
-    	$(".error").hide();
+    	
         var hasError = false;
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         var passwordval = $("#password").val();
@@ -53,7 +53,7 @@ $(document).ready(function() {
             hasError = true;
         }
         else if(!emailReg.test(emailaddressVal)) {
-            $("#email").val('Not valid.');
+            $("#email").after('Not valid.');
             hasError = true;
         }
 
@@ -165,6 +165,11 @@ $(document).ready(function() {
         }
                    
     });
+    
+    
+    
+    /*------------------Add Course View Javascript-------------------*/
+    
     
     $('#addCourse').click(function() { 
 
