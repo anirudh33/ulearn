@@ -61,7 +61,6 @@
 						if ($viewName == "upload" && (! empty ( $data ))) 
 
 						{
-							
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
 						}
 						if ($viewName == "registerCourse" && (! empty ( $data ))) 
