@@ -68,25 +68,30 @@
 						<legend>Account Details </legend>
 						<p>
 							<label>Email * </label> <input type="text" name="email"
-								id="email"
+								id="email" style="width: 300px;"
 								onfocus="if(this.value === 'Email required') this.value = '';" />
-							<label>Repeat email * </label> <input type="text"
+								</p>
+								<p>
+							<label>Repeat email * </label> <input type="text" style="width: 300px;"
 								id="repeatemail" name="repeatEmail" onfocus="if(this.value === 'Email required') this.value = '';"  />
 						</p>
 						<p>
 							<label>Password* </label> <input type="password" name="password"
-								id="password" /> <label>Repeat Password* </label> <input
+								id="password" />
+								</p>
+								<p>
+								 <label>Repeat Password* </label> <input
 								type="password" id="repeatpassword" name="repeatPassword"
 								onfocus="if(this.value === 'Email required') this.value = '';" />
-							<label class="obinfo">* obligatory fields </label>
+							
 						</p>
 					</fieldset>
 					<fieldset class="row2">
 						<legend>Personal Details </legend>
 						<p>
 							<label>First Name * </label> <input type="text" class="long"
-								name="firstname" id="firstname"
-								onfocus="if(this.value === 'Firstname required') this.value = '';" />
+								name="firstname" id="firstname" 
+								onfocus="if(this.value === 'Firstname required') this.value = '';" onblur="isurl(this.id)"/>
 						</p>
 						<p>
 							<label>Last Name * </label> <input type="text" class="long"
@@ -153,10 +158,7 @@
 					</fieldset>
 					<fieldset class="row4">
 						<legend>Terms and Mailing </legend>
-						<p class="agreement">
-							<input type="checkbox" value="" /> <label>* I accept the <a
-								href="#">Terms and Conditions</a></label>
-						</p>
+						
 						<p class="agreement">
 							<input type="checkbox" value="" name="checkmail"/> <label>Please send the confirmation mail
 								</label>

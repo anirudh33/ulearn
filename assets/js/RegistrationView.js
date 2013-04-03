@@ -11,12 +11,44 @@
 
 /*  -----------------------Javascript For Registration Validation ---------------------*/
 
+function isurl(id)
+    {   
+		var a=$("#"+id).val();
+		
+      
+         var RegExp = /^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/;
+            if(RegExp.test(a)){
+            	$("#"+id).after("UrL not ");
+            }else{
+                alert("fail");
+            }
 
+    }
+
+    function isscript(id)
+    {   
+            var RegExp = /(<([^>]+)>)/gi;
+            if(RegExp.test(id)){
+                alert("success");
+            }else{
+                alert("fail");
+            }
+    }
+
+    function isEmpty(id)
+    {
+        if(id=='')
+        {
+
+           
+    }else
+    {
+    }
+       
+    }
 
 $(document).ready(function() {
 
-
-	 
     $('#register').click(function() { 
 
     	
@@ -35,21 +67,21 @@ $(document).ready(function() {
         
 
         if(emailaddressVal == '' && passwordval=='') {
-            $("#email").val('Email required');
-            $("#password").after('*');
+            $("#email").after('Email required');
+            $("#password").after('password required');
             
             hasError = true;
         }
         
         
         else if(emailaddressVal == '') {
-            $("#email").val('Email required');
+            $("#email").after('Email required');
             hasError = true;
         }
         else if(passwordval == '') 
         {		        
     	
-            $("#password").after('*');
+            $("#password").after('password required');
             hasError = true;
         }
         else if(!emailReg.test(emailaddressVal)) {
@@ -60,20 +92,20 @@ $(document).ready(function() {
         if(firstnameval == '') 
         {		        
     	
-            $("#firstname").val('Firstname required');
+            $("#firstname").after('Firstname required');
             hasError = true;
         }
         if(lastnameval == '') 
         {		        
     	
-            $("#lastname").val('Lastname required');
+            $("#lastname").after('Lastname required');
             hasError = true;
         }
         if(captchaval == '') 
         {		        
         	
         
-            $("#captcha_code").val('Fill Code');
+            $("#captcha_code").after('Fill Code');
             hasError = true;
         }
       
@@ -81,27 +113,22 @@ $(document).ready(function() {
         if(repeatpasswordval == '') 
       {		        
     		
-          $("#repeatpassword").after('*');
+          $("#repeatpassword").after('password required');
            hasError = true;
        }
         if(repeatemailaddressVal == '') 
         {		        
     		
-           $("#repeatemail").val('Email required');
+           $("#repeatemail").after('Email required');
             hasError = true;
         }
                              
                  
-         if(qualificationval == '') 
-        {		        
-    	
-            $("#qualification").val('Qualification required');
-            hasError = true;
-        }
+        
         if(dateval == '') 
         {		        
     	
-            $("#datepicker").val('Date required');
+            $("#datepicker").after('Date required');
             hasError = true;
         }
        
@@ -114,6 +141,18 @@ $(document).ready(function() {
         }
                    
     });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     $('#edit').click(function() { 
 
