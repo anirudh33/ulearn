@@ -11,7 +11,7 @@ class StudentController extends AController
 		$this->showProfile();
     }
 
-    public function showSubStudentViews ($viewName,$data=array())
+    public function showSubStudentViews ($viewName,$data=array(),$data1=array())
     {
         require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/StudentView.php';
     }
@@ -106,11 +106,17 @@ public function writeMessage()
 
     public function downloadClick ()
     {
-        $this->showSubStudentViews("download");
-    }
+    	$objCourse= new Course();
+    	$result=$objCourse->fetchCoursename();
+    	$result1=$objCourse->fetchTeachername();
+    	$this->showSubStudentViews("download",$result,$result1);
+    	
+         }
 
     public function downloadFile ()
     {
+    	$coursenamelist = $_POST["coursenamelist"];
+    	$teachernamelist = $_POST["teachernamelist"];
         $this->createUser();
         $this->_objUser->downloadContent();
     }

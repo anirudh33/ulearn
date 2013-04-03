@@ -45,11 +45,7 @@
 					if ($viewName == "registerCourse") {
 						require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/RegisterCourseView.php';
 					}
-					
-					if ($viewName == "download") {
-						require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
-					}
-					
+														
 					if (isset ( $data )) {
 						if ($viewName == "editProfile" && (! empty ( $data ))) {
 							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/EditProfileView.php';
@@ -70,6 +66,13 @@
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/StudentProfileView.php';
 						}
+						
+						if (isset ( $data1 )) {
+						
+						if ($viewName == "download"&& (! empty ( $data ))&& (! empty ( $data1 ))) {
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
+						}
+}
 					}
 				}
 				

@@ -158,8 +158,7 @@ public function messageSend($body,$subject,$sentto)
 		return $result;
 	}
 	
-
-public function downloadContent(){
+	public function downloadContent(){
 	
 	
 		}

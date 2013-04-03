@@ -177,6 +177,20 @@ class Course extends AModel {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
+	
+	public function fetchTeachername() {
+		//@todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
+		DBConnection::Connect ();
+		$this->db->Fields ( array (
+				"firstname"
+		) );
+		$this->db->From ( "teacherdetails" );
+		$this->db->Where ();
+		$this->db->Select ();
+		$result1 = $this->db->resultArray ();
+		return $result1;
+		
+	}
 }
 
 ?>
