@@ -182,9 +182,9 @@ class Course extends AModel {
 		//@todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
-				"firstname"
+				"email"
 		) );
-		$this->db->From ( "teacherdetails" );
+		$this->db->From ( "userdetails" );
 		$this->db->Where ();
 		$this->db->Select ();
 		$result1 = $this->db->resultArray ();

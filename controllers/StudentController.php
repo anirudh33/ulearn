@@ -118,7 +118,10 @@ public function writeMessage()
     	$coursenamelist = $_POST["coursenamelist"];
     	$teachernamelist = $_POST["teachernamelist"];
         $this->createUser();
-        $this->_objUser->downloadContent();
+        $filelist=$this->_objUser->downloadContent($coursenamelist,$teachernamelist);
+        
+       
+        $this->showSubStudentViews("showContent",$filelist);
     }
 }
 

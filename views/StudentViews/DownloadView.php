@@ -33,7 +33,7 @@ $lang = Language::getinstance();
 			
 				<form method="post" action="index.php?method=downloadFile&controller=Student" enctype="multipart/form-data" name="frm1" /> 
 				
-					<h1>VIEW CONTENT</h1>
+					<h1>VIEW FILES</h1>
 					
 					<fieldset class="row2">
 						<legend>Message Details </legend>
@@ -50,8 +50,8 @@ $lang = Language::getinstance();
                             ?>
                            
                            
-                            <option value="<?php echo $value["firstname"];?>"> 
-                            <?php echo $value["firstname"];?> </option>
+                            <option value="<?php echo $value["email"];?>"> 
+                            <?php echo $value["email"];?> </option>
 
                             <?php
                             }

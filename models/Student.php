@@ -158,8 +158,22 @@ public function messageSend($body,$subject,$sentto)
 		return $result;
 	}
 	
-	public function downloadContent(){
-	
+	public function downloadContent($coursenamelist,$teachernamelist)
+	{
+	$files=array();
+		$path = $_SESSION['SITE_PATH']."/uploads/".$teachernamelist."/".$coursenamelist;
+		if ($handle = opendir($path)) {
+			while (false !== ($file = readdir($handle)))
+			{
+				if ($file != "." && $file != "..")
+				{
+					$files .= '<a href="'.$file.'">'.$file.'</a><br>';
+				}
+			}
+			closedir($handle);
+		}
+
+	return $files;
 	
 		}
 

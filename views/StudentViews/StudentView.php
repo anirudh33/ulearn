@@ -66,13 +66,18 @@
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/StudentProfileView.php';
 						}
+						if ($viewName == "showContent"&& (! empty ( $data ))) {
+
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/ContentView.php';
+						}
 						
 						if (isset ( $data1 )) {
 						
 						if ($viewName == "download"&& (! empty ( $data ))&& (! empty ( $data1 ))) {
 							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/DownloadView.php';
 						}
-}
+						}
+						
 					}
 				}
 				
