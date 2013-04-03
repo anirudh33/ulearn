@@ -1,9 +1,13 @@
 <?php
-
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
-
-
+/*
+ ************************** Creation Log *****************************
+File Name                   -  ManageStudentView.php
+Project Name                -  ulearn
+Description                 -  Shows all students in system and allows to delete them
+Version                     -  1.0
+Created by                  -  Ujjwal Rawlley
+Created on                  -  March 20, 2013
+*/
 
 $obj_paging = new paging();
 
@@ -12,18 +16,8 @@ if (isset($_GET['page']))
 else
     $page = 1;
 $obj_paging->set_page($page);
-
-// $limit = $obj_paging->get_limit();
 $obj_paging->set_page_length(10);
 $page_length = $obj_paging->page_length;
-// $start_limit = $obj_paging->get_limit_start();
-// $limit = $start_limit . "," . $page_length;
-
-// $objRecordSetUSR = $objUsers->fncFetchUsers($limit);
-// $total_records = $objUsers->fncFetchUsersCount();
-// $obj_paging->set_records($total_records);
-// $pages = $obj_paging->get_pages();
-
 $obj_paging->set_records($studentRecordsCount);
 $pages = $obj_paging->get_pages();
 
@@ -64,26 +58,24 @@ $pages = $obj_paging->get_pages();
                         }
                         ?>
                         <tr id=row class="<?PHP echo $class; ?>">
-					<td><?php echo $row['id']?></td>
-					<td><?php echo $row['firstname']?></td>
-					<td><?php echo $row['lastname']?></td>
-					<td id=rr><?php
-                        
-                        if ($row['status'] == 1) {
-                            ?>
-                  					 <img src="../big-tick-green.jpg" />  
-                            			<?php
+                        	<td><?php echo $row['id']?></td>
+                            <td><?php echo $row['firstname']?></td>
+                            <td><?php echo $row['lastname']?></td>
                             
-                            echo "Active";
-                        }
-                        ?></td>
-					<td><a
-						href="index.php?method=deleteTeacherClick&controller=Admin?id=<?php  $row['id'];?> ">
-							DELETE </a></td>
-				</tr>
-                        <?
-                        
-                        $i ++;
+                            <td>	<?php if($row['status']=='1')
+                            		{
+                  					   
+		                     			 echo "<font color=green>Active</font>" ;?>
+		                     			 <td><a onclick=fncDelete("<?php echo $row['id'];?>") href= "javascript:void(0)"  >DELETE </a></td>
+                            			<?php  }
+                            			 elseif ($row['status']=='2')
+                            			 {
+                            			 	echo "<font color=red>Inactive</font>";?></td>
+                            			 	<td><a onclick=fncActivate("<?php echo $row['id'];?>") href= "javascript:void(0)"  >ACTIVATE </a></td>
+                            			 	<?php }?>
+                           
+                        </tr>
+                        <? $i++; 
                     }
                     if ($i % 2 == 0) {
                         $class = "atnate";
@@ -109,3 +101,42 @@ $pages = $obj_paging->get_pages();
 	</div>
 </body>
 </htm>
+
+<script>
+
+function fncDelete(argId) {
+	   
+	$.ajax({ 
+     type: "POST",
+     url: 'index.php?method=deleteStudentClick&controller=Admin',          
+     data: "id="+argId,                        
+       success: function(dataReceived){
+    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
+           if($.trim(dataReceived)=="1") {
+        	   window.location.reload();
+           } else {
+               alert("Problem in deleting record!");
+             <?php //@todo error to be thrown if record doesnt get deleted actually ?>  
+           }
+       },
+   });
+}
+
+function fncActivate(argId) {
+
+	$.ajax({ 
+     type: "POST",
+     url: 'index.php?method=activateStudentClick&controller=Admin',          
+     data: "id="+argId,                        
+       success: function(dataReceived){
+    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
+           if($.trim(dataReceived)=="1") {
+        	   window.location.reload();
+           } else {
+               alert("Problem in deleting record!");
+               <?php //@todo error to be thrown if record doesnt get activated from ?>  
+           }
+       },
+   });
+}
+</script>

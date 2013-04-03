@@ -321,6 +321,46 @@ public function fetchteacherqualification($qualification)
     
     }
     
+    public function deleteStudent($uid)
+    {
+        DBConnection::Connect();
+           
+        $this->db->From("studentdetails");
+         
+         
+        $this->db->Where(array(
+            "id"=>$uid
+        ));
+        $this->db->Fields(array(
+            "status" => "2"
+        ));
+    
+        $objReturn = $this->db->Update();
+        return $objReturn;
+           
+    }
+    
+    public function activateStudent($uid)
+    {
+    
+        DBConnection::Connect();
+    
+    
+        $this->db->From("studentdetails");
+    
+    
+        $this->db->Where(array(
+            "id"=>$uid
+        ));
+        $this->db->Fields(array(
+            "status" => "1"
+        ));
+    
+        $objReturn = $this->db->Update();
+        return $objReturn;
+            
+    }
+    
     /*
      * public function fetchUserCount() { DBConnection::Connect(); $this->db->Fields(array("id")); $this->db->From("teacherdetails"); $this->db->Select(); $this->setcountData($this->db->resultArray()); }
      */

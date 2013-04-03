@@ -106,8 +106,7 @@ public function teacherqualificationreport($teacherqualificationcount)
 
     public function deleteTeacherClick ()
     {
-     
-    	$uid=$_POST['id'];
+       	$uid=$_POST['id'];
     	
     		$this->createUser();
     		$objReturn = $this->_objUser->deleteTeacher($uid);
@@ -120,11 +119,7 @@ public function teacherqualificationreport($teacherqualificationcount)
     public function activateTeacherClick ()
     {
     	$uid=$_REQUEST['id'];
-    	 
-    	 
-    	 
-    	 
-    	$this->createUser();
+       	$this->createUser();
     	$objReturn = $this->_objUser->activateTeacher($uid);
     	if($objReturn) {
     		die("1");
@@ -133,6 +128,32 @@ public function teacherqualificationreport($teacherqualificationcount)
     	}
     	 
     }
+    
+    public function deleteStudentClick ()
+    {
+        $uid=$_REQUEST['id'];
+         
+        $this->createUser();
+        $objReturn = $this->_objUser->deleteStudent($uid);
+        if($objReturn) {
+            die("1");
+        } else {
+            die("0");
+        }
+    }
+    public function activateStudentClick ()
+    {
+        $uid=$_REQUEST['id'];
+        $this->createUser();
+        $objReturn = $this->_objUser->activateStudent($uid);
+        if($objReturn) {
+            die("1");
+        } else {
+            die("0");
+        }
+    
+    }
+    
     
 
     public function manageStudentsClick ()

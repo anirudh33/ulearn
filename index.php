@@ -46,6 +46,8 @@ $_SESSION['DB_NAME'] = 'ulearndb';
 ini_set('log_errors',1);
 ini_set('error_log',getcwd().'/errors.log');
 
+
+
 /* Requiring all the necessary files controllers and libraries required */
 
 /* Libraries */
@@ -59,7 +61,6 @@ require_once ($_SESSION['SITE_PATH'] . '/libraries/UserFactory.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/Authenticate.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/securimage/securimage.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/Authenticate.php');
-
 
 /* Models */
 require_once ($_SESSION['SITE_PATH'] . '/models/Admin.php');
@@ -79,6 +80,7 @@ require_once ($_SESSION['SITE_PATH'] . '/controllers/StudentController.php');
 /* Getting default Language to be used in various views
  * Usage: Just use $lang->CONSTANTNAME to display the language specific value */
 $lang = Language::getinstance();
+
 
 /* Method Handling from called from Views */
 if (isset($_REQUEST['method'])) {

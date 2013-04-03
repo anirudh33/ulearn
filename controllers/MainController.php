@@ -50,7 +50,7 @@ class MainController
     /* Shows home page */
     public function showMainView ()
     {
-        require_once "./views/MainView.php";        
+        require_once "views/MainView.php";        
     }
     
     /* Starts login procedure by fetching username, password from POST */
