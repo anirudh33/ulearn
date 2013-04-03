@@ -12,7 +12,7 @@ $lang = Language::getinstance ();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> <?php echo $lang->TITLE;  ?></title>
 <!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Registration.css"
+<link rel="stylesheet" href="assets/style/Views.css"
 	type="text/css" media="screen" />
 <script src="assets/js/RegistrationView.js" type="text/javascript"></script>
 
@@ -30,7 +30,7 @@ $lang = Language::getinstance ();
 
 		<div id="registerdiv">
 
-			<form id="frm"
+			<form id="form"
 				action="index.php?method=addCourseButtonClick&controller=Teacher"
 				method="POST" class="register">
 

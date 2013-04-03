@@ -167,7 +167,7 @@ public function messageSend($body,$subject,$sentto)
 			{
 				if ($file != "." && $file != "..")
 				{
-					$files .= '<a id="files" href="'."uploads/".$teachernamelist."/".$coursenamelist."/".$file.'">'.$file.'</a><br>';
+					$files .= '<a id="files" target="_blank" href="'."uploads/".$teachernamelist."/".$coursenamelist."/".$file.'">'.$file.'</a><br>';
 				}
 			}
 			closedir($handle);

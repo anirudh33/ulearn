@@ -38,56 +38,23 @@
 	border: 1px solid red;
 }
 
+#form {
+
+
+	width: 500px ;
+	height: 600px;
+
+
+}
+
+
+
+
 /*   CSS FOR FORM    */
 {
-padding
-
-
-
-
-
-
-:
-
-
-
- 
-
-
-
-0;
-margin
-
-
-
-
-
-
-:
-
-
-
- 
-
-
-
-0;
-border
-
-
-
-
-
-
-:
-
-
-
- 
-
-
-
-0;
+padding:0;
+margin:0;
+border:0;
 }
 body,html {
 	color: #373C40;

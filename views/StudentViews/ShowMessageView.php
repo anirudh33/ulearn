@@ -12,7 +12,7 @@ $lang = Language::getinstance();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> <?php echo $lang->TITLE;  ?></title>
 <!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Registration.css"
+<link rel="stylesheet" href="assets/style/Views.css"
 	type="text/css" media="screen" />
 
 

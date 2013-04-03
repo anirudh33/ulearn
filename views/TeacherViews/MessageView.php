@@ -13,12 +13,8 @@ $lang = Language::getinstance();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title> <?php echo $lang->TITLE;  ?></title>
 <!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Registration.css"
+<link rel="stylesheet" href="assets/style/Views.css"
 	type="text/css" media="screen" />
-
-
-
-
 
 </head>
 
@@ -31,12 +27,12 @@ $lang = Language::getinstance();
 
 			<div id="registerdiv" >
 			
-				<form action="index.php?method=writeMessage&controller=Teacher"
+				<form id="form" action="index.php?method=writeMessage&controller=Teacher"
 					method="POST" class="register">
 				
 					<h1>Write Message</h1>
 					
-					<fieldset class="row2">
+					
 						<legend>Message Details </legend>
 
 
@@ -67,13 +63,13 @@ $lang = Language::getinstance();
 							<label>Subject * </label> <input type="text" name="subject" class="long" >
 						</p>
 						<p>
-							<label>Message * </label> <textarea name="body" rows="6" cols="20" class="long"></textarea>
+							<label>Message * </label> <textarea name="body" rows="20" cols="50" class="long"></textarea>
 						</p>
 
 						
 						<button class="button">Send &raquo;</button>
 					
-					</fieldset>
+					
 									
 
 		
