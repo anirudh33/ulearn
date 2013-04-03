@@ -106,7 +106,8 @@ public function teacherqualificationreport($teacherqualificationcount)
 
     public function deleteTeacherClick ()
     {
-    	$uid=$_REQUEST['id'];
+     
+    	$uid=$_POST['id'];
     	
     		$this->createUser();
     		$objReturn = $this->_objUser->deleteTeacher($uid);

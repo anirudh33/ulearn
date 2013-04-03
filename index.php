@@ -11,6 +11,7 @@
 *
 * ************************************************************************
 */
+session_start();
 ?>
 <!-- jquery source -->
 <script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
@@ -35,7 +36,7 @@
 
 //@todo search filters on manage teacher view in Admin views
 /* Starting session and creating session variables to store paths and default database */
-session_start();
+
 
 $_SESSION['SITE_PATH'] = getcwd();
 $_SESSION['DOMAIN_PATH'] = $_SERVER['SERVER_NAME'] . '/ulearn/branches/development';
@@ -85,18 +86,18 @@ if (isset($_REQUEST['method'])) {
     if (isset($_REQUEST['controller'])) {
         
         if ($_REQUEST['controller'] == 'Admin') {            
-            $obj1 = new AdminController();
+            $controllerObject = new AdminController();
         } elseif ($_REQUEST['controller'] == 'Student') {
-            $obj1 = new StudentController();
+            $controllerObject = new StudentController();
         } elseif ($_REQUEST['controller'] == 'Teacher') {
-            $obj1 = new TeacherController();
+            $controllerObject = new TeacherController();
         } elseif ($_REQUEST['controller'] == 'Main') {
-            $obj1 = new MainController();
+            $controllerObject = new MainController();
         }      
     }
     
     
-    $obj1->$_REQUEST['method']();
+    $controllerObject->$_REQUEST['method']();
 }
 
 /* Creating MainController Object as no method was called */
@@ -111,7 +112,7 @@ $obj = new MainController();
 if (isset($_SESSION['userType'])) {
 	
     $obj->showUserPanel();
-    die;
+    
 }
 
 /* If no method has been called show the main view/homepage */

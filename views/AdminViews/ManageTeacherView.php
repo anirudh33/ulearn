@@ -1,31 +1,27 @@
 <?php
-
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
-
+/*
+ ************************** Creation Log *****************************
+File Name                   -  ManageTeacherView.php
+Project Name                -  ulearn
+Description                 -  Shows all teachers in system and allows to delete them
+Version                     -  1.0
+Created by                  -  Ujjwal Rawlley
+Created on                  -  March 18, 2013
+*/
 
 $obj_paging = new paging();
 
-if (isset($_GET['page']))
+if (isset($_GET['page'])) {
     $page = $_GET['page'];
-else
+} else {
     $page = 1;
-$obj_paging->set_page($page);
+}
 
-// $limit = $obj_paging->get_limit();
+$obj_paging->set_page($page);
 $obj_paging->set_page_length(10);
 $page_length = $obj_paging->page_length;
-// $start_limit = $obj_paging->get_limit_start();
-// $limit = $start_limit . "," . $page_length;
-
-// $objRecordSetUSR = $objUsers->fncFetchUsers($limit);
-// $total_records = $objUsers->fncFetchUsersCount();
-// $obj_paging->set_records($total_records);
-// $pages = $obj_paging->get_pages();
-
 $obj_paging->set_records($teacherRecordsCount);
 $pages = $obj_paging->get_pages();
-
 ?>
 <html>
 <head>
@@ -107,17 +103,18 @@ $pages = $obj_paging->get_pages();
 <script>
 
 function fncDelete(argId) {
-
+	   
 	$.ajax({ 
      type: "POST",
      url: 'index.php?method=deleteTeacherClick&controller=Admin',          
      data: "id="+argId,                        
-       success: function(data){
-           data = $.trim(data);
-           if(data=="1") {
+       success: function(dataReceived){
+    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
+           if($.trim(dataReceived)=="1") {
         	   window.location.reload();
            } else {
                alert("Problem in deleting record!");
+             <?php //@todo error to be thrown if record doesnt get deleted actually ?>  
            }
        },
    });
@@ -129,12 +126,13 @@ function fncActivate(argId) {
      type: "POST",
      url: 'index.php?method=activateTeacherClick&controller=Admin',          
      data: "id="+argId,                        
-       success: function(data){
-           data = $.trim(data);
-           if(data=="1") {
+       success: function(dataReceived){
+    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
+           if($.trim(dataReceived)=="1") {
         	   window.location.reload();
            } else {
                alert("Problem in deleting record!");
+               <?php //@todo error to be thrown if record doesnt get activated from ?>  
            }
        },
    });
