@@ -33,6 +33,7 @@
                     },
 			 address: {
                         required: true,
+                        url : false,
                        
                     },
                     agree: "required"
@@ -45,6 +46,9 @@
                     phone: {
                         required: "Please provide a phoneno",
                         minlength: "Your phone must be at least 10 characters long"
+                    },
+                    address: {
+                    	url: "no no ",
                     },
                     password: {
                         required: "Please provide a password",

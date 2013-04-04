@@ -102,7 +102,7 @@ class MainController
     public function showRegisterView ()
     {
     	$authObject= new Authenticate();
-    	$authObject->addRegistrationCount(100);
+    	$authObject->addRegistrationCount(10000);
         require_once "./views/RegistrationView.php";
     }
 

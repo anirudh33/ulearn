@@ -64,7 +64,7 @@ $( "#datepicker" ).datepicker();
 			<form action="index.php?method=registerUser&controller=Main" method="post" id="register-form" 
 			novalidate="novalidate" enctype="multipart/form-data">
 
-    <h2>User Registration</h2>
+    <h2><strong>User Registration</strong></h2>
 
     <div id="form-content">
         <fieldset>
@@ -72,7 +72,8 @@ $( "#datepicker" ).datepicker();
             <div class="fieldgroup">
                 <label for="firstname">First Name</label>
                 <input type="text" name="firstname">
-           
+           </div>
+           <div class="fieldgroup" >
                 <label for="lastname">Last Name</label>
                 <input type="text" name="lastname">
             </div>
@@ -133,26 +134,20 @@ $( "#datepicker" ).datepicker();
                 <label class="gender">Teacher</label><input type="radio" name="usertype" value="teacher" />
              </p>
              </div> 
-            
-            <p>
+            <div class="fieldgroup" >
+       
 							<img id="captcha" src="libraries/securimage/securimage_show.php"
-								alt="CAPTCHA Image" /> <br> <input type="text"
+								alt="CAPTCHA Image" width="300px"/> <br> <input type="text"
 								name="captcha_code" id="captcha_code" size="10" maxlength="6"
 								/> <a
 								href="#"
 								onclick="document.getElementById('captcha').src = 
 									'libraries/securimage/securimage_show.php?' + Math.random(); 
 								return false">[Different Image ]</a>
-						</p>
 						
-						
-				<p>
-							<input type="checkbox" value="" name="checkmail" /> <label>Please
-								send the confirmation mail </label>
-						</p>
-            
-            
-             
+						</div>
+				<p><input type="checkbox" value="" name="checkmail" /> <label>Please send the confirmation mail </label>
+					</p>
             <div class="fieldgroup">
                 <input type="submit" value="Register" class="submit">
             </div>
