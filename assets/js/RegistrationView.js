@@ -13,7 +13,7 @@
 
 function isUrl(id)
     {   
-	
+	 
 		var a=$("#"+id).val();
 		
       
@@ -23,6 +23,8 @@ function isUrl(id)
             	$("#"+id).after("wrong entry");
             	document.getElementById(id).style.borderColor="#FF0000";
             }
+            
+            
     }
 
 

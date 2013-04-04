@@ -117,8 +117,10 @@ class MainController
     
     public function registerUser ()
     {
-    	$authObject= new Authenticate();
-    	$authObject->validateRegistration();
+    	
+    	
+    	//$authObject= new Authenticate();
+    	//$authObject->validateRegistration();
         $email = $_POST["email"];
         $password = $_POST["password"];
         $firstname = $_POST["firstname"];
@@ -133,6 +135,9 @@ class MainController
         $profilepicture = addslashes(file_get_contents
             ($_FILES["profilepicture"]["tmp_name"]));
         $confirm_code=md5(uniqid(rand()));
+ 
+        
+        
 		if (isset ( $_POST ['checkmail'] )) {
 			$to = $_POST ["email"];
 			$subject = "Confirmation Mail from Ulearn";
