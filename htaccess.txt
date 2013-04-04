@@ -1,0 +1,19 @@
+Options -Indexes	
+
+RewriteEngine on
+
+#If file not found go to custom error page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ /ulearn/branches/development/error.php [L]
+
+## PROTECT FILES ###
+<filesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh|php)$">
+  Order Allow,Deny
+  Deny from all
+</filesMatch>
+
+<FilesMatch "index.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
