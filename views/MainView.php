@@ -11,8 +11,8 @@ Sr.NO.  Version   Updated by        Updated on          Description
 -------------------------------------------------------------------------
 1       1.0       Anirudh Pandita   March 08, 2013      Test language changes
 2       1.0       Ujjwal Rawlley    March 09, 2013      Included constants from language file
-3		1.1		  Anirudh Pandita	April 04, 2013		Clean up and 
-														header separation
+3	1.1	  Anirudh Pandita   April 04, 2013	Clean up and header separation
+4	1.2	  Ujjwal Rawlley    April 04, 2013	Main View Tabs modification with some functionality added
 * ************************************************************************
 */
 
@@ -20,6 +20,7 @@ $lang = Language::getinstance();
 $pageName="MainView";
 require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 ?>
+
 <body>
 
 	<!-- Panel -->
@@ -130,51 +131,18 @@ if (isset($_REQUEST["msg"])) {
 				<div class="container">
 
 					<ul class="tabs">
-						<li><a href="#tab1"><?php echo $lang->HOME;?></a></li>
-						<li><a href="#tab2"><?php echo $lang->ABOUTUS;?></a></li>
-						<li><a href="#tab3"><?php echo $lang->RESOURCES;?></a></li>
-						<li><a href="#tab4"><?php echo $lang-> CONTACT;?></a></li>
-						<li><a href="#tab4"><?php echo $lang-> COURSES;?></a></li>
+						<li class="green"><a href="#tab1"><?php echo $lang->HOME;?></a></li>
+						<li class="yellow"><a href="#tab2"><?php echo $lang->ABOUTUS;?></a></li>
+						
+						<li class="red"><a href="#tab4"><?php echo $lang-> CONTACT;?></a></li>
+						<li class="pink"><a href="#tab5"><?php echo $lang-> COURSES;?></a></li>
 					</ul>
 					
 					<div class="tab_container">
 						<div id="tab1" class="tab_content">
-							<img alt="" src="assets/images/img/tab1_image.jpg">
-							<h2>
-								<p>
-									Thank you for your interest in <b>Ulearn</b> and elearning!
-								</p>
+							<img alt="" src="assets/images/img/ae_graduate1.jpg"  height="520" width="542">
 
-								In March 2013, we acquired Ulearn, bringing together elearning
-								leaders to offer customers one of the world's most comprehensive
-								content collections. Skillsoft can now offer even more targeted
-								learning assets covering key business issues such as leadership
-								development, IT certification and performance support,
-								compliance, performance management, and more. In addition, the
-								combined company offers unparalleled service—our customers
-								benefit from our decades of experience in the learning space.
-								We're proud of our ability to help clients use learning to solve
-								their critical business problems and deliver a measurable impact
-								on business results. E-learning refers to the use of various
-								kinds of electronic media and information and communication
-								technologies (ICT) in education. E-learning is an inclusive
-								terminology for all forms of educational technology that
-								electronically or technologically support learning and teaching,
-								and may, depending on an emphasis on a particular aspect or
-								component or delivery method, sometimes be termed
-								technology-enhanced learning (TEL), computer-based training
-								(CBT), internet-based training (IBT), web-based training (WBT),
-								virtual education, or digital educational collaboration.
-
-								E-learning includes numerous types of media that deliver text,
-								audio, images, animation, and streaming video and includes
-								technology applications and processes such as audio or video
-								tape, satellite TV, CD-ROM, and computer-based learning, as well
-								as local intranet/extranet and web-based learning. Information
-								and communication systems, whether free-standing or based on
-								either local networks or the Internet in networked learning,
-								underly many e-learning processes. [1]
-						
+							  
 						</div>
 						<div id="tab2" class="tab_content">
 							<img alt="" src="assets/images/Views/tab1_image.jpg">
@@ -193,25 +161,42 @@ if (isset($_REQUEST["msg"])) {
 								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
 								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.</h2>
 						</div>
-						<div id="tab3" class="tab_content">
-							<img alt="" src="assets/images/Views/tab1_image.jpg"> Lorem ipsum
-							dolor sit amet, consectetur adipiscing elit. Nam bibendum nibh
-							enim. Aenean pharetra fermentum dui nec interdum. Nam volutpat,
-							odio a faucibus mattis, nunc ligula varius erat, non imperdiet
-							diam eros sit amet orci. Donec eu consequat velit. Maecenas urna
-							enim, molestie eu egestas convallis, gravida malesuada orci.
-							Aliquam at elit massa, sit amet interdum tortor. Morbi nibh
-							lectus, rhoncus nec ullamcorper sit amet, dictum et neque. Nulla
-							accumsan elementum erat id ornare. Aenean dictum, odio at
-							porttitor eleifend, arcu urna faucibus neque, at commodo tortor
-							felis vel leo. Suspendisse potenti. Ut euismod blandit vulputate.
-							Aliquam nec dolor nisl. Aliquam porttitor libero sed enim
-							consectetur venenatis. Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit. Curabitur nulla ligula, interdum ac molestie
-							vitae, imperdiet in orci. Donec id ullamcorper lacus.
+						
+						<div id="tab4" class="tab_content">
+							<img alt="" src="assets/images/img/birdy.jpg" align="right" width=400px>
+							
+								
+							
+								
+							<form id="mailform" method="POST" name="contactform" 			
+								action="index.php?method=sendmail&controller=Main"> 
+<fieldset>
+<legend><img alt="" src="assets/images/img/contact_me.png"></legend>
+							<label for='name'>Your Name:</label> <br>
+							<input type="text" name="name" id="name">
+							
+							<p>
+							<label for='email'>Email Address:</label> <br>
+							<input type="text" id="email" name="email"> <br>
+							</p>
+							<p>
+							<label for='message'>Message:</label> <br>
+							<textarea id="message" name="message"></textarea>
+							</p>
+							<input type="submit" value="Submit"><br>
+							
+</fieldset>
+							</form>
+							</center>
+
+																
+							
+							
+
 
 						</div>
-						<div id="tab4" class="tab_content">
+
+							<div id="tab5" class="tab_content">
 							<img alt="" src="assets/images/Views/tab1_image.jpg">
 							<h2>
 								<ul>

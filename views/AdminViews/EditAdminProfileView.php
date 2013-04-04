@@ -1,4 +1,18 @@
-<?php //@todo edit profile changes doesnt get reflected back to the view ?>
+<?php
+/*
+ ************************** Creation Log *****************************
+
+File Name                   -  EditAdminProfileView.php
+Description                 -  Edit Profile page of Admin
+Version                     -  1.0
+Created by                  -  Ujjwal Rawlley
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+
+* ************************************************************************
+*/ //@todo edit profile changes doesnt get reflected back to the view ?>
 <div id="registerdiv">
 
 			<form id="form" action="index.php?method=editAdminClick&controller=Admin"

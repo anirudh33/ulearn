@@ -1,17 +1,29 @@
+<?php 
+/* Creation Log
 
-	
-<?php //@todo move the following header to admin view so that log out shows on each page if sounds fine?>
+File Name                   -  AdminProfileView.php
+Description                 -  Displays the profile of admin
+Version                     -  1.0
+Created by                  -  Ujjwal Rawlley
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
+* ************************************************************************
+*/
+//@todo move the following header to admin view so that log out shows on each page if sounds fine?>
 	<header>
 	
 		<div class="wrapper">
 			
-			<span id="leftusernav"><?php echo $lang-> WELCOME;?><?php echo $adminprofiledata[0]['firstname'];?></span>
-			<span id="usernav"><a href="index.php?method=logout&controller=Admin"><?php echo $lang-> LOGOUT;?></a>- <a href="index.php?method=showProfile&controller=Admin"><?php echo $lang-> MYPROFILE;?></a> 
+			<span id="leftusernav"><?php echo $lang-> WELCOME;?>&nbsp<?php echo $adminprofiledata[0]['firstname'];?></span>
+			<span id="usernav"> <a href="index.php?method=showProfile&controller=Admin"><?php echo $lang-> MYPROFILE;?></a> 
 			
 		</div>
 	</header>
 	
-	
+
 	
 	<div id="content" class="clearfix">
 		<section id="left">
@@ -47,14 +59,30 @@
 						<?php 	}?>
 				
 			</div>
-			
-			<h1><?php echo $lang-> ABOUTME;?></h1>
-			<p>The System Administrator (SA) is responsible for effective provisioning, installation/configuration, operation, and maintenance of systems hardware and software and related infrastructure. This individual participates in technical research and development to enable continuing innovation within the infrastructure. This individual ensures that system hardware, operating systems, software systems, and related procedures adhere to organizational values, enabling staff, volunteers, and Partners.
+			<h1>About Me:</h1>
 
-This individual will assist project teams with technical issues in the Initiation and Planning phases of our standard Project Management Methodology. These activities include the definition of needs, benefits, and technical strategy; research & development within the project life-cycle; technical analysis and design; and support of operations staff in executing, testing and rolling-out the solutions. Participation on projects is focused on smoothing the transition of projects from development staff to production staff by performing operations activities within the project life-cycle.
+<div id="userdetails">
+	<div id="data">
+		<h3>Name :</h3> <h4> <?php echo $adminprofiledata[0]['firstname'];?>&nbsp<?php echo $adminprofiledata[0]['lastname'];?></h4>
+		<div class="sep"></div>		
+<h3>Qualification:  </h3> <h4><?php echo $adminprofiledata[0]['qualification'];?></h4>
+<h3>Date of Birth:  </h3> <h4><?php echo $adminprofiledata[0]['dob'];?></h4>
+<h3>Qualification:  </h3> <h4><?php echo $adminprofiledata[0]['qualification'];?></h4>
+<h3>Contact Number:  </h3> <h4><?php echo $adminprofiledata[0]['phone'];?></h4>
+<h3>Address:  </h3> <h4><?php echo $adminprofiledata[0]['address'];?></h4>
 
-
-		</section>
+	</div>
+		</div>
 		
+</section>
+		
+
+			
+
+
+
+
+
 		
 	</div>
+</html>

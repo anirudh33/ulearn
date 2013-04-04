@@ -17,7 +17,7 @@ body {
 #footer1 {
 	width: 100%;
 	height: 20px;
-	background: url("../images/Views/footer.jpg");
+	background: url("../images/img/footer.jpg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
@@ -46,7 +46,7 @@ ul.tabs {
 
 ul.tabs li {
 	float: left;
-	width: 198px;
+	width: 249px;
 	margin: 0;
 	padding: 0;
 	height: 31px;
@@ -54,14 +54,45 @@ ul.tabs li {
 	border: 1px solid #999;
 	border-left: none;
 	margin-bottom: -1px;
-	background: grey;
+
 	overflow: hidden;
 	position: relative;
 }
 
+ul.tabs li.green
+{
+background:#6AA63B;
+}
+
+ul.tabs li.yellow
+{
+background:#FBC700;
+}
+ul.tabs li.flashy
+{
+background:#00FF00;
+}
+ul.tabs li.pink
+{
+background:#FF00FF;
+}
+ul.tabs li.red
+{
+background:#D52100;
+}
+
+
+#mail
+{
+background: url("../images/Views/formbg.png");
+}
+
+
+
+
 ul.tabs li a {
 	text-decoration: none;
-	color: brown;
+	color: blue;
 	display: block;
 	font-size: 2.8em;
 	padding: 0 20px;
@@ -96,6 +127,25 @@ html ul.tabs li.active,html ul.tabs li.active a:hover {
 
 #tab1 img {
 	float: left;
+}
+#mailform {
+	float:right;
+  background-color : #ffc;
+ border : 1px solid #000;
+  padding : 5px;
+	width:500px;
+} 
+input,textarea
+{ background-color : #c00;
+  color : #fff;
+ 
+
+}
+input.submit {
+  background-color : #c00;
+  color : #ccc;
+  font : bold 14px/14px verdana, geneva, helvetica;
+  border : 2px solid #ccc;
 }
 
 .tab_content {

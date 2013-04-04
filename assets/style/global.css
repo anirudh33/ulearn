@@ -1,3 +1,18 @@
+/* Creation Log
+
+File Name                   -  AdminView.php
+Description                 -  CSS file to be used in views of various users  profile page
+Version                     -  1.0
+Created by                  -  Ujjwal Rawlley
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
+* ************************************************************************
+*/
+
+
 /* global.css styles */
 
 /* @group resets and elements */
@@ -16,12 +31,13 @@ ul { line-height: 120%; }
 p { font-size: 1.2em; line-height: 1.4em; font-family: Arial, sans-serif; color: #333; margin-bottom: 15px; }
 h1 { font-family: Helvetica, Arial, Verdana, sans-serif; color: #444; font-weight: bold; font-size: 1.7em; line-height: 2.0em; }
 h2 { font-family: Georgia, Tahoma, sans-serif; font-style: italic; font-size: 1.4em; letter-spacing: -0.04em; line-height: 1.8em; }
-h3 { color: #698216; font-weight: normal; font-size: 1.3em; line-height: 1.6em;  }
+h3 { color: #698216; font-weight: bold; font-size: 1.8em; line-height: 1.6em;  }
 h4 { color: #232323; font-family: Arial, Tahoma, sans-serif; font-size: 1.1em; line-height: 1.3em; margin-bottom: 10px; }
 
 /* @group core */
-.wrapper { width: 850px; overflow: hidden; margin: 0 auto; background: none; }
+.wrapper { width: 850px;  margin: 0 auto; background: none; }
 
+#main {background-color:  #e6e6e6;}
 header { height: 100px; background-color: #afafaf; }
 
 header #leftusernav {float:left;line-height:100px;font-size:25px;font-weight:bold;color:#555;}
@@ -30,10 +46,11 @@ header #usernav a { color: #444; text-shadow: 0px 1px 1px #ddd; }
 
 header #usernav a span img { position: relative; top: 8px; background: #cecece; margin-left: 5px; padding: 3px; border: 1px solid #969696; }
 
-#content { display: block; width: 820px; margin: 0 auto;  }
+#content { display: block; width: 1500px; margin: 0 auto;  }
 
-#left { display: block; width: 560px; float: left; overflow: hidden; margin-right: 20px; }
-#right { display: block; width: 240px; float: left; overflow: hidden; }
+#left { display: block; width: 560px; float: left; margin-right: 20px; }
+#right { display: block; width: 240px;  overflow: hidden; }
+
 
 /* @group navigation */
 nav { width: auto; background: #eee; height: 45px; border-bottom: 1px solid #dadada; margin-bottom: 30px; }
@@ -44,14 +61,21 @@ ul#n li a { display: block; padding: 0 11px; color: #969696; font-size: 15px; fo
 
 ul#n li.sel { background: #b4e127; border: 3px solid #c1ff00; border-top: 0px; border-bottom: 0px; }
 ul#n li.sel a { color: #fff; text-shadow: 0px 1px 2px #88b618; }
+#userdetails { width: auto; background-color: #f9f9f9; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; }
+#userdetails .data { float: left; position:absolute; width: 350px; height: 200px; padding: 4px; padding-left: 15px; background: #e6e6e6; overflow:  hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
+#userdetails .data h1 { color: #474747; line-height: 1.6em; text-shadow: 0px 1px 1px #fff; }
+#userdetails .data h3 { color: #666; line-height: 0.9em; margin-bottom: 5px;  }
+#userdetails .data h4 { font-size: 1.2em; line-height: 1.3em; }
+#userdetails .data .sep { clear: both; margin-top: 40px; width: 320px; height: 5px; border-bottom: 1px solid #ccc; margin-bottom: 0; }
 
 /* @group left */
-#userStats { display: block; width: auto; background-color: #f9f9f9; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; }
+#userStats { width: auto; background-color: #f9f9f9; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; }
 
-#userStats .pic { float: left; display: block; margin-right: 10px; }
+
+#userStats .pic { float: left;  margin-right: 10px; }
 #userStats .pic a img { padding: 7px; background: #fff; border: 1px solid #ccc; }
 
-#userStats .data { float: left; display: block; position:  relative; width: 350px; height: 200px; padding: 4px; padding-left: 15px; background: #e6e6e6; overflow:  hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
+#userStats .data { float: left; position:relative; width: 350px; height: 200px; padding: 4px; padding-left: 15px; background: #e6e6e6; overflow:  hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
 #userStats .data h1 { color: #474747; line-height: 1.6em; text-shadow: 0px 1px 1px #fff; }
 #userStats .data h3 { color: #666; line-height: 0.9em; margin-bottom: 5px; }
 #userStats .data h4 { font-size: 1.2em; line-height: 1.3em; }
@@ -65,20 +89,20 @@ ul#n li.sel a { color: #fff; text-shadow: 0px 1px 2px #88b618; }
 #userStats .data ul.numbers li strong { color: #434343; display: block; font-size: 3.4em; line-height: 1.1em; font-weight: bold; }
 
 /* @group right */
-#right .gcontent { display: block; margin-bottom: 20px; }
-#right .gcontent .head { background: #589fc6; border: 1px solid #3e82a7; padding-left: 8px; }
-#right .gcontent .head h1 { color: #fafcfd; font-weight: bold; font-size: 1.4em; }
+ .gcontent { display: block; margin-bottom: 20px; }
+ .gcontent .head { background: #589fc6; border: 1px solid #3e82a7; padding-left: 8px; }
+ .gcontent .head h1 { color: #fafcfd; font-weight: bold; font-size: 1.4em; }
 
-#right .gcontent .boxy { border-radius: 0px 0px 5px 5px; border: 1px solid #ccc; border-top: 0px; padding: 10px 8px; background: #f9f9f9; }
+.gcontent .boxy { border-radius: 0px 0px 5px 5px; border: 1px solid #ccc; border-top: 0px; padding: 10px 8px; background: #f9f9f9; }
 
-#right .gcontent .boxy .badgeCount { margin-bottom: 30px;  }
-#right .gcontent .boxy .badgeCount a img { margin-right: 8px; }
-#right .gcontent .boxy span { font-size: 1.2em; display: block; margin-bottom: 7px; }
+ .gcontent .boxy .badgeCount { margin-bottom: 30px;  }
+ .gcontent .boxy .badgeCount a img { margin-right: 8px; }
+ .gcontent .boxy span { font-size: 1.2em; display: block; margin-bottom: 7px; }
 
-#right .gcontent .boxy .friendslist { display: block; margin-bottom: 15px; }
-#right .gcontent .boxy .friend { border-top: 1px solid #ccc; float: left; height: 40px; padding: 5px 5px 5px 4px; width: 100px; }
-#right .gcontent .boxy .friend img { border: 1px solid #ccc; float: left; padding: 2px; background: #fff; margin-right: 4px; }
-#right .gcontent .boxy .friend .friendly { position: relative; top: 16px; font-size: 1.2em; }
+ .gcontent .boxy .friendslist { display: block; margin-bottom: 15px; }
+ .gcontent .boxy .friend { border-top: 1px solid #ccc; float: left; height: 40px; padding: 5px 5px 5px 4px; width: 100px; }
+ .gcontent .boxy .friend img { border: 1px solid #ccc; float: left; padding: 2px; background: #fff; margin-right: 4px; }
+ .gcontent .boxy .friend .friendly { position: relative; top: 16px; font-size: 1.2em; }
 
 /** @group clearfix **/
 .clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }

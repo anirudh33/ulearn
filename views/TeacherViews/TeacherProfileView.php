@@ -1,4 +1,17 @@
+<?php/* Creation Log
 
+File Name                   -  AdminView.php
+Description                 -  Landing page of Teacher contains all functions Admin may perform
+Version                     -  1.0
+Created by                  -  Tanu Trehan
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
+* ************************************************************************
+*/
+?>
 	<header>
 
 		<div class="wrapper">
@@ -17,7 +30,7 @@
 			<div id="userStats" class="clearfix">
 				<div class="pic">
 					<a href="#"><img src="assets/images/img/ap.jpg" width="150"
-						height="250" /></a>
+						height="195" /></a>
 				</div>
 				<?php
 				
@@ -29,6 +42,7 @@ if (! empty ( $data )) {
 					
 echo $data [0] ['lastname'];
 					?></h1>
+<center>
 					<h3><?php
 					
 echo $data [0] ['qualification'];
@@ -37,7 +51,7 @@ echo $data [0] ['qualification'];
 					<h4>
 						<a href="http://ulearn.com/">http://ulearn.com/</a>
 					</h4>
-
+</center>
 					<div class="sep"></div>
 
 				</div>
@@ -59,27 +73,22 @@ echo $data [0] ['qualification'];
 						<?php 	}?>
 				
 			</div>
-
+<center>
 			<h1>About Me:</h1>
-			<p>The System Teacher (ST) is responsible for effective provisioning,
-				installation/configuration, operation, and maintenance of systems
-				hardware and software and related infrastructure. This individual
-				participates in technical research and development to enable
-				continuing innovation within the infrastructure. This individual
-				ensures that system hardware, operating systems, software systems,
-				and related procedures adhere to organizational values, enabling
-				staff, volunteers, and Partners. This individual will assist project
-				teams with technical issues in the Initiation and Planning phases of
-				our standard Project Management Methodology. These activities
-				include the definition of needs, benefits, and technical strategy;
-				research & development within the project life-cycle; technical
-				analysis and design; and support of operations staff in executing,
-				testing and rolling-out the solutions. Participation on projects is
-				focused on smoothing the transition of projects from development
-				staff to production staff by performing operations activities within
-				the project life-cycle.
-		
+			<div id="userdetails">
+	<div id="data">
+		<h3>Name :</h3> <h4  style="color:red;"> <?php echo $data[0]['firstname'];?>&nbsp<?php echo $data[0]['lastname'];?></h4>
+		<div class="sep"></div>		
+<h3>Qualification:  </h3> <h4 style="color:red;"><?php echo $data[0]['qualification'];?></h4>
+<h3>Date of Birth:  </h3> <h4 style="color:red;"><?php echo $data[0]['dob'];?></h4>
+<h3>Qualification:  </h3> <h4 style="color:red;"><?php echo $data[0]['qualification'];?></h4>
+<h3>Contact Number:  </h3> <h4 style="color:red;"><?php echo $data[0]['phone'];?></h4>
+<h3>Address:  </h3> <h4 style="color:red;"><?php echo $data[0]['address'];?></h4>
+
+	</div>
+		</div></center>
 		</section>
 
 
 	</div>
+</html>

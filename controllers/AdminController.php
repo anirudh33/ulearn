@@ -1,4 +1,18 @@
 <?php
+/*  ************************** Creation Log *****************************
+
+File Name                   - AdminController.php
+Description                 - Admin Controller Version
+Version                     -  1.0
+Created by                  -  Ujjwal Rawlley
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+
+* ************************************************************************
+*/
+
 class AdminController extends AController
 {
 

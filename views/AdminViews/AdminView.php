@@ -2,9 +2,9 @@
 /* Creation Log
 
 File Name                   -  AdminView.php
-Description                 -  Landing page of Teacher contains all functions teacher may perform
+Description                 -  Landing page of Admin contains all functions Admin may perform
 Version                     -  1.0
-Created by                  -  Tanu trehan
+Created by                  -  Ujjwal Rawlley
 Created on                  -  March 28, 2013
 * **************************** Update Log ********************************
 Sr.NO.  Version	  Updated by        Updated on          Description

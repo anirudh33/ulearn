@@ -14,6 +14,10 @@
  * ------------------------------------------------------------------------- 
  * 1 1.0 Kawaljeet Singh March 15, 2013 Registration 
  * ************************************************************************
+ * Sr.NO. Version Updated by Updated on Description 
+ * ------------------------------------------------------------------------- 
+ * 1 1.0 Ujjwal Rawlley April 04, 2013 Mailing 
+ * ************************************************************************
  */
 
 /* The main controller for showing the main view */
@@ -114,7 +118,27 @@ class MainController
     	$obj->confirmEmail($email,$pass);
     
     }
-    
+/************************************** Contact Us Mailing Function *************************************************/
+    public function sendmail()
+	{
+	$name=$_POST["name"];
+	$from=$_POST["email"];
+	$message=$_POST["message"];
+
+	$to = "ujjrawl@gmail.com";
+	$subject = "enquiry";
+	$headers = "From:" . $from;
+	$bool = mail ( $to, $subject, $message, $headers );
+			if ($bool == true) {
+				print "<script type=\"text/javascript\">";
+print "alert('the mail has been sent')";
+print "</script>";  
+			} else {
+				echo "Mail not sent";
+			}
+
+}
+
     public function registerUser ()
     {
     	
