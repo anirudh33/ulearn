@@ -74,14 +74,23 @@ if (isset($_REQUEST['method'])) {
             $controllerObject = new TeacherController();
         } elseif ($_REQUEST['controller'] == 'Main') {
             $controllerObject = new MainController();
-        }      
+        } else {
+        	/* if controller name doesnt match */
+        	die("Stop playing with the urls! | Controller doesnt exist");
+        }
+              
     }
     if (isset($_SESSION['userType']) && $_REQUEST['controller'] == 'Main'  ) {
     
     	$controllerObject->showUserPanel();
     
-    }else {
-    	$controllerObject->$_REQUEST['method']();
+    }elseif(method_exists($controllerObject, $_REQUEST['method'])) {
+    	
+    		$controllerObject->$_REQUEST['method']();
+    	
+    } else {
+    	/* if method name doesnt match */
+    	die("Stop playing with the urls! | Method doesnt exsist");
     }
     
     

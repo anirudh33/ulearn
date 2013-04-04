@@ -13,7 +13,7 @@ RewriteRule ^.*$ /ulearn/branches/development/error.php [L]
   Deny from all
 </filesMatch>
 
-<FilesMatch "index.php$">
+<FilesMatch "index.php|error.php">
     Order Allow,Deny
     Allow from all
 </FilesMatch>

@@ -77,8 +77,8 @@ if(isset($pageName)) {
 
 	?>
 	<!-- Registration View Header -->
-	<title> <?php echo $lang->TITLE;  ?></title>
-	<title> <?php echo $lang->TITLE;  ?></title>
+	<title> <?php if(isset($lang->TITLE)){echo $lang->TITLE;} else {echo "Register| Welcome to ulearn";} ?></title>
+	
 	<!-- Links for stylesheet -->
 	<link rel="stylesheet" href="assets/style/Registration.css"
 		type="text/css" media="screen" />
@@ -161,26 +161,21 @@ if(isset($pageName)) {
 	type="text/css" media="screen" />
 	
 	<!-- Edit Profile view header -->
-	<link rel="stylesheet" href="assets/style/Views.css"
-	type="text/css" media="screen" />
+	<!-- css same as download view -->
 	<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
 	
 	<!-- Message View Header -->
-	<link rel="stylesheet" href="assets/style/Views.css"
-	type="text/css" media="screen" />
+	<!-- css same as download view -->
 	<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
 	
 	<!-- Register Course header -->
-	<link rel="stylesheet" href="assets/style/Views.css"
-	type="text/css" media="screen" />
+	<!-- css same as download view -->
 	
 	<!-- Show Messages header -->
-	<link rel="stylesheet" href="assets/style/Views.css"
-	type="text/css" media="screen" />
+	<!-- css same as download view -->
 	
 	<!-- Register Course View header -->
-	<link rel="stylesheet" href="assets/style/Views.css"
-	type="text/css" media="screen" />
+	<!-- css same as download view -->
 	
 	<!-- Student profile view header -->
 	<link rel="stylesheet" type="text/css" href="assets/style/global.css" />
@@ -270,7 +265,7 @@ if(isset($pageName)) {
 	               alert("Problem in deleting record!");
 	               <?php //@todo error to be thrown if record doesnt get activated from ?>  
 	           }
-	       },
+	       }
 	   });
 	}
 	</script>
