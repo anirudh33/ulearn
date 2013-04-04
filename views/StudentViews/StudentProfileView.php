@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	
-	<link rel="stylesheet" type="text/css" href="assets/style/global.css" />
-</head>
 
-<body>	
 	<header>
 	
 		<div class="wrapper">
@@ -64,5 +56,4 @@ This individual will assist project teams with technical issues in the Initiatio
 		
 		
 	</div>
-</body>
-</html>
+

@@ -1,17 +1,6 @@
-<!DOCTYPE html>
 
-<?php
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
-?>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
 	
-	<link rel="stylesheet" type="text/css" href="assets/style/global.css" />
-</head>
-
-<body>	
+<?php //@todo move the following header to admin view so that log out shows on each page if sounds fine?>
 	<header>
 	
 		<div class="wrapper">
@@ -69,5 +58,3 @@ This individual will assist project teams with technical issues in the Initiatio
 		
 		
 	</div>
-</body>
-</html>

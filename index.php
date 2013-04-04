@@ -11,32 +11,11 @@
 *
 * ************************************************************************
 */
-session_start();
-?>
-<!-- jquery source -->
-<script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
-
-<!-- toast plugin -->
-<link rel="stylesheet" href="assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css" type="text/css" media="screen" />
-<script	src="assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"></script>	
-
-<!-- sticky plugin -->
-<script type="text/javascript" src="assets/plugins/sticky/sticky.min.js"></script>
-<link rel="stylesheet" href="assets/plugins/sticky/sticky.min.css" type="text/css" />
-<!-- <script> $.sticky('The page has loaded!'); </script>-->
-
-<!-- <SCRIPT> $(DOCUMENT).READY(FUNCTION(){$().TOASTMESSAGE('SHOWSUCCESSTOAST','WELCOME');}); 
-</SCRIPT> -->
-
-
-
-
-<?php
 
 
 //@todo search filters on manage teacher view in Admin views
 /* Starting session and creating session variables to store paths and default database */
-
+session_start();
 
 $_SESSION['SITE_PATH'] = getcwd();
 $_SESSION['DOMAIN_PATH'] = $_SERVER['SERVER_NAME'] . '/ulearn/branches/development';
@@ -97,9 +76,15 @@ if (isset($_REQUEST['method'])) {
             $controllerObject = new MainController();
         }      
     }
+    if (isset($_SESSION['userType']) && $_REQUEST['controller'] == 'Main'  ) {
+    
+    	$controllerObject->showUserPanel();
+    
+    }else {
+    	$controllerObject->$_REQUEST['method']();
+    }
     
     
-    $controllerObject->$_REQUEST['method']();
 }
 
 /* Creating MainController Object as no method was called */
@@ -118,13 +103,14 @@ if (isset($_SESSION['userType'])) {
 }
 
 /* If no method has been called show the main view/homepage */
-if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
+else if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
 	
     /*showing main view*/
     $obj->showMainView();
 }
 
 ?>
+
 
 
 

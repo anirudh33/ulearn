@@ -1,110 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<?php
-// session_start();
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
+<?php 
+/* Creation Log
+
+File Name                   -  DownloadView.php
+Description                 -  Choose course and email to access content uploaded 
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.        Version        Updated by           Updated on          Description
+-------------------------------------------------------------------------
+1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
+* ************************************************************************
+*/
 
 ?>
+<div id="registerdiv">
+<h1>VIEW FILES</h1>
+
+	<form id="form" method="post" action="index.php?method=downloadFile&controller=Student"	
+	enctype="multipart/form-data" name="frm1" />
+
+	<fieldset class="row2">
+		<legend>Message Details </legend>
 
 
-<html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title> <?php echo $lang->TITLE;  ?></title>
-<!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Views.css"
-	type="text/css" media="screen" />
-
-
-
-
-
-</head>
-
-<body>
-
-	<div id="cc" width="5px" height="150px" align="center">
-
-		  
-		 
-
-			<div id="registerdiv" >
-			
-				<form id="form" method="post" action="index.php?method=downloadFile&controller=Student" enctype="multipart/form-data" name="frm1" /> 
-				
-					<h1>VIEW FILES</h1>
-					
-					<fieldset class="row2">
-						<legend>Message Details </legend>
-
-
-<p>
-							<label>Teacher  </label> 
-							<select name="teachernamelist">
+		<p>
+			<label>Teacher </label> 
+			<select name="teachernamelist">
                             <?php
-                           
-                            foreach ($data1 as $key=>$value)
-							{
-							
-                            ?>
-                           
-                           
-                            <option value="<?php echo $value["email"];?>"> 
+                            foreach ( $data1 as $key => $value ) {?>
+                            	     <option value="<?php echo $value["email"];?>"> 
                             <?php echo $value["email"];?> </option>
 
-                            <?php
-                            }
-                            ?>
-                           </select> 
-						
+                            <?php } ?>
+            </select>
 
-							
-							
-						</p>
-						<p>
-						
-						<label>Course  </label> 
-							<select name="coursenamelist">
+		</p>
+		<p>
+
+			<label>Course </label> 
+			<select name="coursenamelist">
 							 <?php
-							 
-                            foreach ($data as $key1=>$value1)
-							{
 								
-                            ?>
-                            
-                            <option value="<?php echo $value1["coursename"];?>"> 
-                            <?php echo $value1["coursename"];?> </option>
+								foreach ( $data as $key1 => $value1 ) {?>
+                                        <option	value="<?php echo $value1["coursename"];?>"> 
+                             <?php echo $value1["coursename"];?> </option>
 
-                            <?php
-                            }
-                            ?>
-                           </select> </br>
-</p>
-						
-						<button class="button">View &raquo;</button>
-					
-					</fieldset>
-									
+                             <?php } ?>
+            </select> 
+		</p>
+		<br/>
+		<button class="button">View &raquo;</button>
 
-		
-
-				</form>
-			</div>
+	</fieldset>
+	</form>
+</div>
 
 
 
-
-
-	
-
-	</div>
-
-	
-
-
-</body>
-</html>
-
-
- 

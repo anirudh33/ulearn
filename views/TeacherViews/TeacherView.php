@@ -1,22 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<?php
+/* Creation Log
 
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<title><?php  if(isset($lang->HELLOTEACHER)){echo $lang->HELLOTEACHER;} else {echo "Welcome Teacher";} ?> </title>
-
-<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
-	media="screen" />
-
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-
-<script>
-
-</script>
-</head>
-
+File Name                   -  TeacherView.php
+Description                 -  Landing page of Teacher contains all functions teacher may perform
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+1		1.1		  Anirudh Pandita	April 04, 2013		Clean up and 
+														header separation
+* ************************************************************************
+*/
+$pageName="TeacherView";
+require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
+?>
 <body>
 
 	<div id="cc">
@@ -24,9 +23,9 @@
 		<div id="header">
 
 			<img alt="" src="../../assets/images/Views/ulearn.gif"
-				style="float: right; padding: 50px; width: 280px;"> <a
-				href="index.php?method=logout&controller=Teacher">LOG OUT</a>
-
+				style="float: right; padding: 50px; width: 280px;"> 
+			<br><br>
+			 <a	href="index.php?method=logout&controller=Admin">LOG OUT</a>
 		</div>
 
 
@@ -36,7 +35,7 @@
 
 			<div id="admincontent">
 
-				<center>
+				
 				<?php
 				
 				
@@ -56,7 +55,7 @@
 						if ($viewName == "writeMessage" && (! empty ( $data ))) 
 
 						{
-							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageView.php';
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/WriteMessageView.php';
 						}
 						if ($viewName == "upload" && (! empty ( $data ))) 
 
@@ -71,7 +70,7 @@
 						if ($viewName == "viewMessage" && (! empty ( $data ))) 
 
 						{
-							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessageView.php';
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessagesView.php';
 						}
 						
 						if ($viewName == "showProfile" && (! empty ( $data ))) 
@@ -83,7 +82,7 @@
 				}
 				
 				?>
-				</center>
+				
 			</div>
 
 

@@ -73,7 +73,7 @@ class Authenticate {
 		}
 	}
 	/* Using PHP filters to validate login form input */
-	public function validate() {
+	public function validateLogin() {
 		if (array_filter ( $_POST )) {
 			if (! filter_var ( $_POST ["fieldEmail"], FILTER_VALIDATE_EMAIL )) {
 				$this->setMessage ( "Email not valid" );

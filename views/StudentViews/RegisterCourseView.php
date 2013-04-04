@@ -1,117 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<?php
-// session_start();
-require_once $_SESSION["SITE_PATH"] . '/libraries/Language.php';
-$lang = Language::getinstance();
+<?php 
+/* Creation Log
+
+File Name                   -  TeacherView.php
+Description                 -  Landing page of Teacher contains all functions teacher may perform
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.        Version        Updated by           Updated on          Description
+-------------------------------------------------------------------------
+1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
+* ************************************************************************
+*/
+
 ?>
 
 
-<html>
+<div id="registerdiv">
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title> <?php echo $lang->TITLE;  ?></title>
-<!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Views.css"
-	type="text/css" media="screen" />
+	<form id="form"
+		action="index.php?method=registerCourseButtonClick&controller=Student"
+		method="POST" class="register">
 
+		<h1>Register Course</h1>
 
-
-
-
-</head>
-
-<body>
-
-	<div id="cc" width="5px" height="150px" align="center">
-
-		  
-		 
-
-			<div id="registerdiv" >
-			
-				<form id="form" action="index.php?method=registerCourseButtonClick&controller=Student"
-					method="POST" class="register">
-				
-					<h1>Register Course</h1>
-					
-					<fieldset class="row2">
-						<legend>Course Details </legend>
-<p>
-							<label>Course Name * </label> 
-							<select name="coursenamelist">
+		<fieldset class="row2">
+			<legend>Course Details </legend>
+			<p>
+				<label>Course Name * </label> <select name="coursenamelist">
 							 <?php
-							 
-                            foreach ($data as $key=>$value)
-							{
-								
-                            ?>
+								foreach ( $data as $key => $value ) {
+									
+									?>
                             
-                            <option value="<?php echo $value["coursename"];?>"> 
+                            <option
+						value="<?php echo $value["coursename"];?>"> 
                             <?php echo $value["coursename"];?> </option>
 
                             <?php
-                            }
-                            ?>
+								}
+								?>
                            </select> </br>
-						</p>
-						
-										
-						</br></br>
-						<button class="button">Add &raquo;</button>
-					
-					</fieldset>
-									
+			</p>
 
-		
-					
-				</form>
-			</div>
+
+			</br>
+			</br>
+			<button class="button">Add &raquo;</button>
+
+		</fieldset>
 
 
 
 
-
-	
-
-	</div>
-
-	
-
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	</form>
+</div>

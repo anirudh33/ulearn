@@ -1,32 +1,3 @@
-<?php
-$_SESSION["SITE_PATH"] = '/var/www/ulearn/branches/development';
-require_once $_SESSION["SITE_PATH"] . '/libraries/jpgraph/src/jpgraph.php';
-require_once $_SESSION["SITE_PATH"] . '/libraries/jpgraph/src/jpgraph_bar.php';
-require_once $_SESSION["SITE_PATH"] . '/libraries/jpgraph/src/jpgraph_pie3d.php';
-
-
-
-?>
-
-
-<html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title> <?php echo $lang->TITLE;  ?></title>
-<!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Registration.css"
-	type="text/css" media="screen" />
-<link rel="stylesheet" href="assets/style/Report.css"
-	type="text/css" media="screen" />
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
-
-
-
-</head>
-
-<body>
-
 <form action="index.php?method=showreport&controller=Admin" method="POST" class="report">
 
 	<h1> Report Generate</h1>
@@ -34,41 +5,42 @@ require_once $_SESSION["SITE_PATH"] . '/libraries/jpgraph/src/jpgraph_pie3d.php'
 <fieldset class="row2">
 	<legend>Generate Reports Panel </legend>
 	<p>
-		<h4 color="red">Select User Category </h4>
-		 <label>Student </label><input type="radio" name="usertype" value="student"  /> 
+		<h4>Select User Category </h4><br><br>
+		 <label>Student </label><input type="radio" name="usertype" value="student"  /> &nbsp &nbsp
 		<label>Teacher </label> <input type="radio" name="usertype" value="teacher" />
 	</p>
 	
-	<br>
-		<h4 color="red"> Select Report Category </h4>
+	<br><br>
+		<h4 > Select Report Category </h4><br><br>
 <p>
 	<h2 align=left> As per registered users :</h2>	<label>Number of registrations </label>
 		 <input type="radio" name="choice" value="registrations" /> 
-		<br><br>
+		<br><br><br><br><br>
 			
-	<h2 align=left> As per qualifications of users :</h2>			
-		<label>Graduate </label> <input type="radio" name="choice" value="graduate" />
+	<h2 align=left> As per qualifications of users :</h2>			<br><br>
+		<label>Graduate </label> <input type="radio" name="choice" value="graduate" /> &nbsp &nbsp
 		<label>PostGraduate </label> <input type="radio" name="choice" value="postgraduate" />
 	</p>
+<br><br><br>
 </fieldset>
 </div>
 
 <div id="two">
 <fieldset class="row3">
-<?php $studentreportcount=10;?>
 	<?php
 
 		if(!empty($studentreportcount))	
 		{?>	
-		<div id="two">	
-		<?echo " Number of registered students" ;
-		echo $studentreportcount; ?>
+		<div id="three">	
+		<p><?echo " Number of registered students" ;
+		echo $studentreportcount; ?></p>
 		</div>
-<?php 
-$datay=array();
+<?php
+/*$datay=array();
  $datay[]=$studentreportcount;
-// $datay[]=$teacherreportcount;
-
+$datay[]=45;
+//$datay[]=$teacherreportcount;
+print_r($datay);
 			$graph = new Graph(310,250,'auto');
 $graph->SetScale("textlin");
 $graph->img->SetMargin(60,30,20,40);
@@ -81,8 +53,8 @@ $graph->xaxis->SetTickSide(SIDE_DOWN);
 $graph->yaxis->SetTickSide(SIDE_LEFT);
 
 // Create a bar pot
-$bplot = new BarPlot($studentreportcount);
-
+$bplot = new BarPlot($datay);
+//print_r($bplot);
 // Create targets for the image maps. One for each column
  $targ=array("test2.php?id=2","test2.php?id=2","test1.php?id=3","test1.php?id=4","test1.php?id=5","test1.php?id=6");
 $alts=array("val=%d","val=%d","val=%d","val=%d","val=%d","val=%d");
@@ -109,7 +81,7 @@ $graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 // Send back the HTML page which will call this script again
 // to retrieve the image.
 $graph->StrokeCSIM(); 
- 
+*/ 
 ?>
 
 			
@@ -118,7 +90,7 @@ $graph->StrokeCSIM();
 		}
 		elseif(!empty($teacherreportcount))	
 		{	?>
-		<div id="two">
+		<div id="three">
 			echo "teacher records ";
 
 			echo $teacherreportcount;
@@ -127,7 +99,7 @@ $graph->StrokeCSIM();
 
 if(isset($studentqualificationcount))	
 		{	?>
-		<div id="two">
+		<div id="three">
 			<?php echo "student qualification records ";
 
 			echo $studentqualificationcount;?>
@@ -140,7 +112,7 @@ if(isset($studentqualificationcount))
 
 if(isset($teacherqualificationcount))	
 		{	?>
-		<div id="two">
+		<div id="three">
 			<?php echo "teacher qualification records ";
 
 			echo $teacherqualificationcount;?>
@@ -162,14 +134,6 @@ if(isset($teacherqualificationcount))
 
 
 </form>
-</body>
-
-
-
-
-
-
-</html>
 
 
 

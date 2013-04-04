@@ -1,37 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<?php
+/* Creation Log
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title> <?php echo $lang->TITLE;  ?></title>
-<!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Registration.css"
-	type="text/css" media="screen" />
+File Name                   -  RegistrationView.php
+Description                 -  new user registration page
+Version                     -  1.0
+Created by                  -  Kawaljeet Singh
+Created on                  -  March 19, 2013
+* **************************** Update Log ********************************
+Sr.NO.        Version        Updated by           Updated on          Description
+-------------------------------------------------------------------------
 
-
-
-<!-- jquery source -->
-<!-- <script src="assets/js/jquery/jquery.js" type="text/javascript"></script> -->
-<!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-
-<script src="assets/js/MainViewSlide.js" type="text/javascript"></script>	
-<script src="assets/js/MainView.js" type="text/javascript"></script>
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-
-
-<style type="text/css">
-
-#error
-{
-	background-color:white;
-}
-
-</style>
-</head>
-
+* ************************************************************************
+*/
+$pageName="RegistrationView";
+require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
+?>
 <body>
 
 
@@ -46,13 +29,10 @@
 			<a href="index.php"><h3>GO TO HOME</h3></a>
 		</div>
 		<div id="error">
-		<?php 
-		if(isset($_REQUEST["msg"]))
-		{
-			echo $_REQUEST["msg"];
-			
+		<?php
+		if (isset ( $_REQUEST ["msg"] )) {
+			echo $_REQUEST ["msg"];
 		}
-		
 		
 		?>
 		
@@ -61,7 +41,8 @@
 		<div id="image">
 
 			<div id="registerdiv">
-				<form id="frmForm" action="index.php?method=registerUser&controller=Main"
+				<form id="frmForm"
+					action="index.php?method=registerUser&controller=Main"
 					method="POST" class="register" enctype="multipart/form-data">
 					<h1>Registration</h1>
 					<fieldset class="row1">
@@ -70,28 +51,30 @@
 							<label>Email * </label> <input type="text" name="email"
 								id="email" style="width: 300px;"
 								onfocus="if(this.value === 'Email required') this.value = '';" />
-								</p>
-								<p>
-							<label>Repeat email * </label> <input type="text" style="width: 300px;"
-								id="repeatemail" name="repeatEmail" onfocus="if(this.value === 'Email required') this.value = '';"  />
+						</p>
+						<p>
+							<label>Repeat email * </label> <input type="text"
+								style="width: 300px;" id="repeatemail" name="repeatEmail"
+								onfocus="if(this.value === 'Email required') this.value = '';" />
 						</p>
 						<p>
 							<label>Password* </label> <input type="password" name="password"
 								id="password" />
-								</p>
-								<p>
-								 <label>Repeat Password* </label> <input
-								type="password" id="repeatpassword" name="repeatPassword"
+						</p>
+						<p>
+							<label>Repeat Password* </label> <input type="password"
+								id="repeatpassword" name="repeatPassword"
 								onfocus="if(this.value === 'Email required') this.value = '';" />
-							
+
 						</p>
 					</fieldset>
 					<fieldset class="row2">
 						<legend>Personal Details </legend>
 						<p>
 							<label>First Name * </label> <input type="text" class="long"
-								name="firstname" id="firstname" 
-								onfocus="if(this.value === 'Firstname required') this.value = '';" onblur="isurl(this.id)"/>
+								name="firstname" id="firstname"
+								onfocus="if(this.value === 'Firstname required') this.value = '';"
+								onblur="isurl(this.id)" />
 						</p>
 						<p>
 							<label>Last Name * </label> <input type="text" class="long"
@@ -110,15 +93,15 @@
 								onfocus="if(this.value === 'Address required') this.value = '';" />
 						</p>
 
-							<p>
-							<label>Qualification</label> <select name="qualification" >
-							<option>graduate</option>
-							<option>postgraduate</option>
-							<option>doctorate</option>
-							<option>others</option>
+						<p>
+							<label>Qualification</label> <select name="qualification">
+								<option>graduate</option>
+								<option>postgraduate</option>
+								<option>doctorate</option>
+								<option>others</option>
 							</select>
 						</p>
-					<!-- 	<p>
+						<!-- 	<p>
 							<label>Qualification</label> <input type="text" class="long"
 								name="qualification" id="qualification"
 								onfocus="if(this.value === 'Qualification required') this.value = '';" />
@@ -134,12 +117,11 @@
 						<p>
 							<label>Gender *</label> <input type="radio" name="gender"
 								value="m" checked /> <label class="gender">Male</label> <input
-								type="radio" name="gender" value="f" /> <label
-								class="gender">Female</label>
+								type="radio" name="gender" value="f" /> <label class="gender">Female</label>
 						</p>
 						<p>
-							<label>Date Of Birth(Y/M/D):</label> <input type="text" name="date"
-								id="datepicker"
+							<label>Date Of Birth(Y/M/D):</label> <input type="text"
+								name="date" id="datepicker"
 								onfocus="if(this.value === 'Date required') this.value = '';" />
 						</p>
 
@@ -158,17 +140,18 @@
 					</fieldset>
 					<fieldset class="row4">
 						<legend>Terms and Mailing </legend>
-						
+
 						<p class="agreement">
-							<input type="checkbox" value="" name="checkmail"/> <label>Please send the confirmation mail
-								</label>
+							<input type="checkbox" value="" name="checkmail" /> <label>Please
+								send the confirmation mail </label>
 						</p>
 						<p>
 							<img id="captcha" src="libraries/securimage/securimage_show.php"
-								alt="CAPTCHA Image" /> <br> 
-								<input type="text" name="captcha_code" id="captcha_code" size="10" maxlength="6"
-								onfocus="if(this.value === 'Fill Code') this.value = '';" /> 
-								<a href="#"	onclick="document.getElementById('captcha').src = 
+								alt="CAPTCHA Image" /> <br> <input type="text"
+								name="captcha_code" id="captcha_code" size="10" maxlength="6"
+								onfocus="if(this.value === 'Fill Code') this.value = '';" /> <a
+								href="#"
+								onclick="document.getElementById('captcha').src = 
 									'libraries/securimage/securimage_show.php?' + Math.random(); 
 								return false">[Different Image ]</a>
 						</p>

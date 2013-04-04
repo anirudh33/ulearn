@@ -1,18 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title> <?php echo $lang->TITLE;  ?></title>
-<!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Views.css"
-	type="text/css" media="screen" />
+<?php 
+/* Creation Log
 
-</head>
+File Name                   - RegisterCourseView.php
+Description                 -  Register for a course to study 
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.        Version        Updated by           Updated on          Description
+-------------------------------------------------------------------------
+1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
+* ************************************************************************
+*/
 
-<body>
-
-	<div id="cc" width="5px" height="150px" align="center">
-
+?>
 
 
 
@@ -58,51 +59,4 @@
 
 			</form>
 		</div>
-
-
-
-
-
-
-
-	</div>
-
-
-
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

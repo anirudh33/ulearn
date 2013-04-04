@@ -1,33 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<?php 
+/* Creation Log
 
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<title><?php if(isset($lang->HELLOSTUDENT)){echo $lang->HELLOSTUDENT;} else {echo "Welcome Student";} ?> </title>
-
-<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
-	media="screen" />
-
-
-</head>
-
+File Name                   -  StudentView.php
+Description                 -  Landing page of Student contains all functions student may perform
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+1		1.1		  Anirudh Pandita	April 04, 2013		Clean up and 
+														header separation
+* ************************************************************************
+*/
+$pageName="StudentView";
+require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
+?>
 <body>
-
-
-
-
-
-
 	<div id="cc">
 
 		<div id="header">
 
 			<img alt="" src="../../assets/images/Views/ulearn.gif"
-				style="float: right; padding: 50px; width: 280px;"> <a
-				href="index.php?method=logout&controller=Student">LOG OUT</a>
-
+				style="float: right; padding: 50px; width: 280px;"> 
+			<br><br>
+			 <a	href="index.php?method=logout&controller=Admin">LOG OUT</a>
 		</div>
 
 
@@ -37,7 +34,7 @@
 
 			<div id="admincontent">
 
-				<center>
+				
 				<?php
 				
 				if (isset ( $viewName )) {
@@ -52,13 +49,13 @@
 						}
 						
 						if ($viewName == "writeMessage" && (! empty ( $data ))) {
-							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/MessageView.php';
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/WriteMessageView.php';
 						}
 						
 						if ($viewName == "viewMessage" && (! empty ( $data ))) 
 
 						{
-							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/ShowMessageView.php';
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/ShowMessagesView.php';
 						}
 						
 						if ($viewName == "showProfile" && (! empty ( $data ))) 
@@ -82,11 +79,8 @@
 				}
 				
 				?>
-				</center>
+				
 			</div>
-
-
-
 			<div id="functionpanel">
 
 
@@ -107,35 +101,8 @@
 
 					</ul>
 				</div>
-
-
 			</div>
-
-
-
 		</div>
-
-
-
-
 	</div>
-
-
-
-
-
-
-
-
-
-
 </body>
-
-
-
-
-
-
-
-
 </html>

@@ -58,8 +58,8 @@ class MainController
     {
     	$authObject= new Authenticate();
     	
-    	
-    	$authObject->validate();
+    /* Validate username password */
+    	$authObject->validateLogin();
     	
         $fieldEmail = $_POST["fieldEmail"];
         $fieldPassword = $_POST["fieldPassword"];
@@ -69,6 +69,7 @@ class MainController
         $this->setAuthenticationStatus($objInitiateUser->login($fieldEmail, $fieldPassword));
        
         if ($this->getAuthenticationStatus() == 1) {
+    /* Visitor date, ip, email logged */  	
         	$authObject->logIP();	
             $this->showUserPanel();
         }
@@ -78,10 +79,6 @@ class MainController
      * on user type logged in */
     public function showUserPanel ()
     {
-        
-        
-        
-    	
         $controllerName = ucfirst($_SESSION["userType"]) . "Controller";
         $objController = new $controllerName();
        

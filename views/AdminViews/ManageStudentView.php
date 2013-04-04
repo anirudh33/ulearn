@@ -7,6 +7,12 @@ Description                 -  Shows all students in system and allows to delete
 Version                     -  1.0
 Created by                  -  Ujjwal Rawlley
 Created on                  -  March 20, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+1		1.1		  Anirudh Pandita	April 04, 2013		Clean up and 
+														header separation
+* ************************************************************************
 */
 
 $obj_paging = new paging();
@@ -22,13 +28,7 @@ $obj_paging->set_records($studentRecordsCount);
 $pages = $obj_paging->get_pages();
 
 ?>
-<html>
-<head>
-<link rel="stylesheet" type="text/css"
-	href="assets/style/ManageStudentView.css" media="screen" />
 
-</head>
-<body>
 	<div class="row-whiteBox">
 		<div id="divfr"></div>
 		<p class="headingsBig">
@@ -66,12 +66,12 @@ $pages = $obj_paging->get_pages();
                             		{
                   					   
 		                     			 echo "<font color=green>Active</font>" ;?>
-		                     			 <td><a onclick=fncDelete("<?php echo $row['id'];?>") href= "javascript:void(0)"  >DELETE </a></td>
+		                     			 <td><a onclick=fncDelete("<?php echo $row['id'];?>","deleteStudentClick") href= "javascript:void(0)"  >DELETE </a></td>
                             			<?php  }
                             			 elseif ($row['status']=='2')
                             			 {
                             			 	echo "<font color=red>Inactive</font>";?></td>
-                            			 	<td><a onclick=fncActivate("<?php echo $row['id'];?>") href= "javascript:void(0)"  >ACTIVATE </a></td>
+                            			 	<td><a onclick=fncActivate("<?php echo $row['id'];?>","activateStudentClick") href= "javascript:void(0)"  >ACTIVATE </a></td>
                             			 	<?php }?>
                            
                         </tr>
@@ -98,45 +98,6 @@ $pages = $obj_paging->get_pages();
                 <?php }?>
             </table>
 		</div>
-	</div>
-</body>
-</htm>
+</div>
 
-<script>
 
-function fncDelete(argId) {
-	   
-	$.ajax({ 
-     type: "POST",
-     url: 'index.php?method=deleteStudentClick&controller=Admin',          
-     data: "id="+argId,                        
-       success: function(dataReceived){
-    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
-           if($.trim(dataReceived)=="1") {
-        	   window.location.reload();
-           } else {
-               alert("Problem in deleting record!");
-             <?php //@todo error to be thrown if record doesnt get deleted actually ?>  
-           }
-       },
-   });
-}
-
-function fncActivate(argId) {
-
-	$.ajax({ 
-     type: "POST",
-     url: 'index.php?method=activateStudentClick&controller=Admin',          
-     data: "id="+argId,                        
-       success: function(dataReceived){
-    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
-           if($.trim(dataReceived)=="1") {
-        	   window.location.reload();
-           } else {
-               alert("Problem in deleting record!");
-               <?php //@todo error to be thrown if record doesnt get activated from ?>  
-           }
-       },
-   });
-}
-</script>
