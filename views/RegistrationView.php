@@ -50,21 +50,17 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 						<p>
 							<label>Email * </label> <input type="text" name="email"
 								id="email" style="width: 300px;"
-								onfocus="if(this.value === 'Email required') this.value = '';" />
+								onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)" />
 						</p>
-						<p>
-							<label>Repeat email * </label> <input type="text"
-								style="width: 300px;" id="repeatemail" name="repeatEmail"
-								onfocus="if(this.value === 'Email required') this.value = '';" />
-						</p>
+						
 						<p>
 							<label>Password* </label> <input type="password" name="password"
-								id="password" />
+								id="password"onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)" />
 						</p>
 						<p>
 							<label>Repeat Password* </label> <input type="password"
 								id="repeatpassword" name="repeatPassword"
-								onfocus="if(this.value === 'Email required') this.value = '';" />
+								onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)"/>
 
 						</p>
 					</fieldset>
@@ -73,24 +69,23 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 						<p>
 							<label>First Name * </label> <input type="text" class="long"
 								name="firstname" id="firstname"
-								onfocus="if(this.value === 'Firstname required') this.value = '';"
-								onblur="isurl(this.id)" />
+								onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)" />
 						</p>
 						<p>
 							<label>Last Name * </label> <input type="text" class="long"
 								name="lastname" id="lastname"
-								onfocus="if(this.value === 'Lastname required') this.value = '';" />
+								onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)" />
 						</p>
 						<p>
 							<label>Phone * </label> <input type="text" maxlength="10"
 								name="phone" id="phone"
-								onfocus="if(this.value === 'Phone required') this.value = '';" />
+								onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)" />
 						</p>
 
 						<p>
 							<label>Address * </label> <input type="text" class="long"
 								name="address" id="address"
-								onfocus="if(this.value === 'Address required') this.value = '';" />
+								onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)"/>
 						</p>
 
 						<p>
@@ -101,12 +96,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 								<option>others</option>
 							</select>
 						</p>
-						<!-- 	<p>
-							<label>Qualification</label> <input type="text" class="long"
-								name="qualification" id="qualification"
-								onfocus="if(this.value === 'Qualification required') this.value = '';" />
-						</p>
-					-->
+						
 						<p>
 							<label>Profile Picture</label><input type="file" size="10"
 								name="profilepicture">
@@ -122,7 +112,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 						<p>
 							<label>Date Of Birth(Y/M/D):</label> <input type="text"
 								name="date" id="datepicker"
-								onfocus="if(this.value === 'Date required') this.value = '';" />
+								onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)" />
 						</p>
 
 						<p>
@@ -149,7 +139,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 							<img id="captcha" src="libraries/securimage/securimage_show.php"
 								alt="CAPTCHA Image" /> <br> <input type="text"
 								name="captcha_code" id="captcha_code" size="10" maxlength="6"
-								onfocus="if(this.value === 'Fill Code') this.value = '';" /> <a
+								onfocus="if(this.value === 'Required') this.value = '';empty(this.id)"onblur="isUrl(this.id);isEmpty(this.id);isScript(this.id)" /> <a
 								href="#"
 								onclick="document.getElementById('captcha').src = 
 									'libraries/securimage/securimage_show.php?' + Math.random(); 

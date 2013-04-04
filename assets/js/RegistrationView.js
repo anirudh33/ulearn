@@ -11,41 +11,50 @@
 
 /*  -----------------------Javascript For Registration Validation ---------------------*/
 
-function isurl(id)
+function isUrl(id)
     {   
+	
 		var a=$("#"+id).val();
 		
       
          var RegExp = /^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/;
             if(RegExp.test(a)){
-            	$("#"+id).after("UrL not ");
-            }else{
-                alert("fail");
+            	
+            	$("#"+id).after("wrong entry");
+            	document.getElementById(id).style.borderColor="#FF0000";
             }
-
     }
 
-    function isscript(id)
+
+	function empty(id)
+	{
+		document.getElementById(id).style.borderColor="";
+		
+	}
+    function isScript(id)
     {   
+    	var a=$("#"+id).val();
             var RegExp = /(<([^>]+)>)/gi;
-            if(RegExp.test(id)){
-                alert("success");
-            }else{
-                alert("fail");
+            if(RegExp.test(a)){
+            	$("#"+id).after("wrong entry");
+            	document.getElementById(id).style.borderColor="#FF0000";
             }
     }
 
+   
     function isEmpty(id)
     {
-        if(id=='')
-        {
+   		var a=$("#"+id).val();
+        	
+            if(a=='')
+            {
+            	$("#"+id).val("Required");
+            	document.getElementById(id).style.borderColor="#FF0000";
 
-           
-    }else
-    {
+        }
+            
     }
-       
-    }
+   
 
 $(document).ready(function() {
 
@@ -54,105 +63,74 @@ $(document).ready(function() {
     	
         var hasError = false;
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-        var passwordval = $("#password").val();
         var emailaddressVal = $("#email").val();
+		var dateval=$("#datepicker").val();
 		var firstnameval=$("#firstname").val();
 		var lastnameval=$("#lastname").val();
-		var qualificationval=$("#qualification").val();
-		var dateval=$("#datepicker").val();
-		var repeatpasswordval = $("#repeatpassword").val();
-        var repeatemailaddressVal = $("#repeatemail").val();
-        var captchaval=$("#captcha_code").val();
-
-        
-
-        if(emailaddressVal == '' && passwordval=='') {
-            $("#email").after('Email required');
-            $("#password").after('password required');
-            
-            hasError = true;
-        }
-        
-        
-        else if(emailaddressVal == '') {
-            $("#email").after('Email required');
-            hasError = true;
-        }
-        else if(passwordval == '') 
+		var phoneval=$("#phone").val();
+		
+		
+		if(dateval == '') 
         {		        
     	
-            $("#password").after('password required');
+            $("#datepicker").val('Required');
+            document.getElementById("datepicker").style.borderColor="#FF0000";
             hasError = true;
         }
-        else if(!emailReg.test(emailaddressVal)) {
-            $("#email").after('Not valid.');
+		
+		
+		
+        if(!emailReg.test(emailaddressVal)) {
+            $("#email").val('Not valid.');
+            document.getElementById("email").style.borderColor="#FF0000";
             hasError = true;
         }
 
-        if(firstnameval == '') 
+        if(firstnameval=='') 
         {		        
     	
-            $("#firstname").after('Firstname required');
+       // alert("fdfdfdfgfdggfhh");
+            $("#firstname").val('Required');
+            document.getElementById("firstname").style.borderColor="#FF0000";
             hasError = true;
         }
-        if(lastnameval == '') 
+        
+        if(lastnameval=='') 
         {		        
     	
-            $("#lastname").after('Lastname required');
+            $("#lastname").val('Required');
+            document.getElementById("lastname").style.borderColor="#FF0000";
             hasError = true;
         }
-        if(captchaval == '') 
-        {		        
-        	
+        if(phoneval=='')
+        	{
+        	$("#phone").val("Required");
+        	document.getElementById("phone").style.borderColor="#FF0000";
+        	}
         
-            $("#captcha_code").after('Fill Code');
-            hasError = true;
-        }
-      
-        
-        if(repeatpasswordval == '') 
-      {		        
-    		
-          $("#repeatpassword").after('password required');
-           hasError = true;
-       }
-        if(repeatemailaddressVal == '') 
-        {		        
-    		
-           $("#repeatemail").after('Email required');
-            hasError = true;
-        }
-                             
-                 
-        
-        if(dateval == '') 
+        if(addressval == '') 
         {		        
     	
-            $("#datepicker").after('Date required');
+            $("#address").val('Required');
+            document.getElementById("address").style.borderColor="#FF0000";
             hasError = true;
         }
+        
+        
        
         if(hasError == true) {
-             	return false; 
+             	
+        	
+        	return false; 
         }
         else {
-              	$('#frmForm').submit();
-        	return true;
-        }
+          	$('#frmForm').submit();
+    	return true;
+    }
                    
     });
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
     $('#edit').click(function() { 
 
