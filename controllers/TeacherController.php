@@ -183,6 +183,26 @@ public function writeMessage()
     
     }
     
+    public function downloadClick ()
+    {
+    	$objCourse= new Course();
+    	$this->createUser();
+    	$result=$objCourse->fetchTeacherCoursename();
+    	
+    	$this->showSubTeacherViews("download",$result);
+    	 
+    }
+    
+    public function downloadFile ()
+    {
+    	$coursenamelist = $_POST["coursenamelist"];
+    	
+    	$this->createUser();
+    	$filelist=$this->_objUser->downloadContent($coursenamelist);
+    
+    	 
+    	$this->showSubStudentViews("showContent",$filelist);
+    }
 
     public function uploadClick ()
     {

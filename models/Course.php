@@ -165,18 +165,94 @@ class Course extends AModel {
 		
 }
 	}
-	public function fetchCoursename() {
+	public function fetchTeacherCoursename() {
 //@todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
 		DBConnection::Connect ();
+$this->db->Fields ( array (
+		"id"
+) );
+$this->db->From ( "teacherdetails" );
+$this->db->Where ( array (
+		"user_id" => $_SESSION ["userID"]
+) );
+$this->db->Select ();
+$id = $this->db->resultArray ();
+$tid = $id [0] ['id'];
+
+$this->db->Fields ( array (
+		"course_id"
+) );
+$this->db->From ( "teaches" );
+$this->db->Where (array (
+		"teacher_id" => $tid) );
+$this->db->Select ();
+$courseid = $this->db->resultArray ();
+$cid = $courseid [0] ['course_id'];
+
+$this->db->Fields ( array (
+		"coursename"
+) );
+$this->db->From ( "course" );
+$this->db->Where (array (
+		"course_id" => $cid) );
+$this->db->Select ();
+$result = $this->db->resultArray ();
+return $result;
+}
+	
+	public function fetchStudentCoursename() {
+		//@todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
+		DBConnection::Connect ();
 		$this->db->Fields ( array (
-				"coursename" 
+				"id" 
+		) );
+		$this->db->From ( "studentdetails" );
+		$this->db->Where ( array (
+				"user_id" => $_SESSION ["userID"] 
+		) );
+		$this->db->Select ();
+		$id = $this->db->resultArray ();
+		$sid = $id [0] ['id'];
+		
+		$this->db->Fields ( array (
+				"course_id"
+		) );
+		$this->db->From ( "enrolls" );
+		$this->db->Where (array (
+				"student_id" => $sid) );
+		$this->db->Select ();
+		$courseid = $this->db->resultArray ();
+		$cid = $courseid [0] ['course_id'];
+		
+		$this->db->Fields ( array (
+				"coursename"
 		) );
 		$this->db->From ( "course" );
-		$this->db->Where ();
+		$this->db->Where (array (
+				"course_id" => $cid) );
 		$this->db->Select ();
 		$result = $this->db->resultArray ();
+		
 		return $result;
 	}
+	
+	public function fetchCoursename ()
+	{
+		DBConnection::Connect();
+		$this->db->Fields(array(
+				"coursename"
+							));
+		$this->db->From("course");
+		$this->db->Where();
+		
+		$this->db->Select();
+	
+		$result=$this->db->resultArray();
+		return $result;
+	
+	
+	}
+	
 	
 	public function fetchCourse ($limit = "0,10")
     {

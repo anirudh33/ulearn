@@ -211,16 +211,48 @@ public function messageShow() {
 		return $result;
 	}
 	
-public function fetchTeachername() {
+public function fetchTeachername($result=array()) {
 		
 		DBConnection::Connect ();
+		$coursename=$result [0] ["coursename"];
+		$this->db->Fields ( array (
+				"course_id"
+		) );
+		$this->db->From ( "course" );
+		$this->db->Where (array (
+				"coursename" => $coursename) );
+		$this->db->Select ();
+		$courseid = $this->db->resultArray ();
+		$cid=$courseid [0] ["course_id"];
+		
+		$this->db->Fields ( array (
+				"teacher_id"
+		) );
+		$this->db->From ( "teaches" );
+		$this->db->Where (array (
+				"course_id" => $cid) );
+		$this->db->Select ();
+		$teacherid = $this->db->resultArray ();
+		$tid = $teacherid [0] ['teacher_id'];
+		
+		$this->db->Fields ( array (
+				"user_id"
+		) );
+		$this->db->From ( "teacherdetails" );
+		$this->db->Where (array (
+				"id" => $tid) );
+		$this->db->Select ();
+		$userid = $this->db->resultArray ();
+		$uid = $userid [0] ['user_id'];
+		
 		$this->db->Fields ( array (
 				"email"
 		) );
 		$this->db->From ( "userdetails" );
-		$this->db->Where (array("user_type"=>"teacher"));
+		$this->db->Where (array("user_id" => $uid));
 		$this->db->Select ();
 		$result1 = $this->db->resultArray ();
+		
 		return $result1;
 		
 	}

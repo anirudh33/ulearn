@@ -113,8 +113,8 @@ public function writeMessage()
     {
     	$objCourse= new Course();
 	$this->createUser();
-    	$result=$objCourse->fetchCoursename();
-    	$result1=$this->_objUser->fetchTeachername();
+    	$result=$objCourse->fetchStudentCoursename();
+    	$result1=$this->_objUser->fetchTeachername($result);
     	$this->showSubStudentViews("download",$result,$result1);
     	
          }

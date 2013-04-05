@@ -278,6 +278,34 @@ public function lessonExists($lesson_name) {
 	}
 	 		 	 	
 	}
+	
+	public function downloadContent($coursenamelist)
+	{
+		$user_id = $_SESSION ["userID"];
+		$this->db->Fields ( array (
+				"email"
+		) );
+		$this->db->From ( "userdetails" );
+		$this->db->Where (array("user_id" => $user_id));
+		$this->db->Select ();
+		$result1 = $this->db->resultArray ();
+		$email = $result1 [0] ['email'];
+		$files="";
+		$path = $_SESSION['SITE_PATH']."/uploads/".$email."/".$coursenamelist;
+		if ($handle = opendir($path)) {
+			while (false !== ($file = readdir($handle)))
+			{
+				if ($file != "." && $file != "..")
+				{
+					$files .= '<a id="files" target="_blank" href="'."uploads/".$teachernamelist."/".$coursenamelist."/".$file.'">'.$file.'</a><br>';
+				}
+			}
+			closedir($handle);
+		}
+	
+		return $files;
+	
+	}
 	 
 	public function fetchEmailID() {
 		DBConnection::Connect ();

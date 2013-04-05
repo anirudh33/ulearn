@@ -74,6 +74,15 @@ if ($viewName == "addCourse")
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageBodyView.php';
 						}
+						
+						if ($viewName == "showContent"&& (! empty ( $data ))) {
+						
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ContentView.php';
+						}
+						
+						if ($viewName == "download"&& (! empty ( $data ))) {
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/DownloadView.php';
+						}
 							
    if ($viewName == "showProfile" && (! empty ( $data ))) 
 
@@ -123,6 +132,8 @@ if ($viewName == "viewMessage" && (! empty ( $data ))&& (! empty ( $result2 )))
 								Course</a></li>
 						<li><a href="index.php?method=viewMessageClick&controller=Teacher">View
 								Messages</a></li>
+								<li><a href="index.php?method=downloadClick&controller=Teacher"
+							id="link1">View Study Material</a></li>
 
 					</ul>
 				</div>
