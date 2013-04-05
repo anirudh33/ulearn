@@ -133,37 +133,9 @@ if(isset($teacherqualificationcount))
 								
 						<li><a href="index.php?method=generateReport&controller=Admin" title="Forums"><?php echo $lang->REPORTGENERATION;?></a></li>
     </ul>
-    
 				</div>
-
-
-			</div>
-
-
-
-		</div>
-
-
-
-
+				</div>
+</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
 </body>
-
-
-
-
-
-
-
-
 </html>

@@ -24,17 +24,17 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 <link rel="stylesheet" href="/resources/demos/style.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="./assets/js/RegistrationView2.js"></script>
+<script type="text/javascript" src="./assets/js/RegistrationView.js"></script>
 
 
 
-<link rel="stylesheet" type="text/css" href="./assets/style/registrationnew.css">
+ <link rel="stylesheet" type="text/css" href="./assets/style/registrationnew.css">
 <link rel="stylesheet" type="text/css" href="./assets/style/registrationnew2.css">
- <script>
-$(function() {
-$( "#datepicker" ).datepicker();
-});
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js">
 </script>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js">
+</script>
+
 </head>
 <body>
 
@@ -120,10 +120,7 @@ $( "#datepicker" ).datepicker();
              </p>
              </div> 
             
-           <div class="fieldgroup">
-                <label for="dob">Date of birth</label>
-               <input type="text" name="date" id="datepicker" />
-            </div> 
+           
             
             <div class="fieldgroup">
                 <label for="usertype">Usertype</label>
