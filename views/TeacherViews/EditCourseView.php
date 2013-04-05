@@ -9,7 +9,7 @@ Created by                  -  Tanu Trehan
 Created on                  -  April 4, 2013
 * **************************** Update Log ********************************
 */
-
+$lang = Language::getinstance();
 $obj_paging = new paging();
 
 if (isset($_GET['page']))
@@ -44,9 +44,9 @@ $pages = $obj_paging->get_pages();
 					<td><?php echo $lang-> OPTIONS;?></td>
 				</tr>
                 <?php
-                if ($result1) {
+                if ($data) {
                     $i = 0;
-                    foreach ($result1 as $row) {
+                    foreach ($data as $row) {
                         $class = "";
                         if ($i % 2 == 0) {
                             $class = "atnate";

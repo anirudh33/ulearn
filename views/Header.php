@@ -125,18 +125,47 @@ if(isset($pageName)) {
 	
 	<!-- Upload View header -->
 	<!-- Css and js file same as add course -->
-	<?php //@todo usage  of following code explain with comment here ?>
-	<script type="text/javascript">
-	function show() {
-	$("#more").append('<label>Choose file:</label><input type="file" name="upload[]"/><br/>');
-	$("#more").append('<label>Lesson No:</label><input type="text" name="lesson_no" class="long" onfocus="if(this.value === 'Lesson no required') this.value = '';"> ></br>');
-	$("#more").append('<label>Lesson Name:</label><input type="text" name="lesson_name" class="long" onfocus="if(this.value === 'Lesson name required') this.value = '';"> ></br>');
-	}
-	</script>
 	
 	<!-- Write message View -->
 	<!-- css same as add course -->
+	<script>
 	
+	function fncDelete(argId,method) {
+		
+		$.ajax({ 
+	     type: "POST",
+	     url: 'index.php?method='+method+'&controller=Teacher',          
+	     data: "id="+argId,                        
+	     success: function(dataReceived){
+	    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
+	           if($.trim(dataReceived)=="1") {
+	        	   window.location.reload();
+	           } else {
+	               alert("Problem in deleting record!");
+	             <?php //@todo error to be thrown if record doesnt get deleted actually ?>  
+	           }
+	       }
+	   });
+	}
+	
+	function fncActivate(argId,method) {
+		
+		$.ajax({ 
+	     type: "POST",
+	     url: 'index.php?method='+method+'&controller=Teacher',          
+	     data: "id="+argId,                        
+	       success: function(dataReceived){
+	    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
+	           if($.trim(dataReceived)=="1") {
+	        	   window.location.reload();
+	           } else {
+	               alert("Problem in activating record!");
+	               <?php //@todo error to be thrown if record doesnt get activated from ?>  
+	           }
+	       }
+	   });
+	}
+	</script>
 	</head>
 
 <?php }
@@ -220,14 +249,19 @@ if(isset($pageName)) {
 	</script>
 	
 	<!-- Admin profile View header -->
+	<?php if($pageName=="AdminProfileView") {?>
 	<link rel="stylesheet" type="text/css" href="assets/style/global.css" />
+	<?php }?>
 	
 	<!-- Edit Admin profile View header -->
+	<?php if($pageName=="EditAdminProfileView") {?>
 	<link rel="stylesheet" href="assets/style/Registration.css"
 	type="text/css" media="screen" />
 	<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
+	<?php }?>
 	
 	<!-- Manage student View header -->
+	<?php if($pageName=="ManageStudentView") {?>
 	<link rel="stylesheet" type="text/css"
 	href="assets/style/ManageStudentView.css" media="screen" />
 	<?php //@todo usage  of following code explain with comment here and move to proper js file ?>
@@ -262,7 +296,52 @@ if(isset($pageName)) {
 	           if($.trim(dataReceived)=="1") {
 	        	   window.location.reload();
 	           } else {
+	               alert("Problem in activating record!");
+	               <?php //@todo error to be thrown if record doesnt get activated from ?>  
+	           }
+	       }
+	   });
+	}
+	</script>
+	<?php }?>
+	
+	<!-- Manage Teacher View header -->
+	<?php if($pageName=="ManageTeacherView") {?>
+	<link rel="stylesheet" type="text/css" href="assets/style/ManageTeacherView.css" 
+	media="screen" />
+	<!-- Same script functions used as in manage student view -->
+	<script>
+	
+	function fncDelete(argId,method) {
+		   
+		$.ajax({ 
+	     type: "POST",
+	     url: 'index.php?method='+method+'&controller=Admin',          
+	     data: "id="+argId,                        
+	       success: function(dataReceived){
+	    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
+	           if($.trim(dataReceived)=="1") {
+	        	   window.location.reload();
+	           } else {
 	               alert("Problem in deleting record!");
+	             <?php //@todo error to be thrown if record doesnt get deleted actually ?>  
+	           }
+	       },
+	   });
+	}
+	
+	function fncActivate(argId,method) {
+	
+		$.ajax({ 
+	     type: "POST",
+	     url: 'index.php?method='+method+'&controller=Admin',          
+	     data: "id="+argId,                        
+	       success: function(dataReceived){
+	    	   dataReceived=dataReceived.charAt(dataReceived.length-1);
+	           if($.trim(dataReceived)=="1") {
+	        	   window.location.reload();
+	           } else {
+	               alert("Problem in activating record!");
 	               <?php //@todo error to be thrown if record doesnt get activated from ?>  
 	           }
 	       }
@@ -270,16 +349,15 @@ if(isset($pageName)) {
 	}
 	</script>
 	
-	<!-- Manage Teacher View header -->
-	<link rel="stylesheet" type="text/css" href="assets/style/ManageTeacherView.css" 
-	media="screen" />
+	<?php }?>
 	
-	<!-- Same script functions used as in manage student view -->
 	
 	<!-- Report View header -->
+	<?php if($pageName=="ReportView") {?>
 	<link rel="stylesheet" href="assets/style/Report.css"
 	type="text/css" media="screen" />
 	
+	<?php }?>
 	</head>
 <?php }
 

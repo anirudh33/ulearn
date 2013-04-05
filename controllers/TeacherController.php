@@ -10,7 +10,7 @@ class TeacherController extends AController
     	$this->showProfile();       
     }
         
-    public function showSubTeacherViews ($viewName,$data,$result2=array())
+    public function showSubTeacherViews ($viewName,$data,$result2)
     {  
 
        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
@@ -51,7 +51,7 @@ public function editCourseClick ()
             $this->createUser();
             // creating object of paging classs
             $obj_paging = new paging();
-		  $objCourse= new Course();
+		  	$objCourse= new Course();
             
             if (isset($_GET['page']))
                 $page = $_GET['page'];
@@ -74,10 +74,12 @@ public function editCourseClick ()
 
 public function deleteCourseClick ()
     {
-        $coursename=$_REQUEST['coursename'];
+    	
+        $coursename=$_REQUEST['id'];
          $objCourse= new Course();
         
         $objReturn = $objCourse->deleteCourse($coursename);
+        
         if($objReturn) {
             die("1");
         } else {
@@ -86,7 +88,8 @@ public function deleteCourseClick ()
     }
     public function activateCourseClick ()
     {
-        $coursename=$_REQUEST['coursename'];
+    	
+        $coursename=$_REQUEST['id'];
         $objCourse= new Course();
 
         $objReturn = $objCourse->activateCourse($coursename);
@@ -180,7 +183,7 @@ public function writeMessage()
     	$teacherdetails=$this->_objUser->fetchTeacher();
     	
     	/* Showing Teacher View with teacher data */
-    	$this->showSubTeacherViews("showProfile",$teacherdetails);
+    	$this->showSubTeacherViews("showProfile",$teacherdetails,"");
     
     }
     

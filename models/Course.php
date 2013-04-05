@@ -212,6 +212,9 @@ public function deleteCourse($coursename)
         ));
     
         $objReturn = $this->db->Update();
+        
+        
+        
         return $objReturn;
            
     }
@@ -226,13 +229,14 @@ public function deleteCourse($coursename)
     
     
         $this->db->Where(array(
-            "cousename"=>$coursename
+            "coursename"=>$coursename
         ));
         $this->db->Fields(array(
             "status" => "1"
         ));
     
         $objReturn = $this->db->Update();
+        //echo $this->db->lastQuery();
         return $objReturn;
             
     }

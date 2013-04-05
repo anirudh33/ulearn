@@ -272,7 +272,7 @@ public function lessonExists($lesson_name) {
 	}
 		} else {
 			?>
-<script> confirm('Course name already exists, please re-enter')</script>
+<script> confirm('Lesson name already exists, please re-enter')</script>
 <?php
 		
 	}

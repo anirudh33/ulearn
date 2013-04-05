@@ -12,6 +12,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
 * ************************************************************************
 */
+$pageName="AdminProfileView";
 //@todo move the following header to admin view so that log out shows on each page if sounds fine?>
 	<header>
 	
