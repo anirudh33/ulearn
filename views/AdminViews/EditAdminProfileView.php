@@ -12,7 +12,10 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 -------------------------------------------------------------------------
 
 * ************************************************************************
-*/ //@todo edit profile changes doesnt get reflected back to the view ?>
+*/ //@todo edit profile changes doesnt get reflected back to the view 
+$pageName=="EditAdminProfileView";
+?>
+
 <div id="registerdiv">
 
 			<form id="form" action="index.php?method=editAdminClick&controller=Admin"

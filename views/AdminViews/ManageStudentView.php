@@ -14,7 +14,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 														header separation
 * ************************************************************************
 */
-
+$pageName=="ManageStudentView";
 $obj_paging = new paging();
 
 if (isset($_GET['page']))

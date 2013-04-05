@@ -13,7 +13,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 														header separation
 * ************************************************************************
 */
-$lang = Language::getinstance();
+
 $pageName="AdminView";
 require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 ?>

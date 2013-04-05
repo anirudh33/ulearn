@@ -31,10 +31,11 @@ abstract class AController {
 		
 	}
 	
-	protected function showView ($data = array())
-	{
-		
-	}
+
+ 	public function showView ()
+    {        
+        $this->showProfile();
+    }
 	/**
 	 */
 	protected function createUser() {

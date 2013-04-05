@@ -18,7 +18,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 
 //$objgraph=new Graphreport();
 
-
+$pageName=="ReportView";
 ?>
 
 <link rel="stylesheet" href="assets/style/Report.css"

@@ -14,8 +14,10 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 														header separation
 * ************************************************************************
 */
+
 //@todo Can be put in a separate file this paging block as same for
 // manage student too
+$pageName=="ManageTeacherView";
 $obj_paging = new paging();
 
 if (isset($_GET['page'])) {

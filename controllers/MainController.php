@@ -1,22 +1,15 @@
 <?php
-
 /*
  * *************************** Creation Log ******************************* 
- * File Name - MainController.php Description - Main Controller Version - 1.0 
+ * File Name - MainController.php 
+ * Description - Main Controller Version - 1.0 
  * Created by - Anirudh Pandita Created on - March 01, 2013 
- * *************************************************************************** 
+ * **********************Update Log ***************************************
  * Sr.NO. Version Updated by Updated on Description 
  * ------------------------------------------------------------------------- 
- * 1 1.0 Anirudh Pandita March 08, 2013 paths corrected 
- * ************************************************************************
- * * *************************************************************************** 
- * Sr.NO. Version Updated by Updated on Description 
- * ------------------------------------------------------------------------- 
- * 1 1.0 Kawaljeet Singh March 15, 2013 Registration 
- * ************************************************************************
- * Sr.NO. Version Updated by Updated on Description 
- * ------------------------------------------------------------------------- 
- * 1 1.0 Ujjwal Rawlley April 04, 2013 Mailing 
+ * 1 	1.0 	Anirudh Pandita March 08, 2013 paths corrected 
+ * 1 	1.0 	Kawaljeet Singh March 15, 2013 Registration 
+ * 1 	1.0 	Ujjwal Rawlley 	April 04, 2013 Mailing 
  * ************************************************************************
  */
 
@@ -30,7 +23,8 @@ class MainController
      * Unknown usage of variable $_authenticationStatus
      */
     private $_authenticationStatus = 0;
-
+	
+    
     public function getAuthenticationStatus ()
     {
         return $this->_authenticationStatus;
@@ -54,6 +48,7 @@ class MainController
     /* Shows home page */
     public function showMainView ()
     {
+    	
         require_once "views/MainView.php";        
     }
     
@@ -83,7 +78,7 @@ class MainController
      * on user type logged in */
     public function showUserPanel ()
     {
-        $controllerName = ucfirst($_SESSION["userType"]) . "Controller";
+    	$controllerName = ucfirst($_SESSION["userType"]) . "Controller";
         $objController = new $controllerName();
        
         $objController->process();

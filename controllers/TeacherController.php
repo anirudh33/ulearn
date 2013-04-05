@@ -5,11 +5,7 @@ class TeacherController extends AController
 
     protected  $_requiredType = "teacher";
 
-    public function showView ()
-    {    	
-    	$this->showProfile();       
-    }
-        
+          
     public function showSubTeacherViews ($viewName,$data,$result2)
     {  
 

@@ -56,11 +56,6 @@ require_once ($_SESSION['SITE_PATH'] . '/controllers/TeacherController.php');
 require_once ($_SESSION['SITE_PATH'] . '/controllers/StudentController.php');
 
 
-/* Getting default Language to be used in various views
- * Usage: Just use $lang->CONSTANTNAME to display the language specific value */
-$lang = Language::getinstance();
-
-
 /* Method Handling from called from Views */
 if (isset($_REQUEST['method'])) {
     

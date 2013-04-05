@@ -6,11 +6,6 @@ class StudentController extends AController
     protected  $_requiredType = "student";
 
   
-    public function showView ()
-    {
-		$this->showProfile();
-    }
-
     public function showSubStudentViews ($viewName,$data,$data1=array())
     {
         require_once $_SESSION["SITE_PATH"] . '/views/StudentViews/StudentView.php';

@@ -12,6 +12,11 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 * ************************************************************************
 */
+
+/* Getting default Language to be used in various views
+ * Usage: Just use $lang->CONSTANTNAME to display the language specific value */
+$lang = Language::getinstance();
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -249,19 +254,20 @@ if(isset($pageName)) {
 	</script>
 	
 	<!-- Admin profile View header -->
-	<?php if($pageName=="AdminProfileView") {?>
+
 	<link rel="stylesheet" type="text/css" href="assets/style/global.css" />
-	<?php }?>
+	
+
 	
 	<!-- Edit Admin profile View header -->
-	<?php if($pageName=="EditAdminProfileView") {?>
+
 	<link rel="stylesheet" href="assets/style/Registration.css"
 	type="text/css" media="screen" />
 	<script src="assets/js/RegistrationView.js" type="text/javascript"></script> 
-	<?php }?>
+
 	
 	<!-- Manage student View header -->
-	<?php if($pageName=="ManageStudentView") {?>
+
 	<link rel="stylesheet" type="text/css"
 	href="assets/style/ManageStudentView.css" media="screen" />
 	<?php //@todo usage  of following code explain with comment here and move to proper js file ?>
@@ -303,10 +309,10 @@ if(isset($pageName)) {
 	   });
 	}
 	</script>
-	<?php }?>
+
 	
 	<!-- Manage Teacher View header -->
-	<?php if($pageName=="ManageTeacherView") {?>
+
 	<link rel="stylesheet" type="text/css" href="assets/style/ManageTeacherView.css" 
 	media="screen" />
 	<!-- Same script functions used as in manage student view -->
@@ -349,15 +355,15 @@ if(isset($pageName)) {
 	}
 	</script>
 	
-	<?php }?>
+
 	
 	
 	<!-- Report View header -->
-	<?php if($pageName=="ReportView") {?>
+
 	<link rel="stylesheet" href="assets/style/Report.css"
 	type="text/css" media="screen" />
 	
-	<?php }?>
+
 	</head>
 <?php }
 

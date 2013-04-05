@@ -18,13 +18,6 @@ class AdminController extends AController
 
     protected  $_requiredType = "admin";
 
-    protected function showView ($data = array())
-    {  	
-    	
-        //require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
-        $this->showProfile();
-    }
-
     public function showManageTeacherView ($teacherdata = array(), $teacherRecordsCount)
     {
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';

@@ -15,20 +15,15 @@ Sr.NO.  Version   Updated by        Updated on          Description
 4	1.2	  Ujjwal Rawlley    April 04, 2013	Main View Tabs modification with some functionality added
 * ************************************************************************
 */
-
-$lang = Language::getinstance();
 $pageName="MainView";
 require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 ?>
 
 <body>
 
-	<!-- Panel -->
+	<!-- Panel -->	
 	
-	
-	
-	<div id="toppanel">
- 
+	<div id="toppanel"> 
 	
 		<div id="panel">
 		
@@ -46,13 +41,24 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 						action="index.php?method=initiateLogin&controller=Main"
 						method="post" id="register-form">
 						<h1><?php echo $lang->MEMBERLOGIN?></h1>
-						<label class="grey" for="fieldEmail"><?php echo $lang->USERNAME;?></label>
+						<label class="grey" for="fieldEmail">
+						<?php echo $lang->USERNAME;?>
+						</label>
 						<input class="field" type="text" name="fieldEmail" id="log"
-							value="" size="23" /> <label class="grey" for="pwd"><?php echo $lang-> PASSWORD;?></label>
+							value="" size="23" /> 
+						<label class="grey" for="pwd">
+						<?php echo $lang-> PASSWORD;?>
+						</label>
 						<input class="field" type="password" name="fieldPassword" id="pwd"
-							size="23" /> <label><input name="rememberme" id="rememberme"
-							type="checkbox" checked="checked" value="forever" /> &nbsp;<?php echo $lang->REMEMBERME?></label>
-						<div class="clear"></div>
+							size="23" /> 
+						<label>
+						<input name="rememberme" id="rememberme"
+							type="checkbox" checked="checked" value="forever" /> 
+							&nbsp;<?php echo $lang->REMEMBERME?>
+						</label>
+						<div class="clear">
+						
+						</div>
 						<input type="submit" id="submit" name="submit"
 							value="<?php echo  $lang->LOGIN; ?>" class="bt_login" /> <a
 							class="lost-pwd" href="#"><?php echo $lang->LOSTPASSWORD;?></a>
