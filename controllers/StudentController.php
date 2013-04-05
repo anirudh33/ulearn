@@ -71,14 +71,24 @@ class StudentController extends AController
 
 public function viewMessageClick ()
 {
-
+	 
 		$this->createUser();
+	list($messages,$result2) = $this->_objUser->messageShow();
 
-		$messages= $this->_objUser->messageShow();
-	
-	$this->showSubStudentViews("viewMessage",$messages);
-
+$this->showSubStudentViews("viewMessage",$messages,$result2);
+	 
 }
+
+public function subjectClick ()
+{
+	     $aid=$_REQUEST["msgid"];
+		$this->createUser();
+	     $result = $this->_objUser->messageBody($aid);
+	     $this->showSubStudentViews("MessageBody",$result);
+  
+	 
+}
+
 
 public function writeMessage()
     {
@@ -107,8 +117,9 @@ public function writeMessage()
     public function downloadClick ()
     {
     	$objCourse= new Course();
+	$this->createUser();
     	$result=$objCourse->fetchCoursename();
-    	$result1=$objCourse->fetchTeachername();
+    	$result1=$this->_objUser->fetchTeachername();
     	$this->showSubStudentViews("download",$result,$result1);
     	
          }

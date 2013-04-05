@@ -39,47 +39,62 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 				<?php
 				
 				
-				if (isset ( $viewName )) {
-					
-					if ($viewName == "addCourse") 
+	if (isset ( $viewName )) {
 
+if ($viewName == "addCourse")
 					{
 						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/AddCourseView.php';
 					}
-					if (isset ( $data )) {
-						if ($viewName == "editProfile" && (! empty ( $data )))
+
+										
+	if (isset ( $data )) {
+	if ($viewName == "editProfile" && (! empty ( $data )))
 						
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditProfileView.php';
 						}
-						if ($viewName == "writeMessage" && (! empty ( $data ))) 
+	if ($viewName == "writeMessage" && (! empty ( $data ))) 
 
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/WriteMessageView.php';
 						}
-						if ($viewName == "upload" && (! empty ( $data ))) 
+	if ($viewName == "upload" && (! empty ( $data ))) 
 
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/UploadView.php';
 						}
-						if ($viewName == "registerCourse" && (! empty ( $data ))) 
+	if ($viewName == "registerCourse" && (! empty ( $data ))) 
 
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
 						}
-						if ($viewName == "viewMessage" && (! empty ( $data ))) 
-
-						{
-							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessagesView.php';
-						}
 						
-						if ($viewName == "showProfile" && (! empty ( $data ))) 
+						if ($viewName == "MessageBody" && (! empty ( $data )))
+						
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageBodyView.php';
+						}
+							
+   if ($viewName == "showProfile" && (! empty ( $data ))) 
 
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/TeacherProfileView.php';
 						}
+if (isset ( $result2 )) {
+if ($viewName == "editCourse" && (! empty ( $data )) && (! empty ( $result2 ))) 
+					{
+						require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/EditCourseView.php';
 					}
-				}
+if ($viewName == "viewMessage" && (! empty ( $data ))&& (! empty ( $result2 ))) 
+
+						{
+
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessagesView.php';
+						}
+
+	}
+}
+     }
 				
 				?>
 				
@@ -99,7 +114,9 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 							id="link1">Write Message</a></li>
 						<li><a href="index.php?method=editProfileClick&controller=Teacher"
 							id="link1">Edit Profile</a></li>
-						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add
+<li><a href="index.php?method=addCourseClick&controller=Teacher">Add
+								Course</a></li>
+						<li><a href="index.php?method=editCourseClick&controller=Teacher">Edit
 								Course</a></li>
 						<li><a
 							href="index.php?method=registerCourseClick&controller=Teacher">Register

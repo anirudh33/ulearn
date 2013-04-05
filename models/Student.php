@@ -119,31 +119,84 @@ public function messageSend($body,$subject,$sentto)
 		echo $this->db->lastQuery();
 	}
 	
-	public function messageShow(){
-		$uid=$_SESSION['userID'];
+	
+public function messageShow() {
+		$uid = $_SESSION ['userID'];
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
-				"id"
+				"id" 
 		) );
 		$this->db->From ( "studentdetails" );
-		$this->db->Where (array (
-				"user_id"=>$uid));
+		$this->db->Where ( array (
+				"user_id" => $uid 
+		) );
 		$this->db->Select ();
-		$sIDArray=$this->db->resultArray ();
-		$studentID=$sIDArray[0]["id"];
+		$sIDArray = $this->db->resultArray ();
+		$studentID = $sIDArray [0] ["id"];
 		$this->db->Fields ( array (
-				"body",
-				"subject",
-				"sentfrom"
+				"message_id",
+				"subject"
+			 
 		) );
 		$this->db->From ( "teachermessage" );
-		$this->db->Where (array (
-				"sentto"=>$studentID));
+		$this->db->Where ( array (
+				"sentto" => $studentID 
+		) );
 		$this->db->Select ();
-		$result=$this->db->resultArray ();
-		return $result;
-	
+		$result = $this->db->resultArray ();
+
+		$this->db->Fields ( array (
+				"sentfrom"
+				
+				) );
+		$this->db->From ( "teachermessage" );
+		$this->db->Where ( array (
+				"sentto" => $studentID 
+		) );
+		$this->db->Select ();
+		$sentfrom = $this->db->resultArray ();
+
+		
+		$tid=$sentfrom [0] ["sentfrom"];
+		$this->db->Fields ( array (
+				"user_id" 
+		) );
+		$this->db->From ( "teacherdetails" );
+		$this->db->Where ( array (
+				"id" => $tid 
+		) );
+		$this->db->Select ();
+
+		$uIDArray = $this->db->resultArray ();
+		$u=$uIDArray [0] ["user_id"];
+		
+		$this->db->Fields ( array (
+				"email" 
+		) );
+		$this->db->From ( "userdetails" );
+		$this->db->Where ( array (
+				"user_id" => $u 
+		) );
+		$this->db->Select ();
+		$email = $this->db->resultArray ();
+
+		return array($result,$email);
 	}
+
+	public function messageBody($aid) {
+		DBConnection::Connect ();
+
+		$this->db->Fields ( array (
+				"body"
+				) );
+		$this->db->From ( "teachermessage" );
+		$this->db->Where ( array (
+				"message_id" => $aid 
+		) );
+		$this->db->Select ();
+		$result = $this->db->resultArray ();  			       		return $result;
+	}
+
 	
 	public function fetchEmailID() {
 		DBConnection::Connect ();
@@ -158,6 +211,20 @@ public function messageSend($body,$subject,$sentto)
 		return $result;
 	}
 	
+public function fetchTeachername() {
+		
+		DBConnection::Connect ();
+		$this->db->Fields ( array (
+				"email"
+		) );
+		$this->db->From ( "userdetails" );
+		$this->db->Where (array("user_type"=>"teacher"));
+		$this->db->Select ();
+		$result1 = $this->db->resultArray ();
+		return $result1;
+		
+	}
+
 	public function downloadContent($coursenamelist,$teachernamelist)
 	{
 	$files="";

@@ -21,19 +21,34 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 		<legend>Message Details </legend>'
 		<table id="tt" cellspacing="20px" cellpadding ="5px">
 			<tr>
-				<th>Body</th>
+				
+				<th>MessageID</th>
 				<th>Subject</th>
 				<th>Sent From</th>
+				
+				
 			</tr>
+			<?php
+
+		foreach ( $data as $key => $value ) {
+							
+						?>
+			<tr>
+		
+				
+	<td><?php echo $value["message_id"]?></td>
+<td><a href="index.php?method=subjectClick&controller=Teacher&msgid=<?php echo $value["message_id"] ?>">
+<?php echo $value["subject"] ?></a></td>
+							
+	<?php foreach ( $result2 as $key2 => $value2 ) {
+ 	foreach ( $value2 as $key3 => $value3 ) {?>
+
+		<td><?php echo $value3?></td>
 						<?php
-						foreach ( $data as $key => $value ) {
-							?><tr><?php
-							foreach ( $value as $key1 => $value1 ) {
-								?>
-					   	<td><?php echo $value1?></td>
-					   	<?php
-							}
-							?></tr><?php
+							}}
+							?>
+
+					   	</tr><?php
 						}
 						?>
 						

@@ -145,9 +145,9 @@ class Teacher extends AUser {
 		$tIDArray = $this->db->resultArray ();
 		$teacherID = $tIDArray [0] ["id"];
 		$this->db->Fields ( array (
-				"body",
-				"subject",
-				"sentfrom" 
+				"message_id",
+				"subject"
+			 
 		) );
 		$this->db->From ( "studentmessage" );
 		$this->db->Where ( array (
@@ -155,10 +155,87 @@ class Teacher extends AUser {
 		) );
 		$this->db->Select ();
 		$result = $this->db->resultArray ();
-		return $result;
+
+		$this->db->Fields ( array (
+				"sentfrom"
+				
+				) );
+		$this->db->From ( "studentmessage" );
+		$this->db->Where ( array (
+				"sentto" => $teacherID 
+		) );
+		$this->db->Select ();
+		$sentfrom = $this->db->resultArray ();
+
+		
+		$sid=$sentfrom [0] ["sentfrom"];
+		$this->db->Fields ( array (
+				"user_id" 
+		) );
+		$this->db->From ( "studentdetails" );
+		$this->db->Where ( array (
+				"id" => $sid 
+		) );
+		$this->db->Select ();
+
+		$uIDArray = $this->db->resultArray ();
+		$u=$uIDArray [0] ["user_id"];
+		
+		$this->db->Fields ( array (
+				"email" 
+		) );
+		$this->db->From ( "userdetails" );
+		$this->db->Where ( array (
+				"user_id" => $u 
+		) );
+		$this->db->Select ();
+		$email = $this->db->resultArray ();
+
+		return array($result,$email);
 	}
+
+	public function messageBody($aid) {
+		DBConnection::Connect ();
+
+		$this->db->Fields ( array (
+				"body"
+				) );
+		$this->db->From ( "studentmessage" );
+		$this->db->Where ( array (
+				"message_id" => $aid 
+		) );
+		$this->db->Select ();
+		$result = $this->db->resultArray ();  			       		return $result;
+	}
+
+
+public function lessonExists($lesson_name) {
+		/* fetch id of lesson*/
+		$this->db->Fields ( array (
+				"lesson_id" 
+		) );
+		$this->db->From ( "lesson" );
+		$this->db->Where ( array (
+				"lesson_name" => $lesson_name 
+		) );
+		$this->db->Select ();
+		
+		$id = $this->db->resultArray ();
+		
+		if (! empty ( $id )) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	
 	 public function lesson($lesson_no,$lesson_name,$coursenamelist) {
+
+	if (! $this->lessonExists ($lesson_name)) {
+			$flag = TRUE;
+		if ($flag == TRUE) {
+
 	 	DBConnection::Connect ();
 	 	$this->db->Fields ( array (
 	 			"id"
@@ -192,6 +269,13 @@ class Teacher extends AUser {
 	 	 		) );
 	 	 		$this->db->Insert ();
 // 	 	 		echo $this->db->lastQuery ();
+	}
+		} else {
+			?>
+<script> confirm('Course name already exists, please re-enter')</script>
+<?php
+		
+	}
 	 		 	 	
 	}
 	 

@@ -63,6 +63,12 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 						{
 							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/StudentProfileView.php';
 						}
+						if ($viewName == "MessageBody" && (! empty ( $data )))
+						
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/MessageBodyView.php';
+						}
+						
 						if ($viewName == "showContent"&& (! empty ( $data ))) {
 
 							require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/ContentView.php';

@@ -10,10 +10,10 @@ class TeacherController extends AController
     	$this->showProfile();       
     }
         
-    public function showSubTeacherViews ($viewName,$data=array())
+    public function showSubTeacherViews ($viewName,$data,$result2=array())
     {  
-    		
-    	require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
+
+       require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
     	    
     }
  
@@ -45,6 +45,60 @@ class TeacherController extends AController
         
     }
 
+public function editCourseClick ()
+    {
+        
+            $this->createUser();
+            // creating object of paging classs
+            $obj_paging = new paging();
+		  $objCourse= new Course();
+            
+            if (isset($_GET['page']))
+                $page = $_GET['page'];
+            else
+                $page = 1;
+            $obj_paging->set_page($page);
+            
+            $limit = $obj_paging->get_limit();
+            $obj_paging->set_page_length(10);
+            $page_length = $obj_paging->page_length;
+            $start_limit = $obj_paging->get_limit_start();
+            $limit = $start_limit . "," . $page_length;
+            
+            $result1=$objCourse->fetchCourse($limit);
+            
+            $result2=count($result1);
+     $this->showSubTeacherViews("editCourse",$result1,$result2);
+        
+    }
+
+public function deleteCourseClick ()
+    {
+        $coursename=$_REQUEST['coursename'];
+         $objCourse= new Course();
+        
+        $objReturn = $objCourse->deleteCourse($coursename);
+        if($objReturn) {
+            die("1");
+        } else {
+            die("0");
+        }
+    }
+    public function activateCourseClick ()
+    {
+        $coursename=$_REQUEST['coursename'];
+        $objCourse= new Course();
+
+        $objReturn = $objCourse->activateCourse($coursename);
+        if($objReturn) {
+            die("1");
+        } else {
+            die("0");
+        }
+    
+    }
+
+
     public function addCourseClick ()
     {
         $this->showSubTeacherViews("addCourse");
@@ -52,11 +106,7 @@ class TeacherController extends AController
 
     public function addCourseButtonClick ()
     {
-        //$course_id = $_POST["course_id"];
-        //$coursename = $_POST["coursename"];
-        //$description = $_POST["description"];
-        //$this->createUser();
-        //$this->_objUser->addCourse($course_id, $coursename, $description);
+        
         $objCourse= new Course();
         $objCourse->addCourse();
     }
@@ -92,12 +142,22 @@ public function viewMessageClick ()
 {
 	 
 		$this->createUser();
-	
-		$messages= $this->_objUser->messageShow();
-	
-	$this->showSubTeacherViews("viewMessage",$messages);
+	list($messages,$result2) = $this->_objUser->messageShow();
+
+$this->showSubTeacherViews("viewMessage",$messages,$result2);
 	 
 }
+
+public function subjectClick ()
+{
+	     $aid=$_REQUEST["msgid"];
+		$this->createUser();
+	     $result = $this->_objUser->messageBody($aid);
+	     $this->showSubTeacherViews("MessageBody",$result);
+  
+	 
+}
+
 
 public function writeMessage()
     {
@@ -110,7 +170,7 @@ public function writeMessage()
          
             $this->createUser();
             
-            $this->_objUser->messageSend($body, $subject,  $sentto);
+        $this->_objUser->messageSend($body, $subject,  $sentto);
         
     }
     

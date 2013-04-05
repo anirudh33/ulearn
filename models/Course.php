@@ -178,19 +178,67 @@ class Course extends AModel {
 		return $result;
 	}
 	
-	public function fetchTeachername() {
-		//@todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
-		DBConnection::Connect ();
-		$this->db->Fields ( array (
-				"email"
-		) );
-		$this->db->From ( "userdetails" );
-		$this->db->Where (array("user_type"=>"teacher"));
-		$this->db->Select ();
-		$result1 = $this->db->resultArray ();
-		return $result1;
-		
-	}
+	public function fetchCourse ($limit = "0,10")
+    {
+        DBConnection::Connect();
+        $this->db->Fields(array(
+            "coursename",
+            
+            "status"
+        ));
+        $this->db->From("course");
+        $this->db->Where();
+        $this->db->Limit($limit);
+        $this->db->Select();
+        
+        $result=$this->db->resultArray();
+		return $result;
+        
+        
+    }
+
+public function deleteCourse($coursename)
+    {
+        DBConnection::Connect();
+           
+        $this->db->From("course");
+         
+         
+        $this->db->Where(array(
+            "coursename"=>$coursename
+        ));
+        $this->db->Fields(array(
+            "status" => "2"
+        ));
+    
+        $objReturn = $this->db->Update();
+        return $objReturn;
+           
+    }
+    
+    public function activateCourse($coursename)
+    {
+    
+        DBConnection::Connect();
+    
+    
+        $this->db->From("course");
+    
+    
+        $this->db->Where(array(
+            "cousename"=>$coursename
+        ));
+        $this->db->Fields(array(
+            "status" => "1"
+        ));
+    
+        $objReturn = $this->db->Update();
+        return $objReturn;
+            
+    }
+
+
+
 }
 
 ?>

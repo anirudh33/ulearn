@@ -109,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `language` (
 
 CREATE TABLE IF NOT EXISTS `lesson` (
   `lesson_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'lesson id',
-  `lesson_no` int(11) NOT NULL COMMENT 'lesson number',
-  `lesson_name` char(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'lesson name',
+  `lesson_no` int(11) UNIQUE NOT NULL COMMENT 'lesson number',
+  `lesson_name` char(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci UNIQUE NOT NULL COMMENT 'lesson name',
   `lesson_body` char(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'lesson text',
   `createdon` date DEFAULT NULL COMMENT 'specifies date of created lesson',
   `updatedon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'date of updation',
