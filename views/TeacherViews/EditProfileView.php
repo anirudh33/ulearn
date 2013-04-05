@@ -36,18 +36,54 @@
 
 
 					<p>
-						<label>Qualification * </label> <input type="text"
-							id="qualification" name="qualification" class="long"
-							value=<?php echo $data[0]['qualification']?>
-							onfocus="if(this.value === 'Qualification required') this.value = '';">
-					</p>
+			<?php 
+			
+			$strQualification = $data [0] ['qualification'];
+			?>
+			
+			<div class="fieldgroup">
+				<label for="qualification">Qualification</label> 
+				<select
+					name="qualification">
+					<option
+						<?php if ($strQualification == "graduate") { echo "selected";}?>  
+						value="graduate">graduate</option>
+					<option
+						<?php if ($strQualification == "postgraduate") { echo "selected";}?>
+						value="postgraduate">postgraduate</option>
+					<option
+						<?php if ($strQualification == "doctorate") { echo "selected";}?>
+						value="doctorate">doctorate</option>
+					<option <?php if ($strQualification == "others") { echo "selected";}?>
+						value="others">others</option>
+				</select>
+			</div>
 
+			</p>
+
+					
 				
 				
 					
-					<p>
-						<label>Gender </label> <input type="text" id="gender"
-							name="gender" class="long" value=<?php echo $data[0]['gender']?>>
+				<p>
+
+<?php $strGender=$data[0]['gender'];?>
+				
+			<div class="fieldgroup">
+                <label for="gender">Gender</label>
+                 <p>
+                <label class="gender">Male</label>
+                <input type="radio" name="gender" <?php if ($strGender == "m") { echo "checked";}?>  
+						value="m"/>
+				
+                </p>
+                <p>
+                <label class="gender">Female</label>
+                <input type="radio"
+						name="gender" <?php if ($strGender == "f") { echo "checked";}?>  
+						value="f"/>
+             </p>
+             </div> 
 
 					</p>
 					<p>

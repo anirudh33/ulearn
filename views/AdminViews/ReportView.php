@@ -14,9 +14,9 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 														header separation
 * ************************************************************************
 */
-//require_once ($_SESSION['SITE_PATH'] . '/views/AdminViews/Graph.php');
+require_once ($_SESSION['SITE_PATH'] . '/views/AdminViews/Graph.php');
 
-//$objgraph=new Graphreport();
+$objgraph=new Graphreport();
 
 $pageName=="ReportView";
 ?>

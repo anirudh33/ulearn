@@ -76,7 +76,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
                 <input type="text" name="phone">
             </div>
             <div class="fieldgroup">
-                <label for="phone">Qualification</label>
+                <label for="qualification">Qualification</label>
                 <select name="qualification">
 								<option>graduate</option>
 								<option>postgraduate</option>

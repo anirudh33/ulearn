@@ -1,7 +1,7 @@
 <?php
 require_once ($_SESSION['SITE_PATH'] . '/libraries/jpgraph/src/jpgraph_bar.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/jpgraph/src/jpgraph.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/jpgraph/src/jpgraph_plotband.php');
+//require_once ($_SESSION['SITE_PATH'] . '/libraries/jpgraph/src/jpgraph_plotband.php');
 class Graphreport
 
 {
@@ -27,7 +27,7 @@ $graph->xaxis->SetTickSide(SIDE_DOWN);
 $graph->yaxis->SetTickSide(SIDE_LEFT);
 
 // Create a bar pot
-$bplot = new BarPlot($datay,$datax);
+$bplot = new BarPlot($datay);
 //print_r($bplot);
 // Create targets for the image maps. One for each column
  $targ=array("test2.php?id=2","test2.php?id=2","test1.php?id=3","test1.php?id=4","test1.php?id=5","test1.php?id=6");

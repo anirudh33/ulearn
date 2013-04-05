@@ -19,6 +19,7 @@ $pageName="MainView";
 require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 ?>
 
+
 <body>
 
 	<!-- Panel -->	
@@ -144,11 +145,10 @@ if (isset($_REQUEST["msg"])) {
 						<li class="pink"><a href="#tab5"><?php echo $lang-> COURSES;?></a></li>
 					</ul>
 					
-					<div class="tab_container">
-						<div id="tab1" class="tab_content">
-							<img alt="" src="assets/images/img/ae_graduate1.jpg"  height="520" width="542">
+					<div  class="tab_container">
+					
 
-							  
+							  <div id="tab1" class="tab_content">
 						</div>
 						<div id="tab2" class="tab_content">
 							<img alt="" src="assets/images/Views/tab1_image.jpg">
@@ -178,18 +178,18 @@ if (isset($_REQUEST["msg"])) {
 								action="index.php?method=sendmail&controller=Main"> 
 <fieldset>
 <legend><img alt="" src="assets/images/img/contact_me.png"></legend>
-							<label for='name'>Your Name:</label> <br>
+							<label  style="color:black;font-weight:bold" for='name'>Your Name:</label> </br></br>
 							<input type="text" name="name" id="name">
-							
+							</br>
 							<p>
-							<label for='email'>Email Address:</label> <br>
-							<input type="text" id="email" name="email"> <br>
+							<label style="color:black;font-weight:bold" for='email'>Email Address:</label> </br></br>
+							<input type="text" id="email" name="email"> </br></br>
 							</p>
 							<p>
-							<label for='message'>Message:</label> <br>
-							<textarea id="message" name="message"></textarea>
+							<label style="color:black;font-weight:bold" for='message'>Message:</label> </br></br>
+							<textarea id="message" name="message"></textarea></br></br>
 							</p>
-							<input type="submit" value="Submit"><br>
+							<input type="submit" value="Submit"></br></br>
 							
 </fieldset>
 							</form>

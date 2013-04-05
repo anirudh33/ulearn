@@ -16,58 +16,106 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 $pageName=="EditAdminProfileView";
 ?>
 
+<script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript"
+	src="./assets/js/EditAdminProfileViewValidate.js"></script>
+	
+	
 <div id="registerdiv">
 
-			<form id="form" action="index.php?method=editAdminClick&controller=Admin"
-				method="POST" class="register">
+	<form id="form"
+		action="index.php?method=editAdminClick&controller=Admin"
+		method="POST" class="register">
 
-				<h1><?php echo $lang->EDITPROFILE;?></h1>
+		<h1><?php echo $lang->EDITPROFILE;?></h1>
 
-				<fieldset class="row2">
-					<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
-					<p>
-						<label>First Name * </label> <input type="text" id="firstname" name="firstname"
-							class="long" value=<?php echo $admindata[0]['firstname']?>
-							onfocus="if(this.value === 'Firstname required') this.value = '';">
+		<fieldset class="row2">
+			<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
+			<p>
+				<label>First Name * </label> <input type="text" id="firstname"
+					name="firstname" class="long"
+					value=<?php echo $admindata[0]['firstname']?>>
+			</p>
+			<p>
+				<label>Last Name * </label> <input type="text" id="lastname"
+					name="lastname" class="long"
+					value=<?php echo $admindata[0]['lastname']?>
+					onfocus="if(this.value === 'Lastname required') this.value = '';">
+			</p>
+			<p>
+				<label>Phone </label> <input type="text" id="phone" name="phone"
+					maxlength="10" value=<?php echo $admindata[0]['phone']?>>
+
+			</p>
+
+			<p>
+				<label>Address </label> <input type="text" id="address"
+					name="address" class="long"
+					value=<?php echo $admindata[0]['address']?>>
+
+			</p>
+
+
+			<p>
+			<?php 
+			
+			$strQualification = $admindata [0] ['qualification'];
+			?>
+			
+			<div class="fieldgroup">
+				<label for="qualification">Qualification</label> 
+				<select
+					name="qualification">
+					<option
+						<?php if ($strQualification == "graduate") { echo "selected";}?>  
+						value="graduate">graduate</option>
+					<option
+						<?php if ($strQualification == "postgraduate") { echo "selected";}?>
+						value="postgraduate">postgraduate</option>
+					<option
+						<?php if ($strQualification == "doctorate") { echo "selected";}?>
+						value="doctorate">doctorate</option>
+					<option <?php if ($strQualification == "others") { echo "selected";}?>
+						value="others">others</option>
+				</select>
+			</div>
+
+			</p>
+
+
+
+		</fieldset>
+		<fieldset class="row3">
+			<legend><?php echo $lang->FURTHERINFO;?></legend>
+			<p>
+
+<?php $strGender=$admindata[0]['gender'];?>
+				
+			<div class="fieldgroup">
+                <label for="gender">Gender</label>
+                 <p>
+                <label class="gender">Male</label>
+                <input type="radio" name="gender" <?php if ($strGender == "m") { echo "checked";}?>  
+						value="m"/>
+				
+                </p>
+                <p>
+                <label class="gender">Female</label>
+                <input type="radio"
+						name="gender" <?php if ($strGender == "f") { echo "checked";}?>  
+						value="f"/>
+             </p>
+             </div> 
+
 					</p>
+					<?php $strDob= $admindata[0]['dob'];?>
 					<p>
-						<label>Last Name * </label> <input type="text" id="lastname" name="lastname"
-							class="long" value=<?php echo $admindata[0]['lastname']?>
-							onfocus="if(this.value === 'Lastname required') this.value = '';">
-					</p>
-					<p>
-						<label>Phone  </label> <input type="text" id="phone" name="phone"
-							maxlength="10" value=<?php echo $admindata[0]['phone']?>>
-							
-					</p>
-
-					<p>
-						<label>Address </label> <input type="text" id="address" name="address"
-							class="long" value=<?php echo $admindata[0]['address']?>>
-							
-					</p>
-
-
-					<p>
-						<label><?php echo $lang->QUALIFICATION;?> </label> <input type="text"
-							name="qualification" id="qualification" class="long"
-							value=<?php echo $admindata[0]['qualification']?>
-							onfocus="if(this.value === 'Qualification required') this.value = '';">
 						
-					</p>
-
-				</fieldset>
-				<fieldset class="row3">
-					<legend><?php echo $lang->FURTHERINFO;?></legend>
-					<p>
-						<label>Gender </label> <input type="text" id="gender" name="gender"
-							class="long" value=<?php echo $admindata[0]['gender']?>>
-							o
-					</p>
-					<p>
-						<label>Birthdate * </label> <input type="text" id="dob" name="dob"
-							class="long" value=<?php echo $admindata[0]['dob']?>
-							onfocus="if(this.value === 'DOB required') this.value = '';">
+					
+					 <div class="fieldgroup">
+                <label for="dob">Date of birth</label>
+               <input type="text" name="date" id="datepicker" value=<?php echo $strDob;?>>
+            </div> 
 					</p>
 
 
@@ -77,17 +125,7 @@ $pageName=="EditAdminProfileView";
 						<p><?php echo $lang->INSTRUCTION;?></p>
 					</div>
 				</fieldset>
-				<fieldset class="row4">
-					<legend><?php echo $lang->TERMS;?> </legend>
-					<p class="agreement">
-						<input type="checkbox" value="" /> <label> I accept the <a
-							href="#">Terms and Conditions</a></label>
-					</p>
-					<p class="agreement">
-						<input type="checkbox" value="" /> <label><?php echo $lang->RECIEVE;?></label>
-					</p>
-
-				</fieldset>
+				
 
 				<div>
 					<button class="button" id="edit">Edit &raquo;</button>

@@ -277,6 +277,7 @@ if($pageName=="RegistrationView") {
 	src="assets/js/jquery/jquery.hoverIntent.minified.js"></script>
 <script type="text/javascript"
 	src="assets/js/jquery/jquery.flashyNav.1.0.js"></script>
+	
 	<?php //@todo usage  of following code explain with comment here ?>
 	<script>
 	$(document).ready(function(){
