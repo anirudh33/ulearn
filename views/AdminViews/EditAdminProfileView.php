@@ -20,18 +20,6 @@ $pageName=="EditAdminProfileView";
 	type="text/css" media="screen" />
 	
 
-
- $(document).ready(function() {
-	$( "#datepicker23").datepicker({
-		 
-		 changeMonth: true,
-		  changeYear: true
-	 
-		 
-	});
-});
- 
- </script>
 	
 	
 <div id="registerdiv">

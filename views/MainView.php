@@ -61,8 +61,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 						
 						</div>
 						<input type="submit" id="submit" name="submit"
-							value="<?php echo  $lang->LOGIN; ?>" class="bt_login" /> <a
-							class="lost-pwd" href="#"><?php echo $lang->LOSTPASSWORD;?></a>
+							value="<?php echo  $lang->LOGIN; ?>" class="bt_login" /> 
 					</form>
 				</div>
 
@@ -121,7 +120,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 		
 
 </div>
-	<div id="header3">
+	<div id="errors">
 	
 		<?php 
 if (isset($_REQUEST["msg"])) {

@@ -98,7 +98,7 @@ Created on                  -  March 28, 2013
              </div> 
 
 					</p>
-					<?php $strDob=$admindata[0]['dob'];  ?>
+					<?php $strDob=$data[0]['dob'];  ?>
 					<p>
 
 					 <div class="fieldgroup">

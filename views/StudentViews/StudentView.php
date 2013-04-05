@@ -21,7 +21,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 
 		<div id="header">
 
-			<img alt="" src="../../assets/images/Views/ulearn.gif"
+			<img alt="" src="assets/images/Views/ulearn.gif"
 				style="float: right; padding: 50px; width: 280px;"> 
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			 <a	id="logout33" href="index.php?method=logout&controller=Admin">LOG OUT</a>
