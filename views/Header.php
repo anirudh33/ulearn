@@ -165,6 +165,28 @@ if($pageName=="RegistrationView") {
 
 <!-- Write message View -->
 <!-- css same as add course -->
+
+<link rel="stylesheet" href="assets/style/editprofile.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="./assets/js/Validation.js"></script>
+
+
+	<!-- Date Picker -->
+<link rel="stylesheet" type="text/css"
+	href="./assets/style/jqueryui.css">
+<script src="./assets/js/jquery/jqueryui.js"></script>
+<script>
+ $(document).ready(function() {
+	$( "#datepicker23").datepicker({
+		 
+		 changeMonth: true,
+		  changeYear: true
+	 
+		 
+	});
+});
+ </script>
+</head>
 <script>
 	
 	function fncDelete(argId,method) {
@@ -203,7 +225,7 @@ if($pageName=="RegistrationView") {
 	   });
 	}
 	</script>
-</head>
+
 
 <?php }
 
@@ -214,9 +236,11 @@ if($pageName=="RegistrationView") {
 	<!-- Student View Header -->
 <title><?php if(isset($lang->HELLOSTUDENT)){echo $lang->HELLOSTUDENT;} 
 	else {echo "Welcome Student";} 	?> </title>
-
+<link rel="stylesheet" href="assets/style/editprofile.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen" />
+		<script type="text/javascript" src="./assets/js/Validation.js"></script>
+<script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
 
 <!-- Content view header -->
 <link rel="stylesheet" href="assets/style/Registration.css"
@@ -247,7 +271,21 @@ if($pageName=="RegistrationView") {
 <link rel="stylesheet" type="text/css" href="assets/style/global.css" />
 
 <!-- Show Messages View header -->
-
+<!-- Date Picker -->
+<link rel="stylesheet" type="text/css"
+	href="./assets/style/jqueryui.css">
+<script src="./assets/js/jquery/jqueryui.js"></script>
+<script>
+ $(document).ready(function() {
+	$( "#datepicker23").datepicker({
+		 
+		 changeMonth: true,
+		  changeYear: true
+	 
+		 
+	});
+});
+</script>
 </head>
 
 
@@ -277,7 +315,11 @@ if($pageName=="RegistrationView") {
 	src="assets/js/jquery/jquery.hoverIntent.minified.js"></script>
 <script type="text/javascript"
 	src="assets/js/jquery/jquery.flashyNav.1.0.js"></script>
-	
+	<script type="text/javascript" src="./assets/js/Validation.js"></script>
+<script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript"
+	src="./assets/js/EditAdminProfileViewValidate.js"></script>
+	<script>
 	<?php //@todo usage  of following code explain with comment here ?>
 	<script>
 	$(document).ready(function(){
@@ -288,7 +330,17 @@ if($pageName=="RegistrationView") {
 		});
 	});
 	</script>
-
+<script>
+ $(document).ready(function() {
+	$( "#datepicker23").datepicker({
+		 
+		 changeMonth: true,
+		  changeYear: true
+	 
+		 
+	});
+});
+</script>
 <!-- Admin profile View header -->
 
 <link rel="stylesheet" type="text/css" href="assets/style/global.css" />

@@ -69,9 +69,4 @@
            }
        
            /*-----------Script for Date Picker (Registration Form)-----------*/
-           $(function() {
-        		$( "#datepicker" ).datepicker({
-        		showOtherMonths: true,
-        		selectOtherMonths: true
-        		});
-        		});
+          

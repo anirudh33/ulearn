@@ -15,16 +15,23 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 */ //@todo edit profile changes doesnt get reflected back to the view 
 $pageName=="EditAdminProfileView";
 ?>
-<link rel="stylesheet" type="text/css"
-	href="./assets/style/jqueryui.css">
+
 	<link rel="stylesheet" href="assets/style/editprofile.css"
 	type="text/css" media="screen" />
 	
-<script src="./assets/js/jquery/jqueryui.js"></script>
-<script type="text/javascript" src="./assets/js/Validation.js"></script>
-<script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
-<script type="text/javascript"
-	src="./assets/js/EditAdminProfileViewValidate.js"></script>
+
+
+ $(document).ready(function() {
+	$( "#datepicker23").datepicker({
+		 
+		 changeMonth: true,
+		  changeYear: true
+	 
+		 
+	});
+});
+ 
+ </script>
 	
 	
 <div id="registerdiv">
@@ -120,7 +127,7 @@ $pageName=="EditAdminProfileView";
 						
 					<div class="fieldgroup">
                 <label for="date">Date Of Birth</label>
-               <input type="text" id="datepicker23" name="date" value=<?php echo $strDob;?>/>
+               <input type="text" id="datepicker23" name="date" value=<?php echo $strDob;?>>
             </div>
 					 
                	</p>

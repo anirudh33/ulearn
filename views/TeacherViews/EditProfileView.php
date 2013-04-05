@@ -9,12 +9,10 @@ Created on                  -  March 28, 2013
 */
 
 ?>
-<link rel="stylesheet" type="text/css"
-	href="./assets/style/jqueryui.css">
-	<link rel="stylesheet" href="assets/style/editprofile.css"
-	type="text/css" media="screen" />
-<script src="./assets/js/jquery/jqueryui.js"></script>
-<script type="text/javascript" src="./assets/js/Validation.js"></script>
+
+
+
+
 		<div id="registerdiv">
 
 			<form id="form"
@@ -102,10 +100,10 @@ Created on                  -  March 28, 2013
 					</p>
 					<?php $strDob=$admindata[0]['dob'];  ?>
 					<p>
-					
+
 					 <div class="fieldgroup">
                 	<label for="date">Date Of Birth</label>
-               		<input type="text" id="datepicker23" name="date" value=<?php echo $strDob;?>/>
+               		<input type="text" id="datepicker23" name="date" value=<?php echo $strDob;?>>
             		</div>
 						 
 					</p>
