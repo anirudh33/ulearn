@@ -1,9 +1,12 @@
 <?php //@todo text area click should put cursor to first position ?>
+<link rel="stylesheet" href="assets/style/addcourse.css"
+	type="text/css" media="screen" />
+<script type="text/javascript" src="./assets/js/Validation.js"></script>
 <div id="registerdiv">
 
-			<form id="form"
+			<form id="addform"
 				action="index.php?method=addCourseButtonClick&controller=Teacher"
-				method="POST" class="register">
+				method="POST" class="register" novalidate="novalidate">
 
 				<h1>Add Course</h1>
 

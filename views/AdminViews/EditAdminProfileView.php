@@ -15,7 +15,13 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 */ //@todo edit profile changes doesnt get reflected back to the view 
 $pageName=="EditAdminProfileView";
 ?>
-
+<link rel="stylesheet" type="text/css"
+	href="./assets/style/jqueryui.css">
+	<link rel="stylesheet" href="assets/style/editprofile.css"
+	type="text/css" media="screen" />
+	
+<script src="./assets/js/jquery/jqueryui.js"></script>
+<script type="text/javascript" src="./assets/js/Validation.js"></script>
 <script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
 <script type="text/javascript"
 	src="./assets/js/EditAdminProfileViewValidate.js"></script>
@@ -39,8 +45,7 @@ $pageName=="EditAdminProfileView";
 			<p>
 				<label>Last Name * </label> <input type="text" id="lastname"
 					name="lastname" class="long"
-					value=<?php echo $admindata[0]['lastname']?>
-					onfocus="if(this.value === 'Lastname required') this.value = '';">
+					value=<?php echo $admindata[0]['lastname']?>>
 			</p>
 			<p>
 				<label>Phone </label> <input type="text" id="phone" name="phone"
@@ -109,14 +114,16 @@ $pageName=="EditAdminProfileView";
 
 					</p>
 					<?php $strDob= $admindata[0]['dob'];?>
+					
+					
 					<p>
 						
-					
-					 <div class="fieldgroup">
-                <label for="dob">Date of birth</label>
-               <input type="text" name="date" id="datepicker" value=<?php echo $strDob;?>>
-            </div> 
-					</p>
+					<div class="fieldgroup">
+                <label for="date">Date Of Birth</label>
+               <input type="text" id="datepicker23" name="date" value=<?php echo $strDob;?>/>
+            </div>
+					 
+               	</p>
 
 
 

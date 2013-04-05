@@ -14,12 +14,14 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 * ************************************************************************
 */
 ?>
-
+<link rel="stylesheet" href="assets/style/writemessage.css"
+	type="text/css" media="screen" />
+<script type="text/javascript" src="./assets/js/Validation.js"></script>
 <div id="registerdiv">
 	<h1>Write Message</h1>
-	<form id="form"
+	<form id="writeform"
 		action="index.php?method=writeMessage&controller=Student"
-		method="POST" class="register">
+		method="POST" class="register" novalidate="novalidate">
 
 		<legend>Message Details </legend>
 

@@ -14,23 +14,28 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 */
 
 ?>
+<link rel="stylesheet" type="text/css"
+	href="./assets/style/jqueryui.css">
+	<link rel="stylesheet" href="assets/style/editprofile.css"
+	type="text/css" media="screen" />
+<script src="./assets/js/jquery/jqueryui.js"></script>
+<script type="text/javascript" src="./assets/js/Validation.js"></script>
+
 <div id="registerdiv">
 	<h1>Edit Profile</h1>
 	<form id="form"
 		action="index.php?method=editStudentClick&controller=Student"
-		method="POST" class="register">
+		method="POST" class="register" novalidate="novalidate">
 
 		<legend>Personal Details </legend>
 		<p>
 			<label>First Name * </label> <input type="text" id="firstname"
 				name="firstname" class="long"
-				value=<?php echo $data[0]['firstname']?>
-				onfocus="if(this.value === 'Firstname required') this.value = '';">
+				value=<?php echo $data[0]['firstname']?>>
 		</p>
 		<p>
 			<label>Last Name * </label> <input type="text" id="lastname"
-				name="lastname" class="long" value=<?php echo $data[0]['lastname']?>
-				onfocus="if(this.value === 'Lastname required') this.value = '';">
+				name="lastname" class="long" value=<?php echo $data[0]['lastname']?>>
 		</p>
 		<p>
 			<label>Phone </label> <input type="text" id="phone" name="phone"
@@ -96,10 +101,13 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
              </div> 
 
 					</p>
+					<?php $strDob=$admindata[0]['dob'];  ?>
 		<p>
-			<label>Birthdate * </label> <input type="text" id="dob" name="dob"
-				class="long" value=<?php echo $data[0]['dob']?>
-				onfocus="if(this.value === 'DOB required') this.value = '';">
+		
+			 <div class="fieldgroup">
+                <label for="date">Date Of Birth</label>
+               <input type="text" id="datepicker23" name="date" value=<?php echo $strDob;?>/>
+            </div>
 		</p>
 
 		<button class="button" id="edit">Edit &raquo;</button>

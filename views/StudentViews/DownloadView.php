@@ -14,10 +14,12 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 */
 
 ?>
+<link rel="stylesheet" href="assets/style/download.css"
+	type="text/css" media="screen" />
 <div id="registerdiv">
 <h1>VIEW FILES</h1>
 
-	<form id="form" method="post" action="index.php?method=downloadFile&controller=Student"	
+	<form id="downloadform" method="post" action="index.php?method=downloadFile&controller=Student"	
 	enctype="multipart/form-data" name="frm1" />
 
 	<fieldset class="row2">

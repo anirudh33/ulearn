@@ -14,11 +14,12 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 */
 
 ?>
-
+<link rel="stylesheet" href="assets/style/registercourse.css"
+	type="text/css" media="screen" />
 
 <div id="registerdiv">
 
-	<form id="form"
+	<form id="registerform"
 		action="index.php?method=registerCourseButtonClick&controller=Student"
 		method="POST" class="register">
 

@@ -116,7 +116,7 @@ class MainController
 /************************************** Contact Us Mailing Function *************************************************/
     public function sendmail()
 	{
-	$name=$_POST["name"];
+	$name=$_POST["firstname"];
 	$from=$_POST["email"];
 	$message=$_POST["message"];
 
