@@ -15,27 +15,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 $pageName="RegistrationView";
 require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 ?>
-<html>
-<head>
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="./assets/js/RegistrationView.js"></script>
-
-
-
- <link rel="stylesheet" type="text/css" href="./assets/style/registrationnew.css">
-<link rel="stylesheet" type="text/css" href="./assets/style/registrationnew2.css">
-<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js">
-</script>
-<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js">
-</script>
-
-</head>
 <body>
 
 
@@ -131,6 +111,13 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
                 <label class="gender">Teacher</label><input type="radio" name="usertype" value="teacher" />
              </p>
              </div> 
+             
+             <div class="fieldgroup">
+                <label for="date">Date Of Birth</label>
+               <input type="text" id="datepicker23" name="date"/>
+            </div>
+             
+             
             <div class="fieldgroup" >
        
 							<img id="captcha" src="libraries/securimage/securimage_show.php"
@@ -156,17 +143,8 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
             <p>Already registered? <a href="index.php">Sign in</a>.</p>
         </div>
 </form>
-
-
-
-
-
-		</div>
-
 	</div>
-
+	</div>
 	<div id="footer1"></div>
-
-
-</body>
+	</body>
 </html>

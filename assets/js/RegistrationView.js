@@ -23,7 +23,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
     $(document).ready(function($) {
     	
     	$.validator.addMethod("loginRegex", function(value, element) {
-            return this.optional(element) || /^[a-z0-9\-]+$/i.test(value);
+            return this.optional(element) || /^[a-z\-]+$/i.test(value);
         });
 
     	$.validator.addMethod("url", function(value, element) {
@@ -51,6 +51,11 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
             	 url:true,
             	 script: true,
 
+            },
+            
+            date:{
+            	required:true,
+            	
             },
                 email: {
                     required: true,
@@ -89,7 +94,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
             messages: {
                 firstname:
                 {required:"Please enter your firstname",
-                	loginRegex:"firstname must contain only letters, numbers, or dashes.",
+                	loginRegex:"firstname must contain only letters.",
                 	url:"Url not allowed",
                 	script:"Dont use script here",
                 },
@@ -100,8 +105,11 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                 		script:"Dont use script here",
                 	},
                 	
-                date: "Please enter your date of birth",
-                address: "Please enter your address",
+                date:
+                {required:"Please enter your date of birth",
+                
+                },
+                	address: "Please enter your address",
                 phone: {
                     required: "Please provide a phoneno",
                     minlength: "Your phone must be at least 10 characters long",
@@ -128,6 +136,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                 form.submit();
             }
         });
+        
  	
         
     });
