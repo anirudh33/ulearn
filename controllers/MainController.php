@@ -8,38 +8,44 @@
  * Sr.NO. Version Updated by Updated on Description 
  * ------------------------------------------------------------------------- 
  * 1 	1.0 	Anirudh Pandita March 08, 2013 paths corrected 
- * 1 	1.0 	Kawaljeet Singh March 15, 2013 Registration 
- * 1 	1.0 	Ujjwal Rawlley 	April 04, 2013 Mailing 
+ * 2 	1.0 	Kawaljeet Singh March 15, 2013 Registration 
+ * 3 	1.0 	Ujjwal Rawlley 	April 04, 2013 Mailing 
+ * 4    1.0     Anirudh Pandita April 04, 2013 Comments done
  * ************************************************************************
  */
 
-/* The main controller for showing the main view */
+/* The Main controller for showing the Main View */
 class MainController
 {
 
+    /* Any messages to be shown to user */
     private $_message;
     
-    /**
-     * Unknown usage of variable $_authenticationStatus
+    /* Guess: To check if authentication done or not
+     * @todo find usage
      */
     private $_authenticationStatus = 0;
 	
     
+    /*Gets the value of variable private $_authenticationStatus */
     public function getAuthenticationStatus ()
     {
         return $this->_authenticationStatus;
     }
 
+    /*Sets the value of variable private $_authenticationStatus*/
     public function setauthenticationStatus ($authenticationStatus)
     {
         $this->_authenticationStatus = $authenticationStatus;
     }
 
+    /*Gets the value of variable private private $_message */
     public function getMessage ()
     {
         return $this->_message;
     }
 
+    /*Sets the value of variable private private $_message */
     public function setMessage ($message)
     {
         $this->_message = $message;
@@ -92,12 +98,14 @@ class MainController
         
         $objInitiateUser->setLanguage($_REQUEST["language"]);
     }
-
+    
+    /* Method called on clicking the register button on homepage slider */
     public function registerClick ()
     {        
         $this->showRegisterView();
     }
 
+    /* Shows new user registration page */
     public function showRegisterView ()
     {
     	$authObject= new Authenticate();
@@ -105,6 +113,8 @@ class MainController
         require_once "./views/RegistrationView.php";
     }
 
+    /* @todo kawal: Usage unknown... dont use confirm check box send mail directly
+     * and use phpmailer */
     public function confirm()
     {
     	$email=$_GET['email'];
@@ -114,6 +124,7 @@ class MainController
     
     }
 /************************************** Contact Us Mailing Function *************************************************/
+    /* @todo ujjwal: use phpmailer */
     public function sendmail()
 	{
 	$name=$_POST["firstname"];
@@ -126,14 +137,15 @@ class MainController
 	$bool = mail ( $to, $subject, $message, $headers );
 			if ($bool == true) {
 				print "<script type=\"text/javascript\">";
-print "alert('the mail has been sent')";
-print "</script>";  
+    print "alert('the mail has been sent')";
+    print "</script>";  
 			} else {
 				echo "Mail not sent";
 			}
 
-}
+    }
 
+    /* Called when user submits the registration form */
     public function registerUser ()
     {
     	
@@ -179,9 +191,11 @@ print "</script>";
 			$obj = new Registration ();
 			$obj->newTeacherRegistration ( $email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code );
 		}
-		/* Count no of times registration done from this ip */
+		/*@todo anirudh: Count no of times registration done from this ip */
 		
 	}
+	
+	/* Logs out the user by destroying session */
 	public function logout() {
 		session_destroy ();
 		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );

@@ -15,9 +15,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 /* Getting default Language to be used in various views
  * Usage: Just use $lang->CONSTANTNAME to display the language specific value */
-$lang = Language::getinstance();
-
-?>
+$lang = Language::getinstance(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,21 +23,13 @@ $lang = Language::getinstance();
 
 <!-- jquery source -->
 <script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
-<script type="text/javascript"
-	src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
-<!-- toast plugin -->
-<link rel="stylesheet"
-	href="assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css"
-	type="text/css" media="screen" />
-<script
-	src="assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"></script>
 
-<!-- <SCRIPT> $(DOCUMENT).READY(FUNCTION(){$().TOASTMESSAGE('SHOWSUCCESSTOAST','WELCOME');}); 
-	</SCRIPT> -->
-	
+<script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
+
+<!-- toast plugin -->
+<link rel="stylesheet" href="assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css" type="text/css" media="screen" />
+<script	src="assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"></script>
+ 
 <?php 
 /* Checking for which page is requiring this header for custom content */
 
@@ -61,8 +51,8 @@ if(isset($pageName)) {
 	media="screen" />
 
 <!-- Easing jquery for easy to use animate functions -->
-<script src="assets/js/jquery/jquery.easing.1.3.js"
-	type="text/javascript"></script>
+<!-- <script src="assets/js/jquery/jquery.easing.1.3.js" -->
+<!-- 	type="text/javascript"></script> -->
 
 <!-- Other javascript source  -->
 <script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
@@ -74,6 +64,8 @@ if(isset($pageName)) {
 	type="text/css" />
 <!-- <script> $.sticky('The page has loaded!'); </script>-->
 
+
+	
 
 <style>
 #header3 {
@@ -457,10 +449,12 @@ if($pageName=="RegistrationView") {
 
 ?>
 <?php }?>
+<link rel="stylesheet"
+	href="assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css"
+	type="text/css" media="screen" />
+<script
+	src="assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"></script>
+<script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
 
-
-
-
-
-
+<input type="text" id="hdnToastValue" name="hdnToastValue" value='<?php echo $_SESSION["ErrorMessage"];?>'/>
 

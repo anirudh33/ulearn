@@ -1,5 +1,27 @@
 <?php
+/*
+ * *************************** Creation Log *******************************
+* File Name     -     MainController.php
+* Description   -     Main Controller Version - 1.0
+* Created by    -     Anirudh Pandita Created on - March 01, 2013
+* **********************Update Log ***************************************
+* Sr.NO. Version Updated by Updated on Description
+* -------------------------------------------------------------------------
+* 1 	1.0 	Anirudh Pandita March 28, 2013 Functions added
+* 2     1.0     Anirudh Pandita April 04, 2013 Comments done
+* ************************************************************************
+*/
+
+/**
+ * @author anirudhpandita
+ * The Abstract controller class containing all common functions for
+ * AdminController, StudentController, TeacherController
+ */
 abstract class AController {
+    
+	/**
+	 * @var 
+	 */
 	protected $_requiredType = "";
 	protected $_objUser = "";
 	
@@ -11,6 +33,7 @@ abstract class AController {
 	{
 		$this->_requiredType = $requiredType;
 	}
+	
 	public function __construct() 
 	{
 		
@@ -19,7 +42,8 @@ abstract class AController {
 		
 		$authObject->setRequiredType($this->getRequiredType () );
 		if ($authObject->isValidUser () != 1) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $authObject->getMessage () . "" );
+			$_SESSION["ErrorMessage"].=$authObject->getMessage (). "<br>";
+		    header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $authObject->getMessage () . "" );
 			
 		}
 	}

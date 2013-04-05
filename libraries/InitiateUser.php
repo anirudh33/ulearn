@@ -106,7 +106,9 @@ class InitiateUser extends AModel
                 return 1;
             } else {
                 $msg = "Login Failed username or password does not exist";
+                $_SESSION["ErrorMessage"].=$msg. "<br>";
                 header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/index.php?msg=$msg");
+                die;
             }
         } else {
             $msg = "Invaild Data Enter again";
@@ -142,10 +144,9 @@ class InitiateUser extends AModel
         
         if ($bool == 1) {
             $this->_result = $this->db->resultArray();
-            
+            if(!empty($this->_result)) {
             /* Check if user active or not returns true if active */
-            $status=$this->fetchStatus(
-                $this->_result[0]["user_type"]."details",
+            $status=$this->fetchStatus($this->_result[0]["user_type"]."details",
                 $this->_result[0]["user_id"]);
             
             if (! empty($this->_result[0]["user_id"]) && $status==true) {
@@ -157,6 +158,10 @@ class InitiateUser extends AModel
                 
                 $bool = 0;
             }
+            } else {
+                $bool = 0;
+            }
+            
         }
         
         return $bool;
