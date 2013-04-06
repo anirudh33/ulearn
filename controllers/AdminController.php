@@ -9,7 +9,7 @@ Created on                  -  March 28, 2013
 * **************************** Update Log ********************************
 Sr.NO.  Version	  Updated by        Updated on          Description
 -------------------------------------------------------------------------
-
+1		1.1		Anirudh Pandita		April 6 2013		Fixed variable not set notice
 * ************************************************************************
 */
 
@@ -239,44 +239,29 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
   public function showreport()
 {		
 	$this->createUser();
-	$usertype = $_POST["usertype"];
-	$choice=$_POST["choice"];
-	//$qualification=$_POST["qualifications"];
-
-	if(isset($usertype))
-
-	{
+	if(isset($_POST["usertype"])) {
+		
+		
+		$usertype = $_POST["usertype"];
+		$choice=$_POST["usertype"];
 		$this->_objUser->fetchStudentcount();
 				$this->_objUser->fetchTeachercount();
 		$this->alluserreport($this->_objUser->getTotalStudentRecords(),	$this->_objUser->getTotalTeacherRecords());
 	}
-
-
-
-
-
-
 	
-	 if ( $_POST["choice"]=="graduate") 
-		{
+	if(isset($_POST["choice"])) {	
+	if ( $_POST["choice"]=="graduate") {
 			$this->_objUser->fetchstudentqualification("graduate");
 			$this->_objUser->fetchteacherqualification("graduate");
 
 			$this->qualificationreport($this->_objUser->getStudentqualificationdata(),$this->_objUser->getTeacherqualificationdata());
-			}
-
-
-		elseif($_POST["choice"]=="postgraduate") 
-			{
+	} elseif($_POST["choice"]=="postgraduate") {
 				$this->_objUser->fetchstudentqualification("postgraduate");
 				$this->_objUser->fetchteacherqualification("postgraduate");
 						
 				$this->qualificationreport($this->_objUser->getStudentqualificationdata(),$this->_objUser->getTeacherqualificationdata());
 			}
-
-
-
-	
+	}
 
 }
 

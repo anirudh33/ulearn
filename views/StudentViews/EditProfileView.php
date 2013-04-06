@@ -7,12 +7,12 @@ Version                     -  1.0
 Created by                  -  Tanu trehan
 Created on                  -  March 28, 2013
 * **************************** Update Log ********************************
-Sr.NO.        Version        Updated by           Updated on          Description
+Sr.NO.	Version     Updated by          Updated on      Description
 -------------------------------------------------------------------------
-1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
+1		1.1			Anirudh pandita		April 04, 2013		Clean up
+2		1.1			Anirudh pandita		April 06, 2013		Fixed date picker
 * ************************************************************************
 */
-
 ?>
 
 	
@@ -103,7 +103,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 		
 			 <div class="fieldgroup">
                 <label for="date">Date Of Birth</label>
-               <input type="text" id="datepicker23" name="date" value=<?php echo $strDob;?>>
+               <input type="text" id="datepicker23" name="dob" value=<?php echo $strDob;?>>
             </div>
 		</p>
 

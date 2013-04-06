@@ -27,13 +27,6 @@ $lang = Language::getinstance(); ?>
 <!-- Jquery for validations -->
 <script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
 
-<!-- toast plugin -->
-<link rel="stylesheet"
-	href="assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css"
-	type="text/css" media="screen">
-<script
-	src="assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"
-	type="text/javascript"></script>
 
 
 <?php 
@@ -458,9 +451,38 @@ if($pageName=="RegistrationView") {
 
 ?>
 <?php }?>
+
+<!-- toast plugin -->
+<link rel="stylesheet"
+	href="assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css"
+	type="text/css" media="screen">
+<script
+	src="assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"
+	type="text/javascript"></script>
+		
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var error=$("#hdnToastValue").val();
+
+	if(error!='') {
+		$().toastmessage({
+		sticky : true,
+		position: 'top-right',
+		stayTime: 8000
+		
+		});
+		$().toastmessage('showErrorToast', error);
+		
+	}
+
+});
+
+</script>
 </head>
 
 
 
-<input type="text" id="hdnToastValue" name="hdnToastValue"
-	value='<?php echo $_SESSION["ErrorMessage"];?>'>
+<input type="hidden" id="hdnToastValue" name="hdnToastValue"
+	value='<?php if(isset($_SESSION["ErrorMessage"])){echo $_SESSION["ErrorMessage"];}?>'>

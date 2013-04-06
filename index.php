@@ -113,7 +113,8 @@ else if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
     $obj->showMainView();
 }
 
-
+//unset($_SESSION["ErrorMessage"]);
+?>
 
 
 
