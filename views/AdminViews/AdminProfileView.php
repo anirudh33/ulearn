@@ -14,15 +14,15 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 */
 $pageName="AdminProfileView";
 //@todo move the following header to admin view so that log out shows on each page if sounds fine?>
-	<header>
+	<header id="header1">
 	
 		<div class="wrapper">
 			
 			<span id="leftusernav"><?php echo $lang-> WELCOME;?>&nbsp<?php echo $adminprofiledata[0]['firstname'];?></span>
-			<span id="usernav"> <a href="index.php?method=showProfile&controller=Admin"><?php echo $lang-> MYPROFILE;?></a> 
 			
 		</div>
 	</header>
+				<span id="usernav"> <a href="index.php?method=showProfile&controller=Admin"><?php echo $lang-> MYPROFILE;?></a> 
 	
 
 	

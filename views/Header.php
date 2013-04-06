@@ -71,7 +71,6 @@ if(isset($pageName)) {
 </style>
 
 
-
 <?php }
 
 /*---------------------------------------------------------------------------*/
@@ -86,9 +85,9 @@ if($pageName=="RegistrationView") {
 <link rel="stylesheet" href="assets/style/Registration.css"
 	type="text/css" media="screen">
 <link rel="stylesheet" type="text/css"
-	href="assets/style/registrationnew.css">
+	href="assets/style/Registration/registrationnew.css">
 <link rel="stylesheet" type="text/css"
-	href="assets/style/registrationnew2.css">
+	href="assets/style/Registration/registrationnew2.css">
 
 <!-- Date Picker -->
 <link rel="stylesheet" type="text/css" href="assets/style/jqueryui.css">

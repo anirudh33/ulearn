@@ -177,17 +177,47 @@ html ul.tabs li.active,html ul.tabs li.active a:hover {
 	padding: 10px;
 	width: 70%;
 }
-
+#header1
+{
+	
+		float:center;
+	
+}
+#form2
+{
+	
+	border: 5px solid red;
+}
+#leftusernav
+{
+	
+	width:300px;
+	
+}
+#userdetails
+{
+	border: 5px solid red;
+	width:300px;
+	
+}
+#usernav 
+{
+	
+	font:20px verdana;
+}
 .arrowgreen {
 	width: 125%; /*width of menu*/
-	border-style: solid;
-	border-color: #94AA74;
+	
+	
 	border-size: 1px;
 	border-width: 2px;
+	
+	height:500px;
 }
 
 .arrowgreen ul {
 	border-color: #94AA74;
+	
 	border-size: 1px;
 	border-width: 2px;
 	list-style-type: none;
@@ -195,8 +225,15 @@ html ul.tabs li.active,html ul.tabs li.active a:hover {
 	padding: 0;
 }
 
+.li1
+{
+	height:70px;
+	font-size:5px;
+	
+	
+}
 .arrowgreen li a {
-	font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+	font: bold 22px Verdana, Arial, Helvetica, sans-serif;
 	display: block;
 	background: transparent url(media/arrowgreen.gif) 100% 0;
 	height: 24px;
