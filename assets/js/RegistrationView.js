@@ -28,7 +28,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
     	$.validator.addMethod("url", function(value, element) {
             return this.optional(element) || !(/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i.test(value));
-        }, "firstname must contain only letters, numbers, or dashes.");
+        });
     	
     	$.validator.addMethod("script", function(value, element) {
             return this.optional(element) || !(/(<([^>]+)>)/i.test(value));
@@ -60,20 +60,38 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                 email: {
                     required: true,
                     email: true,
-                    url:true,
+                   
                     script: true,
+                    
                 },
+                repeatemail: {
+                    required: true,
+                    email: true,
+                   
+                    script: true,
+                    equalTo: "#email"
+                },
+                
                 password: {
                     required: true,
                     minlength: 5,
                     url:true,
                     script: true,
                 },
-                phone: {
+                repeatpassword: {
                     required: true,
-                    minlength: 10,
+                    minlength: 5,
                     url:true,
                     script: true,
+                    equalTo: "#password"
+                },
+                phone: {
+                    required: true,
+                    
+                    url:true,
+                    script: true,
+                    number:true,
+                    minlength: 10,
                 },
                 
                 captcha_code: {
@@ -100,7 +118,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                 },
                 	lastname: 
                 	{required:"Please enter your lastname",
-                		loginRegex:"lastname must contain only letters, numbers, or dashes.",	
+                		loginRegex:"firstname must contain only letters.",	
                 		url:"Url not allowed",
                 		script:"Dont use script here",
                 	},
@@ -114,6 +132,8 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                     required: "Please provide a phoneno",
                     minlength: "Your phone must be at least 10 characters long",
                     url:"Url not allowed",
+                    number:"only numbers allowed",
+                    script:"Dont use script here",
                 },
                 address: {
                 	url:"Url not allowed",
@@ -124,6 +144,19 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                     minlength: "Your password must be at least 5 characters long",
                     url:"Url not allowed",
                     script:"Dont use script here",
+                },
+                repeatpassword: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long",
+                    url:"Url not allowed",
+                    script:"Dont use script here",
+                    equalTo:"value should be same ",
+                    
+                },
+                repeatemail: {
+                	email:"Please enter a valid email address",
+                	equalTo:"value should be same ",
+                	script:"Dont use script here",
                 },
                 email: {
                 	email:"Please enter a valid email address",

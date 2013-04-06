@@ -60,13 +60,24 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 
             <div class="fieldgroup">
                 <label for="email">Email</label>
-                <input type="text" name="email">
+                <input type="text" id="email" name="email">
             </div>
-
+			<div class="fieldgroup">
+                <label for="repeatemail"> Repeat Email</label>
+                <input type="text"  name="repeatemail">
+            </div> 
+            
             <div class="fieldgroup">
                 <label for="password">Password</label>
-                <input type="password" name="password">
+                <input type="password" id="password" name="password">
             </div>
+            <div class="fieldgroup">
+                <label for="repeatpassword">Repeat Password</label>
+                <input type="password"  name="repeatpassword">
+            </div>
+            
+            
+            
 		<div class="fieldgroup">
                 <label for="address">Address</label>
                 <input type="text" name="address">
@@ -130,8 +141,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 								return false">[Different Image ]</a>
 						
 						</div>
-				<p><input type="checkbox" value="" name="checkmail" /> <label>Please send the confirmation mail </label>
-					</p>
+				
             <div class="fieldgroup">
                 <input type="submit" value="Register" class="submit">
             </div>

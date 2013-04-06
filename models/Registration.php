@@ -16,6 +16,7 @@ class Registration extends AUser
     	
     	
     	
+    	
     	$new_date = date('Y-m-d', strtotime($date));
         DBConnection::Connect();
         $this->db->From("userdetails");
@@ -27,7 +28,7 @@ class Registration extends AUser
         		"confirm_code"=>"$confirm_code"
         ));
         $this->db->Insert();
-//        echo $this->db->lastQuery();
+      
         $i = $this->db->lastInsertId();
         // echo "$i";
         $this->db->From("studentdetails");

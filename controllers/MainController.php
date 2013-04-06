@@ -168,9 +168,8 @@ class MainController
         $confirm_code=md5(uniqid(rand()));
  
         
-        
-		if (isset ( $_POST ['checkmail'] )) {
-			$to = $_POST ["email"];
+        /* Confirmation Mail */
+		/*	$to = $_POST ["email"];
 			$subject = "Confirmation Mail from Ulearn";
 			$message = "http://localhost/ulearn/branches/development/index.php?method=confirm&controller=Main&passkey=$confirm_code&email=$email";
 			$from = "kawaljeet.singh@osscube.com";
@@ -181,7 +180,7 @@ class MainController
 			} else {
 				echo "Mail not sent";
 			}
-		}
+		*/
 		
 		if ($_POST ["usertype"] == "student") {
 			// echo"student";
