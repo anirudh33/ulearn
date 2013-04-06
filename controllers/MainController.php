@@ -1,9 +1,9 @@
 <?php
 /*
  * *************************** Creation Log ******************************* 
- * File Name - MainController.php 
- * Description - Main Controller Version - 1.0 
- * Created by - Anirudh Pandita Created on - March 01, 2013 
+ * File Name 	- MainController.php 
+ * Description 	- Main Controller Version - 1.0 
+ * Created by	- Anirudh Pandita Created on - March 01, 2013 
  * **********************Update Log ***************************************
  * Sr.NO. Version Updated by Updated on Description 
  * ------------------------------------------------------------------------- 
@@ -54,7 +54,7 @@ class MainController
     /* Shows home page */
     public function showMainView ()
     {
-    	
+    	$lang=Language::getinstance();
         require_once "views/MainView.php";        
     }
     
@@ -127,22 +127,29 @@ class MainController
     /* @todo ujjwal: use phpmailer */
     public function sendmail()
 	{
-	$name=$_POST["firstname"];
+	$name=$_POST["name"];
 	$from=$_POST["email"];
 	$message=$_POST["message"];
 
 	$to = "ujjrawl@gmail.com";
 	$subject = "enquiry";
 	$headers = "From:" . $from;
+	
 	$bool = mail ( $to, $subject, $message, $headers );
 			if ($bool == true) {
-				print "<script type=\"text/javascript\">";
-    print "alert('the mail has been sent')";
-    print "</script>";  
-			} else {
-				echo "Mail not sent";
+				
+				//$_SESSION["SuccessMessage"]='';
+				$_SESSION["SuccessMessage"].="Mail sent, 
+						it will take some time to reach your mailbox if traffic is high <br>";
+				
+				} else {
+					
+					//$_SESSION["ErrorMessage"]='';
+					$_SESSION["ErrorMessage"].="Mail not sent, we are working to sort the issue <br>";					
 			}
-
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php");
+			//@todo chetan sir: doesnt show error message if die isnt written reason unknown
+			die;
     }
 
     /* Called when user submits the registration form */

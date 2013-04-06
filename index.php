@@ -12,7 +12,7 @@
 * ************************************************************************
 */
 
-
+//@todo anirudh :why does firefox ask to remember password before form is submitted
 //@todo search filters on manage teacher view in Admin views
 /* Starting session and creating session variables to store paths and default database */
 session_start();
@@ -21,10 +21,18 @@ $_SESSION['SITE_PATH'] = getcwd();
 $_SESSION['DOMAIN_PATH'] = $_SERVER['SERVER_NAME'] . '/ulearn/branches/development';
 $_SESSION['DB_NAME'] = 'ulearndb';
 
-/*log errors to a specific file*/
+/* Log errors to a specific file */
 ini_set('log_errors',1);
 ini_set('error_log',getcwd().'/errors.log');
 
+/* Log session specific errors,messages,notices */
+if(isset($_SESSION["ErrorMessage"])) {
+	if(!empty($_SESSION["ErrorMessage"])) {
+$line = date ( 'Y-m-d H:i:s' ) . "," . session_id () . "," . 
+		$_SERVER ['REMOTE_ADDR'].',Message:'.$_SESSION["ErrorMessage"];
+		file_put_contents ( 'logs/app.log', $line . PHP_EOL, FILE_APPEND );
+	}
+}
 
 
 /* Requiring all the necessary files controllers and libraries required */
@@ -112,8 +120,11 @@ else if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
     /*showing main view*/
     $obj->showMainView();
 }
+// $_SESSION["ErrorMessage"]='';
+// $_SESSION["SuccessMessage"]='';
+// $_SESSION["NoticeMessage"]='';
 
-//unset($_SESSION["ErrorMessage"]);
+unset($_SESSION["ErrorMessage"]);
 ?>
 
 

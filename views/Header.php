@@ -15,7 +15,8 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 /* Getting default Language to be used in various views
  * Usage: Just use $lang->CONSTANTNAME to display the language specific value */
-$lang = Language::getinstance(); ?>
+$lang=Language::getinstance();
+?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -458,23 +459,47 @@ if($pageName=="RegistrationView") {
 <script
 	src="assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"
 	type="text/javascript"></script>
-		
+
+	
+<!-- Showing errors/success/notice messages using toast -->
 <script type="text/javascript">
 
 $(document).ready(function(){
 
-	var error=$("#hdnToastValue").val();
-
+	var error=$("#hdnTextError").val();
+	var success=$('#hdnTextSuccess').val();
+	var notice=$('#hdnTextNotice').val();
 	if(error!='') {
-		$().toastmessage({
-		sticky : true,
-		position: 'top-right',
-		stayTime: 8000
 		
+		$().toastmessage({
+		sticky : false,
+		position: 'top-right',
+		stayTime: 20000
 		});
+		
 		$().toastmessage('showErrorToast', error);
 		
 	}
+	if(success!='') {
+		
+		$().toastmessage({
+			sticky : false,
+			position: 'top-right',
+			stayTime: 8000			
+			});
+		
+			$().toastmessage('showSuccessToast', success);
+	}
+	if(notice!='') {
+		
+		$().toastmessage({
+			sticky : false,
+			position: 'top-right',
+			stayTime: 8000			
+			});
+		
+			$().toastmessage('showNoticeToast', notice);
+	}	
 
 });
 
@@ -482,6 +507,13 @@ $(document).ready(function(){
 </head>
 
 
-
-<input type="hidden" id="hdnToastValue" name="hdnToastValue"
+<!-- Hidden text boxes to store any messages -->
+<input type="hidden" id="hdnTextError" name="hdnTextError"
 	value='<?php if(isset($_SESSION["ErrorMessage"])){echo $_SESSION["ErrorMessage"];}?>'>
+
+<input type="hidden" id="hdnTextSuccess" name="hdnTextSuccess"
+	value='<?php if(isset($_SESSION["SuccessMessage"])){echo $_SESSION["SuccessMessage"];}?>'>
+
+<input type="hidden" id="hdnTextNotice" name="hdnTextNotice"
+	value='<?php if(isset($_SESSION["NoticeMessage"])){echo $_SESSION["NoticeMessage"];}?>'>
+	
