@@ -222,6 +222,10 @@ private function setTeacherqualificationdata ($teacherqualificationdata)
         
         $this->setTotalStudentRecords(count($this->db->resultArray()));
     }
+
+
+
+
 public function fetchstudentqualification($qualification)
 	{
 		 DBConnection::Connect();

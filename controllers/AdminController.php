@@ -48,6 +48,7 @@ class AdminController extends AController
 
 
 
+
 public function generateReport()
 {
 	$reportdata="report ";
@@ -58,6 +59,16 @@ public function generateReport()
 	
 
 }
+
+
+public function alluserreport($studentreportcount,$teacherreportcount)
+{
+	$studentreportdata=$studentreportcount;
+	$teacherreportdata=$teacherreportcount;
+
+	require_once $_SESSION["SITE_PATH"].'/views/AdminViews/AdminView.php';	
+}
+
 
 public function studentreport($studentreportcount)
 
@@ -75,16 +86,12 @@ public function teacherreport($teacherreportcount)
 	require_once $_SESSION["SITE_PATH"].'/views/AdminViews/AdminView.php';
 }
 
-public function studentqualificationreport($studentqualificationcount)
+public function qualificationreport($studentqualificationcount,$teacherqualificationcount)
 {	
 	require_once $_SESSION["SITE_PATH"].'/views/AdminViews/AdminView.php';
 }
 
-public function teacherqualificationreport($teacherqualificationcount)
-{	
-	require_once $_SESSION["SITE_PATH"].'/views/AdminViews/AdminView.php';
-}
-    public function manageTeachersClick ()
+  public function manageTeachersClick ()
     {
         
             $this->createUser();
@@ -236,45 +243,37 @@ public function teacherqualificationreport($teacherqualificationcount)
 	$choice=$_POST["choice"];
 	//$qualification=$_POST["qualifications"];
 
-	 if ($_POST["usertype"]=="student" and $_POST["choice"]=="registrations") 
-		{
-			//echo"recieved";
+	if(isset($usertype))
 
-			 $this->_objUser->fetchStudentCount();
-						
-		$this->studentreport($this->_objUser->getTotalStudentRecords());
-		}
-		elseif($_POST["usertype"]=="teacher" and $_POST["choice"]=="registrations") 
-			{
-				$this->_objUser->fetchTeacherCount();
-						
-				$this->teacherreport($this->_objUser->getTotalTeacherRecords());
-			}
+	{
+		$this->_objUser->fetchStudentcount();
+				$this->_objUser->fetchTeachercount();
+		$this->alluserreport($this->_objUser->getTotalStudentRecords(),	$this->_objUser->getTotalTeacherRecords());
+	}
+
+
+
+
+
+
 	
-	 if ($_POST["usertype"]=="student" and $_POST["choice"]=="graduate") 
+	 if ( $_POST["choice"]=="graduate") 
 		{
 			$this->_objUser->fetchstudentqualification("graduate");
-			$this->studentqualificationreport($this->_objUser->getStudentqualificationdata());
-			}
-		elseif($_POST["usertype"]=="student" and $_POST["choice"]=="postgraduate") 
-			{
-				$this->_objUser->fetchstudentqualification("postgraduate");
-						
-				$this->studentqualificationreport($this->_objUser->getStudentqualificationdata());
+			$this->_objUser->fetchteacherqualification("graduate");
+
+			$this->qualificationreport($this->_objUser->getStudentqualificationdata(),$this->_objUser->getTeacherqualificationdata());
 			}
 
-		if($_POST["usertype"]=="teacher" and $_POST["choice"]=="graduate") 
+
+		elseif($_POST["choice"]=="postgraduate") 
 			{
-				$this->_objUser->fetchteacherqualification("graduate");
-						
-				$this->teacherqualificationreport($this->_objUser->getTeacherqualificationdata());
-			}
-			elseif($_POST["usertype"]=="teacher" and $_POST["choice"]=="postgraduate") 
-			{
+				$this->_objUser->fetchstudentqualification("postgraduate");
 				$this->_objUser->fetchteacherqualification("postgraduate");
 						
-				$this->teacherqualificationreport($this->_objUser->getTeacherqualificationdata());
+				$this->qualificationreport($this->_objUser->getStudentqualificationdata(),$this->_objUser->getTeacherqualificationdata());
 			}
+
 
 
 	

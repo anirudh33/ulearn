@@ -14,9 +14,17 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 * ************************************************************************
 */
 
+
+
+
+
 $pageName="AdminView";
 require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 ?>
+
+
+
+
 <body>
 
 	<div id="div1"></div>
@@ -95,17 +103,18 @@ elseif(!empty($teacherreportcount))
 	 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ReportView.php';	
 
 }
-if(isset($studentqualificationcount))
+if(isset($studentqualificationcount) and isset($teacherqualificationcount))
 {
 	
 	 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ReportView.php';	
 
 }
-if(isset($teacherqualificationcount))
-{
-	
-	 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ReportView.php';	
 
+if(isset($studentreportdata)and isset($teacherreportdata))
+{
+		
+
+		 require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/ReportView.php';	
 }
 
     ?>
@@ -121,7 +130,7 @@ if(isset($teacherqualificationcount))
 					 <ul class="nav nav2">
       <li><a href="index.php?method=showProfile&controller=Admin"><?php echo $lang-> VIEWPROFILE;?></a></li>
 						<li><a
-							href="index.php?method=manageTeachersClick&controller=Admin"
+							href="index.php?method=manageTeachersClick&controller=Admin" class="link"
 							id="link1"><?php echo $lang-> MANAGETEACHER;?></a></li>
 
 						<li><a
