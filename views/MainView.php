@@ -112,8 +112,8 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 		</div>
 		
 		<div id="header">
-			<img alt="" src="assets/images/Views/ulearn.gif"
-				style="float: left; padding: 50px; width: 280px;">
+			<!--  <img alt="" src="assets/images/Views/ulearn.gif"
+				style="float: left; padding: 50px; width: 280px;">-->
 		</div>
 		<div id="header2">
 		
@@ -148,6 +148,92 @@ if (isset($_REQUEST["msg"])) {
 					
 
 							  <div id="tab1" class="tab_content">
+							  <img alt="" src="assets/images/Views/footer.png" height=200px width=500px>
+							  <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
+								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
+								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
+								Maecenas urna enim, molestie eu egestas convallis, gravida
+								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
+								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
+								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
+								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
+								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
+								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
+								enim consectetur venenatis. Lorem ipsum dolor sit amet,
+								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
+								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
+								
+								
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
+								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
+								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
+								Maecenas urna enim, molestie eu egestas convallis, gravida
+								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
+								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
+								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
+								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
+								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
+								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
+								enim consectetur venenatis. Lorem ipsum dolor sit amet,
+								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
+								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
+								
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
+								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
+								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
+								Maecenas urna enim, molestie eu egestas convallis, gravida
+								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
+								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
+								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
+								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
+								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
+								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
+								enim consectetur venenatis. Lorem ipsum dolor sit amet,
+								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
+								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
+								
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
+								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
+								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
+								Maecenas urna enim, molestie eu egestas convallis, gravida
+								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
+								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
+								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
+								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
+								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
+								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
+								enim consectetur venenatis. Lorem ipsum dolor sit amet,
+								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
+								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
+								
+								
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
+								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
+								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
+								Maecenas urna enim, molestie eu egestas convallis, gravida
+								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
+								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
+								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
+								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
+								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
+								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
+								enim consectetur venenatis. Lorem ipsum dolor sit amet,
+								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
+								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
+								
+								
+								
+								
+								
+								
+								</h2>
+					
+								
 						</div>
 						<div id="tab2" class="tab_content">
 							<img alt="" src="assets/images/Views/tab1_image.jpg">

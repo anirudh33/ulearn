@@ -22,8 +22,8 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 	<div id="cc">
 
 		<div id="header">
-			<a href="index.php"> <img alt="" src="assets/images/Views/ulearn.gif"
-				style="float: left; padding: 50px; width: 280px;">
+			<!--  <a href="index.php"> <img alt="" src="assets/images/Views/ulearn.gif"
+				style="float: left; padding: 50px; width: 280px;">-->
 			</a>
 		</div>
 		<div id="header2">
