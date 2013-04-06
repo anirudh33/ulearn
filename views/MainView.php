@@ -85,7 +85,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 				<li class="left">&nbsp;</li>
 				<li><?php echo $lang-> HELLOGUEST;?></li>
 				<li class="sep">|</li>
-				<li id="toggle"><a id="open" class="open" href="#"><?php echo $lang-> LOGINREGISTER;?></a>
+				<li id="toggle"><a id="open" class="open" href="#"><blink><?php echo $lang-> LOGINREGISTER;?></blink></a>
 					<a id="close" style="display: none;" class="close" href="#"><?php echo $lang-> CLOSEPANEL;?></a>
 				</li>
 				<li class="right">&nbsp;</li>
@@ -112,8 +112,8 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 		</div>
 		
 		<div id="header">
-			<!--  <img alt="" src="assets/images/Views/ulearn.gif"
-				style="float: left; padding: 50px; width: 280px;">-->
+			 <img alt="" src="assets/images/Views/upper4.png"
+				style="float: left; padding: 50px; width: 600px;height:150px;">
 		</div>
 		<div id="header2">
 		
@@ -148,7 +148,7 @@ if (isset($_REQUEST["msg"])) {
 					
 
 							  <div id="tab1" class="tab_content">
-							  <img alt="" src="assets/images/Views/footer.png" height=200px width=500px>
+							  <img alt="" src="assets/images/Views/images67.jpeg" height=400px width=500px>
 							  <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
 								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
 								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
