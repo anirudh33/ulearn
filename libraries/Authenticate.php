@@ -93,6 +93,15 @@ class Authenticate extends AModel{
 	/* Function to validate Registration form data */
 	public function validateRegistration() {
 		
+		$obj1= new Registration();
+		$verify=$obj1->verifyEmail($_POST["email"]);
+		
+		if($verify)
+		{ 
+		
+			$this->setMessage ( "Email alredy exist" );
+			
+		}
 			if (! filter_var ( $_POST ["email"], FILTER_VALIDATE_EMAIL )) {
 				$this->setMessage ( "Email not valid" );
 			}
@@ -199,9 +208,8 @@ class Authenticate extends AModel{
 			{
 				$this->setMessage ( "Date of birth cant be left empty" );
 			}
-			 else {
-			$this->setMessage ( "Fields cant be left empty" );
-		}
+			
+		
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
 			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 

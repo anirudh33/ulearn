@@ -12,7 +12,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 * ************************************************************************
 */
 /*-----------Jquery validation for Registration   ---------------*/
-
+ 
 (function($,W,D)
 {
 	
@@ -21,6 +21,31 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
     
     //when the dom has loaded setup form validation rules
     $(document).ready(function($) {
+    
+    	/*
+   	$("#email").keyup(function() {
+    		var name = $('#email').val();
+    		if(name=="")
+    		{
+    		$("#error").html("");
+    		}
+    		else
+    		{
+    		$.ajax({
+    		type: "POST",
+    		url: "models/Registration.php",
+    		data: "name="+ name ,
+    		success: function(html){
+    		$("#error").html(html);
+    		}
+    		});
+    		return false;
+    		}
+    		});
+    	
+    	*/
+    	   	
+    	
     	
     	$.validator.addMethod("loginRegex", function(value, element) {
             return this.optional(element) || /^[a-z\-]+$/i.test(value);
