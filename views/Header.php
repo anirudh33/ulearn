@@ -413,7 +413,7 @@ if($pageName=="RegistrationView") {
 	        	   window.location.reload();
 	           } else {
 	               alert("Problem in deleting record!");
-	             <?php //@todo error to be thrown if record doesnt get deleted actually ?>  
+	             //@todo error to be thrown if record doesnt get deleted actually
 	           }
 	       },
 	   });
@@ -431,7 +431,7 @@ if($pageName=="RegistrationView") {
 	        	   window.location.reload();
 	           } else {
 	               alert("Problem in activating record!");
-	               <?php //@todo error to be thrown if record doesnt get activated from ?>  
+	               //@todo error to be thrown if record doesnt get activated from ?>  
 	           }
 	       }
 	   });

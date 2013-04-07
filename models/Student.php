@@ -47,6 +47,7 @@ public function fetchStudent() {
 		$this->db->Fields ( array (
 				"firstname",
 				"lastname",
+				"profilepicture",
 				"phone",
 				"address",
 				"qualification",

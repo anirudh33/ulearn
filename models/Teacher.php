@@ -45,6 +45,7 @@ class Teacher extends AUser {
 				"firstname",
 				"lastname",
 				"phone",
+				"profilepicture",
 				"address",
 				"qualification",
 				"gender",

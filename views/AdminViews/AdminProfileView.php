@@ -12,6 +12,12 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
 * ************************************************************************
 */
+
+/*Creating profile picture image resource*/
+$image=imagecreatefromstring($adminprofiledata[0]['profilepicture']);
+/* Storing picture to file with custom quality range 1 - 100 */
+imagejpeg($image,"assets/images/Views/profilepics/adminprofile".$_SESSION['userID'].".jpeg",20); 
+
 $pageName="AdminProfileView";
 //@todo move the following header to admin view so that log out shows on each page if sounds fine
 
@@ -32,7 +38,7 @@ $pageName="AdminProfileView";
 		<section id="left">
 			<div id="userStats" class="clearfix">
 				<div class="pic">
-					<a href="#"><img src="assets/images/img/577029_542275185786791_94754717_n.jpg" width="150" height="250" /></a>
+					<a href="#"><img src="assets/images/Views/profilepics/adminprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="250" /></a>
 				</div>
 				<?php if(!empty($adminprofiledata))
 				{?>
@@ -88,4 +94,5 @@ $pageName="AdminProfileView";
 
 		
 	</div>
+
 </html>

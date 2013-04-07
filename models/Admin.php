@@ -131,7 +131,7 @@ private function setTeacherqualificationdata ($teacherqualificationdata)
     	$this->db->Fields(array(
     			"firstname",
     			"lastname",
-    
+    			"profilepicture",
     			"phone",
     			"address",
     			"qualification",
@@ -141,7 +141,7 @@ private function setTeacherqualificationdata ($teacherqualificationdata)
     	$this->db->From("admindetails");
     	$this->db->Where();
     	$this->db->Select();
-    
+    	    	
     	$this->setAdminProfiledata($this->db->resultArray());
     }
 

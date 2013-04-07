@@ -252,7 +252,7 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
     	 
     	$this->createUser();
     	$this->_objUser->fetchadminUser();
-    	/* Showing Teacher View with teacher data */
+    	/* Showing Admin profile */
     	$this->showAdminProfileView($this->_objUser->getAdminProfiledata());
     
     }

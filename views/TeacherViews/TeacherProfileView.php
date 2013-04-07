@@ -11,7 +11,11 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
 * ************************************************************************
 */
-require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
+
+/*Creating profile picture image resource*/
+$image=imagecreatefromstring($data[0]['profilepicture']);
+/* Storing picture to file with custom quality range 1 - 100 */
+imagejpeg($image,"assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
 ?>
 	<header>
 
@@ -30,7 +34,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 		<section id="left">
 			<div id="userStats" class="clearfix">
 				<div class="pic">
-					<a href="#"><img src="assets/images/img/ap.jpg" width="150"
+					<a href="#"><img src="assets/images/Views/profilepics/teacherprofile<?php echo $_SESSION['userID']; ?>.jpeg" width="150"
 						height="195" /></a>
 				</div>
 				<?php
