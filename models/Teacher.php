@@ -72,8 +72,13 @@ class Teacher extends AUser {
 				"gender" => "$gender",
 				"dob" => "$dob" 
 		) );
-		$this->db->Update ();
-		//echo $this->db->lastQuery ();
+		$bool=$this->db->Update ();
+		if($bool==true) {
+			$this->setCustomMessage("SuccessMessage", "Profile Successfully updated ");
+		}else {
+			$this->setCustomMessage("ErrorMessage", "Profile couldnt be updated ");
+		}
+		
 	}
 
 	public function messageSend($body, $subject, $sentto) {

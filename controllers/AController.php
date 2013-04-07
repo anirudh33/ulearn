@@ -118,7 +118,7 @@ abstract class AController {
 		$objCourse = new Course ();
 		$result = $objCourse->fetchCoursename ();
 		if (! empty ( $result )) {
-			$this->showSubStudentViews ( "registerCourse", $result );
+			$this->showSubViews ( "registerCourse", $result );
 		} else {
 			$message = "You cannnot register<br> No courses exist yet";
 			$this->setCustomMessage ( "ErrorMessage", $message );
@@ -129,7 +129,7 @@ abstract class AController {
 		$this->createUser ();
 		list ( $messages, $result2 ) = $this->_objUser->messageShow ();
 		If (! empty ( $messages )) {
-			$this->showSubStudentViews ( "viewMessage", $messages, $result2 );
+			$this->showSubViews ( "viewMessage", $messages, $result2 );
 		} else {
 			$message = "No messages for you<br>Have a good day :)";
 			$this->setCustomMessage ( "NoticeMessage", $message );
@@ -140,7 +140,7 @@ abstract class AController {
 		$aid = $_REQUEST ["msgid"];
 		$this->createUser ();
 		$result = $this->_objUser->messageBody ( $aid );
-		$this->showSubStudentViews ( "MessageBody", $result );
+		$this->showSubViews ( "MessageBody", $result );
 	}
 	/**
 	 * @param unknown $messageType

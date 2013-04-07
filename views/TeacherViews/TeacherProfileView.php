@@ -11,11 +11,12 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
 * ************************************************************************
 */
-
+if(isset($data[0]['profilepicture'])) {
 /*Creating profile picture image resource*/
 $image=imagecreatefromstring($data[0]['profilepicture']);
 /* Storing picture to file with custom quality range 1 - 100 */
 imagejpeg($image,"assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
+}
 ?>
 	<header>
 

@@ -1,12 +1,25 @@
 <?php
+/* Creation Log
 
+File Name                   -  TeacherController.php
+Description                 -  Controls all teacher related functions
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  March 28, 2013
+* **************************** Update Log ********************************
+Sr.NO.  Version	  Updated by        Updated on          Description
+-------------------------------------------------------------------------
+1		1.1		  Anirudh Pandita	April 07, 2013		Messages to be shown,
+														miscellaneous notices fixed 
+* ************************************************************************
+*/
 class TeacherController extends AController
 {
 
     protected  $_requiredType = "teacher";
 
           
-    public function showSubTeacherViews ($viewName,$data,$result2='')
+    public function showSubViews ($viewName,$data,$result2='')
     {  
 
        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
@@ -19,7 +32,7 @@ class TeacherController extends AController
             $this->createUser();
             $this->_objUser->fetchUser();
             /* Showing Teacher View with teacher data */
-            $this->showSubTeacherViews("editProfile",$this->_objUser->getTdata(),'');          
+            $this->showSubViews("editProfile",$this->_objUser->getTdata(),'');          
         
     }
 
@@ -36,7 +49,7 @@ class TeacherController extends AController
             $this->createUser();
             
             $this->_objUser->editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
-        
+        	$this->showProfile();
     }
 
 public function editCourseClick ()
@@ -62,7 +75,7 @@ public function editCourseClick ()
             $result1=$objCourse->fetchCourse($limit);
             
             $result2=count($result1);
-     		$this->showSubTeacherViews("editCourse",$result1,$result2);
+     		$this->showSubViews("editCourse",$result1,$result2);
         
     }
 
@@ -98,7 +111,7 @@ public function deleteCourseClick ()
 
     public function addCourseClick ()
     {
-        $this->showSubTeacherViews("addCourse",'','');
+        $this->showSubViews("addCourse",'','');
     }
 
     public function addCourseButtonClick ()
@@ -106,17 +119,21 @@ public function deleteCourseClick ()
         
         $objCourse= new Course();
         $objCourse->addCourse();
+        /*Reload Add course view*/
+        $this->showSubViews("addCourse",'','');
+        
     }
     
 	public function registerCourseButtonClick() {
 		$coursename = $_POST ['coursenamelist']; // to be changed
 		$objCourse = new Course ();
 		$objCourse->registerTeacherCourse ( $coursename );
+		$this->registerCourseClick();	
 	}
 	public function messageClick() {
 		$this->createUser ();
 		$emailList = $this->_objUser->fetchEmailID ();
-		$this->showSubTeacherViews ( "writeMessage", $emailList, '' );
+		$this->showSubViews ( "writeMessage", $emailList, '' );
 	}
 	
 	public function showProfile() {
@@ -124,14 +141,14 @@ public function deleteCourseClick ()
 		$teacherdetails = $this->_objUser->fetchTeacher ();
 		
 		/* Showing Teacher View with teacher data */
-		$this->showSubTeacherViews ( "showProfile", $teacherdetails, '' );
+		$this->showSubViews ( "showProfile", $teacherdetails, '' );
 	}
 	public function downloadClick() {
 		$objCourse = new Course ();
 		$this->createUser ();
 		$result = $objCourse->fetchTeacherCoursename ();
 		if(!empty($result)) {
-		$this->showSubTeacherViews ( "download", $result );
+		$this->showSubViews ( "download", $result );
 		} else {
 			$this->setCustomMessage("ErrorMessage","You havent chosen any courses yet<br> Register first");
 		}
@@ -148,7 +165,7 @@ public function deleteCourseClick ()
 		$objCourse = new Course ();
 		$courseList = $objCourse->fetchCoursename ();
 		if (! empty ( $courseList )) {
-			$this->showSubTeacherViews ( "upload", $courseList, '' );
+			$this->showSubViews ( "upload", $courseList, '' );
 		} else {
 			$_SESSION ["ErrorMessage"] .= "No uploads for you! <br>Create Course first, no courses exist  <br>";
 			$this->showView ();

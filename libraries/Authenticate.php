@@ -2,7 +2,7 @@
 /*
  * *************************** Creation Log ******************************* File Name - Authenticate.php Description - Class file for Authentication of users credentials Version - 1.0 Created by - Anirudh Pandita Created on - March 02, 2013 *************************************************************************** Sr.NO. Version Updated by Updated on Description ------------------------------------------------------------------------- 1			1.0			Anirudh Pandita	28/04/2013	Being used in various controllers ************************************************************************
  */
-class Authenticate {
+class Authenticate extends AModel{
 	private $_message = "";
 	private $_requiredType = "";
 	
@@ -19,6 +19,7 @@ class Authenticate {
 	 * @param string $_message        	
 	 */
 	public function setMessage($_message) {
+		$this->setCustomMessage("ErrorMessage", $_message);
 		$this->_message .= $_message."<br>";
 	}
 	public function getRequiredType() {
@@ -163,7 +164,7 @@ class Authenticate {
 			
 			$securimage = new Securimage ();
 			if ($securimage->check ( $_POST ['captcha_code'] ) == false) {
-				$this->setMessage ( "The security code entered was incorrect.<br /><br />" );
+				$this->setMessage ( "The security code entered was incorrect" );
 			}
 			
 			

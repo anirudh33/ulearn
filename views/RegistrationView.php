@@ -27,18 +27,11 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 			</a>
 		</div>
 		<div id="header2">
-			<a href="index.php"><h3>GO TO HOME</h3></a>
+			<h3><a href="index.php">GO TO HOME</a></h3>
 		</div>
 		<div id="error">
-		<?php
-		if (isset ( $_REQUEST ["msg"] )) {
-			echo $_REQUEST ["msg"];
-		}
-		
-		?>
-		
-		
-		</div>
+	
+	</div>
 		<div id="image">
 
 			<form action="index.php?method=registerUser&controller=Main" method="post" id="register-form" 

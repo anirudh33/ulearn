@@ -475,7 +475,7 @@ $(document).ready(function(){
 		$().toastmessage({
 		sticky : false,
 		position: 'top-right',
-		stayTime: 20000
+		stayTime: 30000
 		});
 		
 		$().toastmessage('showErrorToast', error);

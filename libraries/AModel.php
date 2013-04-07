@@ -23,6 +23,18 @@ abstract class AModel
         $this->db = DBConnection::Connect();
         // $this->lang = Language::getinstance();
     }
+    /**
+     * @param unknown $messageType
+     * @param unknown $message
+     * Uses toast to show messages to user
+     */
+    
+    public function setCustomMessage($messageType,$message)
+    {
+    	$_SESSION ["$messageType"] .= $message."<br>";
+    	
+    	
+    }
 }
 
 ?>

@@ -251,5 +251,6 @@ abstract class AUser extends AModel
 
     public function showView ()
     {}
+    
 }
 ?>

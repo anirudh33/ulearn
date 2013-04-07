@@ -1,4 +1,16 @@
 <?php
+/*
+ * *************************** Creation Log *******************************
+* File Name 	- Admin.php
+* Description 	- Admin model class holds business logic methods 
+* Version 		- 1.0
+* Created by	- Anirudh Pandita Created on - March 01, 2013
+* **********************Update Log ***************************************
+* Sr.NO. Version Updated by Updated on Description
+* -------------------------------------------------------------------------
+* 
+* ************************************************************************
+*/
 class Admin extends AUser
 {
 

@@ -59,23 +59,22 @@ class Course extends AModel {
 						"coursename" => $_POST ["coursename"],
 						"description" => $_POST ["description"],
 						"createdon" => date ( "Y/m/d" ) 
-				// "createdon" => time ()
 								) );
-				$this->db->Insert ();
-				// echo $this->db->lastQuery ();
-				
+				$bool=$this->db->Insert ();
+				if($bool==true) {				
 				$this->registerTeacherCourse ( $_POST ["coursename"] );
+				}else {
+					$message="Directory created but Couldnt register course";
+					$this->setCustomMessage("ErrorMessage", $message);
+				}
 			}
-		} else {
-			?>
-<script> confirm('Course name already exists, please re-enter')</script>
-<?php
-		
-}
+		} else {	
+			$message="Couldnt create course directory <br> Course already exists";	
+			$this->setCustomMessage("ErrorMessage", $message);
+			}
 	}
 	public function registerTeacherCourse($coursename) {
-		echo $coursename;
-		
+				
 		/* fetch id of Teacher */
 		$this->db->Fields ( array (
 				"id" 
@@ -98,7 +97,7 @@ class Course extends AModel {
 		$this->db->Where ( array (
 				"coursename" => $coursename 
 		) );
-		$this->db->Select ();
+		$bool=$this->db->Select ();
 		
 		$id = $this->db->resultArray ();
 		
@@ -115,13 +114,14 @@ class Course extends AModel {
 						"teacher_id" => $tid 
 				) );
 				$this->db->Insert ();
-				echo $this->db->lastQuery ();
+				
+				$message= "Course Registered";
+				$this->setCustomMessage("SuccessMessage", $message);
 			} else {
-				?>
-<script> confirm('Course already registered')</script>
-<?php
-			
-}
+				
+				$message= 'Course already registered';
+				$this->setCustomMessage("ErrorMessage", $message);
+			}
 		}
 	}
 	public function registerStudentCourse($coursename) {
@@ -157,13 +157,13 @@ class Course extends AModel {
 					"student_id" => $sid 
 			) );
 			$this->db->Insert ();
-			echo $this->db->lastQuery ();
+			//echo $this->db->lastQuery ();
+			$message= 'Course registered';
+			$this->setCustomMessage("ErrorMessage", $message);
 		} else {
-			?>
-<script> confirm('Course already registered')</script>
-<?php
-		
-}
+			$message= 'Course already registered';
+			$this->setCustomMessage("ErrorMessage", $message);
+		}
 	}
 	public function fetchTeacherCoursename() {
 //@todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
