@@ -156,8 +156,8 @@ class MainController
     {
     	
     	
-    	//$authObject= new Authenticate();
-    	//$authObject->validateRegistration();
+    	$authObject= new Authenticate();
+    	$authObject->validateRegistration();
         $email = $_POST["email"];
         $password = $_POST["password"];
         $firstname = $_POST["firstname"];
@@ -170,7 +170,7 @@ class MainController
         $usertype = $_POST["usertype"];
         $status='2';
         $profilepicture = addslashes(file_get_contents
-            ($_FILES["profilepicture"]["tmp_name"]));
+        ($_FILES["profilepicture"]["tmp_name"]));
         $confirm_code=md5(uniqid(rand()));
  
         

@@ -19,7 +19,7 @@ class Authenticate {
 	 * @param string $_message        	
 	 */
 	public function setMessage($_message) {
-		$this->_message .= $_message;
+		$this->_message .= $_message."<br>";
 	}
 	public function getRequiredType() {
 		return $this->_requiredType;
@@ -91,29 +91,114 @@ class Authenticate {
 	
 	/* Function to validate Registration form data */
 	public function validateRegistration() {
-		if (array_filter ( $_POST )) {
+		
 			if (! filter_var ( $_POST ["email"], FILTER_VALIDATE_EMAIL )) {
+				$this->setMessage ( "Email not valid" );
+			}
+			if (! filter_var ( $_POST ["repeatemail"], FILTER_VALIDATE_EMAIL )) {
 				$this->setMessage ( "Email not valid" );
 			}
 			if (! filter_var ( $_POST ["phone"], FILTER_VALIDATE_INT )) {
 				$this->setMessage ( "Phone no not valid, enter numbers only" );
 			}
-			if(preg_match("^[a-zA-Z][a-zA-Z0-9.,$;]+$", $_POST["firstname"])===1)
-			{				$this->setMessage ( "Name must be from letters and must not start with numbers" );
+			
+		/*------------alphabet  security-----------------*/
+			
+		if(preg_match("/^[a-z\-]+$/i", $_POST["firstname"])===0)
+			{				$this->setMessage ( "firstname must be letters" );
+		}
+		if(preg_match("/^[a-z\-]+$/i", $_POST["lastname"])===0)
+		{				$this->setMessage ( "lastname must be letters " );
+		}
+		
+		
+		/*------------URL security-----------------*/
+		
+		
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["firstname"])===1)
+			{				$this->setMessage ( "Url not allowed" );
 			}
-			if(preg_match("^[a-zA-Z][a-zA-Z0-9.,$;]+$", $_POST["lastname"])===0)
-			{				$this->setMessage ( "Name must be from letters and must not start with numbers" );
+			if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["lastname"])===1)
+			{				$this->setMessage ( "Url not allowed" );
 			}
-			if(preg_match("/^.*(?=.{8,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$/", $_POST["password"]) === 0)
-			{
-				$this->setMessage ( "Password must be at least 8 characters and must contain at least one lower case letter, one upper case letter and one digit" );
+			if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["password"])===1)
+			{				$this->setMessage ( "Url not allowed" );
 			}
+			if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["phone"])===1)
+			{				$this->setMessage ( "Url not allowed" );
+			}
+			if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["date"])===1)
+			{				$this->setMessage ( "Url not allowed" );
+			}
+			if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["repeatpassword"])===1)
+			{				$this->setMessage ( "Url not allowed" );
+			}
+			
+			
+			/*------------Script security-----------------*/
+		
+			if(preg_match("/(<([^>]+)>)/i", $_POST["firstname"])===1)
+			{				$this->setMessage ( "script not allowed" );
+			}
+			if(preg_match("/(<([^>]+)>)/i", $_POST["lastname"])===1)
+			{				$this->setMessage ( "script not allowed" );
+			}
+			if(preg_match("/(<([^>]+)>)/i", $_POST["password"])===1)
+			{				$this->setMessage ( "script not allowed" );
+			}
+			
+			if(preg_match("/(<([^>]+)>)/i", $_POST["date"])===1)
+			{				$this->setMessage ( "script not allowed" );
+			}
+			if(preg_match("/(<([^>]+)>)/i", $_POST["phone"])===1)
+			{				$this->setMessage ( "script not allowed" );
+			}
+			if(preg_match("/(<([^>]+)>)/i", $_POST["repeatpassword"])===1)
+			{				$this->setMessage ( "script not allowed" );
+			}
+			if(preg_match("/(<([^>]+)>)/i", $_POST["repeatemail"])===1)
+			{				$this->setMessage ( "script not allowed" );
+			}
+			
 			
 			$securimage = new Securimage ();
 			if ($securimage->check ( $_POST ['captcha_code'] ) == false) {
 				$this->setMessage ( "The security code entered was incorrect.<br /><br />" );
 			}
-		} else {
+			
+			
+			/*------------Empty field security-----------------*/
+			if(empty($_POST["firstname"]))
+			{
+				$this->setMessage ( "Firstname cant be left empty" );
+			}
+			if(empty($_POST["repeatemail"]))
+			{
+				$this->setMessage ( "repeatemail cant be left empty" );
+			}
+			if(empty($_POST["repeatpassword"]))
+			{
+				$this->setMessage ( "repeatpassword cant be left empty" );
+			}
+			
+			
+			if(empty($_POST["lastname"]))
+			{
+				$this->setMessage ( "Lastname cant be left empty" );
+			}
+			if(empty($_POST["email"]))
+			{
+				$this->setMessage ( "Email cant be left empty" );
+			}
+			if(empty($_POST["password"]))
+			{
+				$this->setMessage ( "Password cant be left empty" );
+			}
+			if(empty($_POST["date"]))
+			{
+				$this->setMessage ( "Date of birth cant be left empty" );
+			}
+			 else {
 			$this->setMessage ( "Fields cant be left empty" );
 		}
 		$msg = $this->getMessage ();
