@@ -1,4 +1,4 @@
-<?php/* Creation Log
+<?php /* Creation Log
 
 File Name                   -  AdminView.php
 Description                 -  Landing page of Student contains all functions Admin may perform
@@ -11,6 +11,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
 * ************************************************************************
 */
+
 ?>
 	<header>
 	

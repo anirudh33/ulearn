@@ -6,7 +6,7 @@ class TeacherController extends AController
     protected  $_requiredType = "teacher";
 
           
-    public function showSubTeacherViews ($viewName,$data,$result2)
+    public function showSubTeacherViews ($viewName,$data,$result2='')
     {  
 
        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
@@ -19,8 +19,7 @@ class TeacherController extends AController
             $this->createUser();
             $this->_objUser->fetchUser();
             /* Showing Teacher View with teacher data */
-            $this->showSubTeacherViews("editProfile",$this->_objUser->getTdata());
-            
+            $this->showSubTeacherViews("editProfile",$this->_objUser->getTdata(),'');          
         
     }
 
@@ -33,8 +32,7 @@ class TeacherController extends AController
         $qualification = $_POST["qualification"];
         $gender = $_POST["gender"];
         $dob = $_POST["dob"];
-        
-        
+                
             $this->createUser();
             
             $this->_objUser->editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
@@ -64,7 +62,7 @@ public function editCourseClick ()
             $result1=$objCourse->fetchCourse($limit);
             
             $result2=count($result1);
-     $this->showSubTeacherViews("editCourse",$result1,$result2);
+     		$this->showSubTeacherViews("editCourse",$result1,$result2);
         
     }
 
@@ -100,7 +98,7 @@ public function deleteCourseClick ()
 
     public function addCourseClick ()
     {
-        $this->showSubTeacherViews("addCourse");
+        $this->showSubTeacherViews("addCourse",'','');
     }
 
     public function addCourseButtonClick ()
@@ -109,121 +107,63 @@ public function deleteCourseClick ()
         $objCourse= new Course();
         $objCourse->addCourse();
     }
-
     
-public function registerCourseClick ()
-    {
-    	$objCourse= new Course();
-    	$result=$objCourse->fetchCoursename();
-        $this->showSubTeacherViews("registerCourse",$result);
-        
-    }
-public function registerCourseButtonClick()
-{ 
-
-	$coursename=$_POST['coursenamelist'];//to be changed
-	$objCourse= new Course();
-    $objCourse->registerTeacherCourse($coursename);
+	public function registerCourseButtonClick() {
+		$coursename = $_POST ['coursenamelist']; // to be changed
+		$objCourse = new Course ();
+		$objCourse->registerTeacherCourse ( $coursename );
+	}
+	public function messageClick() {
+		$this->createUser ();
+		$emailList = $this->_objUser->fetchEmailID ();
+		$this->showSubTeacherViews ( "writeMessage", $emailList, '' );
+	}
 	
-}
-
-public function messageClick ()
-    {
-    	 
-    		$this->createUser();
-    		$emailList=$this->_objUser->fetchEmailID();
-    	$this->showSubTeacherViews("writeMessage",$emailList);
-    	
-    
-}
-
-public function viewMessageClick ()
-{
-	 
-		$this->createUser();
-	list($messages,$result2) = $this->_objUser->messageShow();
-
-$this->showSubTeacherViews("viewMessage",$messages,$result2);
-	 
-}
-
-public function subjectClick ()
-{
-	     $aid=$_REQUEST["msgid"];
-		$this->createUser();
-	     $result = $this->_objUser->messageBody($aid);
-	     $this->showSubTeacherViews("MessageBody",$result);
-  
-	 
-}
-
-
-public function writeMessage()
-    {
-        //$message_id = $_POST["message_id"];
-        $body = $_POST["body"];
-        $subject = $_POST["subject"];
-        //$sentfrom = $_POST["sentfrom"];
-        $sentto = $_POST["sentto"];
-        
-         
-            $this->createUser();
-            
-        $this->_objUser->messageSend($body, $subject,  $sentto);
-        
-    }
-    
-    public function showProfile ()
-    {
-    	$this->createUser();
-    	$teacherdetails=$this->_objUser->fetchTeacher();
-    	
-    	/* Showing Teacher View with teacher data */
-    	$this->showSubTeacherViews("showProfile",$teacherdetails,"");
-    
-    }
-    
-    public function downloadClick ()
-    {
-    	$objCourse= new Course();
-    	$this->createUser();
-    	$result=$objCourse->fetchTeacherCoursename();
-    	
-    	$this->showSubTeacherViews("download",$result);
-    	 
-    }
-    
-    public function downloadFile ()
-    {
-    	$coursenamelist = $_POST["coursenamelist"];
-    	
-    	$this->createUser();
-    	$filelist=$this->_objUser->downloadContent($coursenamelist);
-    
-    	 
-    	$this->showSubStudentViews("showContent",$filelist);
-    }
-
-    public function uploadClick ()
-    {
-
-    	$objCourse= new Course();
-    	$courseList=$objCourse->fetchCoursename();
-    		    			
-        $this->showSubTeacherViews("upload",$courseList);
-    }
-
-    public function uploadFile ()
-    {
-    	$lesson_no = $_POST["lesson_no"];
-    	$lesson_name = $_POST["lesson_name"];
-    	$coursenamelist = $_POST["coursenamelist"];
-    	
-        $this->createUser();
-       
-        $this->_objUser->uploadContent($lesson_no,$lesson_name);
-        $this->_objUser->lesson($lesson_no,$lesson_name,$coursenamelist);
-    }
+	public function showProfile() {
+		$this->createUser ();
+		$teacherdetails = $this->_objUser->fetchTeacher ();
+		
+		/* Showing Teacher View with teacher data */
+		$this->showSubTeacherViews ( "showProfile", $teacherdetails, '' );
+	}
+	public function downloadClick() {
+		$objCourse = new Course ();
+		$this->createUser ();
+		$result = $objCourse->fetchTeacherCoursename ();
+		if(!empty($result)) {
+		$this->showSubTeacherViews ( "download", $result );
+		} else {
+			$this->setCustomMessage("ErrorMessage","You havent chosen any courses yet<br> Register first");
+		}
+	}
+	public function downloadFile() {
+		$coursenamelist = $_POST ["coursenamelist"];
+		
+		$this->createUser ();
+		$filelist = $this->_objUser->downloadContent ( $coursenamelist );
+		
+		$this->showSubStudentViews ( "showContent", $filelist );
+	}
+	public function uploadClick() {
+		$objCourse = new Course ();
+		$courseList = $objCourse->fetchCoursename ();
+		if (! empty ( $courseList )) {
+			$this->showSubTeacherViews ( "upload", $courseList, '' );
+		} else {
+			$_SESSION ["ErrorMessage"] .= "No uploads for you! <br>Create Course first, no courses exist  <br>";
+			$this->showView ();
+		}
+	}
+	public function uploadFile() {
+		$lesson_no = $_POST ["lesson_no"];
+		$lesson_name = $_POST ["lesson_name"];
+		$coursenamelist = $_POST ["coursenamelist"];
+		
+		$this->createUser ();
+		
+		$this->_objUser->uploadContent ( $lesson_no, $lesson_name );
+		$this->_objUser->lesson ( $lesson_no, $lesson_name, $coursenamelist );
+	}
 }
 
 ?>

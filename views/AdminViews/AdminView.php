@@ -71,12 +71,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
         
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/EditAdminProfileView.php';
     }
-    elseif (isset($var)) {
-        ?>
-    	<h1>The Records have been updated</h1>
-    	
-    <?php
-    }
+    
     elseif (! empty($adminprofiledata)) {
 
 	  require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminProfileView.php';

@@ -16,6 +16,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 /* Getting default Language to be used in various views
  * Usage: Just use $lang->CONSTANTNAME to display the language specific value */
 $lang=Language::getinstance();
+//session_start();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -516,4 +517,5 @@ $(document).ready(function(){
 
 <input type="hidden" id="hdnTextNotice" name="hdnTextNotice"
 	value='<?php if(isset($_SESSION["NoticeMessage"])){echo $_SESSION["NoticeMessage"];}?>'>
+	
 	

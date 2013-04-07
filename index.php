@@ -120,11 +120,10 @@ else if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
     /*showing main view*/
     $obj->showMainView();
 }
-// $_SESSION["ErrorMessage"]='';
-// $_SESSION["SuccessMessage"]='';
-// $_SESSION["NoticeMessage"]='';
 
+unset($_SESSION["SuccessMessage"]);
 unset($_SESSION["ErrorMessage"]);
+unset($_SESSION["NoticeMessage"]);
 ?>
 
 

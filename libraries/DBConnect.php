@@ -112,14 +112,17 @@ class DBConnection
 
     public function Fields ($data = array())
     {
-        $this->_keys = array();
+    	$this->_keys = array();
         $this->_values = array();
         $count = count($data);
+
         if ($count > 0) {
             
             foreach ($data as $key => $value) {
-                
-                if (! empty($value)) {
+                /* @author anirudh 
+                 * if phone no is set to blank it should still get inserted 
+                 * */
+                if (! empty($value) or $key=='phone') {
                     $this->_keys[] = $key;
                     $this->_values[] = $value;
                 }
@@ -389,11 +392,7 @@ class DBConnection
                 if ($this->_insertId > 0) {
                     $bool = true;
                 }
-                // }
-                // else//ani
-                // {
-                // $this->_transaction.=$this->_query;//ani
-                // }
+                
             }
         }
         

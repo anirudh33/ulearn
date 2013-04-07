@@ -126,14 +126,14 @@ class Teacher extends AUser {
 				"sentfrom" => "$sentfrom",
 				"sentto" => "$sid" 
 		) );
-		$this->db->Insert ();
-		//echo $this->db->lastQuery ();
-		echo("<SCRIPT> $(DOCUMENT).READY(FUNCTION(){"."$().TOASTMESSAGE('SHOWSUCCESSTOAST','message sent');});
-		</SCRIPT>");
+		$bool=$this->db->Insert ();
+		return $bool;
 	}
+	/*  */
 	public function messageShow() {
 		$uid = $_SESSION ['userID'];
 		DBConnection::Connect ();
+		/* Fetching teacher email id using userID we have in session */
 		$this->db->Fields ( array (
 				"id" 
 		) );
@@ -144,6 +144,7 @@ class Teacher extends AUser {
 		$this->db->Select ();
 		$tIDArray = $this->db->resultArray ();
 		$teacherID = $tIDArray [0] ["id"];
+		/* Fetching message ids and subjects */
 		$this->db->Fields ( array (
 				"message_id",
 				"subject"
@@ -154,8 +155,11 @@ class Teacher extends AUser {
 				"sentto" => $teacherID 
 		) );
 		$this->db->Select ();
+		
+		
 		$result = $this->db->resultArray ();
-
+		if(!empty($result)) {
+		/* Fetching email id of student(s) who sent the message */
 		$this->db->Fields ( array (
 				"sentfrom"
 				
@@ -166,9 +170,8 @@ class Teacher extends AUser {
 		) );
 		$this->db->Select ();
 		$sentfrom = $this->db->resultArray ();
-
-		
 		$sid=$sentfrom [0] ["sentfrom"];
+		/* Fetching user id(s) of student who sent the message(s)*/
 		$this->db->Fields ( array (
 				"user_id" 
 		) );
@@ -181,6 +184,7 @@ class Teacher extends AUser {
 		$uIDArray = $this->db->resultArray ();
 		$u=$uIDArray [0] ["user_id"];
 		
+		/* Fetching email id(s) of student who sent the message(s) */
 		$this->db->Fields ( array (
 				"email" 
 		) );
@@ -190,7 +194,9 @@ class Teacher extends AUser {
 		) );
 		$this->db->Select ();
 		$email = $this->db->resultArray ();
-
+		}else {
+			return false;
+		}
 		return array($result,$email);
 	}
 

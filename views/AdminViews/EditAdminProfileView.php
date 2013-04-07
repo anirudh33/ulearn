@@ -13,8 +13,10 @@ Sr.NO.	Version     Updated by          Updated on      Description
 1		1.1			Anirudh pandita		April 04, 2013		Clean up
 2		1.1			Anirudh pandita		April 06, 2013		Fixed date picker
 * ************************************************************************
-*/ //@todo edit profile changes doesnt get reflected back to the view 
+*/ 
+//@todo edit profile changes doesnt get reflected back to the view 
 $pageName=="EditAdminProfileView";
+//@todo change div ids to proper names
 ?>
 
 	<link rel="stylesheet" href="assets/style/editprofile.css"
@@ -25,9 +27,8 @@ $pageName=="EditAdminProfileView";
 	
 <div id="registerdiv">
 
-	<form id="form"
-		action="index.php?method=editAdminClick&controller=Admin"
-		method="POST" class="register">
+	<form id="form"	action="index.php?method=editAdminClick&controller=Admin" 
+	method="POST" class="register">
 
 		<h1><?php echo $lang->EDITPROFILE;?></h1>
 
@@ -36,23 +37,24 @@ $pageName=="EditAdminProfileView";
 			<p>
 				<label>First Name * </label> <input type="text" id="firstname"
 					name="firstname" class="long"
-					value=<?php echo $admindata[0]['firstname']?>>
+					value=<?php echo $admindata[0]['firstname'];?>>
 			</p>
 			<p>
-				<label>Last Name * </label> <input type="text" id="lastname"
-					name="lastname" class="long"
-					value=<?php echo $admindata[0]['lastname']?>>
+				<label>Last Name * </label> 
+				<input type="text" id="lastname" name="lastname" class="long" 
+				value=<?php echo $admindata[0]['lastname'];?>>
 			</p>
 			<p>
-				<label>Phone </label> <input type="text" id="phone" name="phone"
-					maxlength="10" value=<?php echo $admindata[0]['phone']?>>
+				<label>Phone </label> 
+				<input type="text" id="phone" name="phone" maxlength="10" 
+				value='<?php echo $admindata[0]['phone']; ?>' >
 
 			</p>
 
 			<p>
-				<label>Address </label> <input type="text" id="address"
-					name="address" class="long"
-					value=<?php echo $admindata[0]['address']?>>
+				<label>Address </label>
+				 <input type="text" id="address" name="address" class="long" 
+				 value='<?php echo $admindata[0]['address'];?>' >
 
 			</p>
 

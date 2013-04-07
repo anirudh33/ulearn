@@ -13,7 +13,9 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 * ************************************************************************
 */
 $pageName="AdminProfileView";
-//@todo move the following header to admin view so that log out shows on each page if sounds fine?>
+//@todo move the following header to admin view so that log out shows on each page if sounds fine
+
+?>
 	<header id="header1">
 	
 		<div class="wrapper">

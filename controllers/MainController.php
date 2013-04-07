@@ -9,20 +9,20 @@
  * ------------------------------------------------------------------------- 
  * 1 	1.0 	Anirudh Pandita March 08, 2013 paths corrected 
  * 2 	1.0 	Kawaljeet Singh March 15, 2013 Registration 
- * 3 	1.0 	Ujjwal Rawlley 	April 04, 2013 Mailing 
+ * 3 	1.0 	Ujjwal Rawlley 	April 04, 2013 Mailing for contact us 
  * 4    1.0     Anirudh Pandita April 04, 2013 Comments done
+ * 5	
  * ************************************************************************
  */
 
 /* The Main controller for showing the Main View */
 class MainController
 {
-
     /* Any messages to be shown to user */
     private $_message;
     
     /* Guess: To check if authentication done or not
-     * @todo find usage
+     * @todo anirudh: find usage
      */
     private $_authenticationStatus = 0;
 	
@@ -121,7 +121,6 @@ class MainController
     	$pass=$_GET['passkey'];
     	$obj = new Registration();
     	$obj->confirmEmail($email,$pass);
-    
     }
 /************************************** Contact Us Mailing Function *************************************************/
     /* @todo ujjwal: use phpmailer */

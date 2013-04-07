@@ -233,7 +233,8 @@ html ul.tabs li.active,html ul.tabs li.active a:hover {
 	
 }
 .arrowgreen li a {
-	font: bold 22px Verdana, Arial, Helvetica, sans-serif;
+/* 	anirudh changed font to 14 from 22px */
+	font: bold 14px Verdana, Arial, Helvetica, sans-serif;
 	display: block;
 	background: transparent url(media/arrowgreen.gif) 100% 0;
 	height: 24px;

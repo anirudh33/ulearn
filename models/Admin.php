@@ -263,6 +263,10 @@ public function fetchteacherqualification($qualification)
 
     public function editAdmin ($firstname, $lastname, $phone, $address, $qualification, $gender, $dob)
     {
+    	 
+//     	if(empty($phone)){
+//     		$phone=' ';
+//     	}
         DBConnection::Connect();
         $this->db->From("admindetails");
         $this->db->Fields(array(
@@ -276,6 +280,7 @@ public function fetchteacherqualification($qualification)
         ));
         $this->db->Update();
         $this->db->lastQuery();
+       
         return true;
     }
     
@@ -297,9 +302,7 @@ public function fetchteacherqualification($qualification)
         
        $objReturn = $this->db->Update();
        return $objReturn;
-     //  $this->db->lastQuery();
-       //echo $this->db->lastQuery();
-        
+          
     }
     
     public function activateTeacher($uid)

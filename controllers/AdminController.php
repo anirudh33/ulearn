@@ -2,7 +2,7 @@
 /*  ************************** Creation Log *****************************
 
 File Name                   - AdminController.php
-Description                 - Admin Controller Version
+Description                 - Admin Controller controlls all the events related to Admin
 Version                     -  1.0
 Created by                  -  Ujjwal Rawlley
 Created on                  -  March 28, 2013
@@ -10,14 +10,24 @@ Created on                  -  March 28, 2013
 Sr.NO.  Version	  Updated by        Updated on          Description
 -------------------------------------------------------------------------
 1		1.1		Anirudh Pandita		April 6 2013		Fixed variable not set notice
+2		1.1		Anirudh Pandita		April 8 2013		Added error/success messages,
+														Fixed insertion of balnk phone no and showing of address fields   
 * ************************************************************************
 */
 
 class AdminController extends AController
 {
 
+    /**
+     * @var Stores required type of user to check for Admin controller
+     */
     protected  $_requiredType = "admin";
-
+    
+    /**
+     * @param unknown $teacherdata
+     * @param unknown $teacherRecordsCount
+     * Requires view with list of teachers to be seen and managed
+     */
     public function showManageTeacherView ($teacherdata = array(), $teacherRecordsCount)
     {
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
@@ -150,8 +160,10 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
         $this->createUser();
         $objReturn = $this->_objUser->deleteStudent($uid);
         if($objReturn) {
+        	$_SESSION['NoticeMessage'].="Student Deleted (Soft delete data exists), can't login now <br>";
             die("1");
         } else {
+        	$_SESSION['ErrorMessage'].="Student couldnt be Deleted  <br>";
             die("0");
         }
     }
@@ -161,9 +173,9 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
         $this->createUser();
         $objReturn = $this->_objUser->activateStudent($uid);
         if($objReturn) {
-            die("1");
+        	die("1");
         } else {
-            die("0");
+        	die("0");
         }
     
     }
@@ -209,6 +221,7 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
 
     public function editAdminClick ()
     {
+    	
         $firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
         $phone = $_POST["phone"];
@@ -219,10 +232,18 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
         
         
             $this->createUser();
+          
             
             $var = $this->_objUser->editAdmin($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
             if ($var == true) {
-                require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+            	
+            	$_SESSION["SuccessMessage"].="Profile updated :) <br>";
+            	$this->showProfile();
+                //require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+                
+                
+            } else {
+            	$_SESSION["ErrorMessage"].="Couldn't Update, Report issue to site admin <br>";
             }
        
     }
