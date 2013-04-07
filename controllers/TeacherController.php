@@ -162,10 +162,12 @@ public function deleteCourseClick ()
 		$this->showSubStudentViews ( "showContent", $filelist );
 	}
 	public function uploadClick() {
+		
 		$objCourse = new Course ();
 		$courseList = $objCourse->fetchCoursename ();
 		if (! empty ( $courseList )) {
 			$this->showSubViews ( "upload", $courseList, '' );
+			
 		} else {
 			$_SESSION ["ErrorMessage"] .= "No uploads for you! <br>Create Course first, no courses exist  <br>";
 			$this->showView ();
@@ -178,8 +180,15 @@ public function deleteCourseClick ()
 		
 		$this->createUser ();
 		
-		$this->_objUser->uploadContent ( $lesson_no, $lesson_name );
+		$bool=$this->_objUser->uploadContent ( $lesson_no, $lesson_name );
+		
+		if($bool==true) {
+			
 		$this->_objUser->lesson ( $lesson_no, $lesson_name, $coursenamelist );
+		}
+			
+		
+		$this->showView();
 	}
 }
 

@@ -21,6 +21,9 @@ abstract class AModel
     function __construct ()
     {
         $this->db = DBConnection::Connect();
+        $_SESSION["ErrorMessage"]='';
+        $_SESSION["SuccessMessage"]='';
+        $_SESSION["NoticeMessage"]='';
         // $this->lang = Language::getinstance();
     }
     /**

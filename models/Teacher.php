@@ -221,14 +221,14 @@ class Teacher extends AUser {
 	}
 
 
-public function lessonExists($lesson_name) {
+public function lessonExists($lesson_no) {
 		/* fetch id of lesson*/
 		$this->db->Fields ( array (
 				"lesson_id" 
 		) );
 		$this->db->From ( "lesson" );
 		$this->db->Where ( array (
-				"lesson_name" => $lesson_name 
+				"lesson_no" => $lesson_no
 		) );
 		$this->db->Select ();
 		
@@ -244,7 +244,7 @@ public function lessonExists($lesson_name) {
 	
 	 public function lesson($lesson_no,$lesson_name,$coursenamelist) {
 
-	if (! $this->lessonExists ($lesson_name)) {
+	if (! $this->lessonExists ($lesson_no)) {
 			$flag = TRUE;
 		if ($flag == TRUE) {
 
@@ -280,13 +280,10 @@ public function lessonExists($lesson_name) {
 	 	 				"teacher_id" => "$tid"
 	 	 		) );
 	 	 		$this->db->Insert ();
-// 	 	 		echo $this->db->lastQuery ();
 	}
 		} else {
-			?>
-<script> confirm('Lesson name already exists, please re-enter')</script>
-<?php
-		
+				$message='Lesson name already exists, please re-enter';
+				$this->setCustomMessage("ErrorMessage", $message);		
 	}
 	 		 	 	
 	}
@@ -333,15 +330,20 @@ public function lessonExists($lesson_name) {
 		return $result;
 	}
 	
+	/* Uploads content to teachers respective directories under chosen course*/
 	public function uploadContent($no,$lesson_name) {
-		echo "<script>". 
-		"$(document).ready(function(){"."$().toastmessage('showSuccessToast','Upload started');}); </script>";
+		$flag=false;
+	if(!$this->lessonExists($no)) {
+
 		$n = count ( $_FILES ['upload'] ['name'] );
-		echo $n;
+		
 		for($i = 0; $i < $n; $i ++) {
+
 			if ($_FILES ['upload'] ['name'] [$i]) {
+
 				// if no errors...
 				if (! $_FILES ['upload'] ['error'] [$i]) {
+
 					$newname = strtolower ( $_FILES ['upload'] ['tmp_name'] [$i] );
 					
 					$allowedExts = array (
@@ -349,6 +351,7 @@ public function lessonExists($lesson_name) {
 							"pdf",
 							"jpg" 
 					);
+
 					$extension = end ( explode ( ".", $_FILES ['upload'] ['name'] [$i] ) );
 					
 					if ((($_FILES ['upload'] ['type'] == "/doc") || 
@@ -360,29 +363,38 @@ public function lessonExists($lesson_name) {
 					//@todo throw message if file format not supported or any other error
 						$path = "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["coursenamelist"] . "/";
 						$path = $path ."Lesson $no $lesson_name";
-											
+						If(!file_exists($path)) {			
 						if (move_uploaded_file ( $_FILES ['upload'] ['tmp_name'] [$i], $path)) {
-							
-							echo "<script>
-						 $(document).ready(function(){
-						 $().toastmessage('showSuccessToast','The file is uploaded ');}); </script>";
+							$message='The file uploaded successfully';
+							$this->setCustomMessage("SuccessMessage", $message);
+							$flag=true;
 						} else {
-							echo "Move upload failed";
+							$message="Move upload failed";
+							$this->setCustomMessage("ErrorMessage", $message);
+						}
+						} else {
+							$message='The file with same name already exists';
+							$this->setCustomMessage("ErrorMessage", $message);
 						}
 					} else{
-
- 
-						echo "<script>
-						 $(document).ready(function() {
-						 $().toastmessage('showErrorToast', 
-								'File type not supported or size larger than 10mb');}); </script>";
+							$message='File type not supported or size larger than 10 MB';
+							$this->setCustomMessage("ErrorMessage", $message);
 					}
 					
 				} else {
-					echo "not a valid file";
+					$message= "Not a valid file";
+					$this->setCustomMessage("ErrorMessage", $message);
 				}
 			}
 		}
+	} else {
+		$message="Lesson no already exists";
+		$this->setCustomMessage("ErrorMessage", $message);
+		
 	}
+	
+	return $flag;
+	}
+	
 }
 ?>

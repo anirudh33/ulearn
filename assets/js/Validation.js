@@ -47,6 +47,8 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
             },
 	date:{
             	required:true,
+            	script:true,
+            	url:true
             	
             },
             
@@ -74,7 +76,8 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                 	
                date:
                 {required:"Please enter your date of birth",
-                
+            	   url:"Url not allowed",
+           		script:"Dont use script here",
                 }
                 
             },
@@ -87,15 +90,15 @@ $("#uploadform").validate({
             rules: {
             
             lesson_name: {
-            	loginRegex: true,
+            	loginRegex: false,
             	 required: true,
             	 url:true,
             	 script: true,
-            	
+            	 
 
             },
             lesson_no: {
-            	loginRegex: true,
+            	 number: true,
             	 required: true,
             	 url:true,
             	 script: true,
@@ -111,7 +114,7 @@ $("#uploadform").validate({
                 },
                 	lesson_no: 
                 	{required:"Please enter your lessonno",
-                		loginRegex:"lessonno must contain only letters, numbers, or dashes.",	
+                		number:"lesson no must be only number",	
                 		url:"Url not allowed",
                 		script:"Dont use script here",
                 	}

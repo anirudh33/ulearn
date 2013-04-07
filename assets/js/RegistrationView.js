@@ -117,6 +117,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                     script: true,
                     number:true,
                     minlength: 10,
+                    maxlength: 10
                 },
                 
                 captcha_code: {
@@ -156,8 +157,9 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                 phone: {
                     required: "Please provide a phoneno",
                     minlength: "Your phone must be at least 10 characters long",
+                    maxlength: "Not more than 10 characters",
                     url:"Url not allowed",
-                    number:"only numbers allowed",
+                    number:"Only numbers allowed",
                     script:"Dont use script here",
                 },
                 address: {
