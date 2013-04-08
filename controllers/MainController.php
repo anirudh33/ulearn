@@ -150,7 +150,28 @@ class MainController
 			//@todo chetan sir: doesnt show error message if die isnt written reason unknown
 			die;
     }
-
+    public function ajaxEmailExists()
+    {
+    	if(isset($_POST['email']))
+    	{
+    		$email=$_POST['email'];
+    		$obj1=new Registration();
+    		$verify=$obj1->verifyEmail($email);
+    		if($verify)
+    		{
+    			echo "Email already Exists";
+    			//$this->setCustomMessage("ErrorMessage","email already exists");
+    			
+    		}
+    
+    	}
+    }
+    
+    public function setCustomMessage($messageType,$message)
+    {
+    	$_SESSION ["$messageType"] .= $message."<br>";
+    	
+    }
     /* Called when user submits the registration form */
     public function registerUser ()
     {

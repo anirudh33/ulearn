@@ -22,29 +22,11 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
     //when the dom has loaded setup form validation rules
     $(document).ready(function($) {
     
-    	/*
-   	$("#email").keyup(function() {
-    		var name = $('#email').val();
-    		if(name=="")
-    		{
-    		$("#error").html("");
-    		}
-    		else
-    		{
-    		$.ajax({
-    		type: "POST",
-    		url: "models/Registration.php",
-    		data: "name="+ name ,
-    		success: function(html){
-    		$("#error").html(html);
-    		}
-    		});
-    		return false;
-    		}
-    		});
     	
-    	*/
-    	   	
+    	    
+        	
+    	  
+    	  	
     	
     	
     	$.validator.addMethod("loginRegex", function(value, element) {
@@ -58,6 +40,24 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
     	$.validator.addMethod("script", function(value, element) {
             return this.optional(element) || !(/(<([^>]+)>)/i.test(value));
         });
+    	
+
+    	$.validator
+		.addMethod(
+				"checkemail",
+				function(value, element) {
+					$
+							.ajax({
+								type : "POST",
+								url : 'index.php?method=ajaxEmailExists&controller=Main',
+								data : "email=" + email,
+								success : function(dataReceived) {
+									
+									//$("#error").html(dataReceived);
+								}
+							});
+				});
+
 
     	$("#register-form").validate({
             rules: {
@@ -80,12 +80,13 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
             
             date:{
             	required:true,
+            	date:true,
             	
             },
                 email: {
                     required: true,
                     email: true,
-                   
+                   checkemail:true,
                     script: true,
                     
                 },
@@ -151,6 +152,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                 	
                 date:
                 {required:"Please enter your date of birth",
+                	date:"date format not correct",
                 
                 },
                 	address: "Please enter your address",
@@ -186,6 +188,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
                 	script:"Dont use script here",
                 },
                 email: {
+                	checkemail:"Email already exists",
                 	email:"Please enter a valid email address",
                 	
                 	script:"Dont use script here",

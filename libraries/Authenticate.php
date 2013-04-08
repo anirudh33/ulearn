@@ -99,9 +99,23 @@ class Authenticate extends AModel{
 		if($verify)
 		{ 
 		
-			$this->setMessage ( "Email alredy exist" );
+			$this->setMessage ( "Email already exist" );
 			
 		}
+		/* Function to validate same email and password  */
+		if(!($_POST["email"]==$_POST["repeatemail"]))
+		{
+			
+			$this->setMessage ( "Email is not same" );
+		}
+		if(!($_POST["password"]==$_POST["repeatpassword"]))
+		{
+				
+			$this->setMessage ( "Password is  not same" );
+		}
+		
+		
+		
 			if (! filter_var ( $_POST ["email"], FILTER_VALIDATE_EMAIL )) {
 				$this->setMessage ( "Email not valid" );
 			}

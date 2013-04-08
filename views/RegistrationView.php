@@ -30,7 +30,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 			<h3><a href="index.php">GO TO HOME</a></h3>
 		</div>
 		<div id="error">
-	
+
 	</div>
 		<div id="image">
 

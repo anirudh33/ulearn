@@ -1,32 +1,5 @@
 <?php
-/*
-if(isset($_POST['name']))
-{
-	$name=$_POST['name'];
-	DBConnection::Connect();
-	$this->db->From("userdetails");
-	$this->db->Fields(array(
 
-			"email"
-	));
-	$this->db->Where(array("email"=>$name));
-	$this->db->Select();
-	//echo
-	$a=$this->db->resultArray();
-	echo $this->db->lastQuery();
-
-	$row=mysql_num_rows($a);
-	if($row==0)
-	{
-		echo "<span style='color:green;'>Available</span>";
-	}
-	else
-	{
-		echo "<span style='color:red;'>Already exist</span>";
-	}
-}
-
-*/
 class Registration extends AUser
 {
 
@@ -53,7 +26,7 @@ class Registration extends AUser
 		$this->db->Select();
 		//echo
 		$a=$this->db->resultArray();
-		echo $this->db->lastQuery();
+		//echo $this->db->lastQuery();
 		if(!empty($a))
 		{
 			return true;
