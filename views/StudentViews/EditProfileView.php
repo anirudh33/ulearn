@@ -103,7 +103,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 		
 			 <div class="fieldgroup">
                 <label for="date">Date Of Birth</label>
-               <input type="text" id="datepicker23" name="dob" value=<?php echo $strDob;?>>
+               <input type="text" id="datepicker23" name="dob" value=<?php echo $strDob;?> readonly="readonly">
             </div>
 		</p>
 

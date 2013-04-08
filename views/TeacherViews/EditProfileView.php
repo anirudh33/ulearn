@@ -46,7 +46,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 
 		<p>
 			<label>Address </label> <input type="text" id="address"
-				name="address" class="long" value=<?php echo $data[0]['address']?>>
+				name="address" class="long" value=<?php echo $data[0]['address']?> >
 
 		</p>
 
@@ -112,7 +112,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 		
 		<div class="fieldgroup">
 			<label for="date">Date Of Birth</label> <input type="text"
-				id="datepicker23" name="dob" value=<?php echo $strDob;?>>
+				id="datepicker23" name="dob" value=<?php echo $strDob;?> readonly="readonly">
 		</div>
 
 		</p>

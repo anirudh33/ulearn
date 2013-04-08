@@ -118,7 +118,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
              
              <div class="fieldgroup">
                 <label for="date">Date Of Birth</label>
-               <input type="text" id="datepicker23" name="date"/>
+               <input type="text" id="datepicker23" name="date" readonly="readonly">
             </div>
              
              
