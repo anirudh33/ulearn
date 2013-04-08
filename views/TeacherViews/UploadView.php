@@ -1,6 +1,5 @@
-<link rel="stylesheet" href="assets/style/upload.css"
-	type="text/css" media="screen" />
-<script type="text/javascript" src="./assets/js/Validation.js"></script>
+
+
 <div id="registerdiv">
 
 <form id="uploadform" method="post" action="index.php?method=uploadFile&controller=Teacher" class="register" 

@@ -37,6 +37,12 @@
 	z-index: 1000; //
 	border: 1px solid red;
 }
+#downloadform
+{
+width:500px ;
+height:600px;
+}
+
 
 /*   CSS FOR downloadform    */
 {

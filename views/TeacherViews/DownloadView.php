@@ -14,8 +14,6 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 */
 
 ?>
-<link rel="stylesheet" href="assets/style/download.css"
-	type="text/css" media="screen" />
 <div id="registerdiv">
 <h1>VIEW FILES</h1>
 

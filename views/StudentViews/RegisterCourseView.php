@@ -14,8 +14,6 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 */
 
 ?>
-<link rel="stylesheet" href="assets/style/registercourse.css"
-	type="text/css" media="screen" />
 
 <div id="registerdiv">
 
@@ -25,8 +23,9 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 		<h1>Register Course</h1>
 
-		<fieldset class="row2">
-			<legend>Course Details </legend>
+		
+		<p>
+			<legend>Course Details </legend></p>
 			<p>
 				<label>Course Name * </label> <select name="coursenamelist">
 							 <?php
@@ -49,7 +48,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 			</br>
 			<button class="button">Add &raquo;</button>
 
-		</fieldset>
+		
 
 
 

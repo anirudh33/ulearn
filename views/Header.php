@@ -138,27 +138,34 @@ if($pageName=="RegistrationView") {
 	media="screen">
 
 <!-- Add Course View header -->
-<link rel="stylesheet" href="assets/style/Views.css" type="text/css"
-	media="screen">
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script>
-
-<!-- Edit profile View header -->
-<!-- Same as add course -->
-
+<link rel="stylesheet" href="assets/style/addcourse.css"
+	type="text/css" media="screen" />
+	
+	<!-- Download View header -->
+	<link rel="stylesheet" href="assets/style/download.css"
+	type="text/css" media="screen" />
+	
+	<!-- Register Course View header -->
+	<link rel="stylesheet" href="assets/style/registercourse.css"
+	type="text/css" media="screen" />
+	
+	<!-- Write message View header -->
+	<link rel="stylesheet" href="assets/style/writemesage.css"
+	type="text/css" media="screen" />
+	
+	<!-- Upload View header -->
+	<link rel="stylesheet" href="assets/style/upload.css"
+	type="text/css" media="screen" />
+	
 <!-- Teacher profile View header -->
 <link rel="stylesheet" href="assets/style/global.css" type="text/css">
 
-<!-- Upload View header -->
-<!-- Css and js file same as add course -->
-
-<!-- Write message View -->
-<!-- css same as add course -->
-
+<!-- Edit profile View header -->
 <link rel="stylesheet" href="assets/style/editprofile.css"
 	type="text/css" media="screen">
 
 <script type="text/javascript" src="./assets/js/Validation.js"></script>
-
+<script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
 
 <!-- Date Picker -->
 <link rel="stylesheet" href="assets/style/jqueryui.css" type="text/css">
@@ -224,42 +231,37 @@ if($pageName=="RegistrationView") {
 	<!-- Student View Header -->
 <title><?php if(isset($lang->HELLOSTUDENT)){echo $lang->HELLOSTUDENT;} 
 	else {echo "Welcome Student";} 	?> </title>
-<link rel="stylesheet" href="assets/style/editprofile.css"
-	type="text/css" media="screen">
-<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
+	
+	<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
 	media="screen">
+	
+
+
 <script type="text/javascript" src="assets/js/Validation.js"></script>
+
 <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
 
-<!-- Content view header -->
-<link rel="stylesheet" href="assets/style/Registration.css"
-	type="text/css" media="screen">
 
 <!-- Download view header -->
-<link rel="stylesheet" href="assets/style/Views.css" type="text/css"
-	media="screen">
+<link rel="stylesheet" href="assets/style/download.css"
+	type="text/css" media="screen" />
+	
+	<!-- Register Course header -->
+<link rel="stylesheet" href="assets/style/registercourse.css"
+	type="text/css" media="screen" />
 
 <!-- Edit Profile view header -->
-<!-- css same as download view -->
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script>
+<link rel="stylesheet" href="assets/style/editprofile.css"
+	type="text/css" media="screen">
 
-<!-- Message View Header -->
-<!-- css same as download view -->
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script>
-
-<!-- Register Course header -->
-<!-- css same as download view -->
-
-<!-- Show Messages header -->
-<!-- css same as download view -->
-
-<!-- Register Course View header -->
-<!-- css same as download view -->
-
+<!-- Write Message View Header -->
+<link rel="stylesheet" href="assets/style/writemesage.css"
+	type="text/css" media="screen" />
+	
 <!-- Student profile view header -->
 <link rel="stylesheet" type="text/css" href="assets/style/global.css">
 
-<!-- Show Messages View header -->
+
 <!-- Date Picker -->
 <link rel="stylesheet" type="text/css" href="assets/style/jqueryui.css">
 <script src="./assets/js/jquery/jqueryui.js" type="text/javascript"></script>

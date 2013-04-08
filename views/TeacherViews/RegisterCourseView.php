@@ -15,8 +15,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 ?>
 
-<link rel="stylesheet" href="assets/style/registercourse.css"
-	type="text/css" media="screen" />
+
 
 		<div id="registerdiv">
 
@@ -25,9 +24,10 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 				method="POST" class="register">
 
 				<h1>Register Course</h1>
-
-				<fieldset class="row2">
+<p>
+				
 					<legend>Course Details </legend>
+					</p>
 					<p>
 						<label>Course Name </label> <select name="coursenamelist">
 							 <?php
@@ -53,7 +53,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 					</br> </br>
 					<button class="button">Register &raquo;</button>
 
-				</fieldset>
+				
 
 
 

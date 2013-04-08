@@ -37,6 +37,11 @@
 	z-index: 1000; //
 	border: 1px solid red;
 }
+#form
+{
+width:500px ;
+height:430px;
+}
 
 /*   CSS FOR FORM    */
 {

@@ -37,6 +37,11 @@
 	z-index: 1000; //
 	border: 1px solid red;
 }
+#writeform
+{
+width:500px ;
+height:550px;
+}
 
 /*   CSS FOR writeform    */
 {

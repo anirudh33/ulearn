@@ -15,8 +15,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 */
 
 ?>
-<link rel="stylesheet" href="assets/style/writemessage.css"
-	type="text/css" media="screen" />
+
 <script type="text/javascript" src="./assets/js/Validation.js"></script>
 <div id="registerdiv">
 

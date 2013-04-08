@@ -1,7 +1,6 @@
 <?php //@todo text area click should put cursor to first position ?>
-<link rel="stylesheet" href="assets/style/addcourse.css"
-	type="text/css" media="screen" />
-<script type="text/javascript" src="./assets/js/Validation.js"></script>
+
+
 <div id="registerdiv">
 
 			<form id="addform"
@@ -10,7 +9,7 @@
 
 				<h1>Add Course</h1>
 
-				<fieldset class="row2">
+				
 					<legend>Course Details </legend>
 
 
@@ -27,7 +26,7 @@
 					<br> <br>
 					<button class="button" id="addCourse">Add &raquo;</button>
 
-				</fieldset>
+				
 
 
 
