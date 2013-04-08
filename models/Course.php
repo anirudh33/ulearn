@@ -1,5 +1,16 @@
+<?php 
+/*
+       * Creation Log 
+       * File Name - ContentView.php 
+       * Description - Displays all files uploaded by chosen teacher and course to student 
+       * Version - 1.0 Created by - Tanu trehan 
+       * Created on - March 28, 2013
+       */
+?>
 <?php
+
 class Course extends AModel {
+	/* method called to check course no exist in database for add course */
 	public function courseExists($coursename) {
 		/* fetch id of course */
 		$this->db->Fields ( array (
@@ -19,11 +30,12 @@ class Course extends AModel {
 			return false;
 		}
 	}
-	public function courseRegistered($courseid, $id, $table,$user) {
+	/* method called to check course no exist in database for register course */
+	public function courseRegistered($courseid, $id, $table, $user) {
 		/* fetch id of course */
 		$this->db->Fields ( array (
 				"course_id",
-				$user
+				$user 
 		) );
 		$this->db->From ( $table );
 		$this->db->Where ( array (
@@ -40,6 +52,7 @@ class Course extends AModel {
 			return false;
 		}
 	}
+	/* method called to insert course name in database for add course */
 	public function addCourse() {
 		if (! $this->courseExists ( $_POST ["coursename"] )) {
 			$flag = TRUE;
@@ -59,22 +72,23 @@ class Course extends AModel {
 						"coursename" => $_POST ["coursename"],
 						"description" => $_POST ["description"],
 						"createdon" => date ( "Y/m/d" ) 
-								) );
-				$bool=$this->db->Insert ();
-				if($bool==true) {				
-				$this->registerTeacherCourse ( $_POST ["coursename"] );
-				}else {
-					$message="Directory created but Couldnt register course";
-					$this->setCustomMessage("ErrorMessage", $message);
+				) );
+				$bool = $this->db->Insert ();
+				if ($bool == true) {
+					$this->registerTeacherCourse ( $_POST ["coursename"] );
+				} else {
+					$message = "Directory created but Couldnt register course";
+					$this->setCustomMessage ( "ErrorMessage", $message );
 				}
 			}
-		} else {	
-			$message="Couldnt create course directory <br> Course already exists";	
-			$this->setCustomMessage("ErrorMessage", $message);
-			}
+		} else {
+			$message = "Couldnt create course directory <br> Course already exists";
+			$this->setCustomMessage ( "ErrorMessage", $message );
+		}
 	}
+	/* method called to insert course name in database for teacher register course */
 	public function registerTeacherCourse($coursename) {
-				
+		
 		/* fetch id of Teacher */
 		$this->db->Fields ( array (
 				"id" 
@@ -97,7 +111,7 @@ class Course extends AModel {
 		$this->db->Where ( array (
 				"coursename" => $coursename 
 		) );
-		$bool=$this->db->Select ();
+		$bool = $this->db->Select ();
 		
 		$id = $this->db->resultArray ();
 		
@@ -107,7 +121,7 @@ class Course extends AModel {
 		 * Insert record into teaches table showing which course is taught by teacher
 		 */
 		if (! empty ( $cid ) && ! empty ( $tid )) {
-			if (! $this->courseRegistered ( $cid, $tid, "teaches","teacher_id" )) {
+			if (! $this->courseRegistered ( $cid, $tid, "teaches", "teacher_id" )) {
 				$this->db->From ( "teaches" );
 				$this->db->Fields ( array (
 						"course_id" => $cid,
@@ -115,15 +129,16 @@ class Course extends AModel {
 				) );
 				$this->db->Insert ();
 				
-				$message= "Course Registered";
-				$this->setCustomMessage("SuccessMessage", $message);
+				$message = "Course Registered";
+				$this->setCustomMessage ( "SuccessMessage", $message );
 			} else {
 				
-				$message= 'Course already registered';
-				$this->setCustomMessage("ErrorMessage", $message);
+				$message = 'Course already registered';
+				$this->setCustomMessage ( "ErrorMessage", $message );
 			}
 		}
 	}
+	/* method called to insert course name in database for student register course */
 	public function registerStudentCourse($coursename) {
 		DBConnection::Connect ();
 		// fetch cid and tid
@@ -150,58 +165,61 @@ class Course extends AModel {
 		$this->db->Select ();
 		$id = $this->db->resultArray ();
 		$cid = $id [0] ['course_id'];
-		if (! $this->courseRegistered ( $cid, $sid, "enrolls","student_id" )) {
+		if (! $this->courseRegistered ( $cid, $sid, "enrolls", "student_id" )) {
 			$this->db->From ( "enrolls" );
 			$this->db->Fields ( array (
 					"course_id" => $cid,
 					"student_id" => $sid 
 			) );
 			$this->db->Insert ();
-			//echo $this->db->lastQuery ();
-			$message= 'Course registered';
-			$this->setCustomMessage("ErrorMessage", $message);
+			// echo $this->db->lastQuery ();
+			$message = 'Course registered';
+			$this->setCustomMessage ( "ErrorMessage", $message );
 		} else {
-			$message= 'Course already registered';
-			$this->setCustomMessage("ErrorMessage", $message);
+			$message = 'Course already registered';
+			$this->setCustomMessage ( "ErrorMessage", $message );
 		}
 	}
+	/* method called to return course name from database for teacher register course */
 	public function fetchTeacherCoursename() {
-//@todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
+		// @todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
 		DBConnection::Connect ();
-$this->db->Fields ( array (
-		"id"
-) );
-$this->db->From ( "teacherdetails" );
-$this->db->Where ( array (
-		"user_id" => $_SESSION ["userID"]
-) );
-$this->db->Select ();
-$id = $this->db->resultArray ();
-$tid = $id [0] ['id'];
-
-$this->db->Fields ( array (
-		"course_id"
-) );
-$this->db->From ( "teaches" );
-$this->db->Where (array (
-		"teacher_id" => $tid) );
-$this->db->Select ();
-$courseid = $this->db->resultArray ();
-$cid = $courseid [0] ['course_id'];
-
-$this->db->Fields ( array (
-		"coursename"
-) );
-$this->db->From ( "course" );
-$this->db->Where (array (
-		"course_id" => $cid) );
-$this->db->Select ();
-$result = $this->db->resultArray ();
-return $result;
-}
-	
+		$this->db->Fields ( array (
+				"id" 
+		) );
+		$this->db->From ( "teacherdetails" );
+		$this->db->Where ( array (
+				"user_id" => $_SESSION ["userID"] 
+		) );
+		$this->db->Select ();
+		$id = $this->db->resultArray ();
+		$tid = $id [0] ['id'];
+		
+		$this->db->Fields ( array (
+				"course_id" 
+		) );
+		$this->db->From ( "teaches" );
+		$this->db->Where ( array (
+				"teacher_id" => $tid 
+		) );
+		$this->db->Select ();
+		$courseid = $this->db->resultArray ();
+		$cid = $courseid [0] ['course_id'];
+		
+		$this->db->Fields ( array (
+				"coursename" 
+		) );
+		$this->db->From ( "course" );
+		$this->db->Where ( array (
+				"course_id" => $cid 
+		) );
+		$this->db->Select ();
+		$result = $this->db->resultArray ();
+		return $result;
+	}
+	/* method called to return course name from database for student register course */
 	public function fetchStudentCoursename() {
-		//@todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
+		// @todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"id" 
@@ -215,110 +233,93 @@ return $result;
 		$sid = $id [0] ['id'];
 		
 		$this->db->Fields ( array (
-				"course_id"
+				"course_id" 
 		) );
 		$this->db->From ( "enrolls" );
-		$this->db->Where (array (
-				"student_id" => $sid) );
+		$this->db->Where ( array (
+				"student_id" => $sid 
+		) );
 		$this->db->Select ();
 		$courseid = $this->db->resultArray ();
 		$cid = $courseid [0] ['course_id'];
 		
 		$this->db->Fields ( array (
-				"coursename"
+				"coursename" 
 		) );
 		$this->db->From ( "course" );
-		$this->db->Where (array (
-				"course_id" => $cid) );
+		$this->db->Where ( array (
+				"course_id" => $cid 
+		) );
 		$this->db->Select ();
 		$result = $this->db->resultArray ();
 		
 		return $result;
 	}
-	
-	public function fetchCoursename ()
-	{
-		DBConnection::Connect();
-		$this->db->Fields(array(
-				"coursename"
-							));
-		$this->db->From("course");
-		$this->db->Where();
+	/* method called to return course name from database for register course */
+	public function fetchCoursename() {
+		DBConnection::Connect ();
+		$this->db->Fields ( array (
+				"coursename" 
+		) );
+		$this->db->From ( "course" );
+		$this->db->Where ();
 		
-		$this->db->Select();
-	
-		$result=$this->db->resultArray();
+		$this->db->Select ();
+		
+		$result = $this->db->resultArray ();
 		return $result;
-	
-	
 	}
 	
-	
-	public function fetchCourse ($limit = "0,10")
-    {
-        DBConnection::Connect();
-        $this->db->Fields(array(
-            "coursename",
-            
-            "status"
-        ));
-        $this->db->From("course");
-        $this->db->Where();
-        $this->db->Limit($limit);
-        $this->db->Select();
-        
-        $result=$this->db->resultArray();
+	/* method called to return course name from database for edit course */
+	public function fetchCourse($limit = "0,10") {
+		DBConnection::Connect ();
+		$this->db->Fields ( array (
+				"coursename",
+				
+				"status" 
+		) );
+		$this->db->From ( "course" );
+		$this->db->Where ();
+		$this->db->Limit ( $limit );
+		$this->db->Select ();
+		
+		$result = $this->db->resultArray ();
 		return $result;
-        
-        
-    }
-
-public function deleteCourse($coursename)
-    {
-        DBConnection::Connect();
-           
-        $this->db->From("course");
-         
-         
-        $this->db->Where(array(
-            "coursename"=>$coursename
-        ));
-        $this->db->Fields(array(
-            "status" => "2"
-        ));
-    
-        $objReturn = $this->db->Update();
-        
-        
-        
-        return $objReturn;
-           
-    }
-    
-    public function activateCourse($coursename)
-    {
-    
-        DBConnection::Connect();
-    
-    
-        $this->db->From("course");
-    
-    
-        $this->db->Where(array(
-            "coursename"=>$coursename
-        ));
-        $this->db->Fields(array(
-            "status" => "1"
-        ));
-    
-        $objReturn = $this->db->Update();
-        //echo $this->db->lastQuery();
-        return $objReturn;
-            
-    }
-
-
-
+	}
+	/* method called to delete course name in database for edit course */
+	public function deleteCourse($coursename) {
+		DBConnection::Connect ();
+		
+		$this->db->From ( "course" );
+		
+		$this->db->Where ( array (
+				"coursename" => $coursename 
+		) );
+		$this->db->Fields ( array (
+				"status" => "2" 
+		) );
+		
+		$objReturn = $this->db->Update ();
+		
+		return $objReturn;
+	}
+	/* method called to activate course name in database for edit course */
+	public function activateCourse($coursename) {
+		DBConnection::Connect ();
+		
+		$this->db->From ( "course" );
+		
+		$this->db->Where ( array (
+				"coursename" => $coursename 
+		) );
+		$this->db->Fields ( array (
+				"status" => "1" 
+		) );
+		
+		$objReturn = $this->db->Update ();
+		// echo $this->db->lastQuery();
+		return $objReturn;
+	}
 }
 
 ?>

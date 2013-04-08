@@ -1,3 +1,13 @@
+<?php 
+/*
+       * Creation Log 
+       * File Name - ContentView.php 
+       * Description - Displays all files uploaded by chosen teacher and course to student 
+       * Version - 1.0 
+       * Created by - Tanu trehan 
+       * Created on - March 28, 2013
+       */
+?>
 <?php
 // session_start();
 require_once ($_SESSION ["SITE_PATH"] . "/libraries/AUser.php");
@@ -39,10 +49,7 @@ class Student extends AUser {
 		
 		$this->setTdata ( $this->db->resultArray () );
 	}
-	
-
-public function fetchStudent() {
-		
+	public function fetchStudent() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"firstname",
@@ -52,76 +59,85 @@ public function fetchStudent() {
 				"address",
 				"qualification",
 				"gender",
-				"dob"
-		) );
-		$this->db->From ( "studentdetails" );
-		$this->db->Where (array (
-				"user_id" => $_SESSION["userID"]));
-		$this->db->Select ();
-	
-		$result=$this->db->resultArray () ;
-		return $result;
-	}
-
-public function editStudent($firstname,$lastname,$phone,$address,$qualification,$gender,$dob)
-	{
-		DBConnection::Connect();
-		$this->db->From("studentdetails");
-		$this->db->Fields(array("firstname"=>"$firstname","lastname"=>"$lastname","phone"=>"$phone","address"=>"$address","qualification"=>"$qualification","gender"=>"$gender","dob"=>"$dob"));
-		$this->db->Update();
-		echo $this->db->lastQuery();
-	}
-
-/* public function registerCourse($course_id,$student_id)
-	{
-		DBConnection::Connect();
-		$this->db->From("enrolls");
-		$this->db->Fields(array("course_id"=>"$course_id","student_id"=>"$student_id"));
-		$this->db->Insert();
-		echo $this->db->lastQuery();
-	} */
-
-public function messageSend($body,$subject,$sentto)
-	{
-		DBConnection::Connect();
-		
-		/* fetch id of Student */
-		$this->db->Fields ( array (
-				"id"
+				"dob" 
 		) );
 		$this->db->From ( "studentdetails" );
 		$this->db->Where ( array (
-				"user_id" => $_SESSION["userID"]
+				"user_id" => $_SESSION ["userID"] 
+		) );
+		$this->db->Select ();
+		
+		$result = $this->db->resultArray ();
+		return $result;
+	}
+	public function editStudent($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {
+		DBConnection::Connect ();
+		$this->db->From ( "studentdetails" );
+		$this->db->Fields ( array (
+				"firstname" => "$firstname",
+				"lastname" => "$lastname",
+				"phone" => "$phone",
+				"address" => "$address",
+				"qualification" => "$qualification",
+				"gender" => "$gender",
+				"dob" => "$dob" 
+		) );
+		$this->db->Update ();
+		echo $this->db->lastQuery ();
+	}
+	
+	/*
+	 * public function registerCourse($course_id,$student_id) { DBConnection::Connect(); $this->db->From("enrolls"); $this->db->Fields(array("course_id"=>"$course_id","student_id"=>"$student_id")); $this->db->Insert(); echo $this->db->lastQuery(); }
+	 */
+	public function messageSend($body, $subject, $sentto) {
+		DBConnection::Connect ();
+		
+		/* fetch id of Student */
+		$this->db->Fields ( array (
+				"id" 
+		) );
+		$this->db->From ( "studentdetails" );
+		$this->db->Where ( array (
+				"user_id" => $_SESSION ["userID"] 
 		) );
 		$this->db->Select ();
 		$id = $this->db->resultArray ();
 		$sentfrom = $id [0] ['id'];
 		
-		$this->db->Fields(array("user_id"));
-		$this->db->From("userdetails");
-		$this->db->Where (array("email"=>$sentto));
+		$this->db->Fields ( array (
+				"user_id" 
+		) );
+		$this->db->From ( "userdetails" );
+		$this->db->Where ( array (
+				"email" => $sentto 
+		) );
 		$this->db->Select ();
-		$userid=$this->db->resultArray ();
-		$uid=$userid[0]['user_id'];
-	
+		$userid = $this->db->resultArray ();
+		$uid = $userid [0] ['user_id'];
 		
-		$this->db->Fields(array("id"));
-		$this->db->From("teacherdetails");
-		$this->db->Where (array("user_id"=>$uid));
+		$this->db->Fields ( array (
+				"id" 
+		) );
+		$this->db->From ( "teacherdetails" );
+		$this->db->Where ( array (
+				"user_id" => $uid 
+		) );
 		$this->db->Select ();
-		$teacherid=$this->db->resultArray ();
-		$tid=$teacherid[0]['id'];
+		$teacherid = $this->db->resultArray ();
+		$tid = $teacherid [0] ['id'];
 		
-		$this->db->From("studentmessage");
-		$this->db->Fields(array(
-				//"message_id"=>"$message_id",
-				"body"=>"$body","subject"=>"$subject","sentfrom"=>"$sentfrom","sentto"=>"$tid"));
-		$this->db->Insert();
-		echo $this->db->lastQuery();
+		$this->db->From ( "studentmessage" );
+		$this->db->Fields ( array (
+				// "message_id"=>"$message_id",
+				"body" => "$body",
+				"subject" => "$subject",
+				"sentfrom" => "$sentfrom",
+				"sentto" => "$tid" 
+		) );
+		$this->db->Insert ();
+		echo $this->db->lastQuery ();
 	}
-	
-	
-public function messageShow() {
+	public function messageShow() {
 		$uid = $_SESSION ['userID'];
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
@@ -136,8 +152,7 @@ public function messageShow() {
 		$studentID = $sIDArray [0] ["id"];
 		$this->db->Fields ( array (
 				"message_id",
-				"subject"
-			 
+				"subject" 
 		) );
 		$this->db->From ( "teachermessage" );
 		$this->db->Where ( array (
@@ -145,20 +160,18 @@ public function messageShow() {
 		) );
 		$this->db->Select ();
 		$result = $this->db->resultArray ();
-
+		
 		$this->db->Fields ( array (
-				"sentfrom"
-				
-				) );
+				"sentfrom" 
+		) );
 		$this->db->From ( "teachermessage" );
 		$this->db->Where ( array (
 				"sentto" => $studentID 
 		) );
 		$this->db->Select ();
 		$sentfrom = $this->db->resultArray ();
-
 		
-		$tid=$sentfrom [0] ["sentfrom"];
+		$tid = $sentfrom [0] ["sentfrom"];
 		$this->db->Fields ( array (
 				"user_id" 
 		) );
@@ -167,9 +180,9 @@ public function messageShow() {
 				"id" => $tid 
 		) );
 		$this->db->Select ();
-
+		
 		$uIDArray = $this->db->resultArray ();
-		$u=$uIDArray [0] ["user_id"];
+		$u = $uIDArray [0] ["user_id"];
 		
 		$this->db->Fields ( array (
 				"email" 
@@ -180,102 +193,100 @@ public function messageShow() {
 		) );
 		$this->db->Select ();
 		$email = $this->db->resultArray ();
-
-		return array($result,$email);
+		
+		return array (
+				$result,
+				$email 
+		);
 	}
-
 	public function messageBody($aid) {
 		DBConnection::Connect ();
-
+		
 		$this->db->Fields ( array (
-				"body"
-				) );
+				"body" 
+		) );
 		$this->db->From ( "teachermessage" );
 		$this->db->Where ( array (
 				"message_id" => $aid 
 		) );
 		$this->db->Select ();
-		$result = $this->db->resultArray ();  			       		return $result;
+		$result = $this->db->resultArray ();
+		return $result;
 	}
-
-	
 	public function fetchEmailID() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
-				"email"
-		));
+				"email" 
+		) );
 		$this->db->From ( "userdetails" );
-		$this->db->Where (array (
-				"user_type"=>'teacher'));
+		$this->db->Where ( array (
+				"user_type" => 'teacher' 
+		) );
 		$this->db->Select ();
-		$result=$this->db->resultArray ();
+		$result = $this->db->resultArray ();
 		return $result;
 	}
-	
-public function fetchTeachername($result=array()) {
-		
+	public function fetchTeachername($result = array()) {
 		DBConnection::Connect ();
-		$coursename=$result [0] ["coursename"];
+		$coursename = $result [0] ["coursename"];
 		$this->db->Fields ( array (
-				"course_id"
+				"course_id" 
 		) );
 		$this->db->From ( "course" );
-		$this->db->Where (array (
-				"coursename" => $coursename) );
+		$this->db->Where ( array (
+				"coursename" => $coursename 
+		) );
 		$this->db->Select ();
 		$courseid = $this->db->resultArray ();
-		$cid=$courseid [0] ["course_id"];
+		$cid = $courseid [0] ["course_id"];
 		
 		$this->db->Fields ( array (
-				"teacher_id"
+				"teacher_id" 
 		) );
 		$this->db->From ( "teaches" );
-		$this->db->Where (array (
-				"course_id" => $cid) );
+		$this->db->Where ( array (
+				"course_id" => $cid 
+		) );
 		$this->db->Select ();
 		$teacherid = $this->db->resultArray ();
 		$tid = $teacherid [0] ['teacher_id'];
 		
 		$this->db->Fields ( array (
-				"user_id"
+				"user_id" 
 		) );
 		$this->db->From ( "teacherdetails" );
-		$this->db->Where (array (
-				"id" => $tid) );
+		$this->db->Where ( array (
+				"id" => $tid 
+		) );
 		$this->db->Select ();
 		$userid = $this->db->resultArray ();
 		$uid = $userid [0] ['user_id'];
 		
 		$this->db->Fields ( array (
-				"email"
+				"email" 
 		) );
 		$this->db->From ( "userdetails" );
-		$this->db->Where (array("user_id" => $uid));
+		$this->db->Where ( array (
+				"user_id" => $uid 
+		) );
 		$this->db->Select ();
 		$result1 = $this->db->resultArray ();
 		
 		return $result1;
-		
 	}
-
-	public function downloadContent($coursenamelist,$teachernamelist)
-	{
-	$files="";
-		$path = $_SESSION['SITE_PATH']."/uploads/".$teachernamelist."/".$coursenamelist;
-		if ($handle = opendir($path)) {
-			while (false !== ($file = readdir($handle)))
-			{
-				if ($file != "." && $file != "..")
-				{
-					$files .= '<a id="files" target="_blank" href="'."uploads/".$teachernamelist."/".$coursenamelist."/".$file.'">'.$file.'</a><br>';
+	public function downloadContent($coursenamelist, $teachernamelist) {
+		$files = "";
+		$path = $_SESSION ['SITE_PATH'] . "/uploads/" . $teachernamelist . "/" . $coursenamelist;
+		if ($handle = opendir ( $path )) {
+			while ( false !== ($file = readdir ( $handle )) ) {
+				if ($file != "." && $file != "..") {
+					$files .= '<a id="files" target="_blank" href="' . "uploads/" . $teachernamelist . "/" . $coursenamelist . "/" . $file . '">' . $file . '</a><br>';
 				}
 			}
-			closedir($handle);
+			closedir ( $handle );
 		}
-
-	return $files;
-	
-		}
-
+		
+		return $files;
+	}
 }
 ?>
