@@ -150,4 +150,5 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 	</div>
 	<div id="footer1"></div>
 	</body>
+	
 </html>

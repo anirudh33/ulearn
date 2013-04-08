@@ -111,4 +111,5 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 		</div>
 	</div>
 </body>
+<?php require_once ($_SESSION['SITE_PATH'] . '/views/Footer.php');?>
 </html>

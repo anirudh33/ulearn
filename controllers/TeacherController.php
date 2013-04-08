@@ -169,7 +169,9 @@ public function deleteCourseClick ()
 			$this->showSubViews ( "upload", $courseList, '' );
 			
 		} else {
-			$_SESSION ["ErrorMessage"] .= "No uploads for you! <br>Create Course first, no courses exist  <br>";
+		    
+			$message= "No uploads for you! <br>Create Course first, no courses exist  <br>";
+			$this->setCustomMessage("ErrorMessage", $message);
 			$this->showView ();
 		}
 	}

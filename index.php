@@ -81,10 +81,10 @@ if (isset($_REQUEST['method'])) {
         	/* if controller name doesnt match */
         	die("Stop playing with the urls! | Controller doesnt exist");
         }
-              
+        
     }
-    if (isset($_SESSION['userType']) && $_REQUEST['controller'] == 'Main'  ) {
-    
+    if (isset($_SESSION['userType']) && $_REQUEST['controller'] == 'Main' && $_REQUEST['method']!='unsetMessages' ) {
+        
     	$controllerObject->showUserPanel();
     
     }elseif(method_exists($controllerObject, $_REQUEST['method'])) {
@@ -108,7 +108,8 @@ $obj = new MainController();
  * user logs in
  */
 
-if (isset($_SESSION['userType'])) {
+
+if (isset($_SESSION['userType']) && $_REQUEST['method']!='unsetMessages') {
 	
     $obj->showUserPanel();
     
@@ -121,10 +122,9 @@ else if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
     $obj->showMainView();
 }
 
-unset($_SESSION["SuccessMessage"]);
-unset($_SESSION["ErrorMessage"]);
-unset($_SESSION["NoticeMessage"]);
+
 ?>
 
+<?php require_once ($_SESSION['SITE_PATH'] . '/views/Footer.php');?>
 
 

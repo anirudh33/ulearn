@@ -145,4 +145,5 @@ if(isset($studentreportdata)and isset($teacherreportdata))
 </div>
 	</div>
 </body>
+<?php require_once ($_SESSION['SITE_PATH'] . '/views/Footer.php');?>
 </html>

@@ -205,5 +205,12 @@ class MainController
 		session_destroy ();
 		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 	}
+	public function unsetMessages()
+	{
+	    unset($_SESSION["SuccessMessage"]);
+	    unset($_SESSION["ErrorMessage"]);
+	    unset($_SESSION["NoticeMessage"]);
+	    echo '1';
+	}
 }
 ?>

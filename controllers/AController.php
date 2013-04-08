@@ -50,9 +50,6 @@ abstract class AController {
 	 */
 	public function __construct() 
 	{
-		$_SESSION["ErrorMessage"]='';
-		$_SESSION["SuccessMessage"]='';
-		$_SESSION["NoticeMessage"]='';
 		$authObject = new Authenticate ( );
 		$authObject->checkIPExists();
 		
@@ -150,6 +147,7 @@ abstract class AController {
 	
 	public function setCustomMessage($messageType,$message)
 	{
+	    $_SESSION["$messageType"]='';
 		$_SESSION ["$messageType"] .= $message."<br>";
 		$this->showView ();
 	}

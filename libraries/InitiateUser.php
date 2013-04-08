@@ -106,7 +106,7 @@ class InitiateUser extends AModel
                 return 1;
             } else {
                 $msg = "Login Failed username or password does not exist";
-                $_SESSION["ErrorMessage"].=$msg. "<br>";
+                $this->setCustomMessage("ErrorMessage", $msg);
                 header("Location:http://" . $_SESSION["DOMAIN_PATH"] . "/index.php?msg=$msg");
                 die;
             }
