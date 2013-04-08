@@ -13,7 +13,48 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 * ************************************************************************
 */
 ?>
+<html>
+<head>
+<script src="./views/StudentViews/jquery.erasing-1.3.4.js"></script>
+<script src="./views/StudentViews/jquery12.js"></script>
+<script src="./views/StudentViews/jquery.erasing-1.3.pack.js"></script>
+<script src="./views/StudentViews/jquery.fancybox-1.3.4.pack.js"></script>
+
+<script src="./views/StudentViews/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" href="./views/StudentViews/jquery.fancybox-1.3.4.css" type="text/css"
+
+	media="screen">
+<script type="text/javascript">
+
+$(document).ready(function(){
+$("#abcd").fancybox({
+               // 'width'            : screenW/2,
+               // 'height'        : screenH-210,
+               // 'autoScale'        : false,
+               // 'transitionIn'        : 'none',
+               // 'transitionOut'        : 'none',
+               // 'type'            : 'iframe'
+            });
+
+
+
+});
+
+</script>
+</head>
+<body>
+
 <div id="contentView"  align="center">
-<b><?php print_r($data)."<br/>";?></b>		   	
+<b><h2><?php print_r($data[0]["body"])."<br/>";?></h2></b>	
+
+</div>
+<p><a id="abcd" href="#image-uploader">Click to see message 4 u</a></p>
+
+<div class="hidden">
+    <div id="image-uploader">
+        <h2><?php print_r($data[0]["body"])."<br/>";?></h2>
+    </div>
 </div>
 
+</body>
+</html>
