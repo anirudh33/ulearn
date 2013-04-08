@@ -12,7 +12,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 * ************************************************************************
 */
 /*-----------Jquery validation for Registration   ---------------*/
- 
+
 (function($,W,D)
 {
 	

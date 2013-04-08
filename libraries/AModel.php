@@ -32,10 +32,14 @@ abstract class AModel
     
     public function setCustomMessage($messageType,$message)
     {
-        $_SESSION ["$messageType"]='';
-    	$_SESSION ["$messageType"] .= $message."<br>";
-    	
-    	
+    	if(isset( $_SESSION ["$messageType"]))
+    	{
+    		$_SESSION ["$messageType"] .= $message."<br>";
+    	}
+       else 
+       { 
+       	$_SESSION ["$messageType"]='';
+       }
     }
 }
 

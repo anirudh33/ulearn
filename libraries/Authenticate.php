@@ -19,8 +19,9 @@ class Authenticate extends AModel{
 	 * @param string $_message        	
 	 */
 	public function setMessage($_message) {
-		$this->setCustomMessage("ErrorMessage", $_message);
+		
 		$this->_message .= $_message."<br>";
+		$this->setCustomMessage("ErrorMessage", $_message);
 	}
 	public function getRequiredType() {
 		return $this->_requiredType;

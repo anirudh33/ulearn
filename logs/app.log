@@ -50,3 +50,16 @@
 2013-04-08 12:33:47,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Email alredy exist<br>Email not same<br>Email not valid<br>Phone no not valid, enter numbers only<br>firstname must be letters<br>lastname must be letters <br>The security code entered was incorrect<br>Firstname cant be left empty<br>repeatemail cant be left empty<br>repeatpassword cant be left empty<br>Lastname cant be left empty<br>Password cant be left empty<br>Date of birth cant be left empty<br>
 2013-04-08 12:34:47,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Email already exist<br>Email not same<br>Phone no not valid, enter numbers only<br>firstname must be letters<br>lastname must be letters <br>The security code entered was incorrect<br>Firstname cant be left empty<br>repeatpassword cant be left empty<br>Lastname cant be left empty<br>Date of birth cant be left empty<br>
 2013-04-08 12:34:57,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Email already exist<br>Phone no not valid, enter numbers only<br>firstname must be letters<br>lastname must be letters <br>The security code entered was incorrect<br>Firstname cant be left empty<br>repeatpassword cant be left empty<br>Lastname cant be left empty<br>Date of birth cant be left empty<br>
+2013-04-08 13:28:46,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Date of birth cant be left empty<br>
+2013-04-08 13:28:47,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Date of birth cant be left empty<br>
+2013-04-08 13:28:57,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Password cant be left empty<br>
+2013-04-08 13:28:58,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Password cant be left empty<br>
+2013-04-08 13:30:44,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Date of birth cant be left empty<br>
+2013-04-08 13:30:45,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Date of birth cant be left empty<br>
+2013-04-08 13:33:40,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Date of birth cant be left empty<br>
+2013-04-08 13:33:41,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Date of birth cant be left empty<br>
+2013-04-08 13:33:49,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Date of birth cant be left empty<br>
+2013-04-08 13:33:50,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Date of birth cant be left empty<br>
+2013-04-08 13:38:57,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Email not valid<br>Phone no not valid, enter numbers only<br>firstname must be letters<br>lastname must be letters <br>The security code entered was incorrect<br>Firstname cant be left empty<br>repeatemail cant be left empty<br>repeatpassword cant be left empty<br>Lastname cant be left empty<br>Email cant be left empty<br>Password cant be left empty<br>Date of birth cant be left empty<br>
+2013-04-08 13:38:58,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:Email not valid<br>Phone no not valid, enter numbers only<br>firstname must be letters<br>lastname must be letters <br>The security code entered was incorrect<br>Firstname cant be left empty<br>repeatemail cant be left empty<br>repeatpassword cant be left empty<br>Lastname cant be left empty<br>Email cant be left empty<br>Password cant be left empty<br>Date of birth cant be left empty<br>
+2013-04-08 13:42:50,18tfp7lumg040c6mvvm3pmlgg3,127.0.0.1,Message:You havent chosen any courses yet<br> Register first<br>
