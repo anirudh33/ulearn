@@ -28,6 +28,15 @@ class AdminController extends AController
      * @param unknown $teacherRecordsCount
      * Requires view with list of teachers to be seen and managed
      */
+public function getMessage() {
+		return $this->_message;
+	}
+
+public function setMessage($_message) {
+		
+		$this->_message .= $_message."<br>";
+		$this->setCustomMessage("ErrorMessage", $_message);
+	}
     public function showManageTeacherView ($teacherdata = array(), $teacherRecordsCount)
     {
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
@@ -267,7 +276,21 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
 
   public function showreport()
 {		
+
+	
 	$this->createUser();
+	
+	if(!isset($_POST["usertype"]) and !isset($_POST["choice"]) )
+	{
+			$message="Please select report category <br>";
+            	$this->setCustomMessage("ErrorMessage", $message);
+            	$this->generateReport();
+		
+	}
+
+
+
+
 	if(isset($_POST["usertype"])) {
 		
 		

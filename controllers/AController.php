@@ -150,6 +150,7 @@ abstract class AController {
 	 * Uses toast to show messages to user
 	 */
 	
+
  public function setCustomMessage($messageType,$message)
     {
     	if(isset( $_SESSION ["$messageType"]))

@@ -76,7 +76,7 @@ $pageName="AdminProfileView";
 		<div class="sep"></div>		
 <h3>Qualification:  </h3> <h4><?php echo $adminprofiledata[0]['qualification'];?></h4>
 <h3>Date of Birth:  </h3> <h4><?php echo $adminprofiledata[0]['dob'];?></h4>
-<h3>Qualification:  </h3> <h4><?php echo $adminprofiledata[0]['qualification'];?></h4>
+
 <h3>Contact Number:  </h3> <h4><?php echo $adminprofiledata[0]['phone'];?></h4>
 <h3>Address:  </h3> <h4><?php echo $adminprofiledata[0]['address'];?></h4>
 

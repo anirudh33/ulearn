@@ -90,6 +90,9 @@ class Authenticate extends AModel{
 			die ();
 		}
 	}
+
+
+
 	
 	public function validateaddcourse()
 	{
@@ -302,27 +305,7 @@ class Authenticate extends AModel{
 		{
 			$this->setMessage ( "Lastname cant be left empty" );
 		}
-		if(empty($_POST["phone"]))
-		{
-			$this->setMessage ( "Phone field cant be left empty" );
-		}
-		if(empty($_POST["address"]))
-		{
-			$this->setMessage ( "Address cant be left empty" );
-		}
-		if(empty($_POST["qualification"]))
-		{
-			$this->setMessage ( "Qualification cant be left empty" );
-		}
-		if(empty($_POST["gender"]))
-		{
-			$this->setMessage ( "Gender cant be left empty" );
-		}
-	
-		if(empty($_POST["dob"]))
-		{
-			$this->setMessage ( "DOB cant be left empty" );
-		}
+		
 	
 		
 		if($str=="Admin")

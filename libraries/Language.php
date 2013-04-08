@@ -78,11 +78,14 @@ class Language
             "CONDITIONS"=>'Terms and Conditions',
             "RECIEVE"=>'I want to receive personalized offers by your site',
             "EDIT"=>'Edit',
-            'PERSONALDETAILS'=>"Personal Details "
+            'PERSONALDETAILS'=>"Personal Details ",
+	    'COURSENAME'=>"Course Name",
+		
             
             
         ),
         'HINDI' => array(
+        'COURSENAME'=>"कोर्स का नाम",
         "EDIT"=>'संपादित करें',
         "RECIEVE"=>'हम अपनी साइट के द्वारा व्यक्तिगत प्रस्ताव प्राप्त करना चाहते हैं',
         "CONDITIONS"=>'नियम और शर्तें',

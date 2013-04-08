@@ -29,7 +29,7 @@ $pages = $obj_paging->get_pages();
 		<p class="headingsBig">
 		
 		
-		<h3 class="head2"><?php echo $lang-> COURSES;?></h3>
+		<center><h3 class="head2"><?php echo $lang-> COURSES;?></h3></center>
 		</p>
 
 		<span id="middle"></span>
@@ -54,6 +54,7 @@ $pages = $obj_paging->get_pages();
                         ?>
                         <tr id=row class="<?PHP echo $class; ?>">
                         	
+
                             <td><?php echo $row['coursename']?></td>
                             
                             

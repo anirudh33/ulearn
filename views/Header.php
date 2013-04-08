@@ -160,6 +160,9 @@ if($pageName=="RegistrationView") {
 <!-- Teacher profile View header -->
 <link rel="stylesheet" href="assets/style/global.css" type="text/css">
 
+<!-- Edit Course View Header -->
+<link rel="stylesheet" type="text/css"
+	href="assets/style/ManageTeacherView.css" media="screen">
 <!-- Edit profile View header -->
 <link rel="stylesheet" href="assets/style/editprofile.css"
 	type="text/css" media="screen">
