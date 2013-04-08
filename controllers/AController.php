@@ -94,6 +94,11 @@ abstract class AController {
 	}
 	
 	public function writeMessage() {
+		
+		
+		
+		$authObject= new Authenticate();
+		$authObject->validateWriteMessage($_GET["controller"]);
 	
 		$body = $_POST ["body"];
 		$subject = $_POST ["subject"];
@@ -145,12 +150,17 @@ abstract class AController {
 	 * Uses toast to show messages to user
 	 */
 	
-	public function setCustomMessage($messageType,$message)
-	{
-	    $_SESSION["$messageType"]='';
-		$_SESSION ["$messageType"] .= $message."<br>";
-		$this->showView ();
-	}
+ public function setCustomMessage($messageType,$message)
+    {
+    	if(isset( $_SESSION ["$messageType"]))
+    	{
+    		$_SESSION ["$messageType"] .= $message."<br>";
+    	}
+       else 
+       { 
+       	$_SESSION ["$messageType"]=$message."<br>";
+       }
+    }
 	
 	/**
 	 * Logs out the user by destroying the session and redirecting to main page

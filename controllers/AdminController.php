@@ -221,8 +221,9 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
 
     public function editAdminClick ()
     {
-    	
-        $firstname = $_POST["firstname"];
+    	$authObject= new Authenticate();
+    	$authObject->validateEditProfile("Admin");
+    	$firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
         $phone = $_POST["phone"];
         $address = $_POST["address"];
@@ -237,15 +238,22 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
             $var = $this->_objUser->editAdmin($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
             if ($var == true) {
             	
-            	$_SESSION["SuccessMessage"].="Profile updated :) <br>";
+            	$message="Profile updated :) <br>";
+            	$this->setCustomMessage("SuccessMessage", $message);
             	$this->showProfile();
                 //require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
                 
                 
             } else {
-            	$_SESSION["ErrorMessage"].="Couldn't Update, Report issue to site admin <br>";
+            	
+            	$message="Couldn't Update, Report issue to site admin <br>";
+            	$this->setCustomMessage("ErrorMessage", $message);
+            	$this->editProfileClick();
+            	
             }
-       
+    	
+    	
+    	
     }
     public function showProfile ()
     {

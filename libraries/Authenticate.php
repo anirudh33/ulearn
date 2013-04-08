@@ -91,6 +91,283 @@ class Authenticate extends AModel{
 		}
 	}
 	
+	public function validateaddcourse()
+	{
+		/*------------alphabet  security-----------------*/
+		
+		if(preg_match("/^[a-z\-]+$/i", $_POST["coursename"])===0)
+		{				$this->setMessage ( "Course Name must be letters" );
+		}
+		
+		/*------------URL security-----------------*/
+		
+		
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["coursename"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["description"])===1)
+		{
+		
+			$this->setMessage ( "Url not allowed" );
+		
+		}
+		
+		/*------------Script security-----------------*/
+		
+		
+		if(preg_match("/(<([^>]+)>)/i", $_POST["coursename"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		if(preg_match("/(<([^>]+)>)/i", $_POST["description"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		
+		/*------------Empty field security-----------------*/
+		if(empty($_POST["coursename"]))
+		{
+			$this->setMessage ( "Course Name cant be left empty" );
+		}
+		
+		$msg = $this->getMessage ();
+		if (! empty ( $msg )) {
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+			"/index.php?method=addCourseClick&controller=Teacher&msg=" . $this->getMessage () . "" );
+			die ();
+		}
+		
+		
+	}
+	
+	
+	/*-----Function to validate write message form of teacher-------*/
+	
+	
+	public function validateWriteMessage($str){
+		
+	
+	
+		/*------------alphabet  security-----------------*/
+	
+		if(preg_match("/^[a-z\-]+$/i", $_POST["subject"])===0)
+		{				$this->setMessage ( "Subject must be letters" );
+		}
+	
+		/*------------URL security-----------------*/
+	
+	
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["subject"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["body"])===1)
+		{	
+		
+			$this->setMessage ( "Url not allowed" );
+		
+		}
+	
+		/*------------Script security-----------------*/
+	
+	
+		if(preg_match("/(<([^>]+)>)/i", $_POST["subject"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		if(preg_match("/(<([^>]+)>)/i", $_POST["body"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+	
+		/*------------Empty field security-----------------*/
+		if(empty($_POST["subject"]))
+		{
+			$this->setMessage ( "Subject cant be left empty" );
+		}
+		if(empty($_POST["body"]))
+		{
+			$this->setMessage ( "Body cant be left empty" );
+	
+		}
+	
+		
+	if($str=="Student")
+	{
+	$msg = $this->getMessage ();
+		if (! empty ( $msg )) {
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 
+			"/index.php?method=messageClick&controller=Student&msg=" . $this->getMessage () . "" );
+			die ();
+		}
+	}
+	
+	if($str=="Teacher")
+	{
+		$msg = $this->getMessage ();
+		if (! empty ( $msg )) {
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+			"/index.php?method=messageClick&controller=Teacher&msg=" . $this->getMessage () . "" );
+			die ();
+		}
+	}
+	
+	}
+	
+	/*-------Function to validate edit profile of admin-----------------------*/
+	
+	public function validateEditProfile($str)
+	
+	{
+		
+	
+		if (! filter_var ( $_POST ["phone"], FILTER_VALIDATE_INT )) {
+			 
+				
+			$this->setMessage ( "Phone no not valid, enter numbers only" );
+							
+		}
+		/*------------alphabet  security-----------------*/
+			
+		if(preg_match("/^[a-z\-]+$/i", $_POST["firstname"])===0)
+		{				$this->setMessage ( "firstname must be letters" );
+		}
+	
+		if(preg_match("/^[a-z\-]+$/i", $_POST["lastname"])===0)
+		{				$this->setMessage ( "lastname must be letters " );
+		}
+	
+	
+	
+	
+	
+	
+		/*------------URL security-----------------*/
+	
+	
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["firstname"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["lastname"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["phone"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+	
+		
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["qualification"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["gender"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["dob"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["address"])===1)
+		{
+	
+			$this->setMessage ( "Url not allowed" );
+		}
+	
+	
+	
+	
+		/*------------Script security-----------------*/
+	
+			
+		if(preg_match("/(<([^>]+)>)/i", $_POST["lastname"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		if(preg_match("/(<([^>]+)>)/i", $_POST["phone"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		if(preg_match("/(<([^>]+)>)/i", $_POST["address"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+	
+		if(preg_match("/(<([^>]+)>)/i", $_POST["qualification"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		if(preg_match("/(<([^>]+)>)/i", $_POST["gender"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		if(preg_match("/(<([^>]+)>)/i", $_POST["dob"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+			
+	
+		/*------------Empty field security-----------------*/
+		if(empty($_POST["firstname"]))
+		{
+			$this->setMessage ( "Firstname cant be left empty" );
+		}
+		if(empty($_POST["lastname"]))
+		{
+			$this->setMessage ( "Lastname cant be left empty" );
+		}
+		if(empty($_POST["phone"]))
+		{
+			$this->setMessage ( "Phone field cant be left empty" );
+		}
+		if(empty($_POST["address"]))
+		{
+			$this->setMessage ( "Address cant be left empty" );
+		}
+		if(empty($_POST["qualification"]))
+		{
+			$this->setMessage ( "Qualification cant be left empty" );
+		}
+		if(empty($_POST["gender"]))
+		{
+			$this->setMessage ( "Gender cant be left empty" );
+		}
+	
+		if(empty($_POST["dob"]))
+		{
+			$this->setMessage ( "DOB cant be left empty" );
+		}
+	
+		
+		if($str=="Admin")
+		{
+			
+			
+	$msg = $this->getMessage ();
+		
+		if (! empty ( $msg )) {
+			
+			
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 
+			"/index.php?method=editProfileClick&controller=Admin&msg=" . $this->getMessage () . "" );
+			die ();
+		}
+		}
+		
+		elseif($str=="Teacher")
+		{
+			
+			$msg = $this->getMessage ();
+			
+			if (! empty ( $msg )) {
+				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+				"/index.php?method=editProfileClick&controller=Teacher&msg=" . $this->getMessage () . "" );
+				die ();
+			}
+		}
+		elseif($str=="Student")
+		{
+				
+			$msg = $this->getMessage ();
+				
+			if (! empty ( $msg )) {
+				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+				"/index.php?method=editProfileClick&controller=Student&msg=" . $this->getMessage () . "" );
+				die ();
+			}
+		}
+			
+	
+	
+	
+	}
+
 	/* Function to validate Registration form data */
 	public function validateRegistration() {
 		

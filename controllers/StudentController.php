@@ -27,6 +27,8 @@ class StudentController extends AController {
 	}
 	
 	public function editStudentClick() {
+		$authObject= new Authenticate();
+		$authObject->validateEditProfile("Student");
 		$firstname = $_POST ["firstname"];
 		$lastname = $_POST ["lastname"];
 		$phone = $_POST ["phone"];

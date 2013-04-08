@@ -38,7 +38,7 @@ abstract class AModel
     	}
        else 
        { 
-       	$_SESSION ["$messageType"]='';
+       	$_SESSION ["$messageType"]=$message."<br>";
        }
     }
 }

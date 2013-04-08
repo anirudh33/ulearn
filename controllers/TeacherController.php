@@ -38,6 +38,8 @@ class TeacherController extends AController
 
     public function editTeacherClick ()
     {
+    	$authObject= new Authenticate();
+    	$authObject->validateEditProfile("Teacher");
         $firstname = $_POST["firstname"];
         $lastname = $_POST["lastname"];
         $phone = $_POST["phone"];
@@ -116,6 +118,8 @@ public function deleteCourseClick ()
 
     public function addCourseButtonClick ()
     {
+    	$authObject= new Authenticate();
+    	$authObject->validateaddcourse();
         
         $objCourse= new Course();
         $objCourse->addCourse();
