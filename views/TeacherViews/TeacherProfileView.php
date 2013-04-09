@@ -37,7 +37,7 @@ if(isset($data[0]['profilepicture'])) {
 			<div id="userStats" class="clearfix">
 <div class="pic">
 					<a href="#"><img src="assets/images/Views/profilepics/default_avatar2.jpg"<?php echo $_SESSION['userID'];?> width="150" height="150" /></a>
-				</div
+				</div>
 				
 				<?php
 				

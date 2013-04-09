@@ -378,7 +378,8 @@ public function lessonExists($lesson_no) {
 					$allowedExts = array (
 							"doc",
 							"pdf",
-							"jpg" 
+							"jpg",
+							"txt" 
 					);
 
 					$extension = end ( explode ( ".", $_FILES ['upload'] ['name'] [$i] ) );
