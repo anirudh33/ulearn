@@ -112,14 +112,15 @@ if($pageName=="RegistrationView") {
 
 <script type="text/javascript">
  $(document).ready(function() {
+
 	$( "#datepicker23").datepicker({
-		 
+		dateFormat: "yy-mm-dd",
 		 changeMonth: true,
 		  changeYear: true
 	 
 		 
 	});
-	$( "#datepicker23" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+	
 });
  
  </script>
@@ -176,14 +177,15 @@ if($pageName=="RegistrationView") {
 <script src="assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 <script type="text/javascript">
  $(document).ready(function() {
+	
 	$( "#datepicker23").datepicker({
-		 
+		 dateFormat: "yy-mm-dd",
 		 changeMonth: true,
-		  changeYear: true,
+		  changeYear: true
 		 
 		 
 	});
-	$( "#datepicker23" ).datepicker("option", "dateFormat", "yy-mm-dd");	
+	
 });
  </script>
 
@@ -272,14 +274,15 @@ if($pageName=="RegistrationView") {
 <script src="./assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 <script type="text/javascript">
  $(document).ready(function() {
+	 
 	$( "#datepicker23").datepicker({
-		 
+		dateFormat: "yy-mm-dd",
 		 changeMonth: true,
 		  changeYear: true
 	 
 		 
 	});
-	$( "#datepicker23" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+	
 });
 </script>
 
@@ -327,15 +330,17 @@ if($pageName=="RegistrationView") {
 	});
 	</script>
 <script type="text/javascript">
+	
  $(document).ready(function() {
+
 	$( "#datepicker23").datepicker({
-		 
+		dateFormat: "yy-mm-dd",
 		 changeMonth: true,
 		  changeYear: true
 	 
-		 
+		  
 	});
-	$( "#datepicker23" ).datepicker("option", "dateFormat", "yy-mm-dd");
+	
 });
 </script>
 <!-- Admin profile View header -->
