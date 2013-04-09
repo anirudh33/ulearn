@@ -140,12 +140,15 @@ class TeacherController extends AController
 		$objCourse->registerTeacherCourse ( $coursename );
 		$this->registerCourseClick();	
 	}
+	
+	/* method called on write message click in teacher view */	
 	public function messageClick() {
 		$this->createUser ();
 		$emailList = $this->_objUser->fetchEmailID ();
 		$this->showSubViews ( "writeMessage", $emailList, '' );
 	}
 	
+	/* method called to show profile in teacher view after login */
 	public function showProfile() {
 		$this->createUser ();
 		$teacherdetails = $this->_objUser->fetchTeacher ();
@@ -153,6 +156,8 @@ class TeacherController extends AController
 		/* Showing Teacher View with teacher data */
 		$this->showSubViews ( "showProfile", $teacherdetails, '' );
 	}
+	
+	/* method called on view study material click in teacher view */
 	public function downloadClick() {
 		$objCourse = new Course ();
 		$this->createUser ();
@@ -163,6 +168,8 @@ class TeacherController extends AController
 			$this->setCustomMessage("ErrorMessage","You havent chosen any courses yet<br> Register first");
 		}
 	}
+	
+	/* method called on submitting study material view */
 	public function downloadFile() {
 		$coursename = $_POST ["coursenamelist"];
 		
@@ -171,6 +178,8 @@ class TeacherController extends AController
 		
 		$this->showSubViews ( "showContent", $filelist );
 	}
+	
+	/* method called on upload study material click in teacher view */
 	public function uploadClick() {
 		
 		$objCourse = new Course ();
@@ -185,6 +194,8 @@ class TeacherController extends AController
 			$this->showView ();
 		}
 	}
+	
+	/* method called on submitting upload view */
 	public function uploadFile() {
 		$lesson_no = $_POST ["lesson_no"];
 		$lesson_name = $_POST ["lesson_name"];
@@ -202,6 +213,7 @@ class TeacherController extends AController
 		
 		$this->showView();
 	}
+	/* When teacher clicks on delete file link against any file teacher wants deleted from system */
 	public function ondeleteFileClick() {
 		$location=$_GET["location"];
 		$this->createUser();
