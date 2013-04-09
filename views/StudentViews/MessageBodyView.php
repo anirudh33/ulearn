@@ -19,11 +19,10 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 
 
-<div class="hidden">
-    <div id="image-uploader">
+  <div id="mess">
         <h2><?php  print_r($data[0]["body"])."<br/>";?></h2>
+       
     </div>
-</div>
 
 </body>
 </html>

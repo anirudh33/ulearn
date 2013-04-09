@@ -16,6 +16,8 @@
  */
 
 /* The Main controller for showing the Main View */
+require("./libraries/PHPMailer/class.phpmailer.php");
+	
 class MainController
 {
     /* Any messages to be shown to user */
@@ -194,6 +196,31 @@ class MainController
         ($_FILES["profilepicture"]["tmp_name"]));
         $confirm_code=md5(uniqid(rand()));
  
+        
+        $message = "http://localhost/ulearn/branches/development/index.php?method=confirm&controller=Main&passkey=$confirm_code&email=$email";
+        
+        $mail = new PHPMailer ();
+	$mail->IsSMTP (); // enable SMTP
+	$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+	$mail->SMTPAuth = true; // authentication enabled
+	$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+	$mail->Host = 'smtp.gmail.com';
+	$mail->Port = 465;
+	$mail->Username = "kawaljeet.singh@osscube.com";
+	$mail->Password = "waheguru123";
+	//$mail->SetFrom (  "Rasmus Lerdorf" );
+	$mail->Subject = "Confirmation Mail from Ulearn";
+	 $mail->Body = $message;
+	$mail->AddAddress ($email);
+	//$mail->MsgHTML ( "dnkjvvnjvcv" );
+	
+	if (! $mail->Send ()) {
+		echo "There was an error sending the message";
+		echo $mail->ErrorInfo;
+		exit ();
+	}
+	//echo "Message was sent successfully";
+        
         
         /* Confirmation Mail */
 		/*	$to = $_POST ["email"];

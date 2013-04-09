@@ -17,7 +17,13 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 
 /* @group resets and elements */
 
-
+#mess
+{
+	background-color:white;
+	width:300px;
+	height:300px;
+	border:2px solid black;
+}
 #logout33
 {
 		
