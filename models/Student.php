@@ -1,16 +1,13 @@
 <?php 
 /*
        * Creation Log 
-       * File Name - ContentView.php 
-       * Description - Displays all files uploaded by chosen teacher and course to student 
+       * File Name - Student.php 
+       * Description - Contains all functions to query database for student details
        * Version - 1.0 
        * Created by - Tanu trehan 
        * Created on - March 28, 2013
        */
-?>
-<?php
-// session_start();
-require_once ($_SESSION ["SITE_PATH"] . "/libraries/AUser.php");
+
 class Student extends AUser {
 	public function __construct() {
 		parent::__construct ();
@@ -32,6 +29,9 @@ class Student extends AUser {
 	private function setTdata($tdata) {
 		$this->tdata = $tdata;
 	}
+
+/* method called to return student data from database for edit profile */
+
 	public function fetchUser() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
@@ -49,6 +49,9 @@ class Student extends AUser {
 		
 		$this->setTdata ( $this->db->resultArray () );
 	}
+
+/* method called to return student details from database in show profile*/
+
 	public function fetchStudent() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
@@ -70,6 +73,8 @@ class Student extends AUser {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
+
+/* method called to insert edit profile student data in database */
 	public function editStudent($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {
 		DBConnection::Connect ();
 		$this->db->From ( "studentdetails" );
@@ -85,10 +90,9 @@ class Student extends AUser {
 		$this->db->Update ();
 		echo $this->db->lastQuery ();
 	}
-	
-	/*
-	 * public function registerCourse($course_id,$student_id) { DBConnection::Connect(); $this->db->From("enrolls"); $this->db->Fields(array("course_id"=>"$course_id","student_id"=>"$student_id")); $this->db->Insert(); echo $this->db->lastQuery(); }
-	 */
+
+/* method called to insert student message in database */
+
 	public function messageSend($body, $subject, $sentto) {
 		DBConnection::Connect ();
 		
@@ -137,6 +141,9 @@ class Student extends AUser {
 		$this->db->Insert ();
 		echo $this->db->lastQuery ();
 	}
+
+/* method called to return student messages from database */
+
 	public function messageShow() {
 		$uid = $_SESSION ['userID'];
 		DBConnection::Connect ();
@@ -199,6 +206,9 @@ class Student extends AUser {
 				$email 
 		);
 	}
+
+/* method called to return student messages body from database */
+
 	public function messageBody($aid) {
 		DBConnection::Connect ();
 		
@@ -213,6 +223,9 @@ class Student extends AUser {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
+
+	/* method called to return email of student from database for send message */
+
 	public function fetchEmailID() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
@@ -226,6 +239,9 @@ class Student extends AUser {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
+
+/* method called to return teacher name from database for view download files */
+
 	public function fetchTeachername($result = array()) {
 		DBConnection::Connect ();
 		$coursename = $result [0] ["coursename"];
@@ -274,6 +290,9 @@ class Student extends AUser {
 		
 		return $result1;
 	}
+
+/* method called to return uploaded files from database */
+
 	public function downloadContent($coursenamelist, $teachernamelist) {
 		$files = "";
 		$path = $_SESSION ['SITE_PATH'] . "/uploads/" . $teachernamelist . "/" . $coursenamelist;

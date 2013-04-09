@@ -1,3 +1,18 @@
+<?php
+/* Creation Log
+
+File Name                   -  Footer.php
+Description                 -  Footer to be included in all views
+Version                     -  1.1
+Created by                  -  Anirudh Pandita
+Created on                  -  April 05, 2013
+* **************************** Update Log ********************************
+Sr.NO.        Version        Updated by           Updated on          Description
+-------------------------------------------------------------------------
+
+* ************************************************************************
+*/
+?>
 <!-- toast plugin -->
 <link rel="stylesheet"
 	href="assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css"

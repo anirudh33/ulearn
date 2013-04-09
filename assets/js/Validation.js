@@ -33,7 +33,13 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 							return this.optional(element)
 									|| /^[a-z' '0-9',''-'"\/"'.']+$/i.test(value);
 						});
-
+						
+						//anirudh	@todo - not working
+						$.validator.addMethod("cnameRegex", function(value,
+								element) {
+							return this.optional(element)
+									|| /^[a-z' '\-]+$/i.test(value);
+						});
 						$.validator
 								.addMethod(
 										"url",
@@ -62,7 +68,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 													script : true
 
 												},
-												date : {
+												dateISO : {
 													required : true,
 													script : true,
 													url : true,
@@ -104,7 +110,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 													script : "Dont use script here",
 												},
 
-												date : {
+												dateISO : {
 													required : "Please enter your date of birth",
 													url : "Url not allowed",
 													script : "Dont use script here"
@@ -175,7 +181,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 											rules : {
 
 												subject : {
-													loginRegex : true,
+													cnameRegex : true,
 													required : true,
 													url : true,
 													script : true,
@@ -192,7 +198,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 											messages : {
 												subject : {
 													required : "Please enter your subject",
-													loginRegex : "subject must contain only letters, numbers, or dashes.",
+													cnameRegex : "subject must contain only letters, numbers, or dashes.",
 													url : "Url not allowed",
 													script : "Dont use script here",
 												},
@@ -215,21 +221,31 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 											rules : {
 
 												coursename : {
-													loginRegex : true,
+													cnameRegex : true,
 													required : true,
 													url : true,
-													script : true,
+													script : true
 
-												}
+												},
+												description: {
+														
+													script: true,
+													url:true
+										}
 
 											},
 											messages : {
 												coursename : {
 													required : "Please enter your coursename",
-													loginRegex : "coursename must contain only letters, numbers, or dashes.",
+													cnameRegex : "coursename must contain only letters, numbers, or dashes.",
 													url : "Url not allowed",
 													script : "Dont use script here",
-												}
+												},
+											description: {
+												
+												script: "Script not allowed",
+												url:"URL not allowed"
+											}
 
 											},
 											submitHandler : function(form) {

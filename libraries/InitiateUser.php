@@ -1,9 +1,19 @@
 <?php
 
 /*
- * *************************** Creation Log ******************************* File Name - MainController.php Description - Class file for Authentication of users credentials Version - 1.0 Created by - Ujjwal Rawlley Created on - March 01, 2013 *************************************************************************** Sr.NO. Version Updated by Updated on Description ------------------------------------------------------------------------- 1 1.0 Anirudh Pandita March 02, 2013 2 1.0 Anirudh Pandita March 08, 2013 Paths set ***************************************************************************
+ * *************************** Creation Log ******************************* 
+ * File Name - InitiateUser.php 
+ * Description - Class file for initiating login of users 
+ * Version - 1.0 
+ * Created by - Anirudh Pandita
+ * Created on - March 01, 2013 
+ * *************************************************************************** 
+ * Sr.NO. Version Updated by Updated on Description 
+ * ------------------------------------------------------------------------- 
+ * 1 1.0 Anirudh Pandita March 02, 2013 2 1.0 Anirudh Pandita March 08, 2013 Paths set 
+ * ***************************************************************************
  */
-// session_start();
+
 class InitiateUser extends AModel
 {
     

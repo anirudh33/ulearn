@@ -14,16 +14,9 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 * ************************************************************************
 */
 
-
-
-
-
 $pageName="AdminView";
 require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 ?>
-
-
-
 
 <body>
 

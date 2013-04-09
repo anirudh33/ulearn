@@ -41,6 +41,7 @@ public function setMessage($_message) {
 	}
     public function showManageTeacherView ($teacherdata = array(), $teacherRecordsCount)
     {
+    	
         require_once $_SESSION["SITE_PATH"] . '/views/AdminViews/AdminView.php';
     }
 

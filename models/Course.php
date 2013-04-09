@@ -1,13 +1,11 @@
 <?php 
 /*
        * Creation Log 
-       * File Name - ContentView.php 
-       * Description - Displays all files uploaded by chosen teacher and course to student 
+       * File Name - Course.php 
+       * Description - Contains all functions to query database for course details
        * Version - 1.0 Created by - Tanu trehan 
        * Created on - March 28, 2013
        */
-?>
-<?php
 
 class Course extends AModel {
 	/* method called to check course no exist in database for add course */

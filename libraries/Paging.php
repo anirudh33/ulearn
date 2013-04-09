@@ -1,5 +1,5 @@
 <?php
-// rks
+
 // it is for providing paging limits
 class paging
 {

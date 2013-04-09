@@ -87,7 +87,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 												},
 
-												date : {
+												dateISO : {
 													script : true,
 													url : true,
 													date : true
@@ -157,7 +157,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 													script : "Dont use script here",
 												},
 
-												date : {
+												dateISO : {
 													
 													url : "Url not allowed",
 													script : "Dont use script here",

@@ -44,7 +44,6 @@ require_once ($_SESSION['SITE_PATH'] . '/libraries/AUser.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/InitiateUser.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/Language.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/Paging.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/UserFactory.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/Authenticate.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/securimage/securimage.php');
 require_once ($_SESSION['SITE_PATH'] . '/libraries/Authenticate.php');
@@ -55,6 +54,8 @@ require_once ($_SESSION['SITE_PATH'] . '/models/Teacher.php');
 require_once ($_SESSION['SITE_PATH'] . '/models/Student.php');
 require_once ($_SESSION['SITE_PATH'] . '/models/Registration.php');
 require_once ($_SESSION['SITE_PATH'] . '/models/Course.php');
+
+require_once ($_SESSION['SITE_PATH'] . '/libraries/UserFactory.php');
 
 /* Controllers  */
 require_once ($_SESSION['SITE_PATH'] . '/controllers/AController.php');
@@ -107,13 +108,14 @@ $obj = new MainController();
  * Check if a user is logged in using session variable which is set everytime a 
  * user logs in
  */
+if (isset ( $_REQUEST ['method'] )) {
+	if ($_REQUEST ['method'] != 'unsetMessages') {
+		if (isset ( $_SESSION ['userType'] )) {
+		}
+		$obj->showUserPanel ();
+	}
+} 
 
-
-if (isset($_SESSION['userType']) && $_REQUEST['method']!='unsetMessages') {
-	
-    $obj->showUserPanel();
-    
-}
 
 /* If no method has been called show the main view/homepage */
 else if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {

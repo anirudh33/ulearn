@@ -18,14 +18,14 @@ class TeacherController extends AController
 
     protected  $_requiredType = "teacher";
 
-          
+    /*method called to open all sub views in teacher view*/
     public function showSubViews ($viewName,$data,$result2='')
     {  
 
        require_once $_SESSION["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
     	    
     }
- 
+    /*method called on edit profile click in teacher view*/
     public function editProfileClick ()
     {
        
@@ -36,6 +36,7 @@ class TeacherController extends AController
         
     }
 
+    /*method called on submiting edit profile view*/
     public function editTeacherClick ()
     {
     	$authObject= new Authenticate();
@@ -53,8 +54,8 @@ class TeacherController extends AController
             $this->_objUser->editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
         	$this->showProfile();
     }
-
-public function editCourseClick ()
+    /*method called on edit course click in teacher view*/
+	public function editCourseClick ()
     {
         
             $this->createUser();
@@ -80,8 +81,9 @@ public function editCourseClick ()
      		$this->showSubViews("editCourse",$result1,$result2);
         
     }
-
-public function deleteCourseClick ()
+    
+    /* method called on delete course click in edit course view */
+	public function deleteCourseClick ()
     {
     	
         $coursename=$_REQUEST['id'];
@@ -95,6 +97,8 @@ public function deleteCourseClick ()
             die("0");
         }
     }
+    
+    /*method called on activate course click in edit course view  */
     public function activateCourseClick ()
     {
     	
@@ -111,11 +115,12 @@ public function deleteCourseClick ()
     }
 
 
+    /* method called on add course click in teacher view */
     public function addCourseClick ()
     {
         $this->showSubViews("addCourse",'','');
     }
-
+    /* method called on submitting add course view */
     public function addCourseButtonClick ()
     {
     	$authObject= new Authenticate();
@@ -127,7 +132,7 @@ public function deleteCourseClick ()
         $this->showSubViews("addCourse",'','');
         
     }
-    
+    /* method called on submitting register course view */
 	public function registerCourseButtonClick() {
 		$coursename = $_POST ['coursenamelist']; // to be changed
 		$objCourse = new Course ();

@@ -34,7 +34,7 @@ imagejpeg($image,"assets/images/Views/profilepics/studentprofile".$_SESSION['use
 		<section id="left">
 			<div id="userStats" class="clearfix">
 				<div class="pic">
-					<a href="#"><img src="assets/images/Views/profilepics/studentprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="195" /></a>
+					<a href="#"><img alt="no image" src="assets/images/Views/profilepics/studentprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="195" /></a>
 				</div>
 				<?php if(!empty($data))
 				{?>

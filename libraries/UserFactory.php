@@ -1,9 +1,7 @@
 <?php
-// session_start();
-require_once ($_SESSION["SITE_PATH"] . "/models/Admin.php");
-require_once ($_SESSION["SITE_PATH"] . "/models/Teacher.php");
-require_once ($_SESSION["SITE_PATH"] . "/models/Student.php");
 
+
+/* Creates users according to type sent */
 class UserFactory
 {
 

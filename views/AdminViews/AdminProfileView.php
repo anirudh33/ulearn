@@ -12,12 +12,12 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
 * ************************************************************************
 */
-
+if(isset($adminprofiledata[0]['profilepicture'])) {
 /*Creating profile picture image resource*/
 //$image=imagecreatefromstring($adminprofiledata[0]['profilepicture']);
 /* Storing picture to file with custom quality range 1 - 100 */
 //imagejpeg($image,"assets/images/Views/profilepics/adminprofile".$_SESSION['userID'].".jpeg",20); 
-
+}
 $pageName="AdminProfileView";
 //@todo move the following header to admin view so that log out shows on each page if sounds fine
 

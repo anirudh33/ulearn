@@ -167,10 +167,11 @@ abstract class AController {
 	 * Logs out the user by destroying the session and redirecting to main page
 	 */
 	public function logout() {
+		
+		session_destroy ();
 		unlink("assets/images/Views/profilepics/adminprofile".$_SESSION['userID'].".jpeg");
 		unlink("assets/images/Views/profilepics/studentprofile".$_SESSION['userID'].".jpeg");
 		unlink("assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg");
-		session_destroy ();
 		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 	}
 }

@@ -16,7 +16,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 /* Getting default Language to be used in various views
  * Usage: Just use $lang->CONSTANTNAME to display the language specific value */
 $lang=Language::getinstance();
-//session_start();
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -119,6 +119,7 @@ if($pageName=="RegistrationView") {
 	 
 		 
 	});
+	$( "#datepicker23" ).datepicker( "option", "dateFormat", "yy-mm-dd");
 });
  
  </script>
@@ -178,10 +179,11 @@ if($pageName=="RegistrationView") {
 	$( "#datepicker23").datepicker({
 		 
 		 changeMonth: true,
-		  changeYear: true
-	 
+		  changeYear: true,
+		 
 		 
 	});
+	$( "#datepicker23" ).datepicker("option", "dateFormat", "yy-mm-dd");	
 });
  </script>
 
@@ -277,6 +279,7 @@ if($pageName=="RegistrationView") {
 	 
 		 
 	});
+	$( "#datepicker23" ).datepicker( "option", "dateFormat", "yy-mm-dd");
 });
 </script>
 
@@ -332,9 +335,7 @@ if($pageName=="RegistrationView") {
 	 
 		 
 	});
-	 $( "#format" ).change(function() {
-		 $( "#datepicker23" ).datepicker( "option", "yy-mm-dd", $( this ).val() );
-		 });
+	$( "#datepicker23" ).datepicker("option", "dateFormat", "yy-mm-dd");
 });
 </script>
 <!-- Admin profile View header -->

@@ -1,9 +1,19 @@
 <?php
 
 /*
- * *************************** Creation Log ******************************* File Name - lang.php Project Name - Careerbook Description - Class file for start Version - 1.0 Created by - Ujjwal Rawlley & Tanu Trehan Created on - March 06, 2013 **************************** Update Log ******************************** Sr.NO. Version Updated by Updated on Description ------------------------------------------------------------------------- 1 1.0 Anirudh Pandita March 08, 2013 ************************************************************************
+ * *************************** Creation Log ******************************* 
+ * File Name - lang.php Project
+ * Name - ulearn 
+ * Description - Class file for language changing 
+ * Version - 1.0 Created by - Ujjwal Rawlley & Tanu Trehan 
+ * Created on - March 06, 2013 
+ * **************************** Update Log ******************************** 
+ * Sr.NO. Version Updated by Updated on Description 
+ * -------------------------------------------------------------------------
+ *  1 1.0 Anirudh Pandita March 08, 2013 
+ *  ************************************************************************
  */
-// session_start();
+
 
 /* Class having functions to convert to desired language */
 class Language

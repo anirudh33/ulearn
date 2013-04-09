@@ -151,7 +151,7 @@ class Authenticate extends AModel{
 	
 		/*------------alphabet  security-----------------*/
 	
-		if(preg_match("/^[a-z\-]+$/i", $_POST["subject"])===0)
+		if(preg_match("/^[a-z' '\-]+$/i", $_POST["subject"])===0)
 		{				$this->setMessage ( "Subject must be letters" );
 		}
 	

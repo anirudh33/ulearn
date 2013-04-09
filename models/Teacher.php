@@ -1,4 +1,13 @@
-<?php
+<?php 
+/*
+       * Creation Log 
+       * File Name - Teacher.php 
+       * Description - Contains all functions to query database for teacher details
+       * Version - 1.0 
+       * Created by - Tanu trehan 
+       * Created on - March 28, 2013
+       */
+
 
 class Teacher extends AUser {
 	public function __construct() {
@@ -21,6 +30,9 @@ class Teacher extends AUser {
 	private function setTdata($tdata) {
 		$this->tdata = $tdata;
 	}
+
+/* method called to return teacher data from database for edit profile */
+
 	public function fetchUser() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
@@ -38,6 +50,8 @@ class Teacher extends AUser {
 		$this->setTdata ( $this->db->resultArray () );
 	}
 	
+/* method called to return teacher details from database in show profile*/
+
 	public function fetchTeacher() {
 		
 		DBConnection::Connect ();
@@ -60,6 +74,7 @@ class Teacher extends AUser {
 		return $result;
 	}
 	
+/* method called to insert edit profile teacher data in database */
 	public function editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {
 		DBConnection::Connect ();
 		$this->db->From ( "teacherdetails" );
@@ -80,6 +95,8 @@ class Teacher extends AUser {
 		}
 		
 	}
+
+/* method called to insert teacher message in database */
 
 	public function messageSend($body, $subject, $sentto) {
 		DBConnection::Connect ();
@@ -135,7 +152,9 @@ class Teacher extends AUser {
 		$bool=$this->db->Insert ();
 		return $bool;
 	}
-	/*  */
+	
+/* method called to return teacher messages from database */ 
+
 	public function messageShow() {
 		$uid = $_SESSION ['userID'];
 		DBConnection::Connect ();
@@ -206,6 +225,7 @@ class Teacher extends AUser {
 		return array($result,$email);
 	}
 
+/* method called to return teacher messages body from database */
 	public function messageBody($aid) {
 		DBConnection::Connect ();
 
@@ -220,6 +240,7 @@ class Teacher extends AUser {
 		$result = $this->db->resultArray ();  			       		return $result;
 	}
 
+/* method called to check if lesson already exists in database */
 
 public function lessonExists($lesson_no) {
 		/* fetch id of lesson*/
@@ -241,7 +262,8 @@ public function lessonExists($lesson_no) {
 		}
 	}
 
-	
+	/* method called to insert lesson name in database */
+
 	 public function lesson($lesson_no,$lesson_name,$coursenamelist) {
 
 	if (! $this->lessonExists ($lesson_no)) {
@@ -288,6 +310,8 @@ public function lessonExists($lesson_no) {
 	 		 	 	
 	}
 	
+/* method called to return uploaded files from database */
+
 	public function downloadContent($coursenamelist)
 	{
 		$user_id = $_SESSION ["userID"];
@@ -315,6 +339,8 @@ public function lessonExists($lesson_no) {
 		return $files;
 	
 	}
+
+/* method called to return email of teacher from database for send message */
 	 
 	public function fetchEmailID() {
 		DBConnection::Connect ();
@@ -331,6 +357,7 @@ public function lessonExists($lesson_no) {
 	}
 	
 	/* Uploads content to teachers respective directories under chosen course*/
+
 	public function uploadContent($no,$lesson_name) {
 		$flag=false;
 	if(!$this->lessonExists($no)) {

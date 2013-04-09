@@ -14,7 +14,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 2		1.1			Anirudh pandita		April 06, 2013		Fixed date picker
 * ************************************************************************
 */ 
-//@todo edit profile changes doesnt get reflected back to the view 
+
 $pageName=="EditAdminProfileView";
 //@todo change div ids to proper names
 ?>

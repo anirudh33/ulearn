@@ -1,6 +1,13 @@
 <?php
 /*
- * *************************** Creation Log ******************************* File Name 		- constants.inc Description 	- File is used to have all the configuration variables Version 	- 1.0 Created by 	- Anirudh Pandita Created on 	- March 6 2013 **************************************************************************
+ * *************************** Creation Log ******************************* 
+ * File Name 		- constants.inc 
+ * Description 	- File is used to have all the configuration variables 
+ * Version 	- 1.0 
+ * Created by 	- Anirudh Pandita 
+ * Created on 	- March 6 2013 
+ * **************************************************************************
+ * 
  */
 $Host = $_SERVER["HTTP_HOST"];
 $DB_SERVER = "localhost"; // Database Server machine
