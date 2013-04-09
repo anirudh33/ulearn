@@ -312,7 +312,7 @@ public function lessonExists($lesson_no) {
 	
 /* method called to return uploaded files from database */
 
-	public function downloadContent($coursenamelist)
+	public function downloadContent($coursename)
 	{
 		$user_id = $_SESSION ["userID"];
 		$this->db->Fields ( array (
@@ -323,14 +323,14 @@ public function lessonExists($lesson_no) {
 		$this->db->Select ();
 		$result1 = $this->db->resultArray ();
 		$email = $result1 [0] ['email'];
-		$files="";
-		$path = $_SESSION['SITE_PATH']."/uploads/".$email."/".$coursenamelist;
+		$files=array();
+		$path = $_SESSION['SITE_PATH']."/uploads/".$email."/".$coursename;
 		if ($handle = opendir($path)) {
 			while (false !== ($file = readdir($handle)))
 			{
 				if ($file != "." && $file != "..")
 				{
-					$files .= '<a id="files" target="_blank" href="'."uploads/".$teachernamelist."/".$coursenamelist."/".$file.'">'.$file.'</a><br>';
+					$files[]= "uploads/".$email."/".$coursename."/".$file;
 				}
 			}
 			closedir($handle);
@@ -421,6 +421,10 @@ public function lessonExists($lesson_no) {
 	}
 	
 	return $flag;
+	}
+	
+	public function deleteFile($location) {
+		unlink($_SESSION['SITE_PATH']."/".$location);
 	}
 	
 }

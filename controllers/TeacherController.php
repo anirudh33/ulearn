@@ -163,12 +163,12 @@ class TeacherController extends AController
 		}
 	}
 	public function downloadFile() {
-		$coursenamelist = $_POST ["coursenamelist"];
+		$coursename = $_POST ["coursenamelist"];
 		
 		$this->createUser ();
-		$filelist = $this->_objUser->downloadContent ( $coursenamelist );
+		$filelist = $this->_objUser->downloadContent ( $coursename );
 		
-		$this->showSubStudentViews ( "showContent", $filelist );
+		$this->showSubViews ( "showContent", $filelist );
 	}
 	public function uploadClick() {
 		
@@ -200,6 +200,11 @@ class TeacherController extends AController
 			
 		
 		$this->showView();
+	}
+	public function ondeleteFileClick() {
+		$location=$_GET["location"];
+		$this->createUser();
+		$bool=$this->_objUser->deleteFile($location);
 	}
 }
 
