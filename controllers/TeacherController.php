@@ -199,15 +199,15 @@ class TeacherController extends AController
 	public function uploadFile() {
 		$lesson_no = $_POST ["lesson_no"];
 		$lesson_name = $_POST ["lesson_name"];
-		$coursenamelist = $_POST ["coursenamelist"];
+		$coursename = $_POST ["coursenamelist"];
 		
 		$this->createUser ();
 		
-		$path=$this->_objUser->uploadContent ( $lesson_no, $lesson_name );
+		$path=$this->_objUser->uploadContent ( $lesson_no, $lesson_name,$coursename );
 		
 		if($path!=false) {
 			
-		$this->_objUser->lesson ( $lesson_no, $lesson_name, $coursenamelist,$path );
+		$this->_objUser->lesson ( $lesson_no, $lesson_name, $coursename,$path );
 		}
 			
 		

@@ -202,18 +202,24 @@ class Course extends AModel {
 		) );
 		$this->db->Select ();
 		$courseid = $this->db->resultArray ();
-		$cid = $courseid [0] ['course_id'];
+		
+		
+		
+		
+		foreach ($courseid as $key=>$value) {
+		
 		
 		$this->db->Fields ( array (
 				"coursename" 
 		) );
 		$this->db->From ( "course" );
-		$this->db->Where ( array (
-				"course_id" => $cid 
-		) );
+		$this->db->Where ( array("course_id" => $value["course_id"]));
 		$this->db->Select ();
-		$result = $this->db->resultArray ();
+		$result[] = $this->db->resultArray ();
+		}
+		
 		return $result;
+		
 	}
 	/* method called to return course name from database for student register course */
 	public function fetchStudentCoursename() {

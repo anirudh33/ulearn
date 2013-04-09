@@ -30,12 +30,15 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 			<label>Course </label> 
 			<select name="coursenamelist">
 							 <?php
+							
+								foreach ( $data as $key => $value ) {
+								foreach ($value as $Key1=>$value1) {
+									 ?>
 								
-								foreach ( $data as $key1 => $value1 ) {?>
                                         <option	value="<?php echo $value1["coursename"];?>"> 
                              <?php echo $value1["coursename"];?> </option>
 
-                             <?php } ?>
+                             <?php } }?>
             </select> 
 		</p>
 		<br/>

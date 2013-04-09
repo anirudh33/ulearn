@@ -156,23 +156,28 @@ class Teacher extends AUser {
 			return false;
 		}
 	}
-	
-/* method called to return teacher messages from database */ 
-
-	public function messageShow() {
+	/* Fetching teacher id using emailID we have in session from teacher details table */
+	public function fetchTeacherID()
+	{
 		$uid = $_SESSION ['userID'];
 		DBConnection::Connect ();
-		/* Fetching teacher email id using userID we have in session */
 		$this->db->Fields ( array (
-				"id" 
+				"id"
 		) );
 		$this->db->From ( "teacherdetails" );
 		$this->db->Where ( array (
-				"user_id" => $uid 
+				"user_id" => $uid
 		) );
 		$this->db->Select ();
 		$tIDArray = $this->db->resultArray ();
 		$teacherID = $tIDArray [0] ["id"];
+		return $teacherID;
+	}
+	
+/* method called to return teacher messages from database */ 
+
+	public function messageShow() {
+		$teacherID =$this->fetchTeacherID();
 		/* Fetching message ids and subjects */
 		$this->db->Fields ( array (
 				"message_id",
@@ -246,15 +251,16 @@ class Teacher extends AUser {
 	}
 
 /* method called to check if lesson already exists in database */
-
-public function lessonExists($lesson_no) {
+public function lessonExists($lesson_no,$courseID,$teacherID) {
 		/* fetch id of lesson*/
 		$this->db->Fields ( array (
 				"lesson_id" 
 		) );
 		$this->db->From ( "lesson" );
 		$this->db->Where ( array (
-				"lesson_no" => $lesson_no
+				"lesson_no" => $lesson_no,
+				"course_id" => $courseID,
+				"teacher_id" =>$teacherID
 		) );
 		$this->db->Select ();
 		
@@ -269,9 +275,9 @@ public function lessonExists($lesson_no) {
 
 	/* method called to insert lesson name in database */
 
-	 public function lesson($lesson_no,$lesson_name,$coursenamelist,$path) {
-
-	if (! $this->lessonExists ($lesson_no)) {
+	 public function lesson($lesson_no,$lesson_name,$coursename,$path) {
+	 	$teacherID=$this->fetchTeacherID();
+	if (! $this->lessonExists ($lesson_no,$coursename,$teacherID)) {
 			$flag = TRUE;
 		if ($flag == TRUE) {
 
@@ -292,7 +298,7 @@ public function lessonExists($lesson_no) {
 	 	) );
 	 	$this->db->From ( "course" );
 	 	$this->db->Where ( array (
-	 			"coursename" => $coursenamelist
+	 			"coursename" => $coursename
 	 	) );
 	 	$this->db->Select ();
 	 	$id1 = $this->db->resultArray ();
@@ -364,9 +370,10 @@ public function lessonExists($lesson_no) {
 	
 	/* Uploads content to teachers respective directories under chosen course*/
 
-	public function uploadContent($no,$lesson_name) {
+	public function uploadContent($no,$lesson_name,$coursename) {
 		$flag=false;
-	if(!$this->lessonExists($no)) {
+		$teacherID=$this->fetchTeacherID();
+	if(!$this->lessonExists($no,$coursename,$teacherID)) {
 
 		$n = count ( $_FILES ['upload'] ['name'] );
 		
@@ -395,7 +402,7 @@ public function lessonExists($lesson_no) {
 						 in_array ( $extension, $allowedExts )) {
 						
 					//@todo throw message if file format not supported or any other error
-						$path = "uploads/" . $_SESSION ['emailID'] . "/" . $_POST ["coursenamelist"] . "/";
+						$path = "uploads/" . $_SESSION ['emailID'] . "/" . $coursename . "/";
 						$path = $path ."Lesson $no $lesson_name";
 						If(!file_exists($path)) {			
 						if (move_uploaded_file ( $_FILES ['upload'] ['tmp_name'] [$i], $path)) {

@@ -12,15 +12,13 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
 * ************************************************************************
 */
-
-print_r($data);	
 $lang = Language::getinstance();
 $obj_paging = new paging();
 
 if (isset($_GET['page']))
-    $page = $_GET['page'];
+	$page = $_GET['page'];
 else
-    $page = 1;
+	$page = 1;
 $obj_paging->set_page($page);
 $obj_paging->set_page_length(10);
 $page_length = $obj_paging->page_length;
@@ -46,7 +44,7 @@ $pages = $obj_paging->get_pages();
 					<td> Filename</td>
 					
 					
-		
+					<td>Option</td>
 				</tr>
                 <?php
                 if ($data) {
@@ -61,6 +59,7 @@ $pages = $obj_paging->get_pages();
                         	
 
                             <td> <a target='_blank' href='<?php echo "$row"?>'> <?php echo $row?> </a></td>
+                            
                             
                             
                             		
@@ -90,36 +89,3 @@ $pages = $obj_paging->get_pages();
             </table>
 		</div>
 </div>
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="contentView"  align="center">
-<b><?php echo $data."<br/>";?></b>		   	
-</div>
-
-	
-
-
-
-
-
-
-
-
-
-
-

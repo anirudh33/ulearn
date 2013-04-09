@@ -1,11 +1,25 @@
 Options -Indexes	
+Options +FollowSymLinks 
+RewriteEngine On
+RewriteRule ^/?ulearn/branches/development/index/(.*)/(.*)$ ulearn/branches/development/index.php?method=$1&controller=$2 [L,QSA]
 
-RewriteEngine on
+RewriteCond %{THE_REQUEST} ^(GET|HEAD|POST)\ /ulearn/branches/development/index\.php\?method=([^&]+)&controller=([^&\ ]+)([^\ ]*)
+RewriteRule ^ /ulearn/branches/development/index/%2/%3?%4 [R=301,L,NE]
+
+
+
+
+#RewriteCond %{THE_REQUEST} ^(GET|HEAD|POST)\ /ulearn/branches/development/index/(.*/)/(.*)
+#RewriteRule ^/ulearn/branches/development/index.php\?method=$2\&controller=$3	[R=301,L,NE]
+
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([^/]+)/([^/]+)$ index.php?method=$1&controller=$2 [L,QSA]
+#RewriteRule ^/?ulearn/branches/development/index/(.*)/(.*)$ ulearn/branches/development/index.php?method=$1&controller=$2 [L,QSA]
 
 #If file not found go to custom error page
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.*$ /ulearn/branches/development/error.php [L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^.*$ /ulearn/branches/development/error.php [L]
 
 ## PROTECT FILES ###
 <filesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh|php)$">
@@ -13,7 +27,9 @@ RewriteRule ^.*$ /ulearn/branches/development/error.php [L]
   Deny from all
 </filesMatch>
 
-<FilesMatch "index.php|error.php">
+<FilesMatch "index.php|error.php|securimage_show.php">
     Order Allow,Deny
     Allow from all
 </FilesMatch>
+
+#RewriteRule localhost/ulearn/branches/development/register localhost/ulearn/branches/development/index.php?method=registerClick&controller=Main
