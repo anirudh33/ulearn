@@ -90,11 +90,29 @@ class Language
             "EDIT"=>'Edit',
             'PERSONALDETAILS'=>"Personal Details ",
 	    'COURSENAME'=>"Course Name",
+	    'YOURNAME'=>"Your Name",
+	'EMAILADDRESS'=>"Email Address",
+	'MESSAGE'=>"Message",
+	'CHOOSEFROM'=>"Choose from the following",
+	'NAME'=>"Name",
+	'CONTACTNO'=>"Contact Number",
+	'REPORT'=>"Report Generate",
+	'GENERATEREPORTPANEL'=>"Generate Report Panel",
+	'SELECTREPORT'=>"Select Report Category"
 		
             
             
         ),
         'HINDI' => array(
+		'SELECTREPORT'=>"रिपोर्ट श्रेणी का चयन करें",
+		'GENERATEREPORTPANEL'=>"रिपोर्ट पैनल उत्पन्न",
+		'REPORT'=>"उत्पन्न रिपोर्ट",
+			'CONTACTNO'=>"संपर्क नंबर",
+			'NAME'=>"नाम",
+		'CHOOSEFROM'=>"निम्नलिखित में से चुनें",
+		'MESSAGE'=>"संदेश",
+		'EMAILADDRESS'=>"ईमेल एड्रेस",
+	'YOURNAME'=>"आपका नाम",
         'COURSENAME'=>"कोर्स का नाम",
         "EDIT"=>'संपादित करें',
         "RECIEVE"=>'हम अपनी साइट के द्वारा व्यक्तिगत प्रस्ताव प्राप्त करना चाहते हैं',

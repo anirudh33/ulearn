@@ -181,15 +181,15 @@ if (isset($_REQUEST["msg"])) {
 								action="index.php?method=sendmail&controller=Main"> 
 <fieldset>
 <legend><img alt="" src="assets/images/img/contact_me.png"></legend>
-							<label  style="color:black;font-weight:bold" for='name'>Your Name:</label> </br></br>
+							<label  style="color:black;font-weight:bold" for='name'><?php echo  $lang->YOURNAME; ?></label> </br></br>
 							<input type="text" name="name" id="name">
 							</br>
 							<p>
-							<label style="color:black;font-weight:bold" for='email'>Email Address:</label> </br></br>
+							<label style="color:black;font-weight:bold" for='email'><?php echo  $lang->EMAILADDRESS; ?></label> </br></br>
 							<input type="text" id="email" name="email"> </br></br>
 							</p>
 							<p>
-							<label style="color:black;font-weight:bold" for='message'>Message:</label> </br></br>
+							<label style="color:black;font-weight:bold" for='message'><?php echo $lang->MESSAGE; ?></label> </br></br>
 							<textarea id="message" name="message"></textarea></br></br>
 							</p>
 							<input type="submit" value="Submit"></br></br>

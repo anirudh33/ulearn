@@ -468,11 +468,11 @@ function pieChart() {
 
 <form action="index.php?method=showreport&controller=Admin" method="POST" class="report">
 
-	<h1> Report Generate</h1>
+	<h1><?php echo $lang->REPORT;?></h1>
 <div id="one">
 <fieldset class="row2">
-	<legend>Generate Reports Panel </legend>
-	<h4 > Select Report Category </h4><br><br>
+	<legend><?php echo $lang->GENERATEREPORTPANEL;?> </legend>
+	<h4 ><?php echo $lang->SELECTREPORT;?> </h4><br><br>
 	
 <h2 align=left> To see the total number of of registered users in Ulearn :</h2>			<br><br>
 	<p>

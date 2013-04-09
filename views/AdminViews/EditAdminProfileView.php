@@ -35,24 +35,24 @@ $pageName=="EditAdminProfileView";
 		<fieldset class="row2">
 			<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 			<p>
-				<label>First Name * </label> <input type="text" id="firstname"
+				<label><?php echo $lang->FIRSTNAME;?> * </label> <input type="text" id="firstname"
 					name="firstname" class="long"
 					value=<?php echo $admindata[0]['firstname'];?>><br><br>
 			</p>
 			<p>
-				<label>Last Name * </label> 
+				<label><?php echo $lang->LASTNAME;?> * </label> 
 				<input type="text" id="lastname" name="lastname" class="long" 
 				value=<?php echo $admindata[0]['lastname'];?>><br><br>
 			</p>
 			<p>
-				<label>Phone </label> 
+				<label><?php echo $lang->PHONE;?> </label> 
 				<input type="text" id="phone" name="phone" maxlength="10" 
 				value='<?php echo $admindata[0]['phone']; ?>' ><br><br>
 
 			</p>
 
 			<p>
-				<label>Address </label>
+				<label><?php echo $lang->ADDRESS;?></label>
 				 <input type="text" id="address" name="address" class="long" 
 				 value='<?php echo $admindata[0]['address'];?>' >
 			</p>
@@ -65,7 +65,7 @@ $pageName=="EditAdminProfileView";
 			
 			
 			<div class="fieldgroup">
-				<label for="qualification">Qualification</label> <br><br><br><br><br><br><br><br><br><br><br><br>
+				<label for="qualification"><?php echo $lang->QUALIFICATION;?></label> <br><br><br><br><br><br><br><br><br><br><br><br>
 				<select
 					name="qualification">
 					<option
@@ -96,7 +96,7 @@ $pageName=="EditAdminProfileView";
 <?php $strGender=$admindata[0]['gender'];?>
 				
 			<div class="fieldgroup">
-                <label for="gender">Gender</label>
+                <label for="gender"><?php echo $lang->GENDER;?></label>
                  <p>
                 <label class="gender">Male</label>
                 <input type="radio" name="gender" <?php if ($strGender == "m") { echo "checked";}?>  
@@ -118,7 +118,7 @@ $pageName=="EditAdminProfileView";
 					<p>
 						
 					<div class="fieldgroup">
-                <label for="date">Date Of Birth</label>
+                <label for="date"><?php echo $lang->BIRTHDATE;?></label>
                <input type="text" id="datepicker23" name="dob" value=<?php echo $strDob;?>>
             </div>
 					 

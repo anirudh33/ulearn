@@ -68,20 +68,20 @@ $pageName="AdminProfileView";
 						<?php 	}?>
 				
 			</div><br><br>
-			<h1>About Me:</h1>
+			<h1><?php echo $lang->ABOUTME; ?></h1>
 <br>
 <div id="userdetails">
 	<div id="data">
-		<h3>Name :</h3> <h4> <?php echo $adminprofiledata[0]['firstname'];?>&nbsp<?php echo $adminprofiledata[0]['lastname'];?></h4>
+		<h3><?php echo $lang->NAME; ?>:</h3> <h4> <?php echo $adminprofiledata[0]['firstname'];?>&nbsp<?php echo $adminprofiledata[0]['lastname'];?></h4>
 		<div class="line-separator"></div>	
-<h3>Qualification:  </h3> <h4><?php echo $adminprofiledata[0]['qualification'];?></h4>
+<h3><?php echo $lang->QUALIFICATION; ?>:  </h3> <h4><?php echo $adminprofiledata[0]['qualification'];?></h4>
 <div class="line-separator"></div>
-<h3>Date of Birth:  </h3> <h4><?php echo $adminprofiledata[0]['dob'];?></h4>
+<h3><?php echo $lang->BIRTHDATE;?>:  </h3> <h4><?php echo $adminprofiledata[0]['dob'];?></h4>
 <div class="line-separator"></div>
 
-<h3>Contact Number:  </h3> <h4><?php echo $adminprofiledata[0]['phone'];?></h4>
+<h3><?php echo $lang->CONTACTNO;?>:  </h3> <h4><?php echo $adminprofiledata[0]['phone'];?></h4>
 <div class="line-separator"></div>
-<h3>Address:  </h3> <h4><?php echo $adminprofiledata[0]['address'];?></h4>
+<h3><?php echo $lang->ADDRESS;?>:  </h3> <h4><?php echo $adminprofiledata[0]['address'];?></h4>
 
 	</div>
 		</div>
