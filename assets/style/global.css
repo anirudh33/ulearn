@@ -16,6 +16,20 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 /* global.css styles */
 
 /* @group resets and elements */
+
+
+
+
+.line-separator{
+
+height:1px;
+
+background:#C0C0C0;
+
+border-bottom:1px  #C0C0C0;
+
+}
+
 * { margin: 0; padding: 0; }
 
 html { height: 101%; font-family: “Helvetica Neue”, Arial, Helvetica, sans-serif; background: #fff; }
@@ -68,7 +82,7 @@ ul#n li a { display: block; padding: 0 11px; color: #969696; font-size: 15px; fo
 
 ul#n li.sel { background: #b4e127; border: 3px solid #c1ff00; border-top: 0px; border-bottom: 0px; }
 ul#n li.sel a { color: #fff; text-shadow: 0px 1px 2px #88b618; }
-#userdetails { width: auto; background-color: #f9f9f9; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; }
+#userdetails { width: 830px; background-color: #f9f9f9; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; }
 #userdetails .data { float: left; position:absolute; width: 350px; height: 200px; padding: 4px; padding-left: 15px; background: #e6e6e6; overflow:  hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
 #userdetails .data h1 { color: #474747; line-height: 1.6em; text-shadow: 0px 1px 1px #fff; }
 #userdetails .data h3 { color: #666; line-height: 0.9em; margin-bottom: 5px;  }
@@ -76,14 +90,14 @@ ul#n li.sel a { color: #fff; text-shadow: 0px 1px 2px #88b618; }
 #userdetails .data .sep { clear: both; margin-top: 40px; width: 320px; height: 5px; border-bottom: 1px solid #ccc; margin-bottom: 0; }
 
 /* @group left */
-#userStats { width: auto; background-color: #f9f9f9; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; }
+#userStats { width: 880px; background-color: #f9f9f9; border: 1px solid #ccc; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; }
 
 
 #userStats .pic { float: left;  margin-right: 10px; }
 #userStats .pic a img { padding: 7px; background: #fff; border: 1px solid #ccc; }
 
-#userStats .data { float: left; position:relative; width: 350px; height: 200px; padding: 4px; padding-left: 15px; background: #e6e6e6; overflow:  hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
-#userStats .data h1 { color: #474747; line-height: 1.6em; text-shadow: 0px 1px 1px #fff; }
+#userStats .data { float: left; position:relative; width: 700px; height: 200px; padding: 4px; padding-left: 15px; background: #e6e6e6; overflow:  hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
+#userStats .data h1 { color: #474747; line-height: 1.6em; text-shadow: 0px 1px 1px #fff; width:550px; }
 #userStats .data h3 { color: #666; line-height: 0.9em; margin-bottom: 5px; }
 #userStats .data h4 { font-size: 1.2em; line-height: 1.3em; }
 

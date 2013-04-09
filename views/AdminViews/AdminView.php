@@ -119,8 +119,8 @@ if(isset($studentreportdata)and isset($teacherreportdata))
 
 
 			<div id="functionpanel">
-
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<h2 id="menuheading"> Choose from following : </h2>
 				<div class="arrowgreen">
 					 <ul class="nav nav2">
 					 <div class="li1">

@@ -21,6 +21,8 @@ class AdminController extends AController
     /**
      * @var Stores required type of user to check for Admin controller
      */
+
+protected $_message="";
     protected  $_requiredType = "admin";
     
     /**
@@ -283,7 +285,8 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
 	if(!isset($_POST["usertype"]) and !isset($_POST["choice"]) )
 	{
 			$message="Please select report category <br>";
-            	$this->setCustomMessage("ErrorMessage", $message);
+		$this->setMessage($message);
+            	$this->setCustomMessage("ErrorMessage", $this->getMessage());
             	$this->generateReport();
 		
 	}

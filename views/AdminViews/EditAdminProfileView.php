@@ -30,24 +30,24 @@ $pageName=="EditAdminProfileView";
 	<form id="form"	action="index.php?method=editAdminClick&controller=Admin" 
 	method="POST" class="register">
 
-		<h1><?php echo $lang->EDITPROFILE;?></h1>
+		<h1><?php echo $lang->EDITPROFILE;?></h1><br><br><br><br><br><br>
 
 		<fieldset class="row2">
 			<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 			<p>
 				<label>First Name * </label> <input type="text" id="firstname"
 					name="firstname" class="long"
-					value=<?php echo $admindata[0]['firstname'];?>>
+					value=<?php echo $admindata[0]['firstname'];?>><br><br>
 			</p>
 			<p>
 				<label>Last Name * </label> 
 				<input type="text" id="lastname" name="lastname" class="long" 
-				value=<?php echo $admindata[0]['lastname'];?>>
+				value=<?php echo $admindata[0]['lastname'];?>><br><br>
 			</p>
 			<p>
 				<label>Phone </label> 
 				<input type="text" id="phone" name="phone" maxlength="10" 
-				value='<?php echo $admindata[0]['phone']; ?>' >
+				value='<?php echo $admindata[0]['phone']; ?>' ><br><br>
 
 			</p>
 
@@ -55,18 +55,17 @@ $pageName=="EditAdminProfileView";
 				<label>Address </label>
 				 <input type="text" id="address" name="address" class="long" 
 				 value='<?php echo $admindata[0]['address'];?>' >
-
 			</p>
 
 
 			<p>
 			<?php 
 			
-			$strQualification = $admindata [0] ['qualification'];
-			?>
+			$strQualification = $admindata [0] ['qualification'];?>
+			
 			
 			<div class="fieldgroup">
-				<label for="qualification">Qualification</label> 
+				<label for="qualification">Qualification</label> <br><br><br><br><br><br><br><br><br><br><br><br>
 				<select
 					name="qualification">
 					<option
@@ -85,11 +84,13 @@ $pageName=="EditAdminProfileView";
 
 			</p>
 
+<br><br>
 
-
-		</fieldset>
+		</fieldset><br><br>
 		<fieldset class="row3">
+
 			<legend><?php echo $lang->FURTHERINFO;?></legend>
+
 			<p>
 
 <?php $strGender=$admindata[0]['gender'];?>
