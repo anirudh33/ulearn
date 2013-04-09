@@ -140,8 +140,10 @@ abstract class AController {
 	
 	public function subjectClick() {
 		$aid = $_REQUEST ["msgid"];
+		
 		$this->createUser ();
 		$result = $this->_objUser->messageBody ( $aid );
+		
 		$this->showSubViews ( "MessageBody", $result );
 	}
 	/**
