@@ -49,7 +49,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 											|| !(/(<([^>]+)>)/i.test(value));
 								});
 
-						$.validator
+					/*	$.validator
 								.addMethod(
 										"checkemail",
 										function(value, element) {
@@ -65,6 +65,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 														}
 													});
 										});
+										*/
 
 						$("#register-form")
 								.validate(
@@ -95,7 +96,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 												email : {
 													required : true,
 													email : true,
-													checkemail : true,
+													//checkemail : true,
 													script : true,
 
 												},
@@ -201,7 +202,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 													script : "Dont use script here",
 												},
 												email : {
-													checkemail : "Email already exists",
+													//checkemail : "Email already exists",
 													email : "Please enter a valid email address",
 
 													script : "Dont use script here",
