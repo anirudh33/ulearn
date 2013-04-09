@@ -13,6 +13,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 														miscellaneous notices fixed 
 * ************************************************************************
 */
+
 class TeacherController extends AController
 {
 
@@ -191,11 +192,11 @@ class TeacherController extends AController
 		
 		$this->createUser ();
 		
-		$bool=$this->_objUser->uploadContent ( $lesson_no, $lesson_name );
+		$path=$this->_objUser->uploadContent ( $lesson_no, $lesson_name );
 		
-		if($bool==true) {
+		if($path!=false) {
 			
-		$this->_objUser->lesson ( $lesson_no, $lesson_name, $coursenamelist );
+		$this->_objUser->lesson ( $lesson_no, $lesson_name, $coursenamelist,$path );
 		}
 			
 		

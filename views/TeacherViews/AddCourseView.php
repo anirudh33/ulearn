@@ -1,5 +1,5 @@
 <?php 
-<?php 
+
 /* Creation Log
 
 File Name                   -  AddCouseView.php

@@ -237,7 +237,8 @@ class Teacher extends AUser {
 				"message_id" => $aid 
 		) );
 		$this->db->Select ();
-		$result = $this->db->resultArray ();  			       		return $result;
+		$result = $this->db->resultArray ();  			       		
+		return $result;
 	}
 
 /* method called to check if lesson already exists in database */
@@ -264,7 +265,7 @@ public function lessonExists($lesson_no) {
 
 	/* method called to insert lesson name in database */
 
-	 public function lesson($lesson_no,$lesson_name,$coursenamelist) {
+	 public function lesson($lesson_no,$lesson_name,$coursenamelist,$path) {
 
 	if (! $this->lessonExists ($lesson_no)) {
 			$flag = TRUE;
@@ -299,7 +300,8 @@ public function lessonExists($lesson_no) {
 	 					"lesson_name" => "$lesson_name",
 	 					"createdon" => date ( "Y/m/d" ),
 	 	 				"course_id" => "$cid" ,
-	 	 				"teacher_id" => "$tid"
+	 	 				"teacher_id" => "$tid",
+	 	 				"location"=>"$path"
 	 	 		) );
 	 	 		$this->db->Insert ();
 	}
@@ -394,14 +396,16 @@ public function lessonExists($lesson_no) {
 						if (move_uploaded_file ( $_FILES ['upload'] ['tmp_name'] [$i], $path)) {
 							$message='The file uploaded successfully';
 							$this->setCustomMessage("SuccessMessage", $message);
-							$flag=true;
+							
 						} else {
 							$message="Move upload failed";
 							$this->setCustomMessage("ErrorMessage", $message);
+							unset($path);
 						}
 						} else {
 							$message='The file with same name already exists';
 							$this->setCustomMessage("ErrorMessage", $message);
+							unset($path);
 						}
 					} else{
 							$message='File type not supported or size larger than 10 MB';
@@ -419,12 +423,28 @@ public function lessonExists($lesson_no) {
 		$this->setCustomMessage("ErrorMessage", $message);
 		
 	}
-	
-	return $flag;
+	if(isset($path))
+	{
+	return $path;
+	} else {
+		return false;
+	}
 	}
 	
 	public function deleteFile($location) {
+		
 		unlink($_SESSION['SITE_PATH']."/".$location);
+		DBConnection::Connect ();
+		
+		$this->db->From ( "lesson" );
+		$this->db->Where ( array (
+				"location" => $location
+		) );
+		$this->db->Delete ();
+		$result = $this->db->resultArray ();
+		if($result==true){
+			echo "deleted";
+		}
 	}
 	
 }
