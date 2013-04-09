@@ -1,4 +1,14 @@
+<?php 
+/* Creation Log
 
+File Name                   -  UploadView.php
+Description                 -  Displays all files uploaded by teacher in chosen course
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  April 2, 2013
+* **************************** Update Log ********************************
+*/
+?>
 
 <div id="registerdiv">
 

@@ -1,7 +1,7 @@
 <?php /* Creation Log
 
-File Name                   -  AdminView.php
-Description                 -  Landing page of Teacher contains all functions Admin may perform
+File Name                   -  TeacherProfileView.php
+Description                 -  displays teacher profile
 Version                     -  1.0
 Created by                  -  Tanu Trehan
 Created on                  -  March 28, 2013
@@ -11,14 +11,15 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
 * ************************************************************************
 */
+
 if(isset($data[0]['profilepicture'])) {
 /*Creating profile picture image resource*/
-$image=imagecreatefromstring($data[0]['profilepicture']);
+//$image=imagecreatefromstring($data[0]['profilepicture']);
 /* Storing picture to file with custom quality range 1 - 100 */
-imagejpeg($image,"assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
+//imagejpeg($image,"assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
 }
 ?>
-	<header>
+	<header id="header1">
 
 		<div class="wrapper">
 
@@ -34,10 +35,10 @@ imagejpeg($image,"assets/images/Views/profilepics/teacherprofile".$_SESSION['use
 	<div id="content" class="clearfix">
 		<section id="left">
 			<div id="userStats" class="clearfix">
-				<div class="pic">
-					<a href="#"><img alt="no image" src="assets/images/Views/profilepics/teacherprofile<?php echo $_SESSION['userID']; ?>.jpeg" width="150"
-						height="195" /></a>
-				</div>
+<div class="pic">
+					<a href="#"><img src="assets/images/Views/profilepics/default_avatar2.jpg"<?php echo $_SESSION['userID'];?> width="150" height="150" /></a>
+				</div
+				
 				<?php
 				
 if (! empty ( $data )) {

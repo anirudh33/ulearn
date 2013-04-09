@@ -19,7 +19,7 @@ if(isset($adminprofiledata[0]['profilepicture'])) {
 //imagejpeg($image,"assets/images/Views/profilepics/adminprofile".$_SESSION['userID'].".jpeg",20); 
 }
 $pageName="AdminProfileView";
-//@todo move the following header to admin view so that log out shows on each page if sounds fine
+
 
 ?>
 	<header id="header1">

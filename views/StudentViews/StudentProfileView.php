@@ -1,7 +1,7 @@
 <?php /* Creation Log
 
-File Name                   -  AdminView.php
-Description                 -  Landing page of Student contains all functions Admin may perform
+File Name                   -  StudentProfileView.php
+Description                 -  displays student profile
 Version                     -  1.0
 Created by                  -  Tanu Trehan
 Created on                  -  March 28, 2013

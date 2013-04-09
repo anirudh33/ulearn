@@ -1,8 +1,8 @@
 <?php 
 /* Creation Log
 
-File Name                   -  TeacherView.php
-Description                 -  Landing page of Teacher contains all functions teacher may perform
+File Name                   -  RegisterCourseView.php
+Description                 -  displays course registeration page 
 Version                     -  1.0
 Created by                  -  Tanu trehan
 Created on                  -  March 28, 2013

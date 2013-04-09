@@ -23,9 +23,11 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 		<div id="header">
 
 			<img alt="" src="assets/images/Views/ulearn.gif"
-				style="float: left;  width: 350px;"> 
+				style="float: left; padding: 50px; width: 280px;"> 
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			 <a	id="logout33" href="index.php?method=logout&controller=Admin">LOG OUT</a>
+			 <div id="logout" style="float:right;">
+			 <a id="logout33" href="index.php?method=logout&controller=Admin">LOG OUT</a>
+			</div>
 		</div>
 
 
@@ -113,27 +115,36 @@ if ($viewName == "viewMessage" && (! empty ( $data ))&& (! empty ( $result2 )))
 
 			<div id="functionpanel">
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<h2 id="menuheading"> Choose from following : </h2><br><br>
 				<div class="arrowgreen">
-					<ul>
+					 <ul class="nav nav2">
+					 <div class="li1">
 
 						<li><a href="index.php?method=uploadClick&controller=Teacher"
-							id="link1">Upload Study Material</a></li>
+							id="link1">Upload Study Material</a></li></div>
+					<div class="li1">
 						<li><a href="index.php?method=messageClick&controller=Teacher"
-							id="link1">Write Message</a></li>
+							id="link1">Write Message</a></li></div>
+					<div class="li1">
 						<li><a href="index.php?method=editProfileClick&controller=Teacher"
-							id="link1">Edit Profile</a></li>
-<li><a href="index.php?method=addCourseClick&controller=Teacher">Add
-								Course</a></li>
+							id="link1">Edit Profile</a></li></div>
+					<div class="li1">
+						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add
+								Course</a></li></div>
+					<div class="li1">
 						<li><a href="index.php?method=editCourseClick&controller=Teacher">Edit
-								Course</a></li>
+								Course</a></li></div>
+					<div class="li1">
 						<li><a
 							href="index.php?method=registerCourseClick&controller=Teacher">Register
-								Course</a></li>
+								Course</a></li></div>
+					<div class="li1">
 						<li><a href="index.php?method=viewMessageClick&controller=Teacher">View
-								Messages</a></li>
+								Messages</a></li></div>
+					<div class="li1">
 								<li><a href="index.php?method=downloadClick&controller=Teacher"
-							id="link1">View Study Material</a></li>
+							id="link1">View Study Material</a></li></div>
 
 					</ul>
 				</div>

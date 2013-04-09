@@ -2,7 +2,7 @@
 /* Creation Log
 
 File Name                   -  MessageBodyView.php
-Description                 -  Displays all files uploaded by chosen teacher and course to student
+Description                 -  Displays the message body
 Version                     -  1.0
 Created by                  -  Tanu trehan
 Created on                  -  April 2, 2013

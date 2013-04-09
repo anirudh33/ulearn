@@ -166,9 +166,9 @@ if($pageName=="RegistrationView") {
 <link rel="stylesheet" type="text/css"
 	href="assets/style/ManageTeacherView.css" media="screen">
 <!-- Edit profile View header -->
+
 <link rel="stylesheet" href="assets/style/editprofile.css"
 	type="text/css" media="screen">
-
 <script type="text/javascript" src="./assets/js/Validation.js"></script>
 <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
 

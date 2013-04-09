@@ -1,4 +1,15 @@
-<?php //@todo text area click should put cursor to first position ?>
+<?php 
+<?php 
+/* Creation Log
+
+File Name                   -  AddCouseView.php
+Description                 -  Displays all courses added by teacher
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  April 2, 2013
+* **************************** Update Log ********************************
+*/
+//@todo text area click should put cursor to first position ?>
 
 
 <div id="registerdiv">
