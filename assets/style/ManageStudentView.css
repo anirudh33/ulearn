@@ -35,13 +35,7 @@ height: 20px;
 font-weight:bold;
 }
 
-a:link, a:visited {
 
-color: #0000CD;
-
-text-decoration: none;
-
-}
 .tabular-cnt tr{background:#d2d2d2;}
 .tabular-cnt .tbl-hd{background:#2c2c2c; color:#fff; font-weight:bold;}
 .tabular-cnt .atnate{background:#f3f3f3;}
@@ -57,8 +51,7 @@ text-decoration: none;
 {
 	font-weight:bold;
 }
-a{ text-decoration:none;}
-a:hover{color:#333; text-decoration:underline;}
+
 
 header#header {
 

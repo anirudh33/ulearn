@@ -32,9 +32,10 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 			<img alt="" src="assets/images/Views/ulearn.gif"
 				style="float: left; padding: 50px; width: 280px;">
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			 <a	id="logout33" href="index.php?method=logout&controller=Admin">LOG OUT</a>
-
-		</div>
+			<div id="logout" style="float:right;">
+			 <a id="logout33" href="index.php?method=logout&controller=Admin">LOG OUT</a>
+			</div>
+		</div>	
 
 
 

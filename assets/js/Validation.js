@@ -83,6 +83,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 												},
 												phone : {
+														
 													number:true,
 													url : true,
 													script : true,
@@ -116,6 +117,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 													script : "Dont use script here"
 												},
 												phone: {
+												
 												minlength: "Your phone must be at least 10 characters long",
 							                    maxlength: "Not more than 10 characters",
 							                    url:"Url not allowed",

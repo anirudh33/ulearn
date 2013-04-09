@@ -28,7 +28,8 @@
 }
 
 #image {
-	background-image: url("../images/Views/imagesf.jpg");
+	background-color:#E5DEAF;
+/*	background-image: url("../images/Views/imagesf.jpg");*/
 	/*../images/Views/open-edu-content.jpg*/
 	width: 100%;
 	height: 1600px; //

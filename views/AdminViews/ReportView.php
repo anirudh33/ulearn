@@ -61,6 +61,7 @@ body {
 
 #chartData {
   width: 200px;
+height:200px;
   margin: 0 40px 0 0;
   float: right;
   border-collapse: collapse;

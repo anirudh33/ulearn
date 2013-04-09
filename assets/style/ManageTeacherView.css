@@ -40,10 +40,6 @@ html {
 	font-weight: bold;
 }
 
-a:link,a:visited {
-	color: #0000CD;
-	text-decoration: none;
-}
 
 .tabular-cnt tr {
 	background: #d2d2d2;
@@ -84,10 +80,6 @@ a:link,a:visited {
 	font-weight:bold;
 }
 
-a:hover {
-	color: #333;
-	text-decoration: underline;
-}
 
 header#header {
 	height: 55px;

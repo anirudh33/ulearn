@@ -154,8 +154,8 @@ html ul.tabs li.active,html ul.tabs li.active a:hover {
 }
 
 #image {
-	background-image: url("../images/Views/imagesf.jpg");
-	/*../images/Views/open-edu-content.jpg*/
+	background-color:#E5DEAF;
+/*	background-image: url("../images/Views/imagesf.jpg");*/
 	width: 100%;
 	height: 670px; //
 	opacity: 0.20; repeat; //
@@ -207,7 +207,7 @@ html ul.tabs li.active,html ul.tabs li.active a:hover {
 	font:20px verdana;
 }
 .arrowgreen {
-	width: 125%; /*width of menu*/
+	width: 100%; /*width of menu*/
 	
 	
 	border-size: 1px;
@@ -220,7 +220,7 @@ html ul.tabs li.active,html ul.tabs li.active a:hover {
 	border-color: #94AA74;
 	
 	border-size: 1px;
-	border-width: 2px;
+	border-width: 1px;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;

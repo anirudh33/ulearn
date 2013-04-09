@@ -148,111 +148,29 @@ if (isset($_REQUEST["msg"])) {
 					
 
 							  <div id="tab1" class="tab_content">
-							  <img alt="" src="assets/images/Views/images67.jpeg" height=400px width=500px>
-							  <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
-								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
-								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
-								Maecenas urna enim, molestie eu egestas convallis, gravida
-								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
-								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
-								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
-								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
-								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
-								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
-								enim consectetur venenatis. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
-								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
-								
-								
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
-								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
-								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
-								Maecenas urna enim, molestie eu egestas convallis, gravida
-								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
-								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
-								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
-								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
-								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
-								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
-								enim consectetur venenatis. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
-								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
-								
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
-								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
-								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
-								Maecenas urna enim, molestie eu egestas convallis, gravida
-								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
-								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
-								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
-								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
-								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
-								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
-								enim consectetur venenatis. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
-								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
-								
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
-								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
-								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
-								Maecenas urna enim, molestie eu egestas convallis, gravida
-								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
-								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
-								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
-								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
-								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
-								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
-								enim consectetur venenatis. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
-								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
-								
-								
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
-								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
-								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
-								Maecenas urna enim, molestie eu egestas convallis, gravida
-								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
-								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
-								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
-								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
-								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
-								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
-								enim consectetur venenatis. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
-								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.
-								
-								
-								
-								
-								
-								
-								</h2>
+							  <img alt="" src="assets/images/Views/images67.jpeg" height=500px width=500px>
+							  <h1 id="homeheading">Ulearn </h1>
+							<div class="meta">The <span>Educational World</span> you can <span>explore</span></div>
+							
+							<h2 id="homecontent">
+							<p>eLearning is a new tool which has the potential to enhance and support the<br> 								   traditional learning system and already it is becoming an integral part of the 								   learning tools used by every educational organization.</p>	
+							<p>The learning process needs techniques and tools to present the knowledge (from 								   different resources), interact with it and share it with others. In this context, 								   eLearning is becoming an important tool to support the learning system to achieve 								   its goals. eLearning became hot topic in the 1990's after the spread of the   								   Internet. Although it has a relative short history, it is becoming an important 								   part of the learning. The majority of the universities adopted some kinds of 							  eLearning within its learning system.</p>
+
+							</h2>
 					
 								
 						</div>
-						<div id="tab2" class="tab_content">
-							<img alt="" src="assets/images/Views/tab1_image.jpg">
-							<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-								bibendum nibh enim. Aenean pharetra fermentum dui nec interdum.
-								Nam volutpat, odio a faucibus mattis, nunc ligula varius erat,
-								non imperdiet diam eros sit amet orci. Donec eu consequat velit.
-								Maecenas urna enim, molestie eu egestas convallis, gravida
-								malesuada orci. Aliquam at elit massa, sit amet interdum tortor.
-								Morbi nibh lectus, rhoncus nec ullamcorper sit amet, dictum et
-								neque. Nulla accumsan elementum erat id ornare. Aenean dictum,
-								odio at porttitor eleifend, arcu urna faucibus neque, at commodo
-								tortor felis vel leo. Suspendisse potenti. Ut euismod blandit
-								vulputate. Aliquam nec dolor nisl. Aliquam porttitor libero sed
-								enim consectetur venenatis. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit. Curabitur nulla ligula, interdum ac
-								molestie vitae, imperdiet in orci. Donec id ullamcorper lacus.</h2>
+						  <div id="tab2" class="tab_content">
+							  <img alt="" src="assets/images/Views/we.jpeg" height=500px width=500px>
+							  <h1 id="homeheading">What we Offer..</h1>
+							<div class="meta">The <span>Services</span> we offer <span> to you </span></div>
+							
+							<h2 id="homecontent">
+							<p>We provide a platform where the teachers and the students can share their exposure 								   of knowledge without any communication gap.. </p>	
+							<p>The Ulearn is an e-learning system where teachers can upload their study material 								   and share their views on a particular topic and students sitting any part of the 								   world can download the same and increase their knowledge on a specific genre.The 								  Ulearn enables the users to explore their potential and capablities to enhance their 								  skills and expertise on a particular topic crossing the bars of the class room 								  teaching</p>
+
+							</h2>
 						</div>
-						
 						<div id="tab4" class="tab_content">
 							<img alt="" src="assets/images/img/birdy.jpg" align="right" width=400px>
 							
