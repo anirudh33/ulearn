@@ -88,7 +88,12 @@ class Student extends AUser {
 				"dob" => "$dob" 
 		) );
 		$this->db->Update ();
-		echo $this->db->lastQuery ();
+		if($bool==true) {
+			$this->setCustomMessage("SuccessMessage", "Profile Successfully updated ");
+		}else {
+			$this->setCustomMessage("ErrorMessage", "Profile couldnt be updated ");
+		}
+		
 	}
 
 /* method called to insert student message in database */

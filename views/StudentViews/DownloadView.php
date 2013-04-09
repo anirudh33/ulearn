@@ -15,7 +15,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 ?>
 <div id="registerdiv">
-<h1>VIEW FILES</h1>
+<h1 id="viewfiles">VIEW FILES</h1>
 
 	<form id="downloadform" method="post" action="index.php?method=downloadFile&controller=Student"	
 	enctype="multipart/form-data" name="frm1" />

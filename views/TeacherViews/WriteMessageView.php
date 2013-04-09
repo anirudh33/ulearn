@@ -23,7 +23,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 		action="index.php?method=writeMessage&controller=Teacher"
 		method="POST" class="register" novalidate="novalidate">
 
-		<h1>Write Message</h1>
+		<h1 id="writemessage">Write Message</h1>
 
 
 		<legend>Message Details </legend>

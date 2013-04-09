@@ -207,13 +207,13 @@ if (isset($_REQUEST["msg"])) {
 
 							<div id="tab5" class="tab_content">
 							<img alt="" src="assets/images/Views/tab1_image.jpg">
-							<h2>
-								<ul>
-									<li>Anirudh</li>
-									<li>Kawaljeet</li>
-									<li>Ujjwal</li>
-									<li>Tanu</li>
-								</ul>
+							 <h1 id="homeheading">The Courses ..</h1>
+							<div class="meta">The <span>Courses</span> Ulearn offer <span> to you </span></div>
+							
+							<h2 id="homecontent">
+							<p>The teachers sitting in any part of the world can upload theri study material 									related to any subject or topic and students can download them.. </p>	
+							<p>This platform is open for any courses a particular teacher wana teach and provide 								  study material for the same.They only need to register the respective course and add 								  study lessons underneath that particular course and students can choose that course 								  depending on their choice and download the study material for that course</p>
+
 							</h2>
 						</div>
 					</div>

@@ -131,9 +131,76 @@ h1 {
 	padding-left: 33px;
 	margin: 7px 5px 8px 8px;
 	padding-bottom: 30px;
-	width:500px;
+	width:850px;
+}
+#viewfiles
+{
+	font-weight: bold;
+	color: #2F4F4F;
+	font-size: 16pt;
+	background-color: #F08080;
+	padding-left: 33px;
+	margin: 7px 5px 8px 8px;
+	padding-bottom: 30px;
+	width:450px;
+}
+#addcourseheading
+{
+	font-weight: bold;
+	color: #2F4F4F;
+	font-size: 16pt;
+	background-color: #F08080;
+	padding-left: 33px;
+	margin: 7px 5px 8px 8px;
+	padding-bottom: 30px;
+	width:450px;
+}
+#registercourseheading
+{
+	font-weight: bold;
+	color: #2F4F4F;
+	font-size: 16pt;
+	background-color: #F08080;
+	padding-left: 33px;
+	margin: 7px 5px 8px 8px;
+	padding-bottom: 30px;
+	width:450px;
+}
+#uploadcontentheading
+{
+	font-weight: bold;
+	color: #2F4F4F;
+	font-size: 16pt;
+	background-color: #F08080;
+	padding-left: 33px;
+	margin: 7px 5px 8px 8px;
+	padding-bottom: 30px;
+	width:450px;
 }
 
+#writemessage
+{
+	font-weight: bold;
+	color: #2F4F4F;
+	font-size: 16pt;
+	background-color: #F08080;
+	padding-left: 33px;
+	margin: 7px 5px 8px 8px;
+	padding-bottom: 30px;
+	width:450px;
+}
+
+#editprofile
+{
+	font-weight: bold;
+	color: #2F4F4F;
+	font-size: 16pt;
+	background-color: #F08080;
+	padding-left: 33px;
+	margin: 7px 5px 8px 8px;
+	padding-bottom: 30px;
+	width:700px;
+}
 h4 {
 	padding: 1px;
 	color: #ACACAC;

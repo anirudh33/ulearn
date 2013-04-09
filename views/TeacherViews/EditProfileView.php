@@ -25,7 +25,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 		action="index.php?method=editTeacherClick&controller=Teacher"
 		method="POST" class="register" novalidate="novalidate">
 
-		<h1>Edit Profile</h1>
+		<h1 id="editprofile">Edit Profile</h1>
 
 
 		<legend>Personal Details </legend>

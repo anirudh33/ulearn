@@ -14,7 +14,7 @@ Created on                  -  April 2, 2013
 
 <form id="uploadform" method="post" action="index.php?method=uploadFile&controller=Teacher" class="register" 
 enctype="multipart/form-data" novalidate="novalidate"> 
-<h1>Upload Content</h1>
+<h1 id="uploadcontentheading">Upload Content</h1>
 <p>
 <label>Lesson No:*</label>
 <input type="text" id="lesson_no" name="lesson_no" class="long" 

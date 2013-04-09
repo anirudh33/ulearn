@@ -16,6 +16,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 $pageName="TeacherView";
 require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 ?>
+<html>
 <body>
 
 	<div id="cc">

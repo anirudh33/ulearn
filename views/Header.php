@@ -160,7 +160,7 @@ if($pageName=="RegistrationView") {
 	type="text/css" media="screen" />
 	
 <!-- Teacher profile View header -->
-<link rel="stylesheet" href="assets/style/global.css" type="text/css">
+<link rel="stylesheet" href="assets/style/globalteacher.css" type="text/css">
 
 <!-- Edit Course View Header -->
 <link rel="stylesheet" type="text/css"
@@ -266,7 +266,7 @@ if($pageName=="RegistrationView") {
 	type="text/css" media="screen" />
 	
 <!-- Student profile view header -->
-<link rel="stylesheet" type="text/css" href="assets/style/global.css">
+<link rel="stylesheet" type="text/css" href="assets/style/globalstudent.css">
 
 
 <!-- Date Picker -->

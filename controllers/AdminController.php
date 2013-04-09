@@ -36,8 +36,8 @@ public function getMessage() {
 
 public function setMessage($_message) {
 		
-		$this->_message .= $_message."<br>";
-		$this->setCustomMessage("ErrorMessage", $_message);
+		$this->_message = $_message."<br>";
+		//$this->setCustomMessage("ErrorMessage", $_message);
 	}
     public function showManageTeacherView ($teacherdata = array(), $teacherRecordsCount)
     {
@@ -285,9 +285,11 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
 	
 	if(!isset($_POST["usertype"]) and !isset($_POST["choice"]) )
 	{
-			$message="Please select report category <br>";
-		$this->setMessage($message);
-            	$this->setCustomMessage("ErrorMessage", $this->getMessage());
+		
+		
+		$message="Please select report category <br>";
+		//$this->setMessage($message);
+            	$this->setCustomMessage("ErrorMessage", $message);
             	$this->generateReport();
 		
 	}
@@ -301,7 +303,7 @@ public function qualificationreport($studentqualificationcount,$teacherqualifica
 		$usertype = $_POST["usertype"];
 		$choice=$_POST["usertype"];
 		$this->_objUser->fetchStudentcount();
-				$this->_objUser->fetchTeachercount();
+		$this->_objUser->fetchTeachercount();
 		$this->alluserreport($this->_objUser->getTotalStudentRecords(),	$this->_objUser->getTotalTeacherRecords());
 	}
 	

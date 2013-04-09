@@ -23,7 +23,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 	<form id="form"
 		action="index.php?method=editStudentClick&controller=Student"
 		method="POST" class="register" novalidate="novalidate">
-<h1>Edit Profile</h1>
+<h1 id="editprofile">Edit Profile</h1>
 		<legend>Personal Details </legend>
 		<p>
 			<label>First Name * </label> <input type="text" id="firstname"

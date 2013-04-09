@@ -23,7 +23,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 				action="index.php?method=registerCourseButtonClick&controller=Teacher"
 				method="POST" class="register">
 
-				<h1>Register Course</h1>
+				<h1 id="registercourseheading">Register Course</h1>
 <p>
 				
 					<legend>Course Details </legend>

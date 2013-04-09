@@ -18,17 +18,17 @@ Created on                  -  April 2, 2013
 				action="index.php?method=addCourseButtonClick&controller=Teacher"
 				method="POST" class="register" novalidate="novalidate">
 
-				<h1>Add Course</h1>
+				<center><h1 id="addcourseheading">Add Course</h1></center>
 
 				
-					<legend>Course Details </legend>
+					<legend>Course Details </legend><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 					<p>
 						<label>Course Name * </label> <input type="text" id="coursename"
 							name="coursename" class="long"
 							onfocus="if(this.value === 'Course name required') this.value = '';">
-					</p>
+					</p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 					<p>
 						<label>Description </label>
 						<textarea name="description" rows="6" cols="20" class="long">

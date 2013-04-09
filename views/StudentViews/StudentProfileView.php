@@ -23,7 +23,7 @@ imagejpeg($image,"assets/images/Views/profilepics/studentprofile".$_SESSION['use
 		<div class="wrapper">
 			
 			<span id="leftusernav">Welcome <?php echo $data[0]['firstname'];?></span>
-			<span id="usernav"><a href="index.php?method=showProfile&controller=Student">My Profile</a></span> 
+			
 			
 		</div>
 	</header>
@@ -40,14 +40,13 @@ imagejpeg($image,"assets/images/Views/profilepics/studentprofile".$_SESSION['use
 				{?>
 					
 				<div class="data">
-					<h1><?php echo $data[0]['firstname'];?> &nbsp <?php echo $data[0]['lastname'];
-					?></h1>
-					<h3><?php echo $data[0]['qualification'];
-					?></h3>
+					<center><h1><?php echo $data[0]['firstname'];?> &nbsp <?php echo $data[0]['lastname'];
+					?></h1></center>
+					<center><h3><?php echo $data[0]['qualification'];?></center></h3>
 					
-					<h4><a href="http://ulearn.com/">http://ulearn.com/</a></h4>
+
 					
-					<div class="sep"></div>
+					
 					
 				</div>
 				<?php }
@@ -64,17 +63,21 @@ imagejpeg($image,"assets/images/Views/profilepics/studentprofile".$_SESSION['use
 						<?php 	}?>
 				
 			</div>
-			
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<center>
-			<h1>About Me:</h1>
+			<h1>About Me:</h1><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			<div id="userdetails">
 	<div id="data">
 		<h3>Name :</h3> <h4  style="color:red;"> <?php echo $data[0]['firstname'];?>&nbsp<?php echo $data[0]['lastname'];?></h4>
-		<div class="sep"></div>		
+		<div class="line-separator"></div>		
 <h3>Qualification:  </h3> <h4 style="color:red;"><?php echo $data[0]['qualification'];?></h4>
+<div class="line-separator"></div>		
 <h3>Date of Birth:  </h3> <h4 style="color:red;"><?php echo $data[0]['dob'];?></h4>
+<div class="line-separator"></div>		
 <h3>Qualification:  </h3> <h4 style="color:red;"><?php echo $data[0]['qualification'];?></h4>
+<div class="line-separator"></div>		
 <h3>Contact Number:  </h3> <h4 style="color:red;"><?php echo $data[0]['phone'];?></h4>
+<div class="line-separator"></div>		
 <h3>Address:  </h3> <h4 style="color:red;"><?php echo $data[0]['address'];?></h4>
 
 	</div>

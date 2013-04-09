@@ -21,7 +21,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 	<form id="writeform"
 		action="index.php?method=writeMessage&controller=Student"
 		method="POST" class="register" novalidate="novalidate">
-<h1>Write Message</h1>
+<h1 id="writemessage">Write Message</h1>
 		<legend>Message Details </legend>
 
 

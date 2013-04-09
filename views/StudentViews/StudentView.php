@@ -21,12 +21,13 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 
 		<div id="header">
 
-			<img alt="" src="assets/images/Views/upper4.png"
-				style="float: left;  width: 380px; "> 
+			<img alt="" src="assets/images/Views/ulearn.gif"
+				style="float: left; padding: 50px; width: 280px;">
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			 <a	id="logout33" href="index.php?method=logout&controller=Admin">LOG OUT</a>
-		</div>
-
+			<div id="logout" style="float:right;">
+			 <a id="logout33" href="index.php?method=logout&controller=Admin">LOG OUT</a>
+			</div>
+		</div>	
 
 
 
@@ -89,21 +90,27 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 			</div>
 			<div id="functionpanel">
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<h2 id="menuheading"> Choose from following : </h2>
 				<div class="arrowgreen">
 					<ul>
 						<!-- <button>hello</button> -->
+						 <div class="li1">
 						<li><a href="index.php?method=downloadClick&controller=Student"
-							id="link1">Download Study Material</a></li>
+							id="link1">Download Study Material</a></li></div>
+						 <div class="li1">
 						<li><a href="index.php?method=messageClick&controller=Student"
-							id="link1">Write Message</a></li>
+							id="link1">Write Message</a></li></div>
+						 <div class="li1">
 						<li><a href="index.php?method=editProfileClick&controller=Student"
-							id="link1">Edit Profile</a></li>
+							id="link1">Edit Profile</a></li></div>
+						 <div class="li1">
 						<li><a
 							href="index.php?method=registerCourseClick&controller=Student">Register
-								Course</a></li>
+								Course</a></li></div>
+						 <div class="li1">
 						<li><a href="index.php?method=viewMessageClick&controller=Student">View
-								Messages</a></li>
+								Messages</a></li></div>
 
 					</ul>
 				</div>
