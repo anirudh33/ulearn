@@ -108,7 +108,7 @@ abstract class AController {
 		$this->createUser ();
 	
 		if(($this->_objUser->messageSend ( $body, $subject, $sentto ))==false) {
-			$this->setCustomMessage("ErrorMessage", "Problem in sending message to student");
+			$this->setCustomMessage("ErrorMessage", "Problem in sending message");
 		} else {
 			$this->setCustomMessage("SuccessMessage", "Message sent successfully");
 		}

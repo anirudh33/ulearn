@@ -150,7 +150,11 @@ class Teacher extends AUser {
 				"sentto" => "$sid" 
 		) );
 		$bool=$this->db->Insert ();
-		return $bool;
+		if($bool==true){
+			return $bool;
+		}else {
+			return false;
+		}
 	}
 	
 /* method called to return teacher messages from database */ 

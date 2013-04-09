@@ -98,7 +98,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
              </div> 
 
 					</p>
-					<?php $strDob=$admindata[0]['dob'];  ?>
+					<?php $strDob=$data[0]['dob'];  ?>
 		<p>
 		
 			 <div class="fieldgroup">

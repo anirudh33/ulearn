@@ -90,7 +90,7 @@ if (isset($_REQUEST['method'])) {
     
     }elseif(method_exists($controllerObject, $_REQUEST['method'])) {
     	
-    		$controllerObject->$_REQUEST['method']();
+    	  		$controllerObject->$_REQUEST['method']();
     	
     } else {
     	/* if method name doesnt match */
@@ -110,15 +110,18 @@ $obj = new MainController();
  */
 if (isset ( $_REQUEST ['method'] )) {
 	if ($_REQUEST ['method'] != 'unsetMessages') {
+		
 		if (isset ( $_SESSION ['userType'] )) {
+			$obj->showUserPanel ();
 		}
-		$obj->showUserPanel ();
+		
+		
 	}
 } 
 
 
 /* If no method has been called show the main view/homepage */
-else if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
+if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
 	
     /*showing main view*/
     $obj->showMainView();

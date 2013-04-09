@@ -12,21 +12,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
 * ************************************************************************
 */
-?>
-<?php 
-/* Creation Log
 
-File Name                   -  ContentView.php
-Description                 -  Displays all files uploaded by chosen teacher and course to student
-Version                     -  1.0
-Created by                  -  Tanu trehan
-Created on                  -  April 2, 2013
-* **************************** Update Log ********************************
-Sr.NO.        Version        Updated by           Updated on          Description
--------------------------------------------------------------------------
-1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
-* ************************************************************************
-*/
 print_r($data);	
 $lang = Language::getinstance();
 $obj_paging = new paging();

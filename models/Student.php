@@ -143,8 +143,12 @@ class Student extends AUser {
 				"sentfrom" => "$sentfrom",
 				"sentto" => "$tid" 
 		) );
-		$this->db->Insert ();
-		echo $this->db->lastQuery ();
+		$bool=$this->db->Insert ();
+		if($bool==true){
+			return $bool;
+		}else {
+			return false;
+		}
 	}
 
 /* method called to return student messages from database */

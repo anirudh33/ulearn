@@ -511,6 +511,7 @@ class Authenticate extends AModel{
 			$visitors [] = explode ( ',', $value );
 			
 			if (trim ( $visitors [$i] [2], PHP_EOL ) == trim ( $_SERVER ['REMOTE_ADDR'], " " )) {
+				//@todo check if isset
 				if(trim ( $visitors [$i] [3], PHP_EOL)==$_SESSION["emailID"] ) {
 				if ($visitors [$i] [1] == session_id ()) {
 					$dt = $visitors [$i] [0];
