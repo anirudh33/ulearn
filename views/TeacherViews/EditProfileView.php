@@ -39,9 +39,8 @@ Sr.NO.	Version     Updated by          Updated on      Description
 				name="lastname" class="long" value=<?php echo $data[0]['lastname']?>>
 		</p>
 		<p>
-			<label><?php echo $lang->PHONE;?></label> <input type="text" id="phone" name="phone"
-				maxlength="10" value=<?php echo $data[0]['phone']?>
-
+			<label><?php echo $lang->PHONE;?></label>
+			 <input type="text" id="phone" name="phone" maxlength="10" value=<?php echo $data[0]['phone']?>>
 		</p>
 
 		<p>

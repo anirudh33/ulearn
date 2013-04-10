@@ -23,25 +23,25 @@ Sr.NO.	Version     Updated by          Updated on      Description
 	<form id="form"
 		action="index.php?method=editStudentClick&controller=Student"
 		method="POST" class="register" novalidate="novalidate">
-<h1 id="editprofile">Edit Profile</h1>
-		<legend>Personal Details </legend>
+<h1 id="editprofile"><?php echo $lang->EDITPROFILE;?></h1>
+		<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 		<p>
-			<label>First Name * </label> <input type="text" id="firstname"
+			<label><?php echo $lang->FIRSTNAME;?> * </label> <input type="text" id="firstname"
 				name="firstname" class="long"
 				value=<?php echo $data[0]['firstname']?>>
 		</p>
 		<p>
-			<label>Last Name * </label> <input type="text" id="lastname"
+			<label><?php echo $lang->LASTNAME;?>* </label> <input type="text" id="lastname"
 				name="lastname" class="long" value=<?php echo $data[0]['lastname']?>>
 		</p>
 		<p>
-			<label>Phone </label> <input type="text" id="phone" name="phone"
+			<label><?php echo $lang->PHONE;?></label> <input type="text" id="phone" name="phone"
 				maxlength="10" value=<?php echo $data[0]['phone']?>>
 
 		</p>
 
 		<p>
-			<label>Address </label> <input type="text" id="address"
+			<label><?php echo $lang->ADDRESS;?></label> <input type="text" id="address"
 				name="address" class="long" value=<?php echo $data[0]['address']?>>
 
 		</p>
@@ -53,7 +53,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 			?>
 			
 			<div class="fieldgroup">
-				<label for="qualification">Qualification</label> 
+				<label for="qualification"><?php echo $lang->QUALIFICATION;?></label> 
 				<select
 					name="qualification">
 					<option
@@ -82,7 +82,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 <?php $strGender=$data[0]['gender'];?>
 				
 			<div class="fieldgroup">
-                <label for="gender">Gender</label>
+                <label for="gender"><?php echo $lang->GENDER;?></label>
                  <p>
                 <label class="gender">Male</label>
                 <input type="radio" name="gender" <?php if ($strGender == "m") { echo "checked";}?>  
@@ -102,7 +102,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 		<p>
 		
 			 <div class="fieldgroup">
-                <label for="date">Date Of Birth</label>
+                <label for="date"><?php echo $lang->BIRTHDATE;?></label>
                <input type="text" id="datepicker23" name="dob" value='<?php echo $strDob;?>' readonly="readonly">
             </div>
 		</p>

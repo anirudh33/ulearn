@@ -91,26 +91,24 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 			<div id="functionpanel">
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<h2 id="menuheading"> </h2>
+			<h2 id="menuheading"><?php echo $lang->CHOOSEFROM; ?><br><br> </h2>
 				<div class="arrowgreen">
 					<ul>
 						<!-- <button>hello</button> -->
 						 <div class="li1">
 						<li><a href="index.php?method=downloadClick&controller=Student"
-							id="link1">Download Study Material</a></li></div>
+							id="link1"><?php echo $lang->DOWNLOAD;?></a></li></div>
 						 <div class="li1">
 						<li><a href="index.php?method=messageClick&controller=Student"
-							id="link1">Write Message</a></li></div>
+							id="link1"><?php echo $lang->WRITE;?></a></li></div>
 						 <div class="li1">
 						<li><a href="index.php?method=editProfileClick&controller=Student"
-							id="link1">Edit Profile</a></li></div>
+							id="link1"><?php echo $lang->EDITPROFILE;?></a></li></div>
 						 <div class="li1">
 						<li><a
-							href="index.php?method=registerCourseClick&controller=Student">Register
-								Course</a></li></div>
+							href="index.php?method=registerCourseClick&controller=Student"><?php echo $lang->REGISTERCOURSE;?></a></li></div>
 						 <div class="li1">
-						<li><a href="index.php?method=viewMessageClick&controller=Student">View
-								Messages</a></li></div>
+						<li><a href="index.php?method=viewMessageClick&controller=Student"><?php echo $lang->VIEWMESSAGES;?></a></li></div>
 
 					</ul>
 				</div>

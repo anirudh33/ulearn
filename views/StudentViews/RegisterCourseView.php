@@ -21,13 +21,13 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 		action="index.php?method=registerCourseButtonClick&controller=Student"
 		method="POST" class="register">
 
-		<h1 id="registercourseheading">Register Course</h1>
+		<h1 id="registercourseheading"><?php echo $lang->REGISTERCOURSE;?></h1>
 
 		
 		<p>
-			<legend>Course Details </legend></p>
+			<legend><?php echo $lang->COURSEDETAILS;?> </legend></p>
 			<p>
-				<label>Course Name * </label> <select name="coursenamelist">
+				<label><?php echo $lang->COURSENAME;?> * </label> <select name="coursenamelist">
 							 <?php
 								foreach ( $data as $key => $value ) {
 									
@@ -46,7 +46,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 			</br>
 			</br>
-			<button class="button">Add &raquo;</button>
+			<button class="button"><?php echo $lang->REGISTER;?> &raquo;</button>
 
 		
 

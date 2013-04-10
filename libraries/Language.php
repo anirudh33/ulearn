@@ -120,12 +120,34 @@ class Language
 	'LESSONNO'=>"Lesson Number",
 	'LESSONNAME'=>"Lesson Name",
 	'SELECTCOURSE'=>"Select Course",
-	'CHOOSEFILE'=>"Choose File"
-		
+	'CHOOSEFILE'=>"Choose File",
+	'GOTOHOME'=>"Go To Home",
+	'USERREGISRATION'=>"User Registration",
+	'EMAIL'=>"Email",
+	'REPEATEMAIL'=>"Repeat Email",
+	'REPEATPASSWORD'=>"Repeat Password",
+	'PROFILEPIC'=>"Profile Picture",
+	'USERTYPE'=>"User Type",
+	'ALREADYREGISTERED'=>"Already Registered",
+	'SIGNIN'=>"Sign In",
+	'DIFFIMG'=>"Different Image",
+	'DOWNLOAD'=>"Download Study Material"		
             
             
         ),
         'HINDI' => array(
+
+        'DOWNLOAD'=>"अध्ययन सामग्री डाउनलोड करें ",
+        'DIFFIMG'=>"अलग तस्वीर",
+        'SIGNIN'=>"साइन इन",
+        'ALREADYREGISTERED'=>"पहले से पंजीकृत है",
+        'USERTYPE'=>"प्रयोक्ता प्रकार",
+        'PROFILEPIC'=>"प्रोफ़ाइल चित्र",
+        'REPEATPASSWORD'=>"पासवर्ड  दोहराएँ ",
+        'REPEATEMAIL'=>"ईमेल दोहराएँ",
+        'EMAIL'=>"ईमेल",
+        'USERREGISRATION'=>"उपयोगकर्ता पंजीकरण",
+        'GOTOHOME'=>"घर पर जाएँ",
         'CHOOSEFILE'=>"फ़ाइल चुनें",
         'SELECTCOURSE'=>"कोर्स का चयन करें",
         'LESSONNAME'=>"सबक नाम",

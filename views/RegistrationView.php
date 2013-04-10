@@ -27,7 +27,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 			</a>
 		</div>
 		<div id="header2">
-			<h3><a href="index.php">GO TO HOME</a></h3>
+			<h3><a href="index.php"><?php echo $lang->GOTOHOME?></a></h3>
 		</div>
 		<div id="error">
 
@@ -37,50 +37,50 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 			<form action="index.php?method=registerUser&controller=Main" method="post" id="register-form" 
 			novalidate="novalidate" enctype="multipart/form-data">
 
-    <h2><strong>User Registration</strong></h2>
+    <h2><strong><?php echo $lang->USERREGISRATION;?></strong></h2>
 
     <div id="form-content">
         <fieldset>
 
             <div class="fieldgroup">
-                <label for="firstname">First Name</label>
+                <label for="firstname"><?php echo $lang->FIRSTNAME;?></label>
                 <input type="text" name="firstname">
            </div>
            <div class="fieldgroup" >
-                <label for="lastname">Last Name</label>
+                <label for="lastname"><?php echo $lang->LASTNAME;?></label>
                 <input type="text" name="lastname">
             </div>
 
             <div class="fieldgroup">
-                <label for="email">Email</label>
+                <label for="email"><?php echo $lang->EMAIL;?></label>
                 <input type="text" id="email" name="email">
             </div>
 			<div class="fieldgroup">
-                <label for="repeatemail"> Repeat Email</label>
+                <label for="repeatemail"><?php echo $lang->REPEATEMAIL;?></label>
                 <input type="text"  name="repeatemail">
             </div> 
             
             <div class="fieldgroup">
-                <label for="password">Password</label>
+                <label for="password"><?php echo $lang->PASSWORD;?></label>
                 <input type="password" id="password" name="password">
             </div>
             <div class="fieldgroup">
-                <label for="repeatpassword">Repeat Password</label>
+                <label for="repeatpassword"><?php echo $lang->REPEATPASSWORD;?></label>
                 <input type="password"  name="repeatpassword">
             </div>
             
             
             
 		<div class="fieldgroup">
-                <label for="address">Address</label>
+                <label for="address"><?php echo $lang->ADDRESS;?></label>
                 <input type="text" name="address">
             </div>
             <div class="fieldgroup">
-                <label for="phone">Phone</label>
+                <label for="phone"><?php echo $lang->PHONE;?></label>
                 <input type="text" name="phone">
             </div>
             <div class="fieldgroup">
-                <label for="qualification">Qualification</label>
+                <label for="qualification"><?php echo $lang->QUALIFICATION;?></label>
                 <select name="qualification">
 								<option>graduate</option>
 								<option>postgraduate</option>
@@ -89,13 +89,13 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 							</select>
             </div>
 			<div class="fieldgroup">
-                <label for="profilepic">Profile Picture</label>
+                <label for="profilepic"><?php echo $lang->PROFILEPIC;?></label>
                 <input type="file" size="20"
 								name="profilepicture">
             </div>   
             
             <div class="fieldgroup">
-                <label for="gender">Gender</label>
+                <label for="gender"><?php echo $lang->GENDER;?></label>
                  <p>
                 <label>Male</label><input type="radio" name="gender" value="m" checked /> 
                 </p>
@@ -107,7 +107,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
            
             
             <div class="fieldgroup">
-                <label for="usertype">Usertype</label>
+                <label for="usertype"><?php echo $lang->USERTYPE;?></label>
                  <p>
                 <label>Student</label><input type="radio" name="usertype" value="student" checked /> 
                 </p>
@@ -117,7 +117,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
              </div> 
              
              <div class="fieldgroup">
-                <label for="date">Date Of Birth</label>
+                <label for="date"><?php echo $lang->BIRTHDATE;?></label>
                <input type="text" id="datepicker23" name="date" readonly="readonly">
             </div>
              
@@ -131,19 +131,19 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 								href="#"
 								onclick="document.getElementById('captcha').src = 
 									'libraries/securimage/securimage_show.php?' + Math.random(); 
-								return false">[Different Image ]</a>
+								return false">[<?php echo $lang->DIFFIMG;?>]</a>
 						
 						</div>
 				
             <div class="fieldgroup">
-                <input type="submit" value="Register" class="submit">
+                <input type="submit" value="<?php echo $lang->REGISTER;?>" class="submit">
             </div>
 
         </fieldset>
     </div>
 
         <div class="fieldgroup">
-            <p>Already registered? <a href="index.php">Sign in</a>.</p>
+            <p><?php echo $lang->ALREADYREGISTERED;?> <a href="index.php"><?php echo $lang->SIGNIN;?></a>.</p>
         </div>
 </form>
 	</div>

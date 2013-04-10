@@ -21,12 +21,12 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 	<form id="writeform"
 		action="index.php?method=writeMessage&controller=Student"
 		method="POST" class="register" novalidate="novalidate">
-<h1 id="writemessage">Write Message</h1>
-		<legend>Message Details </legend>
+<h1 id="writemessage"><?php echo $lang->WRITE;?></h1>
+		<legend><?php echo $lang->MESSAGEDETAILS;?></legend>
 
 
 		<p>
-			<label>To </label> <select name="sentto" id="sentto">
+			<label><?php echo $lang->TO;?> </label> <select name="sentto" id="sentto">
                             <?php
                             foreach ( $data as $key => $value ) {?>                           
                             <option	value="<?php echo $value["email"];?>"> 
@@ -37,11 +37,11 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 		</p>
 
 		<p>
-			<label>Subject </label> <input type="text" name="subject"
+			<label><?php echo $lang->SUBJECT;?>* </label> <input type="text" name="subject"
 				class="long">
 		</p>
 		<p>
-			<label>Message </label>
+			<label><?php echo $lang->MESSAGE;?>*  </label>
 			<textarea name="body" rows="20" cols="50" class="long"></textarea>
 		</p>
 
