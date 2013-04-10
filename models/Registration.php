@@ -139,7 +139,8 @@ class Registration extends AUser
     			//echo $this->db->lastQuery();
     			
     			
-    		}if($rr=='teacher')
+    		}
+    		if($rr=='teacher')
     			
     		{
     			echo "YOU HAVE BEEN ACTIVATED";

@@ -91,7 +91,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 			<div id="functionpanel">
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<h2 id="menuheading"> Choose from following : </h2>
+			<h2 id="menuheading"> </h2>
 				<div class="arrowgreen">
 					<ul>
 						<!-- <button>hello</button> -->
