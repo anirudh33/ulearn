@@ -15,19 +15,19 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 ?>
 <div id="registerdiv">
-<h1>VIEW FILES</h1>
+<h1><?php echo $lang->VIEWFILES;?></h1>
 
 	<form id="downloadform" method="post" action="index.php?method=downloadFile&controller=Teacher"	
 	enctype="multipart/form-data" name="frm1" />
 
 	<fieldset class="row2">
-		<legend>Message Details </legend>
+		<legend><?php echo $lang->FILEDETAILS;?> </legend>
 
 
 		
 		<p>
 
-			<label>Course </label> 
+			<label><?php echo $lang->COURSEDETAILS;?> </label> 
 			<select name="coursenamelist">
 							 <?php
 							
@@ -42,7 +42,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
             </select> 
 		</p>
 		<br/>
-		<button class="button">View &raquo;</button>
+		<button class="button"><?php echo $lang->VIEW;?> &raquo;</button>
 
 	</fieldset>
 	</form>

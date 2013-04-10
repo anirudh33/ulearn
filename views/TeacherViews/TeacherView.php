@@ -117,35 +117,31 @@ if ($viewName == "viewMessage" && (! empty ( $data ))&& (! empty ( $result2 )))
 			<div id="functionpanel">
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<h2 id="menuheading"> Choose from following : </h2><br><br>
+			<h2 id="menuheading"><?php echo $lang->CHOOSEFROM; ?> </h2><br><br>
 				<div class="arrowgreen">
 					 <ul class="nav nav2">
 					 <div class="li1">
 
 						<li><a href="index.php?method=uploadClick&controller=Teacher"
-							id="link1">Upload Study Material</a></li></div>
+							id="link1"><?php echo $lang->UPLOAD;?></a></li></div>
 					<div class="li1">
 						<li><a href="index.php?method=messageClick&controller=Teacher"
-							id="link1">Write Message</a></li></div>
+							id="link1"><?php echo $lang->WRITE;?></a></li></div>
 					<div class="li1">
 						<li><a href="index.php?method=editProfileClick&controller=Teacher"
-							id="link1">Edit Profile</a></li></div>
+							id="link1"><?php echo $lang->EDITPROFILE;?></a></li></div>
 					<div class="li1">
-						<li><a href="index.php?method=addCourseClick&controller=Teacher">Add
-								Course</a></li></div>
+						<li><a href="index.php?method=addCourseClick&controller=Teacher"><?php echo $lang->ADDCOURSE;?></a></li></div>
 					<div class="li1">
-						<li><a href="index.php?method=editCourseClick&controller=Teacher">Edit
-								Course</a></li></div>
+						<li><a href="index.php?method=editCourseClick&controller=Teacher"><?php echo $lang->EDITCOURSE;?></a></li></div>
 					<div class="li1">
 						<li><a
-							href="index.php?method=registerCourseClick&controller=Teacher">Register
-								Course</a></li></div>
+							href="index.php?method=registerCourseClick&controller=Teacher"><?php echo $lang->REGISTERCOURSE;?></a></li></div>
 					<div class="li1">
-						<li><a href="index.php?method=viewMessageClick&controller=Teacher">View
-								Messages</a></li></div>
+						<li><a href="index.php?method=viewMessageClick&controller=Teacher"><?php echo $lang->VIEWMESSAGES;?></a></li></div>
 					<div class="li1">
 								<li><a href="index.php?method=downloadClick&controller=Teacher"
-							id="link1">View Study Material</a></li></div>
+							id="link1"><?php echo $lang->VIEWSTUDY;?></a></li></div>
 
 					</ul>
 				</div>

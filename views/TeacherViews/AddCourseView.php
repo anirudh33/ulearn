@@ -18,19 +18,19 @@ Created on                  -  April 2, 2013
 				action="index.php?method=addCourseButtonClick&controller=Teacher"
 				method="POST" class="register" novalidate="novalidate">
 
-				<center><h1 id="addcourseheading">Add Course</h1></center>
+				<center><h1 id="addcourseheading"><?php echo $lang->ADDCOURSE;?></h1></center>
 
 				
-					<legend>Course Details </legend><br><br><br><br><br><br><br><br><br><br><br><br><br>
+					<legend><?php echo $lang->COURSEDETAILS;?> </legend><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 					<p>
-						<label>Course Name * </label> <input type="text" id="coursename"
+						<label><?php echo $lang->COURSENAME;?> * </label> <input type="text" id="coursename"
 							name="coursename" class="long"
 							onfocus="if(this.value === 'Course name required') this.value = '';">
 					</p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 					<p>
-						<label>Description </label>
+						<label><?php echo $lang->DESCRIPTION;?>	</label>
 						<textarea name="description" rows="6" cols="20" class="long">
 						</textarea>
 					</p>

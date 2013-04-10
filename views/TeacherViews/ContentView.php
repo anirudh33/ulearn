@@ -33,7 +33,7 @@ $pages = $obj_paging->get_pages();
 		<p class="headingsBig">
 		
 		
-		<center><h3 class="head2">FILES</h3></center>
+		<center><h3 class="head2"><?php echo $lang->FILES;?></h3></center>
 		</p>
 
 		<span id="middle"></span>
@@ -42,10 +42,10 @@ $pages = $obj_paging->get_pages();
 			<table width="100%" cellspacing="10" cellpadding="5">
 				<tr class="tbl-hd">
 					
-					<td> Filename</td>
+					<td><?php echo $lang->FILENAME;?></td>
 					
 					
-					<td>Option</td>
+					<td><?php echo $lang->OPTIONS;?></td>
 				</tr>
                 <?php
                 if ($data) {

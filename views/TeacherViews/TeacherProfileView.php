@@ -23,7 +23,7 @@ imagejpeg($image,"assets/images/Views/profilepics/teacherprofile".$_SESSION['use
 
 		<div class="wrapper">
 	
-			<span id="leftusernav">Welcome <?php echo $data[0]['firstname'];?></span>
+			<span id="leftusernav"><?php echo $lang-> WELCOME;?>&nbsp<?php echo $data[0]['firstname'];?></span>
 			<span id="usernav">
 		</div>
 	</header>
@@ -80,18 +80,18 @@ echo $data [0] ['qualification'];
 				
 			</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <center>
-			<h1>About Me:</h1><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<h1><?php echo $lang->ABOUTME; ?></h1><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			<div id="userdetails">
 	<div id="data">
-		<h3>Name :</h3> <h4  style="color:red;"> <?php echo $data[0]['firstname'];?>&nbsp<?php echo $data[0]['lastname'];?></h4>
+		<h3><?php echo $lang->NAME; ?>:</h3> <h4  style="color:red;"> <?php echo $data[0]['firstname'];?>&nbsp<?php echo $data[0]['lastname'];?></h4>
 		<div class="line-separator"></div>		
-<h3>Qualification:  </h3> <h4 style="color:red;"><?php echo $data[0]['qualification'];?></h4>
+<h3><?php echo $lang->QUALIFICATION; ?>:  </h3> <h4 style="color:red;"><?php echo $data[0]['qualification'];?></h4>
 <div class="line-separator"></div>	
-<h3>Date of Birth:  </h3> <h4 style="color:red;"><?php echo $data[0]['dob'];?></h4>
+<h3><?php echo $lang->BIRTHDATE;?>:  </h3> <h4 style="color:red;"><?php echo $data[0]['dob'];?></h4>
 <div class="line-separator"></div>	
-<h3>Contact Number:  </h3> <h4 style="color:red;"><?php echo $data[0]['phone'];?></h4>
+<h3><?php echo $lang->CONTACTNO;?>:  </h3> <h4 style="color:red;"><?php echo $data[0]['phone'];?></h4>
 <div class="line-separator"></div>	
-<h3>Address:  </h3> <h4 style="color:red;"><?php echo $data[0]['address'];?></h4>
+<h3><?php echo $lang->ADDRESS;?>:  </h3> <h4 style="color:red;"><?php echo $data[0]['address'];?></h4>
 
 	</div>
 		</div></center>
