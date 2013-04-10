@@ -32,7 +32,7 @@ $pages = $obj_paging->get_pages();
 		<p class="headingsBig">
 		
 		
-		<center><h3 class="head2">FILES</h3></center>
+		<div style="text-align:center"><h3 class="head2">FILES</h3>
 		</p>
 
 		<span id="middle"></span>
@@ -44,7 +44,7 @@ $pages = $obj_paging->get_pages();
 					<td> Filename</td>
 					
 					
-					<td>Option</td>
+					
 				</tr>
                 <?php
                
@@ -88,5 +88,6 @@ $pages = $obj_paging->get_pages();
 				</tr>
                 <?php }?>
             </table>
+            </div>
 		</div>
 </div>

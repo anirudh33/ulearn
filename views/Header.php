@@ -253,7 +253,8 @@ if($pageName=="RegistrationView") {
 <!-- Download view header -->
 <link rel="stylesheet" href="assets/style/download.css"
 	type="text/css" media="screen" />
-	
+	<link rel="stylesheet" type="text/css"
+	href="assets/style/ManageTeacherView.css" media="screen">
 	<!-- Register Course header -->
 <link rel="stylesheet" href="assets/style/registercourse.css"
 	type="text/css" media="screen" />

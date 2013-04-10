@@ -321,7 +321,7 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 	
 /* method called to return uploaded files from database */
 
-	public function downloadContent($coursename,$teachername)
+	public function downloadContent($coursename)
 	{//@todo we can use the sent variable instead of teacher
 		$user_id = $_SESSION ["userID"];
 		$this->db->Fields ( array (
@@ -366,7 +366,6 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 	}
 	
 	/* Uploads content to teachers respective directories under chosen course*/
-
 	public function uploadContent($no,$lesson_name,$coursename) {
 		$flag=false;
 		$teacherID=$this->fetchTeacherID();

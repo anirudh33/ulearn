@@ -65,7 +65,7 @@ $pageName=="EditAdminProfileView";
 			
 			
 			<div class="fieldgroup">
-				<label for="qualification"><?php echo $lang->QUALIFICATION;?></label> <br><br><br><br><br><br><br><br><br><br><br><br>
+				<label for="qualification"><?php echo $lang->QUALIFICATION;?></label> 
 				<select
 					name="qualification">
 					<option
@@ -132,9 +132,9 @@ $pageName=="EditAdminProfileView";
 					</div>
 				</fieldset>
 				
-
-				<div>
+<fieldset class="row4"><div>
 					<button class="button" id="edit">Edit &raquo;</button>
-				</div>
+				</div></fieldset>
+				<
 			</form>
 		</div>

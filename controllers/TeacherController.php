@@ -178,9 +178,9 @@ class TeacherController extends AController
 	/* method called on submitting study material view */
 	public function downloadFile() {
 		$coursename = $_POST ["coursenamelist"];
-		$teachernamelist = $_POST ["teachernamelist"];
+		
 		$this->createUser ();
-		$filelist = $this->_objUser->downloadContent ( $coursename,$teachernamelist );
+		$filelist = $this->_objUser->downloadContent ( $coursename );
 		if(!empty($filelist)) {
 		$this->showSubViews ( "showContent", $filelist );
 		} else {
