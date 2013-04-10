@@ -594,4 +594,4 @@ function pieChart() {
 
 
 
-
+<?php require_once ($_SESSION['SITE_PATH'] . '/views/Footer.php');?>

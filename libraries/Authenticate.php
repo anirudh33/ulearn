@@ -101,7 +101,69 @@ class Authenticate extends AModel{
 	}
 
 
-
+	public function validatecontactme()
+	
+	{
+		/*------------alphabet  security-----------------*/
+		
+		if(preg_match("/^[a-z\-]+$/i", $_POST["name"])===0)
+		{	
+					
+			$this->setMessage ( "Name must be letters" );
+		}
+		
+		/*------------URL security-----------------*/
+		
+		
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["name"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["email"])===1)
+		{
+		
+			$this->setMessage ( "Url not allowed" );
+		
+		}
+		if(preg_match("/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i", $_POST["message"])===1)
+		{				$this->setMessage ( "Url not allowed" );
+		}
+		
+		
+		/*------------Script security-----------------*/
+		
+		
+		if(preg_match("/(<([^>]+)>)/i", $_POST["name"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		if(preg_match("/(<([^>]+)>)/i", $_POST["email"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}
+		if(preg_match("/(<([^>]+)>)/i", $_POST["message"])===1)
+		{				$this->setMessage ( "script not allowed" );
+		}		
+		
+		/*------------Empty field security-----------------*/
+		if(empty($_POST["name"]))
+		{
+			$this->setMessage ( "Name cant be left empty" );
+		}
+		if(empty($_POST["email"]))
+		{
+			$this->setMessage ( "Email cant be left empty" );
+		}
+		if(empty($_POST["message"]))
+		{
+			$this->setMessage ( "Message cant be left empty" );
+		}
+		
+		$msg = $this->getMessage ();
+		if (! empty ( $msg )) {
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+			"/index.php?method=showMainView&controller=Main&msg=" . $this->getMessage () . "" );
+			die ();
+		}
+		
+	}
 	
 	public function validateaddcourse()
 	{
@@ -143,7 +205,7 @@ class Authenticate extends AModel{
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
 			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
-			"/index.php?method=addCourseClick&controller=Teacher&msg=" . $this->getMessage () . "" );
+			"/index.php?method=addCourseClick&controller=Teacher" );
 			die ();
 		}
 		

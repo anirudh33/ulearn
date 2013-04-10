@@ -129,6 +129,8 @@ class MainController
     /* @todo ujjwal: use phpmailer */
     public function sendmail()
 	{
+		$authObject= new Authenticate();
+		$authObject->validatecontactme();
 		if(isset($_POST["message"]))
 		{
 		$message=$_POST["message"];

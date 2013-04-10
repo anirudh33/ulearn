@@ -12,7 +12,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 * ************************************************************************
 */
 /*-----------Jquery validation for Registration   ---------------*/
-
+/*
 (function($, W, D) {
 
 	var JQUERY4U = {};
@@ -136,6 +136,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 												form.submit();
 											}
 										});
+						
 
 						$("#uploadform")
 								.validate(
@@ -188,6 +189,60 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 												form.submit();
 											}
 										});
+
+						$("#mailform")
+						.validate(
+								{
+									rules : {
+
+										name : {
+											loginRegex : true,
+											required : true,
+											url : true,
+											script : true,
+											
+
+										},
+										email : {
+											required : true,
+											url : true,
+											script : true,
+											email:true,
+
+										},
+										 message: {
+											required:true,
+											script:true,
+											url:true,
+											
+										}
+									},
+									messages : {
+										name : {
+											required : "Enter Your Name",
+											loginRegex : "lessonname must contain only letters, numbers, or dashes.",
+											url : "Url not allowed",
+											script : "Dont use script here",
+										
+										},
+										email : {
+											required : "Email is Required",
+											url : "Url not allowed",
+											script : "Dont use script here",
+											email:"email not valid",
+										},
+										message: {
+											required: "Required",
+											url : "Url not allowed",
+											script : "Dont use script here",
+											
+										}
+
+									},
+									submitHandler : function(form) {
+										form.submit();
+									}
+								});
 
 						$("#writeform")
 								.validate(
@@ -270,3 +325,4 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 					});
 
 })(jQuery, window, document);
+*/

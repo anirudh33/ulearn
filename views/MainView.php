@@ -120,15 +120,16 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 		
 
 </div>
-	<div id="errors">
+ 	<div id="errors">
 	
 		<?php 
+		/*
 if (isset($_REQUEST["msg"])) {
     $message = $_REQUEST["msg"];
     echo $message;
     
     
-}
+}*/
 ?>
 		
 		</div>

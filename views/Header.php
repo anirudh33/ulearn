@@ -54,6 +54,7 @@ if(isset($pageName)) {
 <!-- Easing jquery for easy to use animate functions -->
 <script src="assets/js/jquery/jquery.easing.1.3.js"
 	type="text/javascript"></script>
+	<script src="assets/js/Validation.js" type="text/javascript"></script>
 
 <!-- Date Picker -->
 <link rel="stylesheet" type="text/css" href="assets/style/jqueryui.css">
