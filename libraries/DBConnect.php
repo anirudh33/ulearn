@@ -110,6 +110,7 @@ class DBConnection
 
     public function Fields ($data = array())
     {
+        
     	$this->_keys = array();
         $this->_values = array();
         $count = count($data);

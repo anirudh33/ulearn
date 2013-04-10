@@ -86,6 +86,8 @@ class InitiateUser extends AModel {
 	 * Usage: Checks for valid login information
 	 */
 	public function login($fieldEmail, $fieldPassword) {
+	
+	
 		if ($this->fieldsValid ( $fieldEmail, $fieldPassword )) {
 			
 			$this->setEmailID ( $fieldEmail );
@@ -97,7 +99,7 @@ class InitiateUser extends AModel {
 				$msg = "Login Failed username or password does not exist";
 				$this->setCustomMessage ( "ErrorMessage", $msg );
 				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=$msg" );
-				die ();
+				
 			}
 		} else {
 			$msg = "Invaild Data Enter again";
@@ -105,6 +107,7 @@ class InitiateUser extends AModel {
 		}
 	}
 	private function exists($email, $password) {
+	    
 		if ($this->fetchUser ( $email, $password ) == true) {
 			return 1;
 		} else {
@@ -170,7 +173,8 @@ class InitiateUser extends AModel {
 	}
 	private function encryptPassword($password) {
 	    
-		return sha1($password);
+		//  return sha1($password);
+		return $password;
 	}
 	public function setLanguage($value) {
 		$_SESSION ["lang"] = $value;

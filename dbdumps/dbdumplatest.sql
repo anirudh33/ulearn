@@ -267,7 +267,7 @@ CREATE UNIQUE INDEX `student_index` ON `userdetails`(`id`);
 CREATE TABLE IF NOT EXISTS `userdetails` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id of teachers, students, admin',
   `email` char(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'email id of teachers, students, admin',
-  `password` char(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'passwords of teachers, students, admin',
+  `password` char(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'passwords of teachers, students, admin',
   `user_type` enum('superadmin','admin','teacher','student') NOT NULL COMMENT 'specifies type of user is teacher, student, admin',
   `confirm_code` char(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'confirm id of teachers, students, admin',
   PRIMARY KEY (`user_id`),

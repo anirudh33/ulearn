@@ -47,6 +47,7 @@ class Registration extends AUser {
 	public function newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code) {
 		$new_date = date ( 'Y-m-d', strtotime ( $date ) );
 		$password=sha1($password);
+		
 		DBConnection::Connect ();
 		$this->db->From ( "userdetails" );
 		$this->db->Fields ( array (

@@ -142,6 +142,41 @@ class Admin extends AUser {
 		
 		$this->setAdminProfiledata ( $this->db->resultArray () );
 	}
+	/*updates any previous passwords to sha1*/
+	public function updatePassword() {
+	    DBConnection::Connect ();
+	    $this->db->Fields ( array (
+	        "password"
+	        
+	    ) );
+	    $this->db->From ( "userdetails" );
+	    $this->db->Where ();
+	    $this->db->Select ();
+	    $result=$this->db->resultArray () ;
+	    echo"<pre>";
+	    print_r($result);
+	    
+	    foreach($result as $key=>$value) {
+	        
+	    $pass=$value["password"];
+	    echo "old:$pass<br>";
+	    $a=sha1($pass);
+	    echo "new-$a<br>";
+	    
+	    
+	    
+	    $this->db->Fields ( array (
+	        "password"=>"$a"
+	    
+	    ) );
+	    $this->db->From ( "userdetails" );
+	    $this->db->Where ();
+	    $this->db->Update ();
+	    echo $this->db->lastQuery();
+	    }
+	    //echo $this->db->lastQuery();
+	    die;
+	}
 	/* method called to return teacher details from database in manage teacher*/
 	public function fetchTeacher($limit = "0,10") {
 		if (empty ( $limit )) {

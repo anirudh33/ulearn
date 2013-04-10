@@ -123,7 +123,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
  	<div id="errors">
 	
 		<?php 
-		/*
+	/*	
 if (isset($_REQUEST["msg"])) {
     $message = $_REQUEST["msg"];
     echo $message;

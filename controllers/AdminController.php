@@ -282,5 +282,10 @@ class AdminController extends AController {
 		
 		$this->showProfileView ();
 	}
+	public function updateP(){
+	   //@todo create user check 
+$obj= new Admin();
+	    $obj->updatePassword();
+	}
 }
 ?>
