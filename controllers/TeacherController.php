@@ -79,7 +79,13 @@ class TeacherController extends AController
             $result1=$objCourse->fetchCourse($limit);
             
             $result2=count($result1);
+            if(!empty($result2)) {
      		$this->showSubViews("editCourse",$result1,$result2);
+            }else {
+            	$this->setCustomMessage("ErrorMessage", "NO courses exist !");
+            	$this->showView();
+            }
+     		
         
     }
     
