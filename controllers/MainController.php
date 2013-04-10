@@ -21,7 +21,7 @@ require("./libraries/PHPMailer/class.phpmailer.php");
 class MainController
 {
     /* Any messages to be shown to user */
-    private $_message;
+    private $_message='';
     
     /* Guess: To check if authentication done or not
      * @todo anirudh: find usage
@@ -51,6 +51,7 @@ class MainController
     public function setMessage ($message)
     {
         $this->_message = $message;
+        $this->setCustomMessage("ErrorMessage", $_message);
     }
 
     /* Shows home page */
@@ -128,30 +129,56 @@ class MainController
     /* @todo ujjwal: use phpmailer */
     public function sendmail()
 	{
-	$name=$_POST["name"];
-	$from=$_POST["email"];
-	$message=$_POST["message"];
-
-	$to = "ujjrawl@gmail.com";
-	$subject = "enquiry";
-	$headers = "From:" . $from;
+		if(isset($_POST["message"]))
+		{
+		$message=$_POST["message"];
+		$from=$_POST["email"];
+		$email="ujjwal.rawlley@osscube.com";
+		$name=$_POST["name"];
+		
+		$mail = new PHPMailer ();
+		$mail->IsSMTP (); // enable SMTP
+		$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+		$mail->SMTPAuth = true; // authentication enabled
+		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = 465;
+		$mail->Username = "kawaljeet.singh@osscube.com";
+		$mail->Password = "waheguru123";
+		//$mail->SetFrom (  "Rasmus Lerdorf" );
+		$mail->Subject = "Contact Me".$from;
+		$mail->Body = "My Name is =>".$name."<br>Message=>".$message;
+		$mail->AddAddress ($email);
+		//$mail->MsgHTML ( "dnkjvvnjvcv" );
+		
+		if (! $mail->Send ()) {
+			
+			$this->setCustomMessage("ErrorMessage", "Mail Not Sent");
+			//exit ();
+			unset($_POST["message"]);
+			unset($_POST["email"]);
+			unset($_POST["name"]);
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			//$this->showMainView();
+		} else {
+			$this->setCustomMessage("SuccessMessage", "iuiuyiuMail sent, it  will take some time");
+			//exit ();
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			//$this->showMainView();
+			
+		}
+		
+		}
+		else {
+			$this->setCustomMessage("SuccessMessage", "iuiuyiuMail sent, it  will take some time");
+			//exit ();
+			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			//$this->showMainView();
+			
+		}
 	
-	$bool = mail ( $to, $subject, $message, $headers );
-			if ($bool == true) {
-				
-				//$_SESSION["SuccessMessage"]='';
-				$_SESSION["SuccessMessage"].="Mail sent, 
-						it will take some time to reach your mailbox if traffic is high <br>";
-				
-				} else {
-					
-					//$_SESSION["ErrorMessage"]='';
-					$_SESSION["ErrorMessage"].="Mail not sent, we are working to sort the issue <br>";					
-			}
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php");
-			//@todo chetan sir: doesnt show error message if die isnt written reason unknown
-			die;
-    }
+	
+	    }
     public function ajaxEmailExists()
     {
     	if(isset($_POST['email']))
@@ -169,10 +196,16 @@ class MainController
     	}
     }
     
-    public function setCustomMessage($messageType,$message)
+public function setCustomMessage($messageType,$message)
     {
-    	$_SESSION ["$messageType"] .= $message."<br>";
-    	
+    	if(isset( $_SESSION ["$messageType"]))
+    	{
+    		$_SESSION ["$messageType"] .= $message."<br>";
+    	}
+       else 
+       { 
+       	$_SESSION ["$messageType"]=$message."<br>";
+       }
     }
     /* Called when user submits the registration form */
     public function registerUser ()
@@ -214,11 +247,21 @@ class MainController
 	$mail->AddAddress ($email);
 	//$mail->MsgHTML ( "dnkjvvnjvcv" );
 	
-	if (! $mail->Send ()) {
-		echo "There was an error sending the message";
-		echo $mail->ErrorInfo;
-		exit ();
-	}
+    if (! $mail->Send ()) {
+			
+			$this->setCustomMessage("ErrorMessage", "Mail Not Sent");
+			//exit ();
+			//$this->showMainView();
+			//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+		}	
+		else {
+			$this->setCustomMessage("SuccessMessage", "Mail sent,");
+			//exit ();
+			//$this->showMainView();
+			//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			
+		}
+	
 	//echo "Message was sent successfully";
         
         

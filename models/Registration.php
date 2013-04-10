@@ -72,7 +72,10 @@ class Registration extends AUser
         	"createdon"=>date("Y/m/d")	
         ));
         $this->db->Insert();
-		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );
+        $obj=new MainController();
+        $obj->setCustomMessage("SuccessMessage", "Record Has Been Added , Please Activate Your Account");
+		//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );
+        header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
     }
 
     public function confirmEmail($email,$pass)
@@ -194,8 +197,10 @@ class Registration extends AUser
         	"createdon"=>date("Y/m/d")
         ));
         $this->db->Insert();
-		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );    
-    }
+$obj=new MainController();
+        $obj->setCustomMessage("SuccessMessage", "Record Has Been Added , Please Activate Your Account");
+		//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=RECORD HAS BEEN ADDED" );
+        header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );    }
 }
 
 

@@ -1,6 +1,20 @@
 <?php
 
 
+/*
+ ************************** Creation Log *****************************
+File Name                   -  Userfactory.php
+Project Name                -  ulearn
+Description                 -  Creates users according to type sent
+Version                     -  1.0
+Created by                  -  Anirudh Pandita
+Created on                  -  April 4, 2013
+* **************************** Update Log ********************************
+*/
+
+
+
+
 /* Creates users according to type sent */
 class UserFactory
 {
