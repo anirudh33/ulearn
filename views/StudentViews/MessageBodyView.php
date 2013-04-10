@@ -17,12 +17,18 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 
 
 
-
-
-  <div id="mess">
-        <h2><?php  print_r($data[0]["body"])."<br/>";?></h2>
+<div id="registerdiv">
+	<h1>Message</h1>
+	<fieldset class="row2">
+		<legend>Message Details </legend>
+ <h2 id="msgid" >Subject:<?php echo $_REQUEST["sub"];?><br>
+  Message: <br><?php  print_r($data[0]["body"])."<br/>";?></h2>
+ </fieldset>
+ 
+  </div>
+        
        
-    </div>
-
-</body>
-</html>
+   
+    
+    
+ 

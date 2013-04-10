@@ -53,7 +53,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 							?>
 							<td>
 <a href="index.php?method=subjectClick&controller=Student&msgid=
-<?php echo $value["message_id"] ?>">View </a></td>
+<?php echo $value["message_id"] ?>&sub=<?php echo $value["subject"]?>">View </a></td>
 					   	</tr><?php
 						}
 						?>
