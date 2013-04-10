@@ -22,6 +22,8 @@ $_SESSION['SITE_PATH'] = getcwd();
 $_SESSION['DOMAIN_PATH'] = $_SERVER['SERVER_NAME'] . '/ulearn/branches/development';
 $_SESSION['DB_NAME'] = 'ulearndb';
 
+define('SITE_URL','http://'.$_SERVER['SERVER_NAME'] . "/ulearn/branches/development/");
+
 /* Log errors to a specific file */
 ini_set('log_errors',1);
 ini_set('error_log',getcwd().'/errors.log');

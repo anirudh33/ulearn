@@ -46,6 +46,7 @@ class Registration extends AUser {
 	/* method called to register student in database from registeration form */
 	public function newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code) {
 		$new_date = date ( 'Y-m-d', strtotime ( $date ) );
+		$password=sha1($password);
 		DBConnection::Connect ();
 		$this->db->From ( "userdetails" );
 		$this->db->Fields ( array (
@@ -151,6 +152,7 @@ class Registration extends AUser {
 	/* method called to register teacher in database from registeration form */
 	public function newteacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code) {
 		$new_date = date ( 'Y-m-d', strtotime ( $date ) );
+		$password=sha1($password);
 		DBConnection::Connect ();
 		$this->db->From ( "userdetails" );
 		$this->db->Fields ( array (

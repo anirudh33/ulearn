@@ -19,6 +19,7 @@ Created on                  -  April 4, 2013
 class UserFactory
 {
 
+    /* Returns a user object depending on type received */
     public static function createUser ($type)
     {
         $baseClass = 'AUser';

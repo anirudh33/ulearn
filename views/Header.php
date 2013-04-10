@@ -25,9 +25,9 @@ $lang=Language::getinstance();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- jquery source -->
-<script src="assets/js/jquery/jquery.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>assets/js/jquery/jquery.js" type="text/javascript"></script>
 <!-- Jquery for validations -->
-<script type="text/javascript" src="./assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL;?>assets/js/jquery.validate.min.js"></script>
 
 
 
@@ -44,25 +44,25 @@ if(isset($pageName)) {
 <title> <?php if(isset($lang->TITLE)){echo $lang->TITLE;} else {echo "Welcome to ulearn";} ?></title>
 
 <!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/MainViewStyle.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>assets/style/MainViewStyle.css"
 	type="text/css" media="screen">
-<link rel="stylesheet" href="assets/style/Slide.css" type="text/css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>assets/style/Slide.css" type="text/css"
 	media="screen">
-<link rel="stylesheet" href="assets/style/MainView.css" type="text/css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>assets/style/MainView.css" type="text/css"
 	media="screen">
 
 <!-- Easing jquery for easy to use animate functions -->
-<script src="assets/js/jquery/jquery.easing.1.3.js"
+<script src="<?php echo SITE_URL;?>assets/js/jquery/jquery.easing.1.3.js"
 	type="text/javascript"></script>
-	<script src="assets/js/Validation.js" type="text/javascript"></script>
+	<script src="<?php echo SITE_URL;?>assets/js/Validation.js" type="text/javascript"></script>
 
 <!-- Date Picker -->
-<link rel="stylesheet" type="text/css" href="assets/style/jqueryui.css">
-<script src="assets/js/jquery/jqueryui.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>assets/style/jqueryui.css">
+<script src="<?php echo SITE_URL;?>assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 
 <!-- Other javascript source  -->
-<script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
-<script src="assets/js/MainView.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>assets/js/MainViewSlide.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>assets/js/MainView.js" type="text/javascript"></script>
 
 <style type="text/css">
 #errors {
@@ -85,23 +85,23 @@ if($pageName=="RegistrationView") {
 <title> <?php if(isset($lang->TITLE)){echo $lang->TITLE;} else {echo "Register| Welcome to ulearn";} ?></title>
 
 <!-- Links for stylesheet -->
-<link rel="stylesheet" href="assets/style/Registration.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>assets/style/Registration.css"
 	type="text/css" media="screen">
 <link rel="stylesheet" type="text/css"
-	href="assets/style/Registration/registrationnew.css">
+	href="<?php echo SITE_URL;?>assets/style/Registration/registrationnew.css">
 <link rel="stylesheet" type="text/css"
-	href="assets/style/Registration/registrationnew2.css">
+	href="<?php echo SITE_URL;?>assets/style/Registration/registrationnew2.css">
 
 <!-- Date Picker -->
-<link rel="stylesheet" type="text/css" href="assets/style/jqueryui.css">
-<script src="assets/js/jquery/jqueryui.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>assets/style/jqueryui.css">
+<script src="<?php echo SITE_URL;?>assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 <!-- jquery source -->
 
 
 <!-- Custom js -->
-<script src="assets/js/MainViewSlide.js" type="text/javascript"></script>
-<script src="assets/js/MainView.js" type="text/javascript"></script>
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>assets/js/MainViewSlide.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>assets/js/MainView.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>assets/js/RegistrationView.js" type="text/javascript"></script>
 	
 		
 	<?php //@todo put in proper css file ?>

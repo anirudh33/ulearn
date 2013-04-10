@@ -14,15 +14,21 @@
  * ***************************************************************************
  */
 
+/**
+ * @author anirudhpandita
+ *
+ */
 class InitiateUser extends AModel {
 	private $_password;
 	private $_result = array ();
 	private $_userID;
 	private $_userType;
 	private $_emailID;
+	
 	public function __construct() {
 		parent::__construct ();
 	}
+	
 	private function getPassword() {
 		return $this->_password;
 	}
@@ -53,6 +59,15 @@ class InitiateUser extends AModel {
 	private function setEmailID($emailID) {
 		$this->_emailID = $emailID;
 	}
+	
+	
+	/**
+	 * Called from login method when user credentials in the system 
+	 * have been checked
+	 * 
+	 * Usage: Sets userid, user type and email id of user in session
+	 * for further usage
+	 */
 	private function setSession() {
 		$_SESSION ["userID"] = $this->getUserID ();
 		
@@ -60,6 +75,16 @@ class InitiateUser extends AModel {
 		
 		$_SESSION ["emailID"] = $this->getEmailID ();
 	}
+	
+	
+	/**
+	 * @author anirudh pandita
+	 * @param Email id of user trying to log in: $fieldEmail
+	 * @param Password of user trying to log in: $fieldPassword
+	 * Called by: initiateLogin in MainController
+	 * @return number 1 if entry exists by calling exists function
+	 * Usage: Checks for valid login information
+	 */
 	public function login($fieldEmail, $fieldPassword) {
 		if ($this->fieldsValid ( $fieldEmail, $fieldPassword )) {
 			
@@ -144,7 +169,8 @@ class InitiateUser extends AModel {
 		return $bool;
 	}
 	private function encryptPassword($password) {
-		return $password;
+	    
+		return sha1($password);
 	}
 	public function setLanguage($value) {
 		$_SESSION ["lang"] = $value;
