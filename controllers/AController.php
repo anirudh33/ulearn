@@ -134,13 +134,14 @@ abstract class AController {
 		}
 	}
 	/* method called on subject click in message view */
-	public function subjectClick() {
+public function subjectClick() {
 		$aid = $_REQUEST ["msgid"];
 		
 		$this->createUser ();
-		$result = $this->_objUser->messageBody ( $aid );
 		
-		$this->showSubViews ( "MessageBody", $result );
+		list ( $messages, $result2 )= $this->_objUser->messageBody ( $aid );
+		
+		$this->showSubViews ( "MessageBody",$messages, $result2 );
 	}
 	/**
 	 *

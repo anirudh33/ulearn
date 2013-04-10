@@ -2,7 +2,7 @@
 /* Creation Log
 
 File Name                   -  MessageBodyView.php
-Description                 -  Displays message body
+Description                 -  Displays the message body
 Version                     -  1.0
 Created by                  -  Tanu trehan
 Created on                  -  April 2, 2013
@@ -14,14 +14,24 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 */
 ?>
 
+<div id="messageBodyContent">
+<div id="messageBodySubject">
+Subject:
 
-    <div id="registerdiv">
-	<h1>Message</h1>
-	<fieldset class="row2">
-		<legend>Message Details </legend>
- <h2 id="msgid" >Subject:<?php echo $_REQUEST["sub"];?><br>
-  Message: <br><?php  print_r($data[0]["body"])."<br/>";?></h2>
- </fieldset>
- 
-  </div>
-        
+<?php  print_r($data[0]["subject"])."<br/>";?>
+
+
+</div>
+<div id="messageBodySent">
+Sent From: <?php  print_r($result2[0]["email"])."<br/>";?>
+</div>
+
+
+  <div id="mess">
+  MESSAGE: 
+        <h2><br><?php  print_r($data[0]["body"])."<br/>";?></h2>
+       
+    </div>
+</div>
+</body>
+</html>

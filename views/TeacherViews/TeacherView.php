@@ -72,11 +72,7 @@ if ($viewName == "addCourse")
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/RegisterCourseView.php';
 						}
 						
-						if ($viewName == "MessageBody" && (! empty ( $data )))
 						
-						{
-							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageBodyView.php';
-						}
 						
 						if ($viewName == "showContent"&& (! empty ( $data ))) {
 						
@@ -102,6 +98,11 @@ if ($viewName == "viewMessage" && (! empty ( $data ))&& (! empty ( $result2 )))
 						{
 
 							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/ShowMessagesView.php';
+						}
+						if ($viewName == "MessageBody" && (! empty ( $data ))&& (! empty ( $result2 )))
+						
+						{
+							require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/MessageBodyView.php';
 						}
 
 	}

@@ -11,29 +11,27 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 -------------------------------------------------------------------------
 1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
 * ************************************************************************
-* * **************************** Update Log ********************************
-Sr.NO.        Version        Updated by           Updated on          Description
--------------------------------------------------------------------------
-1			 1.1			Kawaljeet Singh		April 10, 2013		View and Body updated 
-* ************************************************************************
 */
 ?>
 
+<div id="messageBodyContent">
+<div id="messageBodySubject">
+Subject:
+
+<?php  print_r($data[0]["subject"])."<br/>";?>
 
 
+</div>
+<div id="messageBodySent">
+Sent From: <?php  print_r($data1[0]["email"])."<br/>";?>
+</div>
 
-<div id="registerdiv">
-	<h1>Message</h1>
-	<fieldset class="row2">
-		<legend>Message Details </legend>
- <h2 id="msgid" >Subject:<?php echo $_REQUEST["sub"];?><br>
-  Message: <br><?php  print_r($data[0]["body"])."<br/>";?></h2>
- </fieldset>
- 
-  </div>
-        
+
+  <div id="mess">
+  MESSAGE: 
+        <h2><br><?php  print_r($data[0]["body"])."<br/>";?></h2>
        
-   
-    
-    
- 
+    </div>
+</div>
+</body>
+</html>

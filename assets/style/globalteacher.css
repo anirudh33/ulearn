@@ -17,17 +17,30 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 
 /* @group resets and elements */
 
-#messsub
+#messageBodySubject
 {
-	height:90px;
-	border:1px solid grey;
+	padding:20px;
+	height:20px;
+	//border:1px solid grey;
+}
+#messageBodyContent
+{
+	height:300px;
+	border:5px solid grey;
+	padding:20px;
+	//border:1px solid grey;
+}
+#messageBodySent
+{
+	height:20px;
+	padding:20px;
+	//border:1px solid grey;
 }
 #mess
 {
-	
-	
-	height:300px;
 	border:1px solid grey;
+	height:150px;
+	padding:20px;
 }
 #logout33
 {

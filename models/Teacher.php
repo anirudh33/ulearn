@@ -234,18 +234,56 @@ class Teacher extends AUser {
 /* method called to return teacher messages body from database */
 	public function messageBody($aid) {
 		DBConnection::Connect ();
-
+	
 		$this->db->Fields ( array (
-				"body"
-				) );
+				"body", "subject" , "sentfrom"
+	
+		) );
 		$this->db->From ( "studentmessage" );
 		$this->db->Where ( array (
-				"message_id" => $aid 
+				"message_id" => $aid
 		) );
 		$this->db->Select ();
-		$result = $this->db->resultArray ();  			       		
-		return $result;
+		$result = $this->db->resultArray ();
+	
+		$sentfrom=$result[0]["sentfrom"];
+		$this->db->Fields ( array (
+				"user_id"
+		) );
+		$this->db->From ( "studentdetails" );
+		$this->db->Where ( array (
+				"id" => $sentfrom
+		) );
+		$this->db->Select ();
+	
+		$uIDArray = $this->db->resultArray ();
+		$u = $uIDArray [0] ["user_id"];
+	
+		$this->db->Fields ( array (
+				"email"
+		) );
+		$this->db->From ( "userdetails" );
+		$this->db->Where ( array (
+				"user_id" => $u
+		) );
+		$this->db->Select ();
+		$email = $this->db->resultArray ();
+		return array (
+				$result,
+				$email
+		);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 /* method called to check if lesson already exists in database */
 public function lessonExists($lesson_no,$courseID,$teacherID) {
