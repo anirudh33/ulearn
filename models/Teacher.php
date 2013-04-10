@@ -141,7 +141,6 @@ class Teacher extends AUser {
 		/* Sending message by insertion into techermessage table */
 		$this->db->From ( "teachermessage" );
 		$this->db->Fields ( array (
-				//"message_id" => "$message_id",
 				"body" => "$body",
 				"subject" => "$subject",
 				"sentfrom" => "$sentfrom",
@@ -441,6 +440,8 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 		return false;
 	}
 	}
+	
+	/*  deletes Uploaded content in teachers respective directories under chosen course*/
 	
 	public function deleteFile($location) {
 		
