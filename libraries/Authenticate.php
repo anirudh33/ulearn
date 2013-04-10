@@ -9,6 +9,7 @@
  * Sr.NO. Version 			Updated by   Updated on 	Description 
  * ------------------------------------------------------------------------- 
  * 1			1.0			Anirudh Pandita	28/04/2013	Being used in various controllers 
+ * 2			1.0			Ujjwal Rawlley	10/04/2013  PHP Validations
  * ************************************************************************
  */
 class Authenticate extends AModel{
