@@ -1,6 +1,15 @@
 <?php
 /*
- * *************************** Creation Log ******************************* File Name - Authenticate.php Description - Class file for Authentication of users credentials Version - 1.0 Created by - Anirudh Pandita Created on - March 02, 2013 *************************************************************************** Sr.NO. Version Updated by Updated on Description ------------------------------------------------------------------------- 1			1.0			Anirudh Pandita	28/04/2013	Being used in various controllers ************************************************************************
+ * *************************** Creation Log ******************************* 
+ * File Name - Authenticate.php 
+ * Description - Class file for Authentication of users credentials 
+ * Version - 1.0 Created by - Anirudh Pandita 
+ * Created on - March 02, 2013 
+ * *************************************************************************** 
+ * Sr.NO. Version 			Updated by   Updated on 	Description 
+ * ------------------------------------------------------------------------- 
+ * 1			1.0			Anirudh Pandita	28/04/2013	Being used in various controllers 
+ * ************************************************************************
  */
 class Authenticate extends AModel{
 	private $_message = "";

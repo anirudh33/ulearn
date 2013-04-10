@@ -129,9 +129,7 @@ class DBConnection
         return $this;
     }
 
-    public function UpdateTeacher ()
-    {}
-
+    
     public function From ($value)
     {
         if (! empty($value)) {

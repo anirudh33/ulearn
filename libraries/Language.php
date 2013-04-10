@@ -184,10 +184,7 @@ class Language
             'MYPROFILE'=>"मेरा प्रोफ़ाइल"
         )
     );
-
-    private function __construct ()
-    {}
-
+// to return instance of language
     public static function getinstance ()
     {
         if (is_null(Language::$_instance)) {
@@ -195,7 +192,7 @@ class Language
         }
         return self::$_instance;
     }
-
+// to get language constants
     public function __get ($key)
     {
         $this->getLangType();
@@ -211,19 +208,6 @@ class Language
         }
     }
     
-    // public function setvalues() {
-    // $fp = fopen('define.php', 'w');
-    //
-    // foreach ($this->_lang as $key1 => $value) {
-    //
-    // fwrite($fp, " define('" . $key1 . "', '" . $value . "');\n");
-    //
-    // //echo "\n";
-    // //define('FIRSTNAME', 'first name*');
-    // echo $key1;
-    // echo $value;
-    // }
-    // }
-}
+    }
 ?>
  

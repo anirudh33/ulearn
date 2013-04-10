@@ -1,6 +1,13 @@
 <?php
+/* Creation Log
 
-
+File Name                   -  AUser.php
+Description                 -  contains all getter setters 
+Version                     -  1.0
+Created by                  -  Tanu trehan
+Created on                  -  March 28, 2013
+*/?>
+<?php
 abstract class AUser extends AModel
 {
 
@@ -233,21 +240,6 @@ abstract class AUser extends AModel
     {
         $this->qualification = $qualification;
     }
-
-    public function AddUser ()
-    {}
-
-    public function UpdateUser ()
-    {}
-
-    public function DeleteUser ()
-    {}
-
-    public function fetchUser ()
-    {}
-
-    public function showView ()
-    {}
     
 }
 ?>

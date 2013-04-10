@@ -23,7 +23,7 @@ class UserFactory
     {
         $baseClass = 'AUser';
         $targetClass = ucfirst($type);
-        // echo "-------------$targetClass---------".class_exists( $targetClass )."--------".is_subclass_of ( $targetClass, $baseClass )."------";
+        
         
         if (class_exists($targetClass) && is_subclass_of($targetClass, $baseClass)) {
             return new $targetClass();

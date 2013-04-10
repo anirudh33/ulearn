@@ -1,9 +1,5 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates and open the template in the editor.
- */
-
 /**
  * Description of Model
  *
@@ -13,34 +9,24 @@
  *         1 1.0 Anirudh Pandita March 08, 2013
  *         ************************************************************************
  */
-abstract class AModel
-{
-
-    protected $db;
-    // protected $lang;
-    function __construct ()
-    {
-        $this->db = DBConnection::Connect();
-        
-        // $this->lang = Language::getinstance();
-    }
-    /**
-     * @param unknown $messageType
-     * @param unknown $message
-     * Uses toast to show messages to user
-     */
-    
-    public function setCustomMessage($messageType,$message)
-    {
-    	if(isset( $_SESSION ["$messageType"]))
-    	{
-    		$_SESSION ["$messageType"] .= $message."<br>";
-    	}
-       else 
-       { 
-       	$_SESSION ["$messageType"]=$message."<br>";
-       }
-    }
+abstract class AModel {
+	protected $db;
+	function __construct() {
+		$this->db = DBConnection::Connect ();
+	}
+	/**
+	 *
+	 * @param unknown $messageType        	
+	 * @param unknown $message
+	 *        	Uses toast to show messages to user
+	 */
+	public function setCustomMessage($messageType, $message) {
+		if (isset ( $_SESSION ["$messageType"] )) {
+			$_SESSION ["$messageType"] .= $message . "<br>";
+		} else {
+			$_SESSION ["$messageType"] = $message . "<br>";
+		}
+	}
 }
 
 ?>

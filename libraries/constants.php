@@ -17,7 +17,7 @@ $DB_COMMON = "ulearndb"; // Database name
 
 $SITE_PATH = "http://localhost/ulearn/branches/development"; // Files location
 $UPLOAD_PATH = "uploads"; // Common path for documents to move on from the existing location
-$VERSION = "1.0";
-$def_page_size = 10;
+$VERSION = "1.0"; //version
+$def_page_size = 10; //default page size
 echo $_SERVER["HTTP_HOST"];
 ?>

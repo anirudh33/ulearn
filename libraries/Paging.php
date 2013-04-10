@@ -75,8 +75,7 @@ class paging
     {
         parse_str($_SERVER['QUERY_STRING'], $get_vars);
         if ($this->get_pages() > 1) {
-            // echo "=============$limit======$no"; die;
-            $link = "<span style='font-weight:bold;'></span>";
+           $link = "<span style='font-weight:bold;'></span>";
         } else {
             $link = "<span style='font-weight:bold;'> </span>";
         }
@@ -84,8 +83,7 @@ class paging
         for ($i = 1; $i <= $this->get_pages(); $i ++) {
             $get_vars[$this->page_var] = $i;
             $url = http_build_query($get_vars);
-            // Appending limit to url anirudh
-            $url .= "&limit=" . $limit;
+             $url .= "&limit=" . $limit;
             
             if ($i == $this->current_page)
                 $link .= ($i > 1) ? $this->page_separator . " <span style='color:#cc0000;font-weight:bold;font-size:13px;float:none!important;padding-right:0px!important'> <u>$i</u> </span> " : " <span style='color:#cc0000;font-weight:bold;'> <u>$i</u> </span> ";
@@ -107,10 +105,6 @@ class paging
             $url_first = http_build_query($get_vars);
             $get_vars[$this->page_var] = $pages;
             $url_last = http_build_query($get_vars);
-            // // Appending limit to url anirudh
-            // $url_first .= "&limit=" . $limit;
-            // // Appending limit to url anirudh
-            // $url_last .= "&limit=" . $limit;
             $link_new = "<span><a href='?$url_first'>" . PAGINATIONFIRST . "</a></span>  " . $link . "  <span><a href='?$url_last'>Last</a></span>";
         } else {
             $link_new = $link;
@@ -130,12 +124,7 @@ class paging
             $url_pre = http_build_query($get_vars);
             $get_vars[$this->page_var] = intval($this->current_page) + 1;
             $url_next = http_build_query($get_vars);
-            // // Appending limit to url anirudh
-            // $url_pre .= "&limit=" . $limit;
-            // // Appending limit to url anirudh
-            // $url_next.= "&limit=" . $limit;
-            
-            if ($this->current_page == 1) {
+               if ($this->current_page == 1) {
                 $link_new = $link . "  <span><a href='?$url_last'>" . PAGINATIONNEXT . "</a></span>";
             } else 
                 if ($this->current_page == $pages) {
@@ -161,9 +150,7 @@ class paging
         for ($i = $page_start; $i <= $page_end; $i ++) {
             $get_vars[$this->page_var] = $i;
             $url = http_build_query($get_vars);
-            // Appending limit to url anirudh
-            // $url .= "&limit=" . $limit;
-            if ($i == $this->current_page)
+               if ($i == $this->current_page)
                 $link .= ($i > 1) ? $this->page_separator . " <span style='color:#cc0000;font-weight:bold;font-size:13px;float:none!important;padding-right:0px!important'> $i </span> " : " <span style='color:#cc0000;font-weight:bold;'> $i </span> ";
             else
                 $link .= ($i > 1) ? $this->page_separator . "<a href='?$url'> <u>$i</u> </a>" : "<a href='?$url'> <u>$i</u> </a>";
@@ -181,15 +168,7 @@ class paging
             $url_pre = http_build_query($get_vars);
             $get_vars[$this->page_var] = intval($this->current_page) + 1;
             $url_next = http_build_query($get_vars);
-            // Appending limit to url anirudh
-            // $url_first.= "&limit=" . $limit;
-            
-            // $url_last .= "&limit=" . $limit;
-            
-            // $url_pre .= "&limit=" . $limit;
-            
-            // $url_next .= "&limit=" . $limit;
-            $link_new = "<span style='padding:5px;'><a href='?$url_first'><u>" . PAGINATIONFIRST . "</u></a></span>  ";
+             $link_new = "<span style='padding:5px;'><a href='?$url_first'><u>" . PAGINATIONFIRST . "</u></a></span>  ";
             if ($this->current_page > 1)
                 $link_new .= "<span style='padding:5px;'><a href='?$url_pre'><u>" . PAGINATIONPREV . "</u></a></span>  ";
             $link_new .= $link;
@@ -238,11 +217,7 @@ class paging
             $url_pre = http_build_query($get_vars);
             $get_vars[$this->page_var] = intval($this->current_page) + 1;
             $url_next = http_build_query($get_vars);
-            
-            // $url_pre .= "&limit=" . $limit;
-            
-            // $url_next .= "&limit=" . $limit;
-            if ($this->current_page == 1) {
+               if ($this->current_page == 1) {
                 $link_new = "  <span><a style='border:1px solid #999;padding-top:1px;' class='morelink' href='?$url_next'>" . PAGINATIONNEXT . " >></a></span>";
             } else 
                 if ($this->current_page == $pages) {
