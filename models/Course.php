@@ -182,6 +182,7 @@ class Course extends AModel {
 	public function fetchTeacherCoursename() {
 		// @todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
 		DBConnection::Connect ();
+		$result=array();
 		$this->db->Fields ( array (
 				"id" 
 		) );
@@ -245,6 +246,7 @@ class Course extends AModel {
 		) );
 		$this->db->Select ();
 		$courseid = $this->db->resultArray ();
+		if(!empty($courseid)) {
 		$cid = $courseid [0] ['course_id'];
 		
 		$this->db->Fields ( array (
@@ -258,6 +260,7 @@ class Course extends AModel {
 		$result = $this->db->resultArray ();
 		
 		return $result;
+		}
 	}
 	/* method called to return course name from database for register course */
 	public function fetchCoursename() {

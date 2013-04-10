@@ -87,7 +87,7 @@ class Student extends AUser {
 				"gender" => "$gender",
 				"dob" => "$dob" 
 		) );
-		$this->db->Update ();
+		$bool=$this->db->Update ();
 		if($bool==true) {
 			$this->setCustomMessage("SuccessMessage", "Profile Successfully updated ");
 		}else {
@@ -187,6 +187,7 @@ class Student extends AUser {
 		$this->db->Select ();
 		$sentfrom = $this->db->resultArray ();
 		
+		if(!empty($sentfrom)) {
 		$tid = $sentfrom [0] ["sentfrom"];
 		$this->db->Fields ( array (
 				"user_id" 
@@ -214,6 +215,7 @@ class Student extends AUser {
 				$result,
 				$email 
 		);
+		}
 	}
 
 /* method called to return student messages body from database */
@@ -263,6 +265,8 @@ class Student extends AUser {
 		) );
 		$this->db->Select ();
 		$courseid = $this->db->resultArray ();
+		
+		if(!empty($courseid)) {
 		$cid = $courseid [0] ["course_id"];
 		
 		$this->db->Fields ( array (
@@ -298,22 +302,27 @@ class Student extends AUser {
 		$result1 = $this->db->resultArray ();
 		
 		return $result1;
+		}
 	}
 
 /* method called to return uploaded files from database */
 
-	public function downloadContent($coursenamelist, $teachernamelist) {
-		$files = "";
-		$path = $_SESSION ['SITE_PATH'] . "/uploads/" . $teachernamelist . "/" . $coursenamelist;
-		if ($handle = opendir ( $path )) {
-			while ( false !== ($file = readdir ( $handle )) ) {
-				if ($file != "." && $file != "..") {
-					$files .= '<a id="files" target="_blank" href="' . "uploads/" . $teachernamelist . "/" . $coursenamelist . "/" . $file . '">' . $file . '</a><br>';
+	public function downloadContent($coursename, $teachernamelist) {
+		//@todo we have to use the sent variable instead of teacher
+		$email=$teachernamelist;
+		$files=array();
+		$path = $_SESSION['SITE_PATH']."/uploads/".$email."/".$coursename;
+		if ($handle = opendir($path)) {
+			while (false !== ($file = readdir($handle)))
+			{
+				if ($file != "." && $file != "..")
+				{
+					$files[]= "uploads/".$email."/".$coursename."/".$file;
 				}
 			}
-			closedir ( $handle );
+			closedir($handle);
 		}
-		
+	
 		return $files;
 	}
 }

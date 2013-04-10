@@ -16,13 +16,13 @@ $lang = Language::getinstance();
 $obj_paging = new paging();
 
 if (isset($_GET['page']))
-	$page = $_GET['page'];
+    $page = $_GET['page'];
 else
-	$page = 1;
+    $page = 1;
 $obj_paging->set_page($page);
 $obj_paging->set_page_length(10);
 $page_length = $obj_paging->page_length;
-$obj_paging->set_records($result2);
+$obj_paging->set_records($data1);
 $pages = $obj_paging->get_pages();
 
 ?>
@@ -47,6 +47,7 @@ $pages = $obj_paging->get_pages();
 					<td>Option</td>
 				</tr>
                 <?php
+               
                 if ($data) {
                     $i = 0;
                     foreach ($data as $row) {

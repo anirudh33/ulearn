@@ -18,7 +18,7 @@ class StudentController extends AController {
 	
 /*method called to open all sub views in student view*/
 
-	public function showSubViews($viewName, $data, $data1 = array()) {
+	public function showSubViews($viewName, $data, $data1='') {
 		require_once $_SESSION ["SITE_PATH"] . '/views/StudentViews/StudentView.php';
 	}
 	
@@ -94,8 +94,12 @@ public function editProfileClick() {
 		$teachernamelist = $_POST ["teachernamelist"];
 		$this->createUser ();
 		$filelist = $this->_objUser->downloadContent ( $coursenamelist, $teachernamelist );
-		
-		$this->showSubViews ( "showContent", $filelist );
+		if(!empty($filelist)) {
+			$this->showSubViews ( "showContent", $filelist );
+		} else {
+			$this->setCustomMessage("ErrorMessage", "No files have been uploaded yet");
+			$this->showView();
+		}
 	}
 }
 

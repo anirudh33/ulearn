@@ -15,6 +15,7 @@
 //@todo anirudh :why does firefox ask to remember password before form is submitted
 //@todo search filters on manage teacher view in Admin views
 /* Starting session and creating session variables to store paths and default database */
+
 session_start();
 
 $_SESSION['SITE_PATH'] = getcwd();
@@ -63,6 +64,7 @@ require_once ($_SESSION['SITE_PATH'] . '/controllers/MainController.php');
 require_once ($_SESSION['SITE_PATH'] . '/controllers/AdminController.php');
 require_once ($_SESSION['SITE_PATH'] . '/controllers/TeacherController.php');
 require_once ($_SESSION['SITE_PATH'] . '/controllers/StudentController.php');
+
 
 
 /* Method Handling from called from Views */

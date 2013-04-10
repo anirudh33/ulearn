@@ -219,7 +219,7 @@ class Authenticate extends AModel{
 	{
 		
 	
-		if (! filter_var ( $_POST ["phone"], FILTER_VALIDATE_INT )) {
+		if (! filter_var ( $_POST ["phone"], FILTER_VALIDATE_INT ) AND !empty($_POST["phone"])) {
 			 
 				
 			$this->setMessage ( "Phone no not valid, enter numbers only" );

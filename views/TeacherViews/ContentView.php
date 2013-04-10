@@ -62,7 +62,7 @@ $pages = $obj_paging->get_pages();
                             <td> <a target='_blank' href='<?php echo "$row"?>'> <?php echo $row?> </a></td>
                             
                             
-                            <td> <a target='_blank' href='index.php?method=ondeleteFileClick&controller=Teacher&location=<?php echo $row?>'>Delete </a></td>
+                            <td> <a ' href='index.php?method=ondeleteFileClick&controller=Teacher&location=<?php echo $row?>'>Delete </a></td>
                             		
                            
                         </tr>

@@ -117,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `lesson` (
   `status` enum('0','1','2') DEFAULT '1' COMMENT 'specifies the record is 0=deleted, 1=active, 2=deactive',
   `course_id` int(11) DEFAULT NULL COMMENT 'foreign key of course table to specify course id ',
   `teacher_id` int(11) DEFAULT NULL COMMENT 'foreign key of teacherdetails table to specify teacher id',
+`location` char(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'specifies complete path of lesson',
   PRIMARY KEY (`lesson_id`),
   KEY `course_id` (`course_id`),
   KEY `teacher_id` (`teacher_id`)
@@ -256,7 +257,9 @@ CREATE TABLE IF NOT EXISTS `teaches` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
-
+CREATE UNIQUE INDEX `user_index` ON `userdetails`(`user_id`);
+CREATE UNIQUE INDEX `teacher_index` ON `userdetails`(`id`);
+CREATE UNIQUE INDEX `student_index` ON `userdetails`(`id`);
 --
 -- Table structure for table `userdetails`
 --

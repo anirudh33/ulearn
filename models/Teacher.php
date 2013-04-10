@@ -10,9 +10,7 @@
 
 
 class Teacher extends AUser {
-	public function __construct() {
-		parent::__construct ();
-	}
+	
 	private $tdata = array ();
 	
 	/**
@@ -324,8 +322,8 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 	
 /* method called to return uploaded files from database */
 
-	public function downloadContent($coursename)
-	{
+	public function downloadContent($coursename,$teachername)
+	{//@todo we can use the sent variable instead of teacher
 		$user_id = $_SESSION ["userID"];
 		$this->db->Fields ( array (
 				"email"
@@ -390,7 +388,7 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 							"doc",
 							"pdf",
 							"jpg",
-							"txt" 
+							"txt", 
 					);
 
 					$extension = end ( explode ( ".", $_FILES ['upload'] ['name'] [$i] ) );
@@ -432,6 +430,7 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 		}
 	} else {
 		$message="Lesson no already exists";
+		
 		$this->setCustomMessage("ErrorMessage", $message);
 		
 	}
@@ -452,10 +451,12 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 		$this->db->Where ( array (
 				"location" => $location
 		) );
-		$this->db->Delete ();
-		$result = $this->db->resultArray ();
-		if($result==true){
-			echo "deleted";
+		$bool=$this->db->Delete ();
+		
+		if($bool==true){
+			
+			$this->setCustomMessage("ErrorMessage","File deleted!");
+			return $bool;
 		}
 	}
 	

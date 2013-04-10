@@ -31,14 +31,14 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 						$.validator.addMethod("addressRegex", function(value,
 								element) {
 							return this.optional(element)
-									|| /^[a-z' '0-9',''-'"\/"'.']+$/i.test(value);
+									|| /^[-a-z' '0-9','"\/"'.']+$/i.test(value);
 						});
 						
 						//anirudh	@todo - not working
 						$.validator.addMethod("cnameRegex", function(value,
 								element) {
 							return this.optional(element)
-									|| /^[a-z' '\-]+$/i.test(value);
+									|| /^[-a-z' ']+$/i.test(value);
 						});
 						$.validator
 								.addMethod(
@@ -155,6 +155,12 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 													url : true,
 													script : true,
 
+												},
+												upload : {
+													required:true,
+													script:true,
+													url:true,
+													extension: "txt,pdf,jpeg"
 												}
 											},
 											messages : {
@@ -169,6 +175,12 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 													number : "lesson no must be only number",
 													url : "Url not allowed",
 													script : "Dont use script here",
+												},
+												upload: {
+													required: "Required",
+													url : "Url not allowed",
+													script : "Dont use script here",
+													extension: "only jpeg,txt,pdf allowed"
 												}
 
 											},

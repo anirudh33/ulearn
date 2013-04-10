@@ -172,11 +172,16 @@ class TeacherController extends AController
 	/* method called on submitting study material view */
 	public function downloadFile() {
 		$coursename = $_POST ["coursenamelist"];
-		
+		$teachernamelist = $_POST ["teachernamelist"];
 		$this->createUser ();
-		$filelist = $this->_objUser->downloadContent ( $coursename );
-		
+		$filelist = $this->_objUser->downloadContent ( $coursename,$teachernamelist );
+		if(!empty($filelist)) {
 		$this->showSubViews ( "showContent", $filelist );
+		} else {
+			$this->setCustomMessage("ErrorMessage", "No files have been uploaded yet");
+			$this->showView();
+		}
+		
 	}
 	
 	/* method called on upload study material click in teacher view */
@@ -208,16 +213,23 @@ class TeacherController extends AController
 		if($path!=false) {
 			
 		$this->_objUser->lesson ( $lesson_no, $lesson_name, $coursename,$path );
+		$this->showView();
+		
+		}else {
+			$this->uploadClick();
 		}
 			
 		
-		$this->showView();
 	}
 	/* When teacher clicks on delete file link against any file teacher wants deleted from system */
 	public function ondeleteFileClick() {
 		$location=$_GET["location"];
 		$this->createUser();
 		$bool=$this->_objUser->deleteFile($location);
+		
+		if($bool==true) {
+			$this->showView();
+		}
 	}
 }
 

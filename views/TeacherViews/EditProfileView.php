@@ -45,8 +45,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 		</p>
 
 		<p>
-			<label>Address </label> <input type="text" id="address"
-				name="address" class="long" value=<?php echo $data[0]['address']?> >
+			<label>Address </label> <input type="text" id="address"	name="address" class="long" value='<?php echo $data[0]['address']?>' >
 
 		</p>
 

@@ -42,10 +42,7 @@ abstract class AUser extends AModel
 
     protected $updatedon;
 
-    public function __construct ()
-    {
-        parent::__construct();
-    }
+   
 
     public function getUser_id ()
     {
