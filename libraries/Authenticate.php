@@ -1,16 +1,17 @@
 <?php
 /*
- * *************************** Creation Log ******************************* 
+ * *************************** Creation Log *********************************
  * File Name - Authenticate.php 
  * Description - Class file for Authentication of users credentials 
- * Version - 1.0 Created by - Anirudh Pandita 
+ * Version - 1.0 
+ * Created by - Anirudh Pandita 
  * Created on - March 02, 2013 
  * *************************************************************************** 
  * Sr.NO. Version 			Updated by   Updated on 	Description 
  * ------------------------------------------------------------------------- 
  * 1			1.0			Anirudh Pandita	28/04/2013	Being used in various controllers 
  * 2			1.0			Ujjwal Rawlley	10/04/2013  PHP Validations
- * ************************************************************************
+ * **************************************************************************
  */
 class Authenticate extends AModel{
 	private $_message = "";
@@ -33,9 +34,17 @@ class Authenticate extends AModel{
 		$this->_message .= $_message."<br>";
 		$this->setCustomMessage("ErrorMessage", $_message);
 	}
+	
+	/**
+	 * @return string which is required type of the user logging in
+	 */
 	public function getRequiredType() {
 		return $this->_requiredType;
 	}
+	
+	/**
+	 * @param set $requiredType of user logging in
+	 */
 	public function setRequiredType($requiredType) {
 		$this->_requiredType = $requiredType;
 	}
@@ -96,7 +105,7 @@ class Authenticate extends AModel{
 		
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $this->getMessage () . "" );
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $this->getMessage () . "" );
 			die ();
 		}
 	}
@@ -159,7 +168,7 @@ class Authenticate extends AModel{
 		
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] .
 			"/index.php?method=showMainView&controller=Main&msg=" . $this->getMessage () . "" );
 			die ();
 		}
@@ -205,7 +214,7 @@ class Authenticate extends AModel{
 		
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] .
 			"/index.php?method=addCourseClick&controller=Teacher" );
 			die ();
 		}
@@ -266,7 +275,7 @@ class Authenticate extends AModel{
 	{
 	$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . 
 			"/index.php?method=messageClick&controller=Student&msg=" . $this->getMessage () . "" );
 			die ();
 		}
@@ -276,7 +285,7 @@ class Authenticate extends AModel{
 	{
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] .
 			"/index.php?method=messageClick&controller=Teacher&msg=" . $this->getMessage () . "" );
 			die ();
 		}
@@ -389,7 +398,7 @@ class Authenticate extends AModel{
 		if (! empty ( $msg )) {
 			
 			
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . 
 			"/index.php?method=editProfileClick&controller=Admin&msg=" . $this->getMessage () . "" );
 			die ();
 		}
@@ -401,7 +410,7 @@ class Authenticate extends AModel{
 			$msg = $this->getMessage ();
 			
 			if (! empty ( $msg )) {
-				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] .
 				"/index.php?method=editProfileClick&controller=Teacher&msg=" . $this->getMessage () . "" );
 				die ();
 			}
@@ -412,7 +421,7 @@ class Authenticate extends AModel{
 			$msg = $this->getMessage ();
 				
 			if (! empty ( $msg )) {
-				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] .
 				"/index.php?method=editProfileClick&controller=Student&msg=" . $this->getMessage () . "" );
 				die ();
 			}
@@ -559,7 +568,7 @@ class Authenticate extends AModel{
 		
 		$msg = $this->getMessage ();
 		if (! empty ( $msg )) {
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . 
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . 
 			"/index.php?method=registerClick&controller=Main&msg=" . $this->getMessage () . "" );
 			die ();
 		}
@@ -636,7 +645,7 @@ class Authenticate extends AModel{
 					to register from a ip are <b>$noOfAttempts</b>");
 			$msg = $this->getMessage ();
 			if (! empty ( $msg )) {
-				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] .
+				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] .
 				"/index.php?msg=" . $this->getMessage () . "" );
 				die ();
 			}

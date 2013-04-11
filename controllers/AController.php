@@ -61,7 +61,7 @@ abstract class AController {
 			
 			$_SESSION ["ErrorMessage"] .= $authObject->getMessage () . "<br>";
 			
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $authObject->getMessage () . "" );
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=" . $authObject->getMessage () . "" );
 		}
 	}
 	
@@ -178,7 +178,7 @@ public function subjectClick() {
 			unlink ( $_SESSION ["DOMAIN_PATH"] . "/assets/images/Views/profilepics/teacherprofile" . $_SESSION ['userID'] . ".jpeg" );
 		}
 		session_destroy ();
-		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+		header ( "Location:". $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 	}
 }
 ?>

@@ -16,7 +16,7 @@ Sr.NO.  Version   Updated by        Updated on          Description
 * ************************************************************************
 */
 $pageName="MainView";
-require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
+require_once (SITE_PATH . '/views/Header.php');
 ?>
 
 
@@ -112,7 +112,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 		</div>
 		
 		<div id="header">
-			 <img alt="" src="assets/images/Views/upper4.png"
+			 <img alt="" src="<?php echo SITE_URL;?>/assets/images/Views/upper4.png"
 				style="float: left; padding: 50px; width: 600px;height:150px;">
 		</div>
 		<div id="header2">
@@ -149,7 +149,7 @@ if (isset($_REQUEST["msg"])) {
 					
 
 							  <div id="tab1" class="tab_content">
-							  <img alt="" src="assets/images/Views/images67.jpeg" height=500px width=500px>
+							  <img alt="" src="<?php echo SITE_URL;?>/assets/images/Views/images67.jpeg" height=500px width=500px>
 							  <h1 id="homeheading">Ulearn </h1>
 							<div class="meta">The <span>Educational World</span> you can <span>explore</span></div>
 							
@@ -162,7 +162,7 @@ if (isset($_REQUEST["msg"])) {
 								
 						</div>
 						  <div id="tab2" class="tab_content">
-							  <img alt="" src="assets/images/Views/we.jpeg" height=500px width=500px>
+							  <img alt="" src="<?php echo SITE_URL;?>/assets/images/Views/we.jpeg" height=500px width=500px>
 							  <h1 id="homeheading">What we Offer..</h1>
 							<div class="meta">The <span>Services</span> we offer <span> to you </span></div>
 							
@@ -173,7 +173,7 @@ if (isset($_REQUEST["msg"])) {
 							</h2>
 						</div>
 						<div id="tab4" class="tab_content">
-							<img alt="" src="assets/images/img/birdy.jpg" align="right" width=400px>
+							<img alt="" src="<?php echo SITE_URL;?>/assets/images/img/birdy.jpg" align="right" width=400px>
 							
 								
 							
@@ -181,7 +181,7 @@ if (isset($_REQUEST["msg"])) {
 							<form id="mailform" method="POST" name="contactform" 			
 								action="index.php?method=sendmail&controller=Main"> 
 <fieldset>
-<legend><img alt="" src="assets/images/img/contact_me.png"></legend>
+<legend><img alt="" src="<?php echo SITE_URL;?>/assets/images/img/contact_me.png"></legend>
 							<label  style="color:black;font-weight:bold" for='name'><?php echo  $lang->YOURNAME; ?></label> </br></br>
 							<input type="text" name="name" id="name">
 							</br>
@@ -207,7 +207,7 @@ if (isset($_REQUEST["msg"])) {
 						</div>
 
 							<div id="tab5" class="tab_content">
-							<img alt="" src="assets/images/Views/tab1_image.jpg">
+							<img alt="" src="<?php echo SITE_URL;?>/assets/images/Views/tab1_image.jpg">
 							 <h1 id="homeheading">The Courses ..</h1>
 							<div class="meta">The <span>Courses</span> Ulearn offer <span> to you </span></div>
 							

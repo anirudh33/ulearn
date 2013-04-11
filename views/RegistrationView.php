@@ -13,7 +13,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 * ************************************************************************
 */
 $pageName="RegistrationView";
-require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
+require_once (SITE_PATH . '/views/Header.php');
 ?>
 
 <body>
@@ -22,7 +22,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 	<div id="cc">
 
 		<div id="header">
-			<a href="index.php"> <img alt="" src="assets/images/Views/upper4.png"
+			<a href="index.php"> <img alt="" src="<?php echo SITE_URL;?>/assets/images/Views/upper4.png"
 				style="float: left; padding: 50px; width: 600px;height:130px;">
 			</a>
 		</div>

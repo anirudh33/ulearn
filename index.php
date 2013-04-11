@@ -14,15 +14,14 @@
 
 //@todo anirudh :why does firefox ask to remember password before form is submitted
 //@todo search filters on manage teacher view in Admin views
-/* Starting session and creating session variables to store paths and default database */
 
+/* Starting session  */
 session_start();
 
-$_SESSION['SITE_PATH'] = getcwd();
-$_SESSION['DOMAIN_PATH'] = $_SERVER['SERVER_NAME'] . '/ulearn/branches/development';
-$_SESSION['DB_NAME'] = 'ulearndb';
+/* Including all constants to be used */
 
-define('SITE_URL','http://'.$_SERVER['SERVER_NAME'] . "/ulearn/branches/development/");
+require_once ('/var/www/ulearn/branches/development/libraries/constants.php');
+
 
 /* Log errors to a specific file */
 ini_set('log_errors',1);
@@ -41,31 +40,32 @@ $line = date ( 'Y-m-d H:i:s' ) . "," . session_id () . "," .
 /* Requiring all the necessary files controllers and libraries required */
 
 /* Libraries */
-require_once ($_SESSION['SITE_PATH'] . '/libraries/DBConnect.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/AModel.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/AUser.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/InitiateUser.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/Language.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/Paging.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/Authenticate.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/securimage/securimage.php');
-require_once ($_SESSION['SITE_PATH'] . '/libraries/Authenticate.php');
+require_once (SITE_PATH . '/libraries/DBConnect.php');
+require_once (SITE_PATH . '/libraries/AModel.php');
+require_once (SITE_PATH . '/libraries/AUser.php');
+require_once (SITE_PATH . '/libraries/InitiateUser.php');
+require_once (SITE_PATH . '/libraries/Language.php');
+require_once (SITE_PATH . '/libraries/Paging.php');
+require_once (SITE_PATH . '/libraries/Authenticate.php');
+require_once (SITE_PATH . '/libraries/securimage/securimage.php');
+require_once (SITE_PATH . '/libraries/Authenticate.php');
+require_once (SITE_PATH . '/libraries/PHPMailer/class.phpmailer.php');
 
 /* Models */
-require_once ($_SESSION['SITE_PATH'] . '/models/Admin.php');
-require_once ($_SESSION['SITE_PATH'] . '/models/Teacher.php');
-require_once ($_SESSION['SITE_PATH'] . '/models/Student.php');
-require_once ($_SESSION['SITE_PATH'] . '/models/Registration.php');
-require_once ($_SESSION['SITE_PATH'] . '/models/Course.php');
+require_once (SITE_PATH . '/models/Admin.php');
+require_once (SITE_PATH . '/models/Teacher.php');
+require_once (SITE_PATH . '/models/Student.php');
+require_once (SITE_PATH . '/models/Registration.php');
+require_once (SITE_PATH . '/models/Course.php');
 
-require_once ($_SESSION['SITE_PATH'] . '/libraries/UserFactory.php');
+require_once (SITE_PATH . '/libraries/UserFactory.php');
 
 /* Controllers  */
-require_once ($_SESSION['SITE_PATH'] . '/controllers/AController.php');
-require_once ($_SESSION['SITE_PATH'] . '/controllers/MainController.php');
-require_once ($_SESSION['SITE_PATH'] . '/controllers/AdminController.php');
-require_once ($_SESSION['SITE_PATH'] . '/controllers/TeacherController.php');
-require_once ($_SESSION['SITE_PATH'] . '/controllers/StudentController.php');
+require_once (SITE_PATH . '/controllers/AController.php');
+require_once (SITE_PATH . '/controllers/MainController.php');
+require_once (SITE_PATH . '/controllers/AdminController.php');
+require_once (SITE_PATH . '/controllers/TeacherController.php');
+require_once (SITE_PATH . '/controllers/StudentController.php');
 
 
 
@@ -134,6 +134,6 @@ if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
 
 ?>
 
-<?php require_once ($_SESSION['SITE_PATH'] . '/views/Footer.php');?>
+<?php require_once (SITE_PATH . '/views/Footer.php');?>
 
 

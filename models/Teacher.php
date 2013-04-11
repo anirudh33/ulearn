@@ -395,7 +395,7 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 		$result1 = $this->db->resultArray ();
 		$email = $result1 [0] ['email'];
 		$files=array();
-		$path = $_SESSION['SITE_PATH']."/uploads/".$email."/".$coursename;
+		$path = SITE_PATH."/uploads/".$email."/".$coursename;
 		if ($handle = opendir($path)) {
 			while (false !== ($file = readdir($handle)))
 			{
@@ -506,7 +506,7 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 	
 	public function deleteFile($location) {
 		
-		unlink($_SESSION['SITE_PATH']."/".$location);
+		unlink(SITE_PATH."/".$location);
 		DBConnection::Connect ();
 		
 		$this->db->From ( "lesson" );

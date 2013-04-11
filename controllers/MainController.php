@@ -16,8 +16,6 @@
  */
 
 /* The Main controller for showing the Main View */
-require("./libraries/PHPMailer/class.phpmailer.php");
-	
 class MainController
 {
     /* Any messages to be shown to user */
@@ -160,12 +158,12 @@ class MainController
 			unset($_POST["message"]);
 			unset($_POST["email"]);
 			unset($_POST["name"]);
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 			//$this->showMainView();
 		} else {
-			$this->setCustomMessage("SuccessMessage", "iuiuyiuMail sent, it  will take some time");
+			$this->setCustomMessage("SuccessMessage", "Mail sent, it  will take some time");
 			//exit ();
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 			//$this->showMainView();
 			
 		}
@@ -174,7 +172,7 @@ class MainController
 		else {
 			$this->setCustomMessage("SuccessMessage", "iuiuyiuMail sent, it  will take some time");
 			//exit ();
-			header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 			//$this->showMainView();
 			
 		}
@@ -252,34 +250,14 @@ public function setCustomMessage($messageType,$message)
     if (! $mail->Send ()) {
 			
 			$this->setCustomMessage("ErrorMessage", "Mail Not Sent");
-			//exit ();
-			//$this->showMainView();
-			//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			
 		}	
 		else {
 			$this->setCustomMessage("SuccessMessage", "Mail sent,");
-			//exit ();
-			//$this->showMainView();
-			//header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+			
 			
 		}
 	
-	//echo "Message was sent successfully";
-        
-        
-        /* Confirmation Mail */
-		/*	$to = $_POST ["email"];
-			$subject = "Confirmation Mail from Ulearn";
-			$message = "http://localhost/ulearn/branches/development/index.php?method=confirm&controller=Main&passkey=$confirm_code&email=$email";
-			$from = "kawaljeet.singh@osscube.com";
-			$headers = "From:" . $from;
-			$bool = mail ( $to, $subject, $message, $headers );
-			if ($bool == true) {
-				echo "Mail Sent.";
-			} else {
-				echo "Mail not sent";
-			}
-		*/
 		
 		if ($_POST ["usertype"] == "student") {
 			// echo"student";
@@ -295,8 +273,13 @@ public function setCustomMessage($messageType,$message)
 	
 	/* Logs out the user by destroying session */
 	public function logout() {
+		if (file_exists ( $_SESSION ["DOMAIN_PATH"] . "/assets/images/Views/profilepics/adminprofile" . $_SESSION ['userID'] . ".jpeg" ) or file_exists ( $_SESSION ["DOMAIN_PATH"] . "/assets/images/Views/profilepics/studentprofile" . $_SESSION ['userID'] . ".jpeg" ) or file_exists ( $_SESSION ["DOMAIN_PATH"] . "/assets/images/Views/profilepics/teacherprofile" . $_SESSION ['userID'] . ".jpeg" )) {
+			unlink ( $_SESSION ["DOMAIN_PATH"] . "/assets/images/Views/profilepics/adminprofile" . $_SESSION ['userID'] . ".jpeg" );
+			unlink ( $_SESSION ["DOMAIN_PATH"] . "/assets/images/Views/profilepics/studentprofile" . $_SESSION ['userID'] . ".jpeg" );
+			unlink ( $_SESSION ["DOMAIN_PATH"] . "/assets/images/Views/profilepics/teacherprofile" . $_SESSION ['userID'] . ".jpeg" );
+		}
 		session_destroy ();
-		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+		header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 	}
 	public function unsetMessages()
 	{

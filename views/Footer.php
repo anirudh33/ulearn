@@ -15,10 +15,10 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 ?>
 <!-- toast plugin -->
 <link rel="stylesheet"
-	href="assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css"
+	href="<?php echo SITE_URL;?>/assets/plugins/toast/src/main/resources/css/jquery.toastmessage.css"
 	type="text/css" media="screen">
 <script
-	src="assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"
+	src="<?php echo SITE_URL;?>/assets/plugins/toast/src/main/javascript/jquery.toastmessage.js"
 	type="text/javascript"></script>
 
 	

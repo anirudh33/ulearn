@@ -365,7 +365,7 @@ public function messageBody($aid) {
 		//@todo we have to use the sent variable instead of teacher
 		$email=$teachernamelist;
 		$files=array();
-		$path = $_SESSION['SITE_PATH']."/uploads/".$email."/".$coursename;
+		$path = SITE_PATH."/uploads/".$email."/".$coursename;
 		if ($handle = opendir($path)) {
 			while (false !== ($file = readdir($handle)))
 			{

@@ -1,26 +1,28 @@
 <?php
 /**
- *
- * @author anirudh
- * @access
- *
- *
- *
- * @package DB
- *         
- */
+ *@author anirudh
+ **************************** Creation Log *******************************
+* File Name 	- DBConnect.php
+* Description 	- All database connectivity functions are here
+* Created by	- Anirudh Pandita 
+* Created on 	- March 01, 2013
+* **********************Update Log ***************************************
+* Sr.NO. Version Updated by 		Updated on	 	Description
+* -------------------------------------------------------------------------
+** ************************************************************************
+*/
 class DBConnection
 {
 
     private static $instance;
 
-    private static $_host = "localhost";
+    private static $_host = DB_SERVER;
 
-    private static $_user = "root";
+    private static $_user = DB_USER;
 
-    private static $_password = "root";
+    private static $_password = DB_PASSWORD;
 
-    private static $_database = "ulearndb";
+    private static $_database = DB_COMMON;
 
     private $_tableName = "";
 

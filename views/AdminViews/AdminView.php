@@ -15,7 +15,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 */
 
 $pageName="AdminView";
-require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
+require_once (SITE_PATH . '/views/Header.php');
 ?>
 
 <body>
@@ -29,7 +29,7 @@ require_once ($_SESSION['SITE_PATH'] . '/views/Header.php');
 
 		<div id="header">
 
-			<img alt="" src="assets/images/Views/ulearn.gif"
+			<img alt="" src="<?php echo SITE_URL;?>/assets/images/Views/ulearn.gif"
 				style="float: left; padding: 50px; width: 280px;">
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			<div id="logout" style="float:right;">
@@ -139,5 +139,5 @@ if(isset($studentreportdata)and isset($teacherreportdata))
 </div>
 	</div>
 </body>
-<?php require_once ($_SESSION['SITE_PATH'] . '/views/Footer.php');?>
+<?php require_once (SITE_PATH . '/views/Footer.php');?>
 </html>

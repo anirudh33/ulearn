@@ -14,10 +14,6 @@
  * ***************************************************************************
  */
 
-/**
- * @author anirudhpandita
- *
- */
 class InitiateUser extends AModel {
 	private $_password;
 	private $_result = array ();
@@ -86,10 +82,6 @@ class InitiateUser extends AModel {
 	 * Usage: Checks for valid login information
 	 */
 	public function login($fieldEmail, $fieldPassword) {
-	
-	
-		if ($this->fieldsValid ( $fieldEmail, $fieldPassword )) {
-			
 			$this->setEmailID ( $fieldEmail );
 			$this->setPassword ( $fieldPassword );
 			if ($this->exists ( $this->getEmailID (), $this->encryptPassword ( $this->getPassword () ) ) == 1) {                                           
@@ -98,14 +90,17 @@ class InitiateUser extends AModel {
 			} else {
 				$msg = "Login Failed username or password does not exist";
 				$this->setCustomMessage ( "ErrorMessage", $msg );
-				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=$msg" );
-				
-			}
-		} else {
-			$msg = "Invaild Data Enter again";
-			header ( "Location:index.php?msg={$msg}" );
-		}
+				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=$msg" );				
+			}		 
 	}
+	
+	
+	/**
+	 * @param $email entered by user
+	 * @param $password entered by use after encryption
+	 * @return 1 if user exists in system, 0 if doesn't
+	 * Usage: Checks for user exists or not in system
+	 */
 	private function exists($email, $password) {
 	    
 		if ($this->fetchUser ( $email, $password ) == true) {
@@ -114,6 +109,14 @@ class InitiateUser extends AModel {
 			return 0;
 		}
 	}
+	
+	/**
+	 * @param $email of user logging in
+	 * @param $password encrypted of user logging in as 
+	 * we have store encrypted versions while registration
+	 * @return number 1 if user exists with active status else 0
+	 * Usage: fetches the user if exists who is logging in
+	 */
 	private function fetchUser($email, $password) {
 		$this->db->Fields ( array (
 				"user_id",
@@ -148,6 +151,14 @@ class InitiateUser extends AModel {
 		
 		return $bool;
 	}
+	
+	
+	/**
+	 * @param $table to fetch the status from like studentdetails if student logs in
+	 * @param $uid User id of user loggin in
+	 * @return True if status active False otherwise
+	 * Usage: Fetches the status of user activated or deleted from database
+	 */
 	private function fetchStatus($table, $uid) {
 		$this->db->Fields ( array (
 				"status" 
@@ -166,22 +177,29 @@ class InitiateUser extends AModel {
 			return true;
 		}
 	}
-	private function fieldsValid($fieldEmail, $fieldPassword) {
-		$bool = TRUE;
-		
-		return $bool;
-	}
+	
+	/**
+	 * Called from within login($fieldEmail, $fieldPassword)
+	 * @param $password Received from user logging in
+	 * @return encrypted password
+	 * Usage: Converts the password to encrypted one
+	 */
 	private function encryptPassword($password) {
 	    
 		//  return sha1($password);
 		return $password;
 	}
-	public function setLanguage($value) {
-		$_SESSION ["lang"] = $value;
+	
+	
+	/**
+	 * @param $value: Language selected by user
+	 * Usage: Sets the language as received
+	 */
+	public function setLanguage($languageChosen) {
+		$_SESSION ["lang"] = $languageChosen;
 	}
-	public function showRegistrationView() {
-		require_once "./views/RegistrationView.php";
-	}
+	
+	
 }
 
 ?>

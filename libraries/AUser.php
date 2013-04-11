@@ -1,16 +1,27 @@
 <?php
-/* Creation Log
+/**
+ *@author anirudh
+ **************************** Creation Log *******************************
+ * File Name 	- AUser.php
+ * Description 	- Abstract User class holding functionalities
+ * 					common to all users
+ * Version      - 1.0
+ * Created by	- Tanu trehan
+ * Created on 	- March 08, 2013
+ * **********************Update Log ***************************************
+ * Sr.NO. Version Updated by 		Updated on	 	Description
+ * -------------------------------------------------------------------------
+ * 1		1.1		Anirudh Pandita		April 07, 2013 	Messaging function added
+ * ************************************************************************
+ */
 
-File Name                   -  AUser.php
-Description                 -  contains all getter setters 
-Version                     -  1.0
-Created by                  -  Tanu trehan
-Created on                  -  March 28, 2013
-*/?>
-<?php
 abstract class AUser extends AModel
 {
 
+	
+    /**
+     * @var Stores user id of user as given in userdetails table
+     */
     protected $user_id;
 
     protected $password;
@@ -51,11 +62,17 @@ abstract class AUser extends AModel
 
    
 
+    /**
+     * @return User id of user (Teacher/Admin/Student)
+     */
     public function getUser_id ()
     {
         return $this->user_id;
     }
 
+    /**
+     * @param Sets $user_id of user (Admin/Teacher/Student)
+     */
     public function setUser_id ($user_id)
     {
         $this->user_id = $user_id;

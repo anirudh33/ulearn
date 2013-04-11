@@ -25,9 +25,9 @@ $lang=Language::getinstance();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- jquery source -->
-<script src="<?php echo SITE_URL;?>assets/js/jquery/jquery.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>/assets/js/jquery/jquery.js" type="text/javascript"></script>
 <!-- Jquery for validations -->
-<script type="text/javascript" src="<?php echo SITE_URL;?>assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL;?>/assets/js/jquery.validate.min.js"></script>
 
 
 
@@ -44,25 +44,25 @@ if(isset($pageName)) {
 <title> <?php if(isset($lang->TITLE)){echo $lang->TITLE;} else {echo "Welcome to ulearn";} ?></title>
 
 <!-- Links for stylesheet -->
-<link rel="stylesheet" href="<?php echo SITE_URL;?>assets/style/MainViewStyle.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/MainViewStyle.css"
 	type="text/css" media="screen">
-<link rel="stylesheet" href="<?php echo SITE_URL;?>assets/style/Slide.css" type="text/css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/Slide.css" type="text/css"
 	media="screen">
-<link rel="stylesheet" href="<?php echo SITE_URL;?>assets/style/MainView.css" type="text/css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/MainView.css" type="text/css"
 	media="screen">
 
 <!-- Easing jquery for easy to use animate functions -->
-<script src="<?php echo SITE_URL;?>assets/js/jquery/jquery.easing.1.3.js"
+<script src="<?php echo SITE_URL;?>/assets/js/jquery/jquery.easing.1.3.js"
 	type="text/javascript"></script>
-	<script src="<?php echo SITE_URL;?>assets/js/Validation.js" type="text/javascript"></script>
+	<script src="<?php echo SITE_URL;?>/assets/js/Validation.js" type="text/javascript"></script>
 
 <!-- Date Picker -->
-<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>assets/style/jqueryui.css">
-<script src="<?php echo SITE_URL;?>assets/js/jquery/jqueryui.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>/assets/style/jqueryui.css">
+<script src="<?php echo SITE_URL;?>/assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 
 <!-- Other javascript source  -->
-<script src="<?php echo SITE_URL;?>assets/js/MainViewSlide.js" type="text/javascript"></script>
-<script src="<?php echo SITE_URL;?>assets/js/MainView.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>/assets/js/MainViewSlide.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>/assets/js/MainView.js" type="text/javascript"></script>
 
 <style type="text/css">
 #errors {
@@ -85,23 +85,23 @@ if($pageName=="RegistrationView") {
 <title> <?php if(isset($lang->TITLE)){echo $lang->TITLE;} else {echo "Register| Welcome to ulearn";} ?></title>
 
 <!-- Links for stylesheet -->
-<link rel="stylesheet" href="<?php echo SITE_URL;?>assets/style/Registration.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/Registration.css"
 	type="text/css" media="screen">
 <link rel="stylesheet" type="text/css"
-	href="<?php echo SITE_URL;?>assets/style/Registration/registrationnew.css">
+	href="<?php echo SITE_URL;?>/assets/style/Registration/registrationnew.css">
 <link rel="stylesheet" type="text/css"
-	href="<?php echo SITE_URL;?>assets/style/Registration/registrationnew2.css">
+	href="<?php echo SITE_URL;?>/assets/style/Registration/registrationnew2.css">
 
 <!-- Date Picker -->
-<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>assets/style/jqueryui.css">
-<script src="<?php echo SITE_URL;?>assets/js/jquery/jqueryui.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>/assets/style/jqueryui.css">
+<script src="<?php echo SITE_URL;?>/assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 <!-- jquery source -->
 
 
 <!-- Custom js -->
-<script src="<?php echo SITE_URL;?>assets/js/MainViewSlide.js" type="text/javascript"></script>
-<script src="<?php echo SITE_URL;?>assets/js/MainView.js" type="text/javascript"></script>
-<script src="<?php echo SITE_URL;?>assets/js/RegistrationView.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>/assets/js/MainViewSlide.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>/assets/js/MainView.js" type="text/javascript"></script>
+<script src="<?php echo SITE_URL;?>/assets/js/RegistrationView.js" type="text/javascript"></script>
 	
 		
 	<?php //@todo put in proper css file ?>
@@ -137,45 +137,45 @@ if($pageName=="RegistrationView") {
 	<!-- Teacher View Header -->
 <title><?php  if(isset($lang->HELLOTEACHER)){echo $lang->HELLOTEACHER;} else {echo "Welcome Teacher";} ?> </title>
 
-<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/AdminView.css" type="text/css"
 	media="screen">
 
 <!-- Add Course View header -->
-<link rel="stylesheet" href="assets/style/addcourse.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/addcourse.css"
 	type="text/css" media="screen" />
 	
 	<!-- Download View header -->
-	<link rel="stylesheet" href="assets/style/download.css"
+	<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/download.css"
 	type="text/css" media="screen" />
 	
 	<!-- Register Course View header -->
-	<link rel="stylesheet" href="assets/style/registercourse.css"
+	<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/registercourse.css"
 	type="text/css" media="screen" />
 	
 	<!-- Write message View header -->
-	<link rel="stylesheet" href="assets/style/writemesage.css"
+	<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/writemesage.css"
 	type="text/css" media="screen" />
 	
 	<!-- Upload View header -->
-	<link rel="stylesheet" href="assets/style/upload.css"
+	<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/upload.css"
 	type="text/css" media="screen" />
 	
 <!-- Teacher profile View header -->
-<link rel="stylesheet" href="assets/style/globalteacher.css" type="text/css">
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/globalteacher.css" type="text/css">
 
 <!-- Edit Course View Header -->
 <link rel="stylesheet" type="text/css"
-	href="assets/style/ManageTeacherView.css" media="screen">
+	href="<?php echo SITE_URL;?>/assets/style/ManageTeacherView.css" media="screen">
 <!-- Edit profile View header -->
 
-<link rel="stylesheet" href="assets/style/editprofile.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/editprofile.css"
 	type="text/css" media="screen">
 <script type="text/javascript" src="./assets/js/Validation.js"></script>
-<script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL;?>/assets/js/jquery.validate.min.js"></script>
 
 <!-- Date Picker -->
-<link rel="stylesheet" href="assets/style/jqueryui.css" type="text/css">
-<script src="assets/js/jquery/jqueryui.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/jqueryui.css" type="text/css">
+<script src="<?php echo SITE_URL;?>/assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 <script type="text/javascript">
  $(document).ready(function() {
 	
@@ -240,39 +240,39 @@ if($pageName=="RegistrationView") {
 <title><?php if(isset($lang->HELLOSTUDENT)){echo $lang->HELLOSTUDENT;} 
 	else {echo "Welcome Student";} 	?> </title>
 	
-	<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
+	<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/AdminView.css" type="text/css"
 	media="screen">
 	
 
 
-<script type="text/javascript" src="assets/js/Validation.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL;?>/assets/js/Validation.js"></script>
 
-<script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL;?>/assets/js/jquery.validate.min.js"></script>
 
 
 <!-- Download view header -->
-<link rel="stylesheet" href="assets/style/download.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/download.css"
 	type="text/css" media="screen" />
 	<link rel="stylesheet" type="text/css"
-	href="assets/style/ManageTeacherView.css" media="screen">
+	href="<?php echo SITE_URL;?>/assets/style/ManageTeacherView.css" media="screen">
 	<!-- Register Course header -->
-<link rel="stylesheet" href="assets/style/registercourse.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/registercourse.css"
 	type="text/css" media="screen" />
 
 <!-- Edit Profile view header -->
-<link rel="stylesheet" href="assets/style/editprofile.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/editprofile.css"
 	type="text/css" media="screen">
 
 <!-- Write Message View Header -->
-<link rel="stylesheet" href="assets/style/writemesage.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/writemesage.css"
 	type="text/css" media="screen" />
 	
 <!-- Student profile view header -->
-<link rel="stylesheet" type="text/css" href="assets/style/globalstudent.css">
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>/assets/style/globalstudent.css">
 
 
 <!-- Date Picker -->
-<link rel="stylesheet" type="text/css" href="assets/style/jqueryui.css">
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>/assets/style/jqueryui.css">
 <script src="./assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 <script type="text/javascript">
  $(document).ready(function() {
@@ -305,21 +305,21 @@ if($pageName=="RegistrationView") {
 <title><?php if(isset($lang->HELLOADMINISTRATOR)){echo $lang->HELLOADMINISTRATOR;} 
 	else {echo "Welcome Administrator";} ?></title>
 
-<link rel="stylesheet" href="assets/style/AdminView.css" type="text/css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/AdminView.css" type="text/css"
 	media="screen">
-<link rel="stylesheet" href="assets/style/AdminViewMenu.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/AdminViewMenu.css"
 	type="text/css" media="screen">
 
 <script type="text/javascript"
-	src="assets/js/jquery/jquery.easing.1.3.js"></script>
+	src="<?php echo SITE_URL;?>/assets/js/jquery/jquery.easing.1.3.js"></script>
 <script type="text/javascript"
-	src="assets/js/jquery/jquery.hoverIntent.minified.js"></script>
+	src="<?php echo SITE_URL;?>/assets/js/jquery/jquery.hoverIntent.minified.js"></script>
 <script type="text/javascript"
-	src="assets/js/jquery/jquery.flashyNav.1.0.js"></script>
-<script type="text/javascript" src="assets/js/Validation.js"></script>
-<script type="text/javascript" src="/assets/js/jquery.validate.min.js"></script>
+	src="<?php echo SITE_URL;?>/assets/js/jquery/jquery.flashyNav.1.0.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL;?>/assets/js/Validation.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL;?>/assets/js/jquery.validate.min.js"></script>
 <!-- <script type="text/javascript" -->
-<!-- 	src="assets/js/EditAdminProfileViewValidate.js"></script> -->
+<!-- 	src="<?php echo SITE_URL;?>/assets/js/EditAdminProfileViewValidate.js"></script> -->
 <script type="text/javascript">
 	<?php //@todo usage  of following code explain with comment here ?>
 	
@@ -347,25 +347,25 @@ if($pageName=="RegistrationView") {
 </script>
 <!-- Admin profile View header -->
 
-<link rel="stylesheet" type="text/css" href="assets/style/global.css">
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>/assets/style/global.css">
 
 
 
 <!-- Edit Admin profile View header -->
 
-<link rel="stylesheet" href="assets/style/Registration.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/Registration.css"
 	type="text/css" media="screen">
-<script src="assets/js/RegistrationView.js" type="text/javascript"></script>
-<link rel="stylesheet" href="assets/style/editprofile.css"
+<script src="<?php echo SITE_URL;?>/assets/js/RegistrationView.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/editprofile.css"
 	type="text/css" media="screen">
 <!-- Date Picker -->
-<link rel="stylesheet" type="text/css" href="assets/style/jqueryui.css">
-<script src="assets/js/jquery/jqueryui.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_URL;?>/assets/style/jqueryui.css">
+<script src="<?php echo SITE_URL;?>/assets/js/jquery/jqueryui.js" type="text/javascript"></script>
 
 <!-- Manage student View header -->
 
 <link rel="stylesheet" type="text/css"
-	href="assets/style/ManageStudentView.css" media="screen">
+	href="<?php echo SITE_URL;?>/assets/style/ManageStudentView.css" media="screen">
 	<?php //@todo usage  of following code explain with comment here and move to proper js file ?>
 	<script type="text/javascript">
 	
@@ -410,7 +410,7 @@ if($pageName=="RegistrationView") {
 <!-- Manage Teacher View header -->
 
 <link rel="stylesheet" type="text/css"
-	href="assets/style/ManageTeacherView.css" media="screen">
+	href="<?php echo SITE_URL;?>/assets/style/ManageTeacherView.css" media="screen">
 <!-- Same script functions used as in manage student view -->
 <script type="text/javascript">
 	
@@ -456,7 +456,7 @@ if($pageName=="RegistrationView") {
 
 <!-- Report View header -->
 
-<link rel="stylesheet" href="assets/style/Report.css" type="text/css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/Report.css" type="text/css"
 	media="screen">
 
 

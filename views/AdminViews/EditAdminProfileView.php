@@ -19,7 +19,7 @@ $pageName=="EditAdminProfileView";
 //@todo change div ids to proper names
 ?>
 
-	<link rel="stylesheet" href="assets/style/editprofile.css"
+	<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/editprofile.css"
 	type="text/css" media="screen" />
 	
 

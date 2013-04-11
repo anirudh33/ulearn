@@ -79,7 +79,7 @@ class Registration extends AUser {
 		$obj = new MainController ();
 		$obj->setCustomMessage ( "SuccessMessage", "Record Has Been Added , Please Activate Your Account" );
 		
-		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+		header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 	}
 	/* method called to confirm email in registeration form */
 	public function confirmEmail($email, $pass) {
@@ -129,7 +129,7 @@ class Registration extends AUser {
 				
 				echo $this->db->lastQuery ();
 				
-				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
+				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
 			}
 			if ($rr == 'teacher') 
 
@@ -146,7 +146,7 @@ class Registration extends AUser {
 				) );
 				
 				$this->db->Update ();
-				header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
+				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
 			}
 		}
 	}
@@ -184,7 +184,7 @@ class Registration extends AUser {
 		$obj = new MainController ();
 		$obj->setCustomMessage ( "SuccessMessage", "Record Has Been Added , Please Activate Your Account" );
 		
-		header ( "Location:http://" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
+		header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 	}
 }
 

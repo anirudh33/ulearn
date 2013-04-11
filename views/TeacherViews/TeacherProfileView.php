@@ -16,7 +16,7 @@ if(isset($data[0]['profilepicture'])) {
 /*Creating profile picture image resource*/
 $image=imagecreatefromstring($data[0]['profilepicture']);
 /* Storing picture to file with custom quality range 1 - 100 */
-imagejpeg($image,"assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
+imagejpeg($image,"<?php echo SITE_URL;?>/assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
 }
 ?>
 	<header id="header1">
@@ -34,7 +34,7 @@ imagejpeg($image,"assets/images/Views/profilepics/teacherprofile".$_SESSION['use
 		<section id="left">
 			<div id="userStats" class="clearfix">
 <div class="pic">
-					<a href="#"><img src="assets/images/Views/profilepics/teacherprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="150" /></a>
+					<a href="#"><img src="<?php echo SITE_URL;?>/assets/images/Views/profilepics/teacherprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="150" /></a>
 				</div>
 				
 				<?php

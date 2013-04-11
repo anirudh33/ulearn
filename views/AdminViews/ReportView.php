@@ -463,7 +463,7 @@ function pieChart() {
 
 </script>
 </head>
-<link rel="stylesheet" href="assets/style/Report.css"
+<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/Report.css"
 	type="text/css" media="screen" />
 
 <form action="index.php?method=showreport&controller=Admin" method="POST" class="report">
@@ -594,4 +594,4 @@ function pieChart() {
 
 
 
-<?php require_once ($_SESSION['SITE_PATH'] . '/views/Footer.php');?>
+<?php require_once (SITE_PATH . '/views/Footer.php');?>
