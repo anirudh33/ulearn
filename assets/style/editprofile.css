@@ -41,7 +41,7 @@
 
 #form {
 	width: 600px;
-	height: 400px;
+	height: 680px;
 	background-color: #f9f9f9;
 }
 
@@ -434,6 +434,14 @@ p.agreement label {
 	padding: 10px;
 	width: 770px;
 }
+.customh1 {
+	padding: 10px;
+	width: 550px;
+}
+.customform {
+	height:650px
+}
+
 /*   Css for Date picker   */
 
 /*! jQuery UI - v1.10.2 - 2013-03-14

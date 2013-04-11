@@ -30,7 +30,7 @@ $pageName=="EditAdminProfileView";
 	<form id="form"	action="index.php?method=editAdminClick&controller=Admin" 
 	method="POST" class="register">
 
-		<h1><?php echo $lang->EDITPROFILE;?></h1><br><br><br><br><br><br>
+		<h1 class="customh1"><?php echo $lang->EDITPROFILE;?></h1><br><br><br><br><br><br>
 
 		<fieldset class="row2">
 			<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
@@ -82,7 +82,6 @@ $pageName=="EditAdminProfileView";
 				</select>
 			</div>
 
-			</p>
 
 <br><br>
 
@@ -135,6 +134,6 @@ $pageName=="EditAdminProfileView";
 <fieldset class="row4"><div>
 					<button class="button" id="edit">Edit &raquo;</button>
 				</div></fieldset>
-				<
+				
 			</form>
 		</div>

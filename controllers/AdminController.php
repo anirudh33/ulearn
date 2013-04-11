@@ -48,19 +48,19 @@ class AdminController extends AController {
 	 * Requires view to edit admin profile
 	*/
 	public function showManageAdminView($admindata = array()) {
-		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+		require_once SITE_PATH. '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * Requires view to show admin profile
 	*/
 	public function showAdminProfileView($adminprofiledata = array()) {
-		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+		require_once SITE_PATH . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * Requires view to generate report
 	*/
 	public function showreportView($reportdata = array()) {
-		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
+		require_once SITE_PATH . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * method called to generate report
@@ -244,7 +244,8 @@ class AdminController extends AController {
 			
 			$message = "Please select report category <br>";
 			$this->setCustomMessage ( "ErrorMessage", $message );
-			$this->generateReport ();
+			
+			$this->generateReport();
 		}
 		
 		if (isset ( $_POST ["usertype"] )) {

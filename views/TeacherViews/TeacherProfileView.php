@@ -16,7 +16,7 @@ if(isset($data[0]['profilepicture'])) {
 /*Creating profile picture image resource*/
 $image=imagecreatefromstring($data[0]['profilepicture']);
 /* Storing picture to file with custom quality range 1 - 100 */
-imagejpeg($image,"<?php echo SITE_URL;?>/assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
+imagejpeg($image,SITE_PATH."/assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
 }
 ?>
 	<header id="header1">
