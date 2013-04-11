@@ -8,10 +8,10 @@ $mail = new PHPMailer ();
 	$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 	$mail->Host = 'smtp.gmail.com';
 	$mail->Port = 465;
-	$mail->Username = "anirudh.pandita@osscube.com";
-	$mail->Password = "Apple321";
-	$mail->SetFrom ( "anirudh.pandita@osscube.com", "ulearn errors" );
-	$mail->Subject = "ulearn error log";
+	$mail->Username = "ulearnoss@gmail.com";
+	$mail->Password = "root@osscube.com";
+	$mail->SetFrom ( "ulearnoss@gmail.com", "ulearn errors" );
+	$mail->Subject = "ulearn error log ";
 	
 	$mail->AddAddress ( "anirudh.pandita@osscube.com");
 	$mail->MsgHTML ( "Error log attached");

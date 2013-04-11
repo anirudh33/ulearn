@@ -175,6 +175,7 @@ CREATE TABLE IF NOT EXISTS `studentmessage` (
   `subject` char(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'message subject',
   `sentfrom` int(11) DEFAULT NULL COMMENT 'foreign key of studentdetails table to specify id of student',
   `sentto` int(11) DEFAULT NULL COMMENT 'foreign key of teacherdetails table to specify id of teacher',
+  `status` enum ('0','1') DEFAULT '0' COMMENT 'r1 for read and 0 for unread',
   PRIMARY KEY (`message_id`),
   KEY `sentfrom` (`sentfrom`),
   KEY `sentto` (`sentto`)
@@ -238,6 +239,7 @@ CREATE TABLE IF NOT EXISTS `teachermessage` (
   `subject` char(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'message subject',
   `sentfrom` int(11) DEFAULT NULL COMMENT 'foreign key of teacherdetails table to specify id of teacher',
   `sentto` int(11) DEFAULT NULL COMMENT 'foreign key of studentdetails table to specify id of student',
+  `status` enum ('0','1') DEFAULT '0' COMMENT 'r1 for read and 0 for unread',
   PRIMARY KEY (`message_id`),
   KEY `sentfrom` (`sentfrom`),
   KEY `sentto` (`sentto`)
