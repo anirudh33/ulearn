@@ -153,6 +153,29 @@ class Teacher extends AUser {
 			return false;
 		}
 	}
+	
+	public function changestatus($mid)
+	{
+	
+		DBConnection::Connect ();
+		$this->db->From ( "studentmessage" );
+	
+		$this->db->Where ( array (
+				"message_id" => $mid
+		) );
+		$this->db->Fields ( array (
+				"status" => "1"
+		) );
+	
+		$this->db->Update ();
+	
+		$this->db->lastQuery ();
+	
+	
+	
+	}
+	
+	
 	/* Fetching teacher id using emailID we have in session from teacher details table */
 	public function fetchTeacherID()
 	{
@@ -178,7 +201,8 @@ class Teacher extends AUser {
 		/* Fetching message ids and subjects */
 		$this->db->Fields ( array (
 				"message_id",
-				"subject"
+				"subject",
+				"status"
 			 
 		) );
 		$this->db->From ( "studentmessage" );

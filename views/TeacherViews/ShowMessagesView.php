@@ -31,6 +31,7 @@ header separation
 				
 				<th>MessageID</th>
 				<th>Subject</th>
+				<th>Status(0 -UNREAD / 1 -READ)</th>
 				<th>Sent From</th>
 				<th>View</th>
 				
@@ -45,7 +46,7 @@ header separation
 				
 	<td><?php echo $value["message_id"]?></td>
 <td><?php echo $value["subject"] ?></a></td>
-							
+<td><?php echo $value["status"] ?></a></td>							
 	<?php foreach ( $result2 as $key2 => $value2 ) {
  	foreach ( $value2 as $key3 => $value3 ) {?>
 
@@ -53,7 +54,8 @@ header separation
 						<?php
 							}}
 							?>
-<td><a href="index.php?method=subjectClick&controller=Teacher&msgid=<?php echo $value["message_id"] ?>&sub=<?php echo $value["subject"]?>">
+<td><a href="index.php?method=subjectClick&controller=Teacher&msgid=
+<?php echo $value["message_id"] ?>&sub=<?php echo $value["subject"]?>&stat=<?php echo $value["status"]?>">
 VIEW</a></td>
 					   	</tr><?php
 						}

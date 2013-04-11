@@ -170,7 +170,8 @@ class Student extends AUser {
 		$studentID = $sIDArray [0] ["id"];
 		$this->db->Fields ( array (
 				"message_id",
-				"subject" 
+				"subject",
+				"status" 
 		) );
 		$this->db->From ( "teachermessage" );
 		$this->db->Where ( array (
@@ -222,6 +223,26 @@ class Student extends AUser {
 				$email 
 		);
 		}
+	}
+	public function changestatus($mid)
+	{
+		
+		DBConnection::Connect ();
+		$this->db->From ( "teachermessage" );
+		
+		$this->db->Where ( array (
+				"message_id" => $mid
+		) );
+		$this->db->Fields ( array (
+				"status" => "1"
+		) );
+		
+		  $this->db->Update ();
+		
+		 $this->db->lastQuery ();
+
+		
+		
 	}
 
 /* method called to return student messages body from database */

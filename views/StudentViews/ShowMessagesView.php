@@ -30,6 +30,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 				
 				<th>MessageID</th>
 				<th>Subject</th>
+				<th>Status(0-UNREAD/1-READ)</th>
 				<th>Sent From</th>
 				<th>View Messages </th>
 				
@@ -45,6 +46,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 				
 	<td><?php echo $value["message_id"]?></td>
 <td><?php echo $value["subject"] ?></a></td>
+<td><?php echo $value["status"] ?></a></td>
 							
 	<?php foreach ( $data1 as $key2 => $value2 ) {
  	foreach ( $value2 as $key3 => $value3 ) 
@@ -60,7 +62,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 							?>
 							<td>
 <a href="index.php?method=subjectClick&controller=Student&msgid=
-<?php echo $value["message_id"]?>">View</a>
+<?php echo $value["message_id"]?>&stat=<?php echo $value["status"]?>">View</a>
 </td>
 					   	</tr><?php
 						}
