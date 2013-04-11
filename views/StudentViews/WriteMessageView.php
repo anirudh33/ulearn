@@ -26,7 +26,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 
 
 		<p>
-			<label><?php echo $lang->TO;?> </label> <select name="sentto" id="sentto">
+			<label><?php echo $lang->TO;?> </label> <select name="sentto" id="sentto" style="width: 250px;">
                             <?php
                             foreach ( $data as $key => $value ) {?>                           
                             <option	value="<?php echo $value["email"];?>"> 

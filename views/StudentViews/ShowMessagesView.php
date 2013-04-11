@@ -49,8 +49,8 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 
 <td><?php
 if($value["status"]=='0'){
-echo "UNREAD";
-}else { echo "READ";
+echo "<font color=red>UNREAD</font>";
+}else { echo "<font color=blue>READ</font>";
 }
 ?></a></td>
 							

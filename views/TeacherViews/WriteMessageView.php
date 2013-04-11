@@ -30,7 +30,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 
 
 		<p>
-			<label><?php echo $lang->TO;?> * </label> <select name="sentto">
+			<label><?php echo $lang->TO;?> * </label> <select name="sentto" style="width: 250px;">
                             <?php
 						foreach ( $data as $key => $value ) {
 																													
@@ -50,6 +50,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 
 		</p>
 
+		
 		<p>
 			<label><?php echo $lang->SUBJECT;?>* </label> <input type="text" name="subject"
 				class="long">

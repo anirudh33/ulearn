@@ -16,6 +16,17 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 /* global.css styles */
 
 /* @group resets and elements */
+#allteachers
+{
+	line-height: 100%;
+		 overflow-y:scroll;
+        height:100px;
+        width:100%;
+        overflow:none;
+        border: 2px solid red;
+}
+
+
 #messageBodySubject
 {
 	padding:20px;

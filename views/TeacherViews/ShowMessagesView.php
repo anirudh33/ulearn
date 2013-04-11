@@ -48,8 +48,8 @@ header separation
 <td><?php echo $value["subject"] ?></a></td>
 <td><?php 
 if($value["status"]=='0'){
-echo "UNREAD";
-}else { echo "READ";
+echo "<font color=red>UNREAD</font>";
+}else { echo "<font color=blue>READ</font>";
 }
  ?></a></td>							
 	<?php foreach ( $result2 as $key2 => $value2 ) {
