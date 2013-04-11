@@ -31,7 +31,7 @@ header separation
 				
 				<th>MessageID</th>
 				<th>Subject</th>
-				<th>Status(0 -UNREAD / 1 -READ)</th>
+				<th>Status(READ / UNREAD)</th>
 				<th>Sent From</th>
 				<th>View</th>
 				
@@ -46,7 +46,12 @@ header separation
 				
 	<td><?php echo $value["message_id"]?></td>
 <td><?php echo $value["subject"] ?></a></td>
-<td><?php echo $value["status"] ?></a></td>							
+<td><?php 
+if($value["status"]=='0'){
+echo "UNREAD";
+}else { echo "READ";
+}
+ ?></a></td>							
 	<?php foreach ( $result2 as $key2 => $value2 ) {
  	foreach ( $value2 as $key3 => $value3 ) {?>
 
