@@ -58,28 +58,28 @@ class MainController
     	$lang=Language::getinstance();
         require_once "views/MainView.php";        
     }
-    
-    /* Starts login procedure by fetching username, password from POST */
-    public function initiateLogin ()
-    {
-    	$authObject= new Authenticate();
-    	
-    /* Validate username password */
-    	$authObject->validateLogin();
-    	
-        $fieldEmail = $_POST["fieldEmail"];
-        $fieldPassword = $_POST["fieldPassword"];
-       
-        $objInitiateUser = new InitiateUser();
-        
-        $this->setAuthenticationStatus($objInitiateUser->login($fieldEmail, $fieldPassword));
-       
-        if ($this->getAuthenticationStatus() == 1) {
-    /* Visitor date, ip, email logged */  	
-        	$authObject->logIP();	
-            $this->showUserPanel();
-        }
-    }
+		
+	/* Starts login procedure by fetching username, password from POST */
+	public function initiateLogin() {
+		$authObject = new Authenticate ();
+		
+		/* Validate username password */
+		$authObject->validateLogin ();
+		
+		/* Getting rid of sql injection */
+		$fieldEmail = mysql_real_escape_string ( $_POST ["fieldEmail"] );
+		$fieldPassword = mysql_real_escape_string ( $_POST ["fieldPassword"] );
+		
+		$objInitiateUser = new InitiateUser ();
+		
+		$this->setAuthenticationStatus ( $objInitiateUser->login ( $fieldEmail, $fieldPassword ) );
+		
+		if ($this->getAuthenticationStatus () == 1) {
+			/* Visitor date, ip, email logged */
+			$authObject->logIP ();
+			$this->showUserPanel ();
+		}
+	}
     
     /* Shows respective User Panel (Admin/Teacher/Student) depending 
      * on user type logged in */
@@ -123,6 +123,7 @@ class MainController
     	$obj = new Registration();
     	$obj->confirmEmail($email,$pass);
     }
+    
 /************************************** Contact Us Mailing Function *************************************************/
     /* @todo ujjwal: use phpmailer */
     public function sendmail()

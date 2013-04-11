@@ -99,6 +99,7 @@ class Authenticate extends AModel{
 			if (! filter_var ( $_POST ["fieldEmail"], FILTER_VALIDATE_EMAIL )) {
 				$this->setMessage ( "Email not valid" );
 			}
+			
 		}else {
 				$this->setMessage ( "Fields cant be left empty" );
 		}
