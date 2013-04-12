@@ -16,54 +16,62 @@
 class Authenticate extends AModel{
 	private $_message = "";
 	private $_requiredType = "";
-	
-	/**
-	 *
-	 * @return the $_message
-	 */
-	public function getMessage() {
-		return $this->_message;
-	}
-	
-	/**
-	 *
-	 * @param string $_message        	
-	 */
-	public function setMessage($_message) {
-		
-		$this->_message .= $_message."<br>";
-		$this->setCustomMessage("ErrorMessage", $_message);
-	}
-	
-	/**
-	 * @return string which is required type of the user logging in
-	 */
-	public function getRequiredType() {
-		return $this->_requiredType;
-	}
-	
-	/**
-	 * @param set $requiredType of user logging in
-	 */
-	public function setRequiredType($requiredType) {
-		$this->_requiredType = $requiredType;
-	}
-	
-	/* Check if user has logged in */
-	public function isValidUser() {
-		if ($this->sessionExists () == 1) {
-			
-			return 1;
-		} else {
-			
-			$this->setMessage ( "Session has expired or doesnt exist" );
-			
-			return 0;
-		}
-	}
-	
-	/* Check if user session exists */
-	public function sessionExists() {
+
+    /**
+     *
+     * @return the $_message
+     */
+    public function getMessage ()
+    {
+        return $this->_message;
+    }
+
+    /**
+     *
+     * @param string $_message            
+     */
+    public function setMessage ($_message)
+    {
+        $this->_message .= $_message . "<br>";
+        $this->setCustomMessage("ErrorMessage", $_message);
+    }
+
+    /**
+     *
+     * @return string which is required type of the user logging in
+     */
+    public function getRequiredType ()
+    {
+        return $this->_requiredType;
+    }
+
+    /**
+     *
+     * @param set $requiredType
+     *            of user logging in
+     */
+    public function setRequiredType ($requiredType)
+    {
+        $this->_requiredType = $requiredType;
+    }
+    
+    /* Check if user has logged in */
+    public function isValidUser ()
+    {
+        if ($this->sessionExists() == 1) {
+            
+            return 1;
+        } else {
+            
+            $this->setMessage("Session has expired or doesnt exist");
+            
+            return 0;
+        }
+    }
+    
+    /* Check if user session exists */
+    public function sessionExists ()
+    {
 		
 		// print_r($_SESSION);
 		if (isset ( $_SESSION ['userID'] ) and isset ( $_SESSION ['userType'] ) and $_SESSION ['emailID']) {

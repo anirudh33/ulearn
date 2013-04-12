@@ -18,8 +18,8 @@
 abstract class AUser extends AModel
 {
 
-	
     /**
+     *
      * @var Stores user id of user as given in userdetails table
      */
     protected $user_id;
@@ -60,9 +60,8 @@ abstract class AUser extends AModel
 
     protected $updatedon;
 
-   
-
     /**
+     *
      * @return User id of user (Teacher/Admin/Student)
      */
     public function getUser_id ()
@@ -71,7 +70,9 @@ abstract class AUser extends AModel
     }
 
     /**
-     * @param Sets $user_id of user (Admin/Teacher/Student)
+     *
+     * @param Sets $user_id
+     *            of user (Admin/Teacher/Student)
      */
     public function setUser_id ($user_id)
     {
@@ -257,6 +258,5 @@ abstract class AUser extends AModel
     {
         $this->qualification = $qualification;
     }
-    
 }
 ?>

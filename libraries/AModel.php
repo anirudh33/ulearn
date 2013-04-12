@@ -15,19 +15,18 @@
 * ************************************************************************
 */
 
-abstract class AModel {
-	
-	
+abstract class AModel 
+{
 	/**
 	 * @var Holds database instance
 	 */
 	protected $db;
 	
-	
 	/**
 	 * Creating an instance of database
 	 */
-	function __construct() {
+	function __construct() 
+	{
 		$this->db = DBConnection::Connect ();
 	}
 	
@@ -38,7 +37,8 @@ abstract class AModel {
 	 * @param $message: Message to be displayed
 	 *  Uses toast to show messages to user
 	 */
-	public function setCustomMessage($messageType, $message) {
+	public function setCustomMessage($messageType, $message) 
+	{
 		if (isset ( $_SESSION ["$messageType"] )) {
 			$_SESSION ["$messageType"] .= $message . "<br>";
 		} else {
