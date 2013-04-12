@@ -184,8 +184,8 @@ class Authenticate extends AModel
     public function validateaddcourse ()
     {
         /* ------------alphabet security----------------- */
-        if (preg_match("/^[a-z\-]+$/i", $_POST["coursename"]) === 0) {
-            $this->setMessage("Course Name must be letters");
+        if (preg_match("/^[a-z' '0-9',''-''.']+$/i", $_POST["coursename"]) === 0) {
+            $this->setMessage("Course Name must be letters or no.");
         }
         
         /* ------------URL security----------------- */
