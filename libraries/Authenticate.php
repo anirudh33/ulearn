@@ -670,12 +670,7 @@ class Authenticate extends AModel{
 				
 				file_put_contents ( 'register.log', date( "w") . PHP_EOL, FILE_APPEND );
 			}
-			
-		
-		
-		
-		
-	    
+
 	}
 	
 }

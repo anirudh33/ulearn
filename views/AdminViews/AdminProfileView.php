@@ -10,7 +10,9 @@ Created on                  -  March 28, 2013
 Sr.NO.  Version	  Updated by        Updated on          Description
 -------------------------------------------------------------------------
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
+2		1.1       kawaljeet Singh   April 10, 2013      Error Display
 * ************************************************************************
+
 */
 
 if(isset($adminprofiledata[0]['profilepicture'])) {
@@ -30,6 +32,8 @@ $pageName="AdminProfileView";
 			<span id="leftusernav"><?php echo $lang-> WELCOME;?>&nbsp<?php echo $adminprofiledata[0]['firstname'];?></span>
 			
 		</div>
+	
+		
 	</header>
 				<span id="usernav">  
 	
@@ -90,15 +94,7 @@ $pageName="AdminProfileView";
 		</div>
 		
 </section>
-		
 
-			
-
-
-
-
-
-		
 	</div>
 
 </html>

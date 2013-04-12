@@ -108,6 +108,8 @@ if($pageName=="RegistrationView") {
 	<style type="text/css">
 #error {
 	background-color: white;
+	height:auto;
+	color:red;
 }
 </style>
 
@@ -189,7 +191,14 @@ if($pageName=="RegistrationView") {
 	
 });
  </script>
-
+<style type="text/css">
+#errors {
+	background-color: white;
+	height:auto;
+	color:red;
+	font-size:20px;
+}
+</style>
 <script type="text/javascript">
 	
 	function fncDelete(argId,method) {
@@ -287,7 +296,14 @@ if($pageName=="RegistrationView") {
 	
 });
 </script>
-
+<style type="text/css">
+#errors {
+	background-color: white;
+	height:auto;
+	color:red;
+	font-size:20px;
+}
+</style>
 
 
 
@@ -331,6 +347,16 @@ if($pageName=="RegistrationView") {
 		});
 	});
 	</script>
+	<style type="text/css">
+#errors {
+	background-color: white;
+	height:auto;
+	color:red;
+	font-size:20px;
+}
+</style>
+
+	
 <script type="text/javascript">
 	
  $(document).ready(function() {

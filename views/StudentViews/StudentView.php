@@ -16,6 +16,19 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 $pageName="StudentView";
 require_once (SITE_PATH . '/views/Header.php');
 ?>
+<div id="errors">
+
+	
+		<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+    
+    
+}
+?>
+		</div>
 <body>
 	<div id="cc">
 

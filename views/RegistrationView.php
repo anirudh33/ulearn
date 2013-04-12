@@ -30,7 +30,12 @@ require_once (SITE_PATH . '/views/Header.php');
 			<h3><a href="index.php"><?php echo $lang->GOTOHOME?></a></h3>
 		</div>
 		<div id="error">
-
+<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+}?>
 	</div>
 		<div id="image">
 

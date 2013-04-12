@@ -24,7 +24,7 @@ $pageName=="EditAdminProfileView";
 	
 
 	
-	
+
 <div id="registerdiv">
 
 	<form id="form"	action="index.php?method=editAdminClick&controller=Admin" 
@@ -136,4 +136,5 @@ $pageName=="EditAdminProfileView";
 				</div></fieldset>
 				
 			</form>
+			
 		</div>

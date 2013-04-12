@@ -1,7 +1,7 @@
 /* Creation Log
 
-File Name                   -  RegistrationView2.js
-Description                 -  new user registration page
+File Name                   -  RegistrationView.js
+Description                 -  registration validation
 Version                     -  1.0
 Created by                  -  Kawaljeet Singh
 Created on                  -  March 19, 2013
@@ -27,8 +27,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 							return this.optional(element)
 									|| /^[a-z]+$/i.test(value);
 						});
-						//anirudh
-						$.validator.addMethod("addressRegex", function(value,
+											$.validator.addMethod("addressRegex", function(value,
 								element) {
 							return this.optional(element)
 									|| /^[a-z' '0-9',''-'"\/"'.']+$/i.test(value);
