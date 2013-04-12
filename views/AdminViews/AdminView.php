@@ -13,18 +13,14 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 														header separation
 * ************************************************************************
 */
-
 $pageName = "AdminView";
 require_once (SITE_PATH . '/views/Header.php');
 ?>
 
 <body>
 	<div id="div1"></div>
-
 	<div id="cc">
-
 		<div id="header">
-
 			<img alt=""
 				src="<?php echo SITE_URL;?>/assets/images/Views/ulearn.gif"
 				style="float: left; padding: 50px; width: 280px;"> <br> <br> <br> <br>
@@ -33,12 +29,10 @@ require_once (SITE_PATH . '/views/Header.php');
 				<a id="logout33" href="index.php?method=logout&controller=Admin">LOG
 					OUT</a>
 			</div>
-			
 		</div>
 		<div id="image">
 			<div id="admincontent" align="center">
 				<?php
-				
 if (! empty ( $teacherData )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
@@ -72,11 +66,7 @@ if (! empty ( $teacherData )) {
 				}
 				
 				?>
-			
 			</div>
-
-
-
 			<div id="functionpanel">
 				<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 				<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>

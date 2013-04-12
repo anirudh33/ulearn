@@ -31,7 +31,6 @@ class Admin extends AUser {
 	    public function getTotalTeacherRecords() {
 		return $this->totalTeacherRecords;
 	}
-	
 	/*
 	 *
 	 * @param field_type $totalTeacherRecords        	
@@ -46,7 +45,6 @@ class Admin extends AUser {
 	public function getTotalStudentRecords() {
 		return $this->totalStudentRecords;
 	}
-
 	/*
 	 *
 	 * @param field_type $totalstudentRecords
@@ -162,27 +160,22 @@ class Admin extends AUser {
 	    echo "old:$pass<br>";
 	    $a=sha1($pass);
 	    echo "new-$a<br>";
-	    
-	    
-	    
 	    $this->db->Fields ( array (
 	        "password"=>"$a"
-	    
 	    ) );
 	    $this->db->From ( "userdetails" );
 	    $this->db->Where ();
 	    $this->db->Update ();
 	    echo $this->db->lastQuery();
 	    }
-	    //echo $this->db->lastQuery();
 	    die;
 	}
+	
 	/* method called to return teacher details from database in manage teacher*/
 	public function fetchTeacher($limit = "0,10") {
 		if (empty ( $limit )) {
 			$limit = "0,10";
 		}
-		
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"id",
@@ -192,11 +185,11 @@ class Admin extends AUser {
 		) );
 		$this->db->From ( "teacherdetails" );
 		$this->db->Where ();
-		
 		$this->db->Limit ( $limit );
 		$this->db->Select ();
 		$this->setTeacherData ( $this->db->resultArray () );
 	}
+	
 	/* method called to return teacher count from database in manage teacher*/
 	public function fetchTeacherCount() {
 		DBConnection::Connect ();
@@ -213,6 +206,7 @@ class Admin extends AUser {
 		
 		$this->setTotalTeacherRecords ( count ( $this->db->resultArray () ) );
 	}
+	
 	/* method called to return student details from database in manage student*/
 	public function fetchStudent($limit = "0,10") {
 		DBConnection::Connect ();
@@ -229,6 +223,7 @@ class Admin extends AUser {
 		
 		$this->setStudentData ( $this->db->resultArray () );
 	}
+	
 	/* method called to return student count from database in manage student*/
 	public function fetchStudentCount() {
 		DBConnection::Connect ();
@@ -245,6 +240,7 @@ class Admin extends AUser {
 		
 		$this->setTotalStudentRecords ( count ( $this->db->resultArray () ) );
 	}
+	
 	/* method called to return student qualification details from database in generate report*/
 	public function fetchStudentQualification($qualification) {
 		DBConnection::Connect ();
@@ -262,6 +258,7 @@ class Admin extends AUser {
 		$this->db->Select ();
 		$this->setStudentQualificationData ( count ( $this->db->resultArray () ) );
 	}
+	
 	/* method called to return teacher qualification details from database in generate report*/
 	public function fetchTeacherQualification($qualification) {
 		DBConnection::Connect ();
@@ -279,6 +276,7 @@ class Admin extends AUser {
 		$this->db->Select ();
 		$this->setTeacherQualificationData ( count ( $this->db->resultArray () ) );
 	}
+	
 	/* method called to update admin details from database in edit profile*/
 	public function editAdmin($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {
 		DBConnection::Connect ();
@@ -341,29 +339,21 @@ class Admin extends AUser {
 		$this->db->Fields ( array (
 				"status" => "2" 
 		) );
-		
-		
-		
-		
 		$objReturn = $this->db->Update ();
 		return $objReturn;
 	}
 	/* method called to activate student from database in manage student*/
 	public function activateStudent($uid) {
 		DBConnection::Connect ();
-		
 		$this->db->From ( "studentdetails" );
-		
 		$this->db->Where ( array (
 				"id" => $uid 
 		) );
 		$this->db->Fields ( array (
 				"status" => "1" 
 		) );
-		
 		$objReturn = $this->db->Update ();
 		return $objReturn;
 	}
-	
 }
 ?>

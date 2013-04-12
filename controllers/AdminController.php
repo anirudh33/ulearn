@@ -14,9 +14,8 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 														Fixed insertion of balnk phone no and showing of address fields   
 * ************************************************************************
 */
-
 class AdminController extends AController {
-	
+
 	/**
 	 *
 	 * @var Stores required type of user to check for Admin controller
@@ -216,15 +215,12 @@ class AdminController extends AController {
 		$dob = $_POST ["dob"];
 		
 		$this->createUser ();
-		
 		$var = $this->_objUser->editAdmin ( $firstname, $lastname, $phone, $address, $qualification, $gender, $dob );
 		if ($var == true) {
-			
 			$message = "Profile updated :) <br>";
 			$this->setCustomMessage ( "SuccessMessage", $message );
 			$this->showProfile ();
 		} else {
-			
 			$message = "Couldn't Update, Report issue to site admin <br>";
 			$this->setCustomMessage ( "ErrorMessage", $message );
 			$this->editProfileClick ();

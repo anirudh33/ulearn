@@ -26,20 +26,14 @@ $obj_paging->set_page_length(10);
 $page_length = $obj_paging->page_length;
 $obj_paging->set_records($studentRecordsCount);
 $pages = $obj_paging->get_pages();
-
 ?>
-
 	<div class="row-whiteBox">
 		<div id="divfr"></div>
 		<p class="headingsBig">
-		
-		
 		<h3 class="head2"><?php echo $lang-> REGISTEREDSTUDENTDETAILS;?></h3>
 		</p>
-
-		<span id="middle"></span>
-
-		<div class="tabular-cnt">
+	<span id="middle"></span>
+	<div class="tabular-cnt">
 			<table width="100%" cellspacing="10" cellpadding="5">
 				<tr class="tbl-hd">
 					<td><?php echo $lang->ID;?></td>
@@ -61,6 +55,7 @@ $pages = $obj_paging->get_pages();
                         	<td><?php echo $row['id']?></td>
                             <td><?php echo $row['firstname']?></td>
                             <td><?php echo $row['lastname']?></td>
+
                             
                             <td>	<?php if($row['status']=='1')
                             		{
@@ -99,5 +94,3 @@ $pages = $obj_paging->get_pages();
             </table>
 		</div>
 </div>
-
-

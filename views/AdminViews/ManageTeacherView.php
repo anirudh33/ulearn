@@ -19,20 +19,17 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 // manage student too
 $pageName=="ManageTeacherView";
 $obj_paging = new paging();
-
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 } else {
     $page = 1;
 }
-
 $obj_paging->set_page($page);
 $obj_paging->set_page_length(10);
 $page_length = $obj_paging->page_length;
 $obj_paging->set_records($teacherRecordsCount);
 $pages = $obj_paging->get_pages();
 ?>
-
 	<div class="row-whiteBox">
 		<div id="divfr"></div>
 		<p class="headingsBig">
@@ -73,7 +70,7 @@ $pages = $obj_paging->get_pages();
                             			 	echo "<font color=red>Inactive</font>";?></td>
                             			 	<td><a onclick=fncActivate("<?php echo $row['id'];?>","activateTeacherClick") href= "javascript:void(0)"  >ACTIVATE </a></td>
                             			 	<?php }?>
-                           
+
                         </tr>
                         <? $i++; 
                     }

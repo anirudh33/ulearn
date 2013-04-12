@@ -14,19 +14,11 @@ Sr.NO.	Version     Updated by          Updated on      Description
 2		1.1			Anirudh pandita		April 06, 2013		Fixed date picker
 * ************************************************************************
 */ 
-
 $pageName=="EditAdminProfileView";
-//@todo change div ids to proper names
 ?>
-
 	<link rel="stylesheet" href="<?php echo SITE_URL;?>/assets/style/editprofile.css"
 	type="text/css" media="screen" />
-	
-
-	
-
 <div id="registerdiv">
-
 	<form id="form"	action="index.php?method=editAdminClick&controller=Admin" 
 	method="POST" class="register">
 <div id="errors">
@@ -45,7 +37,6 @@ if (isset($_REQUEST["msg"])) {
 
 	
 		<h1 class="customh1"><?php echo $lang->EDITPROFILE;?></h1><br><br><br><br><br><br>
-
 		<fieldset class="row2">
 			<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 			<p>
@@ -62,22 +53,15 @@ if (isset($_REQUEST["msg"])) {
 				<label><?php echo $lang->PHONE;?> </label> 
 				<input type="text" id="phone" name="phone" maxlength="10" 
 				value='<?php echo $adminData[0]['phone']; ?>' ><br><br>
-
 			</p>
-
 			<p>
 				<label><?php echo $lang->ADDRESS;?></label>
 				 <input type="text" id="address" name="address" class="long" 
 				 value='<?php echo $adminData[0]['address'];?>' >
 			</p>
-
-
 			<p>
 			<?php 
-			
 			$strQualification = $adminData [0] ['qualification'];?>
-			
-			
 			<div class="fieldgroup">
 				<label for="qualification"><?php echo $lang->QUALIFICATION;?></label> 
 				<select
@@ -95,18 +79,12 @@ if (isset($_REQUEST["msg"])) {
 						value="others">others</option>
 				</select>
 			</div>
-
-
 <br><br>
-
 		</fieldset><br><br>
 		<fieldset class="row3">
-
-			<legend><?php echo $lang->FURTHERINFO;?></legend>
-
+		<legend><?php echo $lang->FURTHERINFO;?></legend>
 			<p>
-
-<?php $strGender=$adminData[0]['gender'];?>
+?php $strGender=$adminData[0]['gender'];?>
 				
 			<div class="fieldgroup">
                 <label for="gender"><?php echo $lang->GENDER;?></label>
@@ -114,8 +92,7 @@ if (isset($_REQUEST["msg"])) {
                 <label class="gender">Male</label>
                 <input type="radio" name="gender" <?php if ($strGender == "m") { echo "checked";}?>  
 						value="m"/>
-				
-                </p>
+               </p>
                 <p>
                 <label class="gender">Female</label>
                 <input type="radio"
@@ -123,32 +100,21 @@ if (isset($_REQUEST["msg"])) {
 						value="f"/>
              </p>
              </div> 
-
 					</p>
 					<?php $strDob= $adminData[0]['dob'];?>
-					
-					
 					<p>
-						
-					<div class="fieldgroup">
+				<div class="fieldgroup">
                 <label for="date"><?php echo $lang->BIRTHDATE;?></label>
                <input type="text" id="datepicker23" name="dob" value=<?php echo $strDob;?>>
             </div>
-					 
                	</p>
-
-
-
 					<div class="infobox">
 						<h4><?php echo $lang->HELPFULINFO;?></h4>
 						<p><?php echo $lang->INSTRUCTION;?></p>
 					</div>
 				</fieldset>
-				
 <fieldset class="row4"><div>
 					<button class="button" id="edit">Edit &raquo;</button>
 				</div></fieldset>
-				
-			</form>
-			
-		</div>
+				</form>
+			</div>
