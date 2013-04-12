@@ -43,8 +43,8 @@ $pageName="AdminProfileView";
 		<section id="left">
 			<div id="userStats" class="clearfix">
 				<div class="pic">
-					<a href="#">
-					<img src="<?php echo SITE_URL;?>/assets/images/Views/profilepics/adminprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="150"></a>
+				
+					<img src="<?php echo SITE_URL;?>/assets/images/Views/profilepics/adminprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="150">
 				</div>
 				<?php if(!empty($adminprofiledata))
 				{?>

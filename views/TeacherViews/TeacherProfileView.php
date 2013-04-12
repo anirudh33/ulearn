@@ -34,7 +34,7 @@ imagejpeg($image,SITE_PATH."/assets/images/Views/profilepics/teacherprofile".$_S
 		<section id="left">
 			<div id="userStats" class="clearfix">
 <div class="pic">
-					<a href="#"><img src="<?php echo SITE_URL;?>/assets/images/Views/profilepics/teacherprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="150" /></a>
+				<img src="<?php echo SITE_URL;?>/assets/images/Views/profilepics/teacherprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="150" />
 				</div>
 				
 				<?php

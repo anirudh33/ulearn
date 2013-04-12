@@ -34,8 +34,8 @@ imagejpeg($image,SITE_PATH."/assets/images/Views/profilepics/studentprofile".$_S
 		<section id="left">
 			<div id="userStats" class="clearfix">
 				<div class="pic">
-					<a href="#">
-					<img src="<?php echo SITE_URL;?>/assets/images/Views/profilepics/studentprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="195" /></a>
+					
+					<img src="<?php echo SITE_URL;?>/assets/images/Views/profilepics/studentprofile<?php echo $_SESSION['userID'];?>.jpeg" width="150" height="195" />
 				</div>
 				<?php if(!empty($data))
 				{?>
