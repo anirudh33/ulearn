@@ -51,7 +51,7 @@ class MainController
 	 /* Shows Home page */
 	public function showMainView() {
 		$lang = Language::getinstance ();
-		require_once SITE_PATH."views/MainView.php";
+		require_once SITE_PATH."/views/MainView.php";
 	}
 	
 	 /* Starts login procedure by fetching username, password from POST */

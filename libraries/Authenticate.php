@@ -20,6 +20,13 @@ class Authenticate extends AModel
      * @var To store any validation error messages to be displayed
      */
     private $_message = "";
+    
+    /**
+     *
+     * @var For matching the type of user logged
+     * in matches the panel he/she logs in
+     */
+    protected $_requiredType = "";
 
     /**
      *
@@ -38,6 +45,26 @@ class Authenticate extends AModel
     {
         $this->_message .= $_message . "<br>";
         $this->setCustomMessage("ErrorMessage", $_message);
+    }
+    
+
+    /**
+     *
+     * @return To get the value of $_requiredType
+     */
+    public function getRequiredType ()
+    {
+    	return $this->_requiredType;
+    }
+    
+    /**
+     *
+     * @param $requiredType Sets
+     *            the value of $_requiredType
+     */
+    public function setRequiredType ($requiredType)
+    {
+    	$this->_requiredType = $requiredType;
     }
 
     /* Check if user has logged in */
