@@ -9,8 +9,9 @@
 * **********************Update Log ***************************************
 * Sr.NO. Version Updated by 		Updated on	 	Description
 * -------------------------------------------------------------------------
-** ************************************************************************
+**************************************************************************
 */
+
 class DBConnection
 {
 
@@ -51,11 +52,9 @@ class DBConnection
     private $_between = "";
 
     private $_limit = "";
-    
-    // ani
+
     public function startTransaction ()
     {
-        // $this->_transaction.="SET autocommit=0;";
         $this->_query = "START TRANSACTION";
         $this->_result = mysql_query($this->_query);
         return $this;
@@ -63,7 +62,6 @@ class DBConnection
 
     public function rollback ()
     {
-        // $this->_transaction.="rollback;";
         $this->_query = "rollback";
         $this->_result = mysql_query($this->_query);
         return $this;
@@ -71,23 +69,16 @@ class DBConnection
 
     public function commit ()
     {
-        // $this->_transaction.="commit;";
         $this->_query = "commit";
         $this->_result = mysql_query($this->_query);
         return $this;
     }
     
-    /*
-     * public function executeTransaction() { $this->_result = mysql_query($this->_transaction); echo $this->_transaction; $this->_transaction=""; return $this; }
-     */
     public function Between ($min, $max)
     {
         $this->_between = " $min AND $max";
         return $this;
     }
-
-    private function __construct ()
-    {}
 
     public static function Connect ()
     {
@@ -112,18 +103,17 @@ class DBConnection
 
     public function Fields ($data = array())
     {
-        
-    	$this->_keys = array();
+        $this->_keys = array();
         $this->_values = array();
         $count = count($data);
-
+        
         if ($count > 0) {
             
             foreach ($data as $key => $value) {
-                /* @author anirudh 
-                 * if phone no is set to blank it should still get inserted 
-                 * */
-                if (! empty($value) or $key=='phone') {
+                /*
+                 * @author anirudh if phone no is set to blank it should still get inserted
+                 */
+                if (! empty($value) or $key == 'phone') {
                     $this->_keys[] = $key;
                     $this->_values[] = $value;
                 }
@@ -132,7 +122,6 @@ class DBConnection
         return $this;
     }
 
-    
     public function From ($value)
     {
         if (! empty($value)) {
@@ -143,7 +132,8 @@ class DBConnection
 
     public function Join ($joinTable, $condition, $type = "INNER")
     {
-        if (! empty($this->_tableName) && ! empty($joinTable) && ! empty($condition) && ! empty($type)) {
+        if (! empty($this->_tableName) && ! empty($joinTable) && ! empty($condition) &&
+             ! empty($type)) {
             
             $this->_join .= strtoupper(" " . $type . " JOIN ") . $joinTable . " ";
             $this->_join .= " ON " . $condition . " ";
@@ -152,8 +142,6 @@ class DBConnection
 
     public function Where ($data = array(), $raw = false, $operator = "AND")
     {
-    
-    	
         $this->_where = "";
         $count = count($data);
         if ($count > 0) {
@@ -163,10 +151,11 @@ class DBConnection
                 
                 if ($index >= 1 || ! empty($this->_where)) {
                     $ope = strtoupper($operator);
-                    if (in_array($ope, array(
-                        "AND",
-                        "OR"
-                    ))) {
+                    if (in_array($ope, 
+                        array(
+                            "AND",
+                            "OR"
+                        ))) {
                         $this->_where .= " $ope ";
                     }
                 }
@@ -218,10 +207,11 @@ class DBConnection
                 
                 if ($index >= 1 || ! empty($this->_having)) {
                     $ope = strtoupper($operator);
-                    if (in_array($ope, array(
-                        "AND",
-                        "OR"
-                    ))) {
+                    if (in_array($ope, 
+                        array(
+                            "AND",
+                            "OR"
+                        ))) {
                         $this->_having .= " $ope ";
                     }
                 }
@@ -269,11 +259,13 @@ class DBConnection
                 $this->_where .= $key . " LIKE \"%" . $val . "%\"";
             } else {
                 $ope = strtoupper($operator);
-                if (in_array($ope, array(
-                    "AND",
-                    "OR"
-                ))) {
-                    $this->_where .= " " . $ope . " " . $key . " LIKE \"%" . $val . "%\"";
+                if (in_array($ope, 
+                    array(
+                        "AND",
+                        "OR"
+                    ))) {
+                    $this->_where .= " " . $ope . " " . $key . " LIKE \"%" .
+                     $val . "%\"";
                 }
             }
         }
@@ -391,7 +383,6 @@ class DBConnection
                 if ($this->_insertId > 0) {
                     $bool = true;
                 }
-                
             }
         }
         
@@ -400,7 +391,6 @@ class DBConnection
 
     public function Update ()
     {
-    	
         $bool = false;
         
         $this->_query = "";
@@ -433,9 +423,10 @@ class DBConnection
                 if (! empty($where)) {
                     $this->_query .= " WHERE " . $where;
                 }
-            //    echo $this->_query;
-              //  die;
-               
+                // echo
+                // $this->_query;
+                // die;
+                
                 $sql = mysql_query($this->_query);
                 
                 $bool = true;
@@ -498,8 +489,7 @@ class DBConnection
     {
         $records = array();
         if (! empty($this->_result)) {
-            // $records = mysql_fetch_assoc ( $this->_result );
-            while ($row = mysql_fetch_assoc($this->_result)) {
+                while ($row = mysql_fetch_assoc($this->_result)) {
                 $records[] = $row;
             }
         }

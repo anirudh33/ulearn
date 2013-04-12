@@ -15,9 +15,7 @@
  * ************************************************************************
  *
  */
-abstract class AController
-{
-
+abstract class AController {
     /**
      *
      * @var For matching the type of user logged 
@@ -65,7 +63,8 @@ abstract class AController
             
             $_SESSION["ErrorMessage"] .= $authObject->getMessage() . "<br>";
             
-            header("Location:" . $_SESSION["DOMAIN_PATH"] . "/index.php?msg=" . $authObject->getMessage() . "");
+            header("Location:" . $_SESSION["DOMAIN_PATH"] . "/index.php?msg=" . 
+            $authObject->getMessage() . "");
         }
     }
 
@@ -94,10 +93,11 @@ abstract class AController
      */
     protected function createUser ()
     {
-        // @todo anirudh: create and use setter
-        $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); // user is created by calling the createUser method of the UserFactory class.
+        // user is created by calling the createUser method of the UserFactory class
+        $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); 
         $this->_objUser->setFirstName($_SESSION["emailID"]);
     }
+    
     /* method called on send message click in write message view */
     public function writeMessage ()
     {
@@ -132,6 +132,7 @@ abstract class AController
             $this->setCustomMessage("ErrorMessage", $message);
         }
     }
+    
     /* method called on message click in message view */
     public function viewMessageClick ()
     {
@@ -184,7 +185,15 @@ abstract class AController
      */
     public function logout ()
     {
-        if (file_exists($_SESSION["DOMAIN_PATH"] . "/assets/images/Views/profilepics/adminprofile" . $_SESSION['userID'] . ".jpeg") or file_exists($_SESSION["DOMAIN_PATH"] . "/assets/images/Views/profilepics/studentprofile" . $_SESSION['userID'] . ".jpeg") or file_exists($_SESSION["DOMAIN_PATH"] . "/assets/images/Views/profilepics/teacherprofile" . $_SESSION['userID'] . ".jpeg")) {
+        if (file_exists($_SESSION["DOMAIN_PATH"] . 
+                "/assets/images/Views/profilepics/adminprofile" . 
+            $_SESSION['userID'] . ".jpeg") or 
+            file_exists($_SESSION["DOMAIN_PATH"] . 
+                "/assets/images/Views/profilepics/studentprofile" .
+            $_SESSION['userID'] . ".jpeg") or 
+            file_exists($_SESSION["DOMAIN_PATH"] . 
+                "/assets/images/Views/profilepics/teacherprofile" . 
+            $_SESSION['userID'] . ".jpeg")) {
             unlink($_SESSION["DOMAIN_PATH"] . "/assets/images/Views/profilepics/adminprofile" . $_SESSION['userID'] . ".jpeg");
             unlink($_SESSION["DOMAIN_PATH"] . "/assets/images/Views/profilepics/studentprofile" . $_SESSION['userID'] . ".jpeg");
             unlink($_SESSION["DOMAIN_PATH"] . "/assets/images/Views/profilepics/teacherprofile" . $_SESSION['userID'] . ".jpeg");

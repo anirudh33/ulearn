@@ -2,7 +2,8 @@
 /*  ************************** Creation Log *****************************
 
 File Name                   - AdminController.php
-Description                 - Admin Controller controlls all the events related to Admin
+Description                 - Admin Controller controlls all the events related 
+                                to Admin
 Version                     -  1.0
 Created by                  -  Ujjwal Rawlley
 Created on                  -  March 28, 2013
@@ -11,59 +12,64 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 -------------------------------------------------------------------------
 1		1.1		Anirudh Pandita		April 6 2013		Fixed variable not set notice
 2		1.1		Anirudh Pandita		April 8 2013		Added error/success messages,
-														Fixed insertion of balnk phone no and showing of address fields   
+														Fixed insertion of blank phone no and showing of address fields   
 * ************************************************************************
 */
 class AdminController extends AController {
 
 	/**
 	 *
-	 * @var Stores required type of user to check for Admin controller
+	 * @var Stores any error messages produced
 	 */
 	protected $_message = "";
+	
+	/**
+	 *
+	 * @var Stores required type of user to check for Admin controller
+	 */
 	protected $_requiredType = "admin";
 	
-	/*to get message*/
+	/* to get message */
 	public function getMessage() {
 		return $this->_message;
 	}
-	/*to set message*/
+	/* to set message */
 	public function setMessage($_message) {
 		$this->_message = $_message . "<br>";
 	}
 	/*
-	* Requires view with list of teachers to be seen and managed
-	*/
+	 * Requires view with list of teachers to be seen and managed
+	 */
 	public function showManageTeacherView($teacherData = array(), $teacherRecordsCount) {
 		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * Requires view with list of student to be seen and managed
-	*/
+	 */
 	public function showManageStudentView($studentData = array(), $studentRecordsCount) {
 		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * Requires view to edit admin profile
-	*/
+	 */
 	public function showManageAdminView($adminData = array()) {
-		require_once SITE_PATH. '/views/AdminViews/AdminView.php';
+		require_once SITE_PATH . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * Requires view to show admin profile
-	*/
+	 */
 	public function showAdminProfileView($adminprofiledata = array()) {
 		require_once SITE_PATH . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * Requires view to generate report
-	*/
+	 */
 	public function showReportView($reportData = array()) {
 		require_once SITE_PATH . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * method called to generate report
-	*/
+	 */
 	public function generateReport() {
 		$reportData = "report ";
 		$this->createUser ();
@@ -72,7 +78,7 @@ class AdminController extends AController {
 	}
 	/*
 	 * method called to generate user report
-	*/
+	 */
 	public function allUserReport($studentReportCount, $teacherReportCount) {
 		$studentReportData = $studentReportCount;
 		$teacherReportData = $teacherReportCount;
@@ -81,7 +87,7 @@ class AdminController extends AController {
 	}
 	/*
 	 * method called to show student report
-	*/
+	 */
 	public function studentreport($studentreportcount) 
 
 	{
@@ -89,7 +95,7 @@ class AdminController extends AController {
 	}
 	/*
 	 * method called to show teacher report
-	*/
+	 */
 	public function teacherreport($teacherreportcount) 
 
 	{
@@ -97,11 +103,11 @@ class AdminController extends AController {
 	}
 	/*
 	 * method called to generate qualification report
-	*/
+	 */
 	public function qualificationReport($studentQualificationCount, $teacherQualificationCount) {
 		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
 	}
-	/* method called to manage teacher details*/
+	/* method called to manage teacher details */
 	public function manageTeachersClick() {
 		$this->createUser ();
 		
@@ -124,7 +130,7 @@ class AdminController extends AController {
 		$this->_objUser->fetchTeacherCount ();
 		$this->showManageTeacherView ( $this->_objUser->getTeacherData (), $this->_objUser->getTotalTeacherRecords () );
 	}
-	/* method called to delete teacher in manage teacher*/
+	/* method called to delete teacher in manage teacher */
 	public function deleteTeacherClick() {
 		$uid = $_POST ['id'];
 		
@@ -136,7 +142,7 @@ class AdminController extends AController {
 			die ( "0" );
 		}
 	}
-	/* method called to activate teacher in manage teacher*/
+	/* method called to activate teacher in manage teacher */
 	public function activateTeacherClick() {
 		$uid = $_REQUEST ['id'];
 		$this->createUser ();
@@ -147,7 +153,7 @@ class AdminController extends AController {
 			die ( "0" );
 		}
 	}
-	/* method called to delete student in manage teacher*/
+	/* method called to delete student in manage teacher */
 	public function deleteStudentClick() {
 		$uid = $_REQUEST ['id'];
 		
@@ -161,7 +167,7 @@ class AdminController extends AController {
 			die ( "0" );
 		}
 	}
-	/* method called to activate student in manage teacher*/
+	/* method called to activate student in manage teacher */
 	public function activateStudentClick() {
 		$uid = $_REQUEST ['id'];
 		$this->createUser ();
@@ -172,7 +178,7 @@ class AdminController extends AController {
 			die ( "0" );
 		}
 	}
-	/* method called to manage student details*/
+	/* method called to manage student details */
 	public function manageStudentsClick() {
 		$this->createUser ();
 		
@@ -195,14 +201,14 @@ class AdminController extends AController {
 		$this->_objUser->fetchStudentCount ();
 		$this->showManageStudentView ( $this->_objUser->getStudentData (), $this->_objUser->getTotalStudentRecords () );
 	}
-	/* method called to edit admin details in edit profile*/
+	/* method called to edit admin details in edit profile */
 	public function editProfileClick() {
 		$this->createUser ();
 		$this->_objUser->fetchUser ();
 		
 		$this->showManageAdminView ( $this->_objUser->getAdminData () );
 	}
-	/* method called to update admin details in edit profile*/
+	/* method called to update admin details in edit profile */
 	public function editAdminClick() {
 		$authObject = new Authenticate ();
 		$authObject->validateEditProfile ( "Admin" );
@@ -226,13 +232,13 @@ class AdminController extends AController {
 			$this->editProfileClick ();
 		}
 	}
-	/* method called to show admin profile*/
+	/* method called to show admin profile */
 	public function showProfile() {
 		$this->createUser ();
 		$this->_objUser->fetchAdminUser ();
 		$this->showAdminProfileView ( $this->_objUser->getAdminProfiledata () );
 	}
-	/* method called to show admin report*/
+	/* method called to show admin report */
 	public function showReport() {
 		$this->createUser ();
 		
@@ -240,7 +246,7 @@ class AdminController extends AController {
 			
 			$message = "Please select report category <br>";
 			$this->setCustomMessage ( "ErrorMessage", $message );
-			$this->generateReport();
+			$this->generateReport ();
 		}
 		
 		if (isset ( $_POST ["usertype"] )) {
@@ -265,21 +271,21 @@ class AdminController extends AController {
 			}
 		}
 	}
-	/* method called to generate report*/
+	/* method called to generate report */
 	public function reportGeneration() {
 		$this->_objUser->fetchUser ();
 		
 		$this->showReportView ();
 	}
-	/* method called to manage admin profile*/
+	/* method called to manage admin profile */
 	public function manageProfile() {
 		$this->_objUser->fetchUser ();
 		
 		$this->showProfileView ();
 	}
-	public function updateP(){
-	   	$obj= new Admin();
-	    $obj->updatePassword();
+	public function updateP() {
+		$obj = new Admin ();
+		$obj->updatePassword ();
 	}
 }
 ?>

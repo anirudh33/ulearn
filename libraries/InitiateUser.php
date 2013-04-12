@@ -1,5 +1,4 @@
 <?php
-
 /*
  * *************************** Creation Log ******************************* 
  * File Name - InitiateUser.php 
@@ -10,48 +9,104 @@
  * *************************************************************************** 
  * Sr.NO. Version Updated by Updated on Description 
  * ------------------------------------------------------------------------- 
- * 1 1.0 Anirudh Pandita March 02, 2013 2 1.0 Anirudh Pandita March 08, 2013 Paths set 
+ * 1 1.0 Anirudh Pandita March 02, 2013 
+ * 2 1.0 Anirudh Pandita March 08, 2013 Paths set 
  * ***************************************************************************
  */
 
 class InitiateUser extends AModel {
+    
+	/**
+	 * @var unknown
+	 */
 	private $_password;
+	
+	/**
+	 * @var unknown
+	 */
 	private $_result = array ();
+	
+	/**
+	 * @var unknown
+	 */
 	private $_userID;
+	
+	/**
+	 * @var unknown
+	 */
 	private $_userType;
+	
+	/**
+	 * @var unknown
+	 */
 	private $_emailID;
 	
-	public function __construct() {
-		parent::__construct ();
-	}
-	
+	/**
+	 * @return unknown
+	 */
 	private function getPassword() {
 		return $this->_password;
 	}
+	
+	/**
+	 * @param unknown $password
+	 */
 	private function setPassword($password) {
 		$this->_password = $password;
 	}
+	
+	/**
+	 * @return unknown
+	 */
 	private function getResult() {
 		return $this->_result;
 	}
+	
+	/**
+	 * @param unknown $result
+	 */
 	private function setResult($result) {
 		$this->_result = $result;
 	}
+	
+	/**
+	 * @return unknown
+	 */
 	private function getUserID() {
 		return $this->_userID;
 	}
+	
+	/**
+	 * @param unknown $userID
+	 */
 	private function setUserID($userID) {
 		$this->_userID = $userID;
 	}
+	
+	/**
+	 * @return unknown
+	 */
 	private function getUserType() {
 		return $this->_userType;
 	}
+	
+	/**
+	 * @param unknown $userType
+	 */
 	private function setUserType($userType) {
 		$this->_userType = $userType;
 	}
+	
+	/**
+	 * @return unknown
+	 */
 	private function getEmailID() {
 		return $this->_emailID;
 	}
+	
+	/**
+	 * @param unknown $emailID
+	 */
 	private function setEmailID($emailID) {
 		$this->_emailID = $emailID;
 	}
@@ -93,8 +148,7 @@ class InitiateUser extends AModel {
 				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=$msg" );				
 			}		 
 	}
-	
-	
+		
 	/**
 	 * @param $email entered by user
 	 * @param $password entered by use after encryption
@@ -133,9 +187,11 @@ class InitiateUser extends AModel {
 		if ($bool == 1) {
 			$this->_result = $this->db->resultArray ();
 			if (! empty ( $this->_result )) {
-				$status = $this->fetchStatus ( $this->_result [0] ["user_type"] . "details", $this->_result [0] ["user_id"] );
+				$status = $this->fetchStatus ( $this->_result [0] ["user_type"] .
+				     "details", $this->_result [0] ["user_id"] );
 				
-				if (! empty ( $this->_result [0] ["user_id"] ) && $status == true) {
+				if (! empty ( $this->_result [0] ["user_id"] ) && 
+				                $status == true) {
 					
 					$this->_userID = $this->_result [0] ["user_id"];
 					$this->_userType = $this->_result [0] ["user_type"];
@@ -150,8 +206,7 @@ class InitiateUser extends AModel {
 		}
 		
 		return $bool;
-	}
-	
+	}	
 	
 	/**
 	 * @param $table to fetch the status from like studentdetails if student logs in
@@ -184,12 +239,9 @@ class InitiateUser extends AModel {
 	 * @return encrypted password
 	 * Usage: Converts the password to encrypted one
 	 */
-	private function encryptPassword($password) {
-	    
-		return sha1($password);
-		
-	}
-	
+	private function encryptPassword($password) {	    
+		return sha1($password);		
+	}	
 	
 	/**
 	 * @param $value: Language selected by user
@@ -197,9 +249,6 @@ class InitiateUser extends AModel {
 	 */
 	public function setLanguage($languageChosen) {
 		$_SESSION ["lang"] = $languageChosen;
-	}
-	
-	
+	}	
 }
-
 ?>

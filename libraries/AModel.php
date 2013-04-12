@@ -1,4 +1,5 @@
 <?php
+
 /**
  *@author anirudh
  **************************** Creation Log *******************************
@@ -14,37 +15,40 @@
 * 1		1.1		Anirudh Pandita		April 07, 2013 	Messaging function added
 * ************************************************************************
 */
-
-abstract class AModel 
+abstract class AModel
 {
-	/**
-	 * @var Holds database instance
-	 */
-	protected $db;
-	
-	/**
-	 * Creating an instance of database
-	 */
-	function __construct() 
-	{
-		$this->db = DBConnection::Connect ();
-	}
-	
-	/**
-	 *
-	 * @param $messageType: Type of toast to be displayed which 
-	 * can be ErrorMessage, SuccessMessage, NoticeMessage         	
-	 * @param $message: Message to be displayed
-	 *  Uses toast to show messages to user
-	 */
-	public function setCustomMessage($messageType, $message) 
-	{
-		if (isset ( $_SESSION ["$messageType"] )) {
-			$_SESSION ["$messageType"] .= $message . "<br>";
-		} else {
-			$_SESSION ["$messageType"] = $message . "<br>";
-		}
-	}
+
+    /**
+     *
+     * @var Holds database instance
+     */
+    protected $db;
+
+    /**
+     * Creating an instance of database
+     */
+    function __construct ()
+    {
+        $this->db = DBConnection::Connect();
+    }
+
+    /**
+     *
+     * @param $messageType: Type
+     *            of toast to be displayed which
+     *            can be ErrorMessage, SuccessMessage, NoticeMessage
+     * @param $message: Message
+     *            to be displayed
+     *            Uses toast to show messages to user
+     */
+    public function setCustomMessage ($messageType, $message)
+    {
+        if (isset($_SESSION["$messageType"])) {
+            $_SESSION["$messageType"] .= $message . "<br>";
+        } else {
+            $_SESSION["$messageType"] = $message . "<br>";
+        }
+    }
 }
 
 ?>
