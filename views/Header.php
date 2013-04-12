@@ -358,10 +358,12 @@ if($pageName=="RegistrationView") {
 	</script>
 	<style type="text/css">
 #errors {
-	background-color: white;
+	//background-color: black;
 	height:auto;
 	color:red;
-	font-size:20px;
+	font-size:12px;
+	line-height:100%;
+	margin-bottom:20px;
 }
 </style>
 

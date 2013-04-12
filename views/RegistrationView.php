@@ -29,7 +29,7 @@ require_once (SITE_PATH . '/views/Header.php');
 		<div id="header2">
 			<h3><a href="index.php"><?php echo $lang->GOTOHOME?></a></h3>
 		</div>
-		<div id="error">
+		<div id="errors">
 <?php 
 	
 if (isset($_REQUEST["msg"])) {

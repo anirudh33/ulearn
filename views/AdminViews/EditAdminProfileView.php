@@ -21,6 +21,9 @@ $pageName=="EditAdminProfileView";
 <div id="registerdiv">
 	<form id="form"	action="index.php?method=editAdminClick&controller=Admin" 
 	method="POST" class="register">
+
+	
+		<h1 class="customh1"><?php echo $lang->EDITPROFILE;?></h1><br><br><br><br><br><br>
 <div id="errors">
 
 	
@@ -34,9 +37,7 @@ if (isset($_REQUEST["msg"])) {
 }
 ?>
 		</div>
-
-	
-		<h1 class="customh1"><?php echo $lang->EDITPROFILE;?></h1><br><br><br><br><br><br>
+		
 		<fieldset class="row2">
 			<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 			<p>
