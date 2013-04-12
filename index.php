@@ -100,14 +100,14 @@ if (isset($_REQUEST['method'])) {
     	  		$controllerObject->$_REQUEST['method']();
     	
     } else {
-    	/* if method name doesnt match */
+    	/* Method name doesnt match */
     	die("Stop playing with the urls! | Method doesnt exsist");
     }
     
     
 }
 
-/* Creating MainController Object as no method was called */
+/* Method was called */
 $obj = new MainController();
 
 
@@ -127,7 +127,7 @@ if (isset ( $_REQUEST ['method'] )) {
 } 
 
 
-/* If no method has been called show the main view/homepage */
+/* Method has been called show the main view/homepage */
 if (! isset($_REQUEST['method']) or isset($_REQUEST['language'])) {
 	
     /*showing main view*/

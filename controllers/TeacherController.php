@@ -22,22 +22,22 @@ class TeacherController extends AController
 	 */
 	protected $_requiredType = "teacher";
 	
-	 /* method called to open all sub views in teacher view */
+	 /* Method called to open all sub views in teacher view */
 	public function showSubViews($viewName, $data, $result2 = '')
 	{
 		require_once $_SESSION ["SITE_PATH"] . '/views/TeacherViews/TeacherView.php';
 	}
 	
-	 /* method called on edit profile click in teacher view */
+	 /* Method called on edit profile click in teacher view */
 	public function editProfileClick()
 	{
 		$this->createUser ();
 		$this->_objUser->fetchUser ();
 		/* Showing Teacher View with teacher data */
-		$this->showSubViews ( "editProfile", $this->_objUser->getTdata (), '' );
+		$this->showSubViews ( "editProfile", $this->_objUser->getTeacherData (), '' );
 	}
 	
-	 /* method called on submiting edit profile view */
+	 /* Method called on submiting edit profile view */
 	public function editTeacherClick()
 	{
 		$authObject = new Authenticate ();
@@ -56,7 +56,7 @@ class TeacherController extends AController
 		$this->showProfile ();
 	}
 	
-	 /* method called on edit course click in teacher view */
+	 /* Method called on edit course click in teacher view */
 	public function editCourseClick()
 	{
 		$this->createUser ();
@@ -87,7 +87,7 @@ class TeacherController extends AController
 		}
 	}
 	
-	 /* method called on delete course click in edit course view */
+	 /* Method called on delete course click in edit course view */
 	public function deleteCourseClick()
 	{
 		$courseName = $_REQUEST ['id'];
@@ -102,7 +102,7 @@ class TeacherController extends AController
 		}
 	}
 	
-	 /* method called on activate course click in edit course view */
+	 /* Method called on activate course click in edit course view */
 	public function activateCourseClick()
 	{
 		$courseName = $_REQUEST ['id'];
@@ -116,13 +116,13 @@ class TeacherController extends AController
 		}
 	}
 	
-	 /* method called on add course click in teacher view */
+	 /* Method called on add course click in teacher view */
 	public function addCourseClick()
 	{
 		$this->showSubViews ( "addCourse", '', '' );
 	}
 	
-	 /* method called on submitting add course view */
+	 /* Method called on submitting add course view */
 	public function addCourseButtonClick()
 	{
 		$authObject = new Authenticate ();
@@ -134,7 +134,7 @@ class TeacherController extends AController
 		$this->showSubViews ( "addCourse", '', '' );
 	}
 	
-	 /* method called on submitting register course view */
+	 /* Method called on submitting register course view */
 	public function registerCourseButtonClick()
 	{
 		$courseName = $_POST ['coursenamelist'];
@@ -143,7 +143,7 @@ class TeacherController extends AController
 		$this->registerCourseClick ();
 	}
 	
-	 /* method called on write message click in teacher view */
+	 /* Method called on write message click in teacher view */
 	public function messageClick()
 	{
 		$this->createUser ();
@@ -151,7 +151,7 @@ class TeacherController extends AController
 		$this->showSubViews ( "writeMessage", $emailList, '' );
 	}
 	
-	 /* method called to show profile in teacher view after login */
+	 /* Method called to show profile in teacher view after login */
 	public function showProfile()
 	{
 		$this->createUser ();
@@ -161,7 +161,7 @@ class TeacherController extends AController
 		$this->showSubViews ( "showProfile", $teacherDetails, '' );
 	}
 	
-	 /* method called on view study material click in teacher view */
+	 /* Method called on view study material click in teacher view */
 	public function downloadClick()
 	{
 		$objCourse = new Course ();
@@ -174,7 +174,7 @@ class TeacherController extends AController
 		}
 	}
 	
-	 /* method called on submitting study material view */
+	 /* Method called on submitting study material view */
 	public function downloadFile()
 	{
 		$courseName = $_POST ["coursenamelist"];
@@ -189,7 +189,7 @@ class TeacherController extends AController
 		}
 	}
 	
-	/* method called on upload study material click in teacher view */
+	/* Method called on upload study material click in teacher view */
 	public function uploadClick()
 	{
 		$objCourse = new Course ();
@@ -204,7 +204,7 @@ class TeacherController extends AController
 		}
 	}
 	
-	 /* method called on submitting upload view */
+	 /* Method called on submitting upload view */
 	public function uploadFile()
 	{
 		$lessonNo = $_POST ["lesson_no"];

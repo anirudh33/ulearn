@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  **************************** Creation Log *******************************
 * File Name 	- Student.php
@@ -13,30 +13,34 @@
 * 1		1.1		Kawaljeet Singh		April 07, 2013 	Messaging function added
 * ************************************************************************
 */
-
-class Teacher extends AUser {
-	
-	private $tdata = array ();
+class Teacher extends AUser
+{
+	/**
+	 * @var holds teacher details array
+	 */
+	private $teacherData = array ();
 	
 	/**
 	 *
 	 * @return the $tdata
 	 */
-	public function getTdata() {
-		return $this->tdata;
+	public function getTeacherData()
+	{
+		return $this->teacherData;
 	}
 	
 	/**
 	 *
 	 * @param multitype: $tdata        	
 	 */
-	private function setTdata($tdata) {
-		$this->tdata = $tdata;
+	private function setTeacherData($tdata)
+	{
+		$this->teacherData = $tdata;
 	}
-
-/* method called to return teacher data from database for edit profile */
-
-	public function fetchUser() {
+	
+	 /* Method called to return teacher data from database for edit profile */
+	public function fetchUser()
+	{
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"firstname",
@@ -50,13 +54,12 @@ class Teacher extends AUser {
 		$this->db->From ( "teacherdetails" );
 		$this->db->Where ();
 		$this->db->Select ();
-		$this->setTdata ( $this->db->resultArray () );
+		$this->setTeacherData ( $this->db->resultArray () );
 	}
 	
-/* method called to return teacher details from database in show profile*/
-
-	public function fetchTeacher() {
-		
+	 /* Method called to return teacher details from database in show profile */
+	public function fetchTeacher()
+	{
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"firstname",
@@ -66,19 +69,21 @@ class Teacher extends AUser {
 				"address",
 				"qualification",
 				"gender",
-				"dob"
+				"dob" 
 		) );
 		$this->db->From ( "teacherdetails" );
-		$this->db->Where (array (
-				"user_id" => $_SESSION["userID"]));
+		$this->db->Where ( array (
+				"user_id" => $_SESSION ["userID"] 
+		) );
 		$this->db->Select ();
-	
-		$result=$this->db->resultArray () ;
+		
+		$result = $this->db->resultArray ();
 		return $result;
 	}
 	
-/* method called to insert edit profile teacher data in database */
-	public function editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {
+	 /* Method called to insert edit profile teacher data in database */
+	public function editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob)
+	{
 		DBConnection::Connect ();
 		$this->db->From ( "teacherdetails" );
 		$this->db->Fields ( array (
@@ -90,27 +95,26 @@ class Teacher extends AUser {
 				"gender" => "$gender",
 				"dob" => "$dob" 
 		) );
-		$bool=$this->db->Update ();
-		if($bool==true) {
-			$this->setCustomMessage("SuccessMessage", "Profile Successfully updated ");
-		}else {
-			$this->setCustomMessage("ErrorMessage", "Profile couldnt be updated ");
+		$bool = $this->db->Update ();
+		if ($bool == true) {
+			$this->setCustomMessage ( "SuccessMessage", "Profile Successfully updated " );
+		} else {
+			$this->setCustomMessage ( "ErrorMessage", "Profile couldnt be updated " );
 		}
-		
 	}
-
-/* method called to insert teacher message in database */
-
-	public function messageSend($body, $subject, $sentto) {
+	
+	 /* Method called to insert teacher message in database */
+	public function messageSend($body, $subject, $sentTo)
+	{
 		DBConnection::Connect ();
 		
 		/* fetch id of Teacher */
 		$this->db->Fields ( array (
-				"id"
+				"id" 
 		) );
 		$this->db->From ( "teacherdetails" );
 		$this->db->Where ( array (
-				"user_id" => $_SESSION["userID"]
+				"user_id" => $_SESSION ["userID"] 
 		) );
 		$this->db->Select ();
 		$id = $this->db->resultArray ();
@@ -122,14 +126,12 @@ class Teacher extends AUser {
 		) );
 		$this->db->From ( "userdetails" );
 		$this->db->Where ( array (
-				"email" => $sentto 
+				"email" => $sentTo 
 		) );
 		$this->db->Select ();
 		$userid = $this->db->resultArray ();
 		
 		$uid = $userid [0] ['user_id'];
-	
-		
 		
 		/* Fetch id from student details to whom to send the message */
 		$this->db->Fields ( array (
@@ -151,47 +153,43 @@ class Teacher extends AUser {
 				"sentfrom" => "$sentfrom",
 				"sentto" => "$sid" 
 		) );
-		$bool=$this->db->Insert ();
-		if($bool==true){
+		$bool = $this->db->Insert ();
+		if ($bool == true) {
 			return $bool;
-		}else {
+		} else {
 			return false;
 		}
 	}
 	
-	public function changestatus($mid)
+	 /* Changes status  */
+	public function changestatus($messageId)
 	{
-	
 		DBConnection::Connect ();
 		$this->db->From ( "studentmessage" );
-	
+		
 		$this->db->Where ( array (
-				"message_id" => $mid
+				"message_id" => $messageId 
 		) );
 		$this->db->Fields ( array (
-				"status" => "1"
+				"status" => "1" 
 		) );
-	
+		
 		$this->db->Update ();
-	
+		
 		$this->db->lastQuery ();
-	
-	
-	
 	}
 	
-	
-	/* Fetching teacher id using emailID we have in session from teacher details table */
+	 /* Fetching teacher id using emailID we have in session from teacher details table */
 	public function fetchTeacherID()
 	{
 		$uid = $_SESSION ['userID'];
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
-				"id"
+				"id" 
 		) );
 		$this->db->From ( "teacherdetails" );
 		$this->db->Where ( array (
-				"user_id" => $uid
+				"user_id" => $uid 
 		) );
 		$this->db->Select ();
 		$tIDArray = $this->db->resultArray ();
@@ -199,52 +197,100 @@ class Teacher extends AUser {
 		return $teacherID;
 	}
 	
-/* method called to return teacher messages from database */ 
-
-	public function messageShow() {
-		$teacherID =$this->fetchTeacherID();
+	 /* Method called to return teacher messages from database */
+	public function messageShow()
+	{
+		$teacherID = $this->fetchTeacherID ();
 		/* Fetching message ids and subjects */
 		$this->db->Fields ( array (
 				"message_id",
 				"subject",
-				"status"
-			 
-		) );
+				"status" 
+		)
+		 );
 		$this->db->From ( "studentmessage" );
 		$this->db->Where ( array (
 				"sentto" => $teacherID 
 		) );
 		$this->db->Select ();
-		
 		
 		$result = $this->db->resultArray ();
-		if(!empty($result)) {
-		/* Fetching email id of student(s) who sent the message */
+		if (! empty ( $result )) {
+			/* Fetching email id of student(s) who sent the message */
+			$this->db->Fields ( array (
+					"sentfrom" 
+			)
+			 );
+			$this->db->From ( "studentmessage" );
+			$this->db->Where ( array (
+					"sentto" => $teacherID 
+			) );
+			$this->db->Select ();
+			$sentfrom = $this->db->resultArray ();
+			$sid = $sentfrom [0] ["sentfrom"];
+			/* Fetching user id(s) of student who sent the message(s) */
+			$this->db->Fields ( array (
+					"user_id" 
+			) );
+			$this->db->From ( "studentdetails" );
+			$this->db->Where ( array (
+					"id" => $sid 
+			) );
+			$this->db->Select ();
+			
+			$uIDArray = $this->db->resultArray ();
+			$u = $uIDArray [0] ["user_id"];
+			
+			/* Fetching email id(s) of student who sent the message(s) */
+			$this->db->Fields ( array (
+					"email" 
+			) );
+			$this->db->From ( "userdetails" );
+			$this->db->Where ( array (
+					"user_id" => $u 
+			) );
+			$this->db->Select ();
+			$email = $this->db->resultArray ();
+		} else {
+			return false;
+		}
+		return array (
+				$result,
+				$email 
+		);
+	}
+	
+	 /* Method called to return teacher messages body from database */
+	public function messageBody($aid)
+	{
+		DBConnection::Connect ();
+		
 		$this->db->Fields ( array (
-				"sentfrom"
-				
-				) );
+				"body",
+				"subject",
+				"sentfrom" 
+		)
+		 );
 		$this->db->From ( "studentmessage" );
 		$this->db->Where ( array (
-				"sentto" => $teacherID 
+				"message_id" => $aid 
 		) );
 		$this->db->Select ();
-		$sentfrom = $this->db->resultArray ();
-		$sid=$sentfrom [0] ["sentfrom"];
-		/* Fetching user id(s) of student who sent the message(s)*/
+		$result = $this->db->resultArray ();
+		
+		$sentfrom = $result [0] ["sentfrom"];
 		$this->db->Fields ( array (
 				"user_id" 
 		) );
 		$this->db->From ( "studentdetails" );
 		$this->db->Where ( array (
-				"id" => $sid 
+				"id" => $sentfrom 
 		) );
 		$this->db->Select ();
-
-		$uIDArray = $this->db->resultArray ();
-		$u=$uIDArray [0] ["user_id"];
 		
-		/* Fetching email id(s) of student who sent the message(s) */
+		$uIDArray = $this->db->resultArray ();
+		$u = $uIDArray [0] ["user_id"];
+		
 		$this->db->Fields ( array (
 				"email" 
 		) );
@@ -254,69 +300,16 @@ class Teacher extends AUser {
 		) );
 		$this->db->Select ();
 		$email = $this->db->resultArray ();
-		}else {
-			return false;
-		}
-		return array($result,$email);
-	}
-
-/* method called to return teacher messages body from database */
-	public function messageBody($aid) {
-		DBConnection::Connect ();
-	
-		$this->db->Fields ( array (
-				"body", "subject" , "sentfrom"
-	
-		) );
-		$this->db->From ( "studentmessage" );
-		$this->db->Where ( array (
-				"message_id" => $aid
-		) );
-		$this->db->Select ();
-		$result = $this->db->resultArray ();
-	
-		$sentfrom=$result[0]["sentfrom"];
-		$this->db->Fields ( array (
-				"user_id"
-		) );
-		$this->db->From ( "studentdetails" );
-		$this->db->Where ( array (
-				"id" => $sentfrom
-		) );
-		$this->db->Select ();
-	
-		$uIDArray = $this->db->resultArray ();
-		$u = $uIDArray [0] ["user_id"];
-	
-		$this->db->Fields ( array (
-				"email"
-		) );
-		$this->db->From ( "userdetails" );
-		$this->db->Where ( array (
-				"user_id" => $u
-		) );
-		$this->db->Select ();
-		$email = $this->db->resultArray ();
 		return array (
 				$result,
-				$email
+				$email 
 		);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-/* method called to check if lesson already exists in database */
-public function lessonExists($lesson_no,$courseID,$teacherID) {
-		/* fetch id of lesson*/
+	 /* Method called to check if lesson already exists in database */
+	public function lessonExists($lesson_no, $courseID, $teacherID)
+	{
+		/* fetch id of lesson */
 		$this->db->Fields ( array (
 				"lesson_id" 
 		) );
@@ -324,7 +317,7 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 		$this->db->Where ( array (
 				"lesson_no" => $lesson_no,
 				"course_id" => $courseID,
-				"teacher_id" =>$teacherID
+				"teacher_id" => $teacherID 
 		) );
 		$this->db->Select ();
 		
@@ -336,89 +329,86 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 			return false;
 		}
 	}
-
-	/* method called to insert lesson name in database */
-
-	 public function lesson($lesson_no,$lesson_name,$coursename,$path) {
-	 	$teacherID=$this->fetchTeacherID();
-	if (! $this->lessonExists ($lesson_no,$coursename,$teacherID)) {
+	
+	 /* Method called to insert lesson name in database */
+	public function lesson($lesson_no, $lesson_name, $coursename, $path)
+	{
+		$teacherID = $this->fetchTeacherID ();
+		if (! $this->lessonExists ( $lesson_no, $coursename, $teacherID )) {
 			$flag = TRUE;
-		if ($flag == TRUE) {
-
-	 	DBConnection::Connect ();
-	 	$this->db->Fields ( array (
-	 			"id"
-	 	) );
-	 	$this->db->From ( "teacherdetails" );
-	 	$this->db->Where ( array (
-	 			"user_id" => $_SESSION["userID"]
-	 	) );
-	 	$this->db->Select ();
-	 	$id = $this->db->resultArray ();
-	 	$tid = $id [0] ['id'];
-	 	
-	 	$this->db->Fields ( array (
-	 			"course_id"
-	 	) );
-	 	$this->db->From ( "course" );
-	 	$this->db->Where ( array (
-	 			"coursename" => $coursename
-	 	) );
-	 	$this->db->Select ();
-	 	$id1 = $this->db->resultArray ();
-	 	$cid = $id1 [0] ['course_id'];
-	 		 			 		
-	 	 		$this->db->From ( "lesson" );
-	 	 		$this->db->Fields ( array (
-	 					"lesson_no" => "$lesson_no",
-	 					"lesson_name" => "$lesson_name",
-	 					"createdon" => date ( "Y/m/d" ),
-	 	 				"course_id" => "$cid" ,
-	 	 				"teacher_id" => "$tid",
-	 	 				"location"=>"$path"
-	 	 		) );
-	 	 		$this->db->Insert ();
-	}
+			if ($flag == TRUE) {
+				
+				DBConnection::Connect ();
+				$this->db->Fields ( array (
+						"id" 
+				) );
+				$this->db->From ( "teacherdetails" );
+				$this->db->Where ( array (
+						"user_id" => $_SESSION ["userID"] 
+				) );
+				$this->db->Select ();
+				$id = $this->db->resultArray ();
+				$tid = $id [0] ['id'];
+				
+				$this->db->Fields ( array (
+						"course_id" 
+				) );
+				$this->db->From ( "course" );
+				$this->db->Where ( array (
+						"coursename" => $coursename 
+				) );
+				$this->db->Select ();
+				$id1 = $this->db->resultArray ();
+				$cid = $id1 [0] ['course_id'];
+				
+				$this->db->From ( "lesson" );
+				$this->db->Fields ( array (
+						"lesson_no" => "$lesson_no",
+						"lesson_name" => "$lesson_name",
+						"createdon" => date ( "Y/m/d" ),
+						"course_id" => "$cid",
+						"teacher_id" => "$tid",
+						"location" => "$path" 
+				) );
+				$this->db->Insert ();
+			}
 		} else {
-				$message='Lesson name already exists, please re-enter';
-				$this->setCustomMessage("ErrorMessage", $message);		
-	}
-	 		 	 	
+			$message = 'Lesson name already exists, please re-enter';
+			$this->setCustomMessage ( "ErrorMessage", $message );
+		}
 	}
 	
-/* method called to return uploaded files from database */
-
+	 /* Method called to return uploaded files from database */
 	public function downloadContent($coursename)
-	{//@todo we can use the sent variable instead of teacher
+	{ 
 		$user_id = $_SESSION ["userID"];
 		$this->db->Fields ( array (
-				"email"
+				"email" 
 		) );
 		$this->db->From ( "userdetails" );
-		$this->db->Where (array("user_id" => $user_id));
+		$this->db->Where ( array (
+				"user_id" => $user_id 
+		) );
 		$this->db->Select ();
 		$result1 = $this->db->resultArray ();
 		$email = $result1 [0] ['email'];
-		$files=array();
-		$path = SITE_PATH."/uploads/".$email."/".$coursename;
-		if ($handle = opendir($path)) {
-			while (false !== ($file = readdir($handle)))
-			{
-				if ($file != "." && $file != "..")
-				{
-					$files[]= "uploads/".$email."/".$coursename."/".$file;
+		$files = array ();
+		$path = SITE_PATH . "/uploads/" . $email . "/" . $coursename;
+		if ($handle = opendir ( $path )) {
+			while ( false !== ($file = readdir ( $handle )) ) {
+				if ($file != "." && $file != "..") {
+					$files [] = "uploads/" . $email . "/" . $coursename . "/" . $file;
 				}
 			}
-			closedir($handle);
+			closedir ( $handle );
 		}
-	
+		
 		return $files;
-	
 	}
-
-/* method called to return email of teacher from database for send message */
-	 
-	public function fetchEmailID() {
+	
+	 /* Method called to return email of teacher from database for send message */
+	public function fetchEmailID()
+	{
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"email" 
@@ -432,100 +422,91 @@ public function lessonExists($lesson_no,$courseID,$teacherID) {
 		return $result;
 	}
 	
-	/* Uploads content to teachers respective directories under chosen course*/
-	public function uploadContent($no,$lesson_name,$coursename) {
-		$flag=false;
-		$teacherID=$this->fetchTeacherID();
-	if(!$this->lessonExists($no,$coursename,$teacherID)) {
-
-		$n = count ( $_FILES ['upload'] ['name'] );
-		
-		for($i = 0; $i < $n; $i ++) {
-
-			if ($_FILES ['upload'] ['name'] [$i]) {
-
-				// if no errors...
-				if (! $_FILES ['upload'] ['error'] [$i]) {
-
-					$newname = strtolower ( $_FILES ['upload'] ['tmp_name'] [$i] );
+	 /* Uploads content to teachers respective directories under chosen course */
+	public function uploadContent($no, $lesson_name, $coursename)
+	{
+		$flag = false;
+		$teacherID = $this->fetchTeacherID ();
+		if (! $this->lessonExists ( $no, $coursename, $teacherID )) {
+			
+			$n = count ( $_FILES ['upload'] ['name'] );
+			
+			for($i = 0; $i < $n; $i ++) {
+				
+				if ($_FILES ['upload'] ['name'] [$i]) {
 					
-					$allowedExts = array (
-							"doc",
-							"pdf",
-							"jpg",
-							"txt", 
-					);
-
-					$extension = end ( explode ( ".", $_FILES ['upload'] ['name'] [$i] ) );
-					
-					if ((($_FILES ['upload'] ['type'] == "/doc") || 
-						 ($_FILES ['upload'] ['type'] == "text/pdf") || 
-						 ($_FILES ['upload'] ['type'] == "image/jpg")) && 
-						 ($_FILES ['upload'] ['size'] < 1024000) || 
-						 in_array ( $extension, $allowedExts )) {
+					// if no errors...
+					if (! $_FILES ['upload'] ['error'] [$i]) {
 						
-					//@todo throw message if file format not supported or any other error
-						$path = "uploads/" . $_SESSION ['emailID'] . "/" . $coursename . "/";
-						$path = $path ."Lesson $no $lesson_name";
-						If(!file_exists($path)) {			
-						if (move_uploaded_file ( $_FILES ['upload'] ['tmp_name'] [$i], $path)) {
-							$message='The file uploaded successfully';
-							$this->setCustomMessage("SuccessMessage", $message);
+						$newname = strtolower ( $_FILES ['upload'] ['tmp_name'] [$i] );
+						
+						$allowedExts = array (
+								"doc",
+								"pdf",
+								"jpg",
+								"txt" 
+						);
+						
+						$extension = end ( explode ( ".", $_FILES ['upload'] ['name'] [$i] ) );
+						
+						if ((($_FILES ['upload'] ['type'] == "/doc") || ($_FILES ['upload'] ['type'] == "text/pdf") || ($_FILES ['upload'] ['type'] == "image/jpg")) && ($_FILES ['upload'] ['size'] < 1024000) || in_array ( $extension, $allowedExts )) {
 							
+							// @todo throw message if file format not supported or any other error
+							$path = "uploads/" . $_SESSION ['emailID'] . "/" . $coursename . "/";
+							$path = $path . "Lesson $no $lesson_name";
+							If (! file_exists ( $path )) {
+								if (move_uploaded_file ( $_FILES ['upload'] ['tmp_name'] [$i], $path )) {
+									$message = 'The file uploaded successfully';
+									$this->setCustomMessage ( "SuccessMessage", $message );
+								} else {
+									$message = "Move upload failed";
+									$this->setCustomMessage ( "ErrorMessage", $message );
+									unset ( $path );
+								}
+							} else {
+								$message = 'The file with same name already exists';
+								$this->setCustomMessage ( "ErrorMessage", $message );
+								unset ( $path );
+							}
 						} else {
-							$message="Move upload failed";
-							$this->setCustomMessage("ErrorMessage", $message);
-							unset($path);
+							$message = 'File type not supported or size larger than 10 MB';
+							$this->setCustomMessage ( "ErrorMessage", $message );
 						}
-						} else {
-							$message='The file with same name already exists';
-							$this->setCustomMessage("ErrorMessage", $message);
-							unset($path);
-						}
-					} else{
-							$message='File type not supported or size larger than 10 MB';
-							$this->setCustomMessage("ErrorMessage", $message);
+					} else {
+						$message = "Not a valid file";
+						$this->setCustomMessage ( "ErrorMessage", $message );
 					}
-					
-				} else {
-					$message= "Not a valid file";
-					$this->setCustomMessage("ErrorMessage", $message);
 				}
 			}
+		} else {
+			$message = "Lesson no already exists";
+			
+			$this->setCustomMessage ( "ErrorMessage", $message );
 		}
-	} else {
-		$message="Lesson no already exists";
-		
-		$this->setCustomMessage("ErrorMessage", $message);
-		
+		if (isset ( $path )) {
+			return $path;
+		} else {
+			return false;
+		}
 	}
-	if(isset($path))
+	
+	 /* Deletes Uploaded content in teachers respective directories under chosen course */
+	public function deleteFile($location)
 	{
-	return $path;
-	} else {
-		return false;
-	}
-	}
-	
-	/*  deletes Uploaded content in teachers respective directories under chosen course*/
-	
-	public function deleteFile($location) {
-		
-		unlink(SITE_PATH."/".$location);
+		unlink ( SITE_PATH . "/" . $location );
 		DBConnection::Connect ();
 		
 		$this->db->From ( "lesson" );
 		$this->db->Where ( array (
-				"location" => $location
+				"location" => $location 
 		) );
-		$bool=$this->db->Delete ();
+		$bool = $this->db->Delete ();
 		
-		if($bool==true){
+		if ($bool == true) {
 			
-			$this->setCustomMessage("ErrorMessage","File deleted!");
+			$this->setCustomMessage ( "ErrorMessage", "File deleted!" );
 			return $bool;
 		}
 	}
-	
 }
 ?>

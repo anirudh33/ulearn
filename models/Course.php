@@ -1,15 +1,18 @@
 <?php 
-/*
-       * Creation Log 
-       * File Name - Course.php 
-       * Description - Contains all functions to query database for course details
-       * Version - 1.0 Created by - Tanu trehan 
-       * Created on - March 28, 2013
-       */
+/**
+ * Creation Log 
+ * File Name - Course.php
+ * Description - Contains all functions to query database for course details
+ * Version - 1.0 
+ * Created by - Tanu trehan 
+ * Created on - March 28, 2013
+ **/
 
-class Course extends AModel {
-	/* method called to check course no exist in database for add course */
-	public function courseExists($coursename) {
+class Course extends AModel
+{
+	 /* Method called to check course no exist in database for add course */
+	public function courseExists($coursename)
+	{
 		/* fetch id of course */
 		$this->db->Fields ( array (
 				"course_id" 
@@ -28,8 +31,10 @@ class Course extends AModel {
 			return false;
 		}
 	}
-	/* method called to check course no exist in database for register course */
-	public function courseRegistered($courseid, $id, $table, $user) {
+	 
+	 /* Method called to check course no exist in database for register course */
+	public function courseRegistered($courseid, $id, $table, $user)
+	{
 		/* fetch id of course */
 		$this->db->Fields ( array (
 				"course_id",
@@ -50,8 +55,10 @@ class Course extends AModel {
 			return false;
 		}
 	}
-	/* method called to insert course name in database for add course */
-	public function addCourse() {
+	 
+	 /* Method called to insert course name in database for add course */
+	public function addCourse()
+	{
 		if (! $this->courseExists ( $_POST ["coursename"] )) {
 			$flag = TRUE;
 			/* Check if directory exists if not then create */
@@ -84,8 +91,10 @@ class Course extends AModel {
 			$this->setCustomMessage ( "ErrorMessage", $message );
 		}
 	}
-	/* method called to insert course name in database for teacher register course */
-	public function registerTeacherCourse($coursename) {
+	 
+	 /* Method called to insert course name in database for teacher register course */
+	public function registerTeacherCourse($coursename)
+	{
 		
 		/* fetch id of Teacher */
 		$this->db->Fields ( array (
@@ -136,11 +145,11 @@ class Course extends AModel {
 			}
 		}
 	}
-	/* method called to insert course name in database for student register course */
-	public function registerStudentCourse($coursename) {
+	 
+	 /* Method called to insert course name in database for student register course */
+	public function registerStudentCourse($coursename)
+	{
 		DBConnection::Connect ();
-		// fetch cid and tid
-		/* fetch id of Teacher */
 		$this->db->Fields ( array (
 				"id" 
 		) );
@@ -169,8 +178,7 @@ class Course extends AModel {
 					"course_id" => $cid,
 					"student_id" => $sid 
 			) );
-			$this->db->Insert ();
-			// echo $this->db->lastQuery ();
+			$this->db->Insert ();			
 			$message = 'Course registered';
 			$this->setCustomMessage ( "ErrorMessage", $message );
 		} else {
@@ -178,11 +186,12 @@ class Course extends AModel {
 			$this->setCustomMessage ( "ErrorMessage", $message );
 		}
 	}
-	/* method called to return course name from database for teacher register course */
-	public function fetchTeacherCoursename() {
-		// @todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
+	 
+	 /* Method called to return course name from database for teacher register course */
+	public function fetchTeacherCoursename()
+	{		
 		DBConnection::Connect ();
-		$result=array();
+		$result = array ();
 		$this->db->Fields ( array (
 				"id" 
 		) );
@@ -204,26 +213,25 @@ class Course extends AModel {
 		$this->db->Select ();
 		$courseid = $this->db->resultArray ();
 		
-		
-		
-		
-		foreach ($courseid as $key=>$value) {
-		
-		
-		$this->db->Fields ( array (
-				"coursename" 
-		) );
-		$this->db->From ( "course" );
-		$this->db->Where ( array("course_id" => $value["course_id"]));
-		$this->db->Select ();
-		$result[] = $this->db->resultArray ();
+		foreach ( $courseid as $key => $value ) {
+			
+			$this->db->Fields ( array (
+					"coursename" 
+			) );
+			$this->db->From ( "course" );
+			$this->db->Where ( array (
+					"course_id" => $value ["course_id"] 
+			) );
+			$this->db->Select ();
+			$result [] = $this->db->resultArray ();
 		}
 		
 		return $result;
-		
 	}
-	/* method called to return course name from database for student register course */
-	public function fetchStudentCoursename() {
+	 
+	 /* Method called to return course name from database for student register course */
+	public function fetchStudentCoursename()
+	{
 		// @todo logic to fetch only registered courses as teacher must upload to his/her registered courses only
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
@@ -246,24 +254,26 @@ class Course extends AModel {
 		) );
 		$this->db->Select ();
 		$courseid = $this->db->resultArray ();
-		if(!empty($courseid)) {
-		$cid = $courseid [0] ['course_id'];
-		
-		$this->db->Fields ( array (
-				"coursename" 
-		) );
-		$this->db->From ( "course" );
-		$this->db->Where ( array (
-				"course_id" => $cid 
-		) );
-		$this->db->Select ();
-		$result = $this->db->resultArray ();
-		
-		return $result;
+		if (! empty ( $courseid )) {
+			$cid = $courseid [0] ['course_id'];
+			
+			$this->db->Fields ( array (
+					"coursename" 
+			) );
+			$this->db->From ( "course" );
+			$this->db->Where ( array (
+					"course_id" => $cid 
+			) );
+			$this->db->Select ();
+			$result = $this->db->resultArray ();
+			
+			return $result;
 		}
 	}
-	/* method called to return course name from database for register course */
-	public function fetchCoursename() {
+	 
+	 /* Method called to return course name from database for register course */
+	public function fetchCoursename()
+	{
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"coursename" 
@@ -277,8 +287,9 @@ class Course extends AModel {
 		return $result;
 	}
 	
-	/* method called to return course name from database for edit course */
-	public function fetchCourse($limit = "0,10") {
+	 /* Method called to return course name from database for edit course */
+	public function fetchCourse($limit = "0,10")
+	{
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"coursename",
@@ -293,8 +304,10 @@ class Course extends AModel {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
-	/* method called to delete course name in database for edit course */
-	public function deleteCourse($coursename) {
+	 
+	 /* Method called to delete course name in database for edit course */
+	public function deleteCourse($coursename)
+	{
 		DBConnection::Connect ();
 		
 		$this->db->From ( "course" );
@@ -310,8 +323,10 @@ class Course extends AModel {
 		
 		return $objReturn;
 	}
-	/* method called to activate course name in database for edit course */
-	public function activateCourse($coursename) {
+	
+	 /* Method called to activate course name in database for edit course */
+	public function activateCourse($coursename)
+	{
 		DBConnection::Connect ();
 		
 		$this->db->From ( "course" );
@@ -324,9 +339,8 @@ class Course extends AModel {
 		) );
 		
 		$objReturn = $this->db->Update ();
-		// echo $this->db->lastQuery();
+		
 		return $objReturn;
 	}
 }
-
 ?>

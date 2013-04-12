@@ -93,12 +93,12 @@ abstract class AController {
      */
     protected function createUser ()
     {
-        // user is created by calling the createUser method of the UserFactory class
+        /* Method of the UserFactory class */
         $this->_objUser = UserFactory::createUser(ucfirst($_SESSION["userType"])); 
         $this->_objUser->setFirstName($_SESSION["emailID"]);
     }
     
-    /* method called on send message click in write message view */
+    /* Method called on send message click in write message view */ 	
     public function writeMessage ()
     {
         $authObject = new Authenticate();
@@ -133,7 +133,7 @@ abstract class AController {
         }
     }
     
-    /* method called on message click in message view */
+    /* Method called on message click in message view */
     public function viewMessageClick ()
     {
         $this->createUser();
@@ -146,7 +146,7 @@ abstract class AController {
         }
     }
     
-    /* method called on subject click in message view */
+    /* Method called on subject click in message view */
     public function subjectClick ()
     {
         $aid = $_REQUEST["msgid"];

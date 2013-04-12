@@ -13,30 +13,34 @@
 * 1		1.1		Kawaljeet Singh		April 07, 2013 	Messaging function added
 * ************************************************************************
 */
-class Student extends AUser {
-	public function __construct() {
-		parent::__construct ();
-	}
-	private $tdata = array ();
+class Student extends AUser
+{
+	/**
+	 * @var holds array of teacher details
+	 */
+	private $studentData = array ();
 	
 	/**
 	 *
 	 * @return the $tdata
 	 */
-	public function getTdata() {
-		return $this->tdata;
+	public function getStudentData()
+	{
+		return $this->studentData;
 	}
+	
 	/**
 	 *
 	 * @param multitype: $tdata        	
 	 */
-	private function setTdata($tdata) {
-		$this->tdata = $tdata;
+	private function setStudentData($tdata)
+	{
+		$this->studentData = $tdata;
 	}
-
-/* method called to return student data from database for edit profile */
-
-	public function fetchUser() {
+	
+	 /* Method called to return student data from database for edit profile */
+	public function fetchUser()
+	{
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"firstname",
@@ -50,12 +54,12 @@ class Student extends AUser {
 		$this->db->From ( "studentdetails" );
 		$this->db->Where ();
 		$this->db->Select ();
-		$this->setTdata ( $this->db->resultArray () );
+		$this->setStudentData ( $this->db->resultArray () );
 	}
-
-/* method called to return student details from database in show profile*/
-
-	public function fetchStudent() {
+	
+	 /* Method called to return student details from database in show profile */
+	public function fetchStudent()
+	{
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"firstname",
@@ -75,10 +79,10 @@ class Student extends AUser {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
-
-/* method called to insert edit profile student data in database */
-
-	public function editStudent($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {
+	
+	 /* Method called to insert edit profile student data in database */
+	public function editStudent($firstname, $lastname, $phone, $address, $qualification, $gender, $dob)
+	{
 		DBConnection::Connect ();
 		$this->db->From ( "studentdetails" );
 		$this->db->Fields ( array (
@@ -90,17 +94,17 @@ class Student extends AUser {
 				"gender" => "$gender",
 				"dob" => "$dob" 
 		) );
-		$bool=$this->db->Update ();
-		if($bool==true) {
-			$this->setCustomMessage("SuccessMessage", "Profile Successfully updated ");
-		}else {
-			$this->setCustomMessage("ErrorMessage", "Profile couldnt be updated ");
+		$bool = $this->db->Update ();
+		if ($bool) {
+			$this->setCustomMessage ( "SuccessMessage", "Profile Successfully updated " );
+		} else {
+			$this->setCustomMessage ( "ErrorMessage", "Profile couldnt be updated " );
 		}
 	}
-
-/* method called to insert student message in database */
-
-	public function messageSend($body, $subject, $sentto) {
+	
+	 /* Method called to insert student message in database */
+	public function messageSend($body, $subject, $sentTo)
+	{
 		DBConnection::Connect ();
 		/* fetch id of Student */
 		$this->db->Fields ( array (
@@ -119,7 +123,7 @@ class Student extends AUser {
 		) );
 		$this->db->From ( "userdetails" );
 		$this->db->Where ( array (
-				"email" => $sentto 
+				"email" => $sentTo 
 		) );
 		$this->db->Select ();
 		$userid = $this->db->resultArray ();
@@ -143,17 +147,17 @@ class Student extends AUser {
 				"sentfrom" => "$sentfrom",
 				"sentto" => "$tid" 
 		) );
-		$bool=$this->db->Insert ();
-		if($bool==true){
+		$bool = $this->db->Insert ();
+		if ($bool) {
 			return $bool;
-		}else {
+		} else {
 			return false;
 		}
 	}
-
-/* method called to return student messages from database */
-
-	public function messageShow() {
+	
+	 /* Method called to return student messages from database */
+	public function messageShow()
+	{
 		$uid = $_SESSION ['userID'];
 		
 		DBConnection::Connect ();
@@ -190,16 +194,76 @@ class Student extends AUser {
 		$this->db->Select ();
 		$sentfrom = $this->db->resultArray ();
 		
-		if(!empty($sentfrom)) {
-		$tid = $sentfrom [0] ["sentfrom"];
+		if (! empty ( $sentfrom )) {
+			$tid = $sentfrom [0] ["sentfrom"];
+			
+			$this->db->Fields ( array (
+					"user_id" 
+			) );
+			$this->db->From ( "teacherdetails" );
+			$this->db->Where ( array (
+					"id" => $tid 
+			) );
+			$this->db->Select ();
+			
+			$uIDArray = $this->db->resultArray ();
+			$u = $uIDArray [0] ["user_id"];
+			
+			$this->db->Fields ( array (
+					"email" 
+			) );
+			$this->db->From ( "userdetails" );
+			$this->db->Where ( array (
+					"user_id" => $u 
+			) );
+			$this->db->Select ();
+			$email = $this->db->resultArray ();
+			return array (
+					$result,
+					$email 
+			);
+		}
+	}
+	
+	 /* Method called to change status of message */
+	public function changestatus($messageId)
+	{
+		DBConnection::Connect ();
+		$this->db->From ( "teachermessage" );
+		$this->db->Where ( array (
+				"message_id" => $messageId 
+		) );
+		$this->db->Fields ( array (
+				"status" => "1" 
+		) );
+		$this->db->Update ();
+		$this->db->lastQuery ();
+	}
+	
+	 /* Method called to return student messages body from database */
+	public function messageBody($messageId)
+	{
+		DBConnection::Connect ();
 		
+		$this->db->Fields ( array (
+				"body",
+				"subject",
+				"sentfrom" 
+		) );
+		$this->db->From ( "teachermessage" );
+		$this->db->Where ( array (
+				"message_id" => $messageId 
+		) );
+		$this->db->Select ();
+		$result = $this->db->resultArray ();
 		
+		$sentfrom = $result [0] ["sentfrom"];
 		$this->db->Fields ( array (
 				"user_id" 
 		) );
 		$this->db->From ( "teacherdetails" );
 		$this->db->Where ( array (
-				"id" => $tid 
+				"id" => $sentfrom 
 		) );
 		$this->db->Select ();
 		
@@ -219,71 +283,11 @@ class Student extends AUser {
 				$result,
 				$email 
 		);
-		}
 	}
 	
-	/* method called to change status of message */
-	
-	public function changestatus($mid)
+	 /* Method called to return email of student from database for send message */
+	public function fetchEmailID()
 	{
-		DBConnection::Connect ();
-		$this->db->From ( "teachermessage" );
-		$this->db->Where ( array (
-				"message_id" => $mid
-		) );
-		$this->db->Fields ( array (
-				"status" => "1"
-		) );
-		  $this->db->Update ();
-		 $this->db->lastQuery ();
-	}
-
-/* method called to return student messages body from database */
-
-public function messageBody($aid) {
-		DBConnection::Connect ();
-		
-		$this->db->Fields ( array (
-				"body", "subject" , "sentfrom"
-		) );
-		$this->db->From ( "teachermessage" );
-		$this->db->Where ( array (
-				"message_id" => $aid 
-		) );
-		$this->db->Select ();
-		$result = $this->db->resultArray ();
-		
-		$sentfrom=$result[0]["sentfrom"];
-		$this->db->Fields ( array (
-				"user_id"
-		) );
-		$this->db->From ( "teacherdetails" );
-		$this->db->Where ( array (
-				"id" => $sentfrom
-		) );
-		$this->db->Select ();
-		
-		$uIDArray = $this->db->resultArray ();
-		$u = $uIDArray [0] ["user_id"];
-		
-		$this->db->Fields ( array (
-				"email"
-		) );
-		$this->db->From ( "userdetails" );
-		$this->db->Where ( array (
-				"user_id" => $u
-		) );
-		$this->db->Select ();
-		$email = $this->db->resultArray ();
-		return array (
-				$result,
-				$email 
-		);
-	}
-	
-	/* method called to return email of student from database for send message */
-	
-	public function fetchEmailID() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"email" 
@@ -296,10 +300,10 @@ public function messageBody($aid) {
 		$result = $this->db->resultArray ();
 		return $result;
 	}
-
-/* method called to return teacher name from database for view download files */
-
-	public function fetchTeachername($result = array()) {
+	
+	 /* Method called to return teacher name from database for view download files */
+	public function fetchTeachername($result = array())
+	{
 		DBConnection::Connect ();
 		$coursename = $result [0] ["coursename"];
 		$this->db->Fields ( array (
@@ -312,61 +316,57 @@ public function messageBody($aid) {
 		$this->db->Select ();
 		$courseid = $this->db->resultArray ();
 		
-		if(!empty($courseid)) {
-		$cid = $courseid [0] ["course_id"];
-		
-		$this->db->Fields ( array (
-				"teacher_id" 
-		) );
-		$this->db->From ( "teaches" );
-		$this->db->Where ( array (
-				"course_id" => $cid 
-		) );
-		$this->db->Select ();
-		$teacherid = $this->db->resultArray ();
-		$tid = $teacherid [0] ['teacher_id'];
-		
-		$this->db->Fields ( array (
-				"user_id" 
-		) );
-		$this->db->From ( "teacherdetails" );
-		$this->db->Where ( array (
-				"id" => $tid 
-		) );
-		$this->db->Select ();
-		$userid = $this->db->resultArray ();
-		$uid = $userid [0] ['user_id'];
-		
-		$this->db->Fields ( array (
-				"email" 
-		) );
-		$this->db->From ( "userdetails" );
-		$this->db->Where ( array (
-				"user_id" => $uid 
-		) );
-		$this->db->Select ();
-		$result1 = $this->db->resultArray ();
-		
-		return $result1;
+		if (! empty ( $courseid )) {
+			$cid = $courseid [0] ["course_id"];
+			
+			$this->db->Fields ( array (
+					"teacher_id" 
+			) );
+			$this->db->From ( "teaches" );
+			$this->db->Where ( array (
+					"course_id" => $cid 
+			) );
+			$this->db->Select ();
+			$teacherid = $this->db->resultArray ();
+			$tid = $teacherid [0] ['teacher_id'];
+			
+			$this->db->Fields ( array (
+					"user_id" 
+			) );
+			$this->db->From ( "teacherdetails" );
+			$this->db->Where ( array (
+					"id" => $tid 
+			) );
+			$this->db->Select ();
+			$userid = $this->db->resultArray ();
+			$uid = $userid [0] ['user_id'];
+			
+			$this->db->Fields ( array (
+					"email" 
+			) );
+			$this->db->From ( "userdetails" );
+			$this->db->Where ( array (
+					"user_id" => $uid 
+			) );
+			$this->db->Select ();
+			$result1 = $this->db->resultArray ();
+			
+			return $result1;
 		}
 	}
-
-/* method called to return uploaded files from database */
-
-	public function downloadContent($coursename, $teachernamelist) {
-		//@todo we have to use the sent variable instead of teacher
-		$email=$teachernamelist;
-		$files=array();
-		$path = SITE_PATH."/uploads/".$email."/".$coursename;
-		if ($handle = opendir($path)) {
-			while (false !== ($file = readdir($handle)))
-			{
-				if ($file != "." && $file != "..")
-				{
-					$files[]= "uploads/".$email."/".$coursename."/".$file;
+	
+	 /* Method called to return uploaded files from database */
+	public function downloadContent($coursename, $email)
+	{
+		$files = array ();
+		$path = SITE_PATH . "/uploads/" . $email . "/" . $coursename;
+		if ($handle = opendir ( $path )) {
+			while ( false !== ($file = readdir ( $handle )) ) {
+				if ($file != "." && $file != "..") {
+					$files [] = "uploads/" . $email . "/" . $coursename . "/" . $file;
 				}
 			}
-			closedir($handle);
+			closedir ( $handle );
 		}
 		return $files;
 	}

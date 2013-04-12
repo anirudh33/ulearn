@@ -34,7 +34,7 @@ class StudentController extends AController
 	{
 		$this->createUser ();
 		$this->_objUser->fetchUser ();
-		$this->showSubViews ( "editProfile", $this->_objUser->getTdata () );
+		$this->showSubViews ( "editProfile", $this->_objUser->getStudentData () );
 	}
 	
 	 /* Method called on submiting edit profile view */
@@ -53,7 +53,7 @@ class StudentController extends AController
 		$this->_objUser->editStudent ( $firstname, $lastname, $phone, $address, $qualification, $gender, $dob );
 	}
 	
-	 /* method called on submitting register course view */
+	 /* Method called on submitting register course view */
 	public function registerCourseButtonClick()
 	{
 		$coursename = $_POST ['coursenamelist']; // to be changed
@@ -61,7 +61,7 @@ class StudentController extends AController
 		$objCourse->registerStudentCourse ( $coursename );
 	}
 	
-	 /* method called on write message click in student view */
+	 /* Method called on write message click in student view */
 	public function messageClick()
 	{
 		$this->createUser ();
@@ -69,7 +69,7 @@ class StudentController extends AController
 		$this->showSubViews ( "writeMessage", $emailList );
 	}
 	
-	 /* method called to show profile in student view after login */
+	 /* Method called to show profile in student view after login */
 	public function showProfile()
 	{
 		$this->createUser ();
@@ -78,7 +78,7 @@ class StudentController extends AController
 		$this->showSubViews ( "showProfile", $studentdetails );
 	}
 	
-	 /* method called on view study material click in student view */
+	 /* Method called on view study material click in student view */
 	public function downloadClick()
 	{
 		$objCourse = new Course ();
@@ -93,7 +93,7 @@ class StudentController extends AController
 		}
 	}
 	
-	 /* method called on submitting study material view */
+	 /* Method called on submitting study material view */
 	public function downloadFile()
 	{
 		$coursenamelist = $_POST ["coursenamelist"];

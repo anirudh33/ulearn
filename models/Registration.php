@@ -4,21 +4,27 @@
 * File Name 	- Registeration.php
 * Description 	- registeration model class holds business logic methods 
 * Version 		- 1.0
-* Created by	- Kawaljeet Singh Created on - March 01, 2013
+* Created by	- Kawaljeet Singh 
+* Created on 	- March 01, 2013
 */
-?>
-<?php
 
-class Registration extends AUser {
+class Registration extends AUser
+{
 	public $message = "added";
-	public function setmessage() {
+	
+	public function setmessage()
+	{
 		$this->message = "successful";
 	}
-	public function getmessage() {
+	
+	public function getmessage()
+	{
 		return $this->message;
 	}
-	/* method called to verify email in registeration form */
-	public function verifyEmail($email1) {
+	
+	 /* Method called to verify email in registeration form */
+	public function verifyEmail($email1)
+	{
 		DBConnection::Connect ();
 		DBConnection::Connect ();
 		$this->db->From ( "userdetails" );
@@ -38,10 +44,23 @@ class Registration extends AUser {
 		}
 	}
 	
-	/* method called to register student in database from registeration form */
-	public function newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code) {
-		$new_date = date( 'Y-m-d', strtotime ( $date ) );
-		$password=sha1($password);
+	 /* Method called to register student in database from registeration form */
+	public function newStudentRegistration(	$email, 
+											 	$password, 
+											 	$firstname, 
+											 	$lastname, 
+											 	$phone, 
+												$address, 
+												$qualification, 
+												$gender, 
+												$date, 
+												$usertype, 
+												$status, 
+												$profilepicture, 
+												$confirm_code	)
+	{
+		$new_date = date ( 'Y-m-d', strtotime ( $date ) );
+		$password = sha1 ( $password );
 		
 		DBConnection::Connect ();
 		$this->db->From ( "userdetails" );
@@ -52,10 +71,8 @@ class Registration extends AUser {
 				"user_type" => "$usertype",
 				"confirm_code" => "$confirm_code" 
 		) );
-		$this->db->Insert ();
-		
-		$i = $this->db->lastInsertId ();
-		
+		$this->db->Insert ();		
+		$i = $this->db->lastInsertId ();		
 		$this->db->From ( "studentdetails" );
 		$this->db->Fields ( array (
 				"user_id" => "$i",
@@ -76,8 +93,10 @@ class Registration extends AUser {
 		
 		header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
 	}
-	/* method called to confirm email in registeration form */
-	public function confirmEmail($email, $pass) {
+	 
+	 /* Method called to confirm email in registeration form */
+	public function confirmEmail($email, $pass)
+	{
 		DBConnection::Connect ();
 		$this->db->From ( "userdetails" );
 		$this->db->Fields ( array (
@@ -91,7 +110,6 @@ class Registration extends AUser {
 		$this->db->Select ();
 		
 		$a = $this->db->resultArray ();
-		
 		
 		$rr = $a [0] ["user_type"];
 		
@@ -122,14 +140,9 @@ class Registration extends AUser {
 				
 				$this->db->Update ();
 				
-				
-				
 				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
 			}
-			if ($rr == 'teacher') 
-
-			{
-				
+			if ($rr == 'teacher') {
 				
 				$this->db->From ( "teacherdetails" );
 				
@@ -142,15 +155,16 @@ class Registration extends AUser {
 				
 				$this->db->Update ();
 				$obj = new MainController ();
-				$obj->setCustomMessage ( "SuccessMessage","You have been activated, Login using your email id");
+				$obj->setCustomMessage ( "SuccessMessage", "You have been activated, Login using your email id" );
 				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
 			}
 		}
 	}
-	/* method called to register teacher in database from registeration form */
-	public function newteacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code) {
+	/* Method called to register teacher in database from registeration form */
+	public function newteacherRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code)
+	{
 		$new_date = date ( 'Y-m-d', strtotime ( $date ) );
-		$password=sha1($password);
+		$password = sha1 ( $password );
 		DBConnection::Connect ();
 		$this->db->From ( "userdetails" );
 		$this->db->Fields ( array (
@@ -163,7 +177,7 @@ class Registration extends AUser {
 		$this->db->Insert ();
 		
 		$i = $this->db->lastInsertId ();
-	    $this->db->From ( "teacherdetails" );
+		$this->db->From ( "teacherdetails" );
 		$this->db->Fields ( array (
 				"user_id" => "$i",
 				"firstname" => "$firstname",
