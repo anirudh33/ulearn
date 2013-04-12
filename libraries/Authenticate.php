@@ -12,6 +12,7 @@
  * 1			1.0			Anirudh Pandita	28/04/2013	Being used in various
  *                          controllers 
  * 2			1.0			Ujjwal Rawlley	10/04/2013 PHP Validations 
+ * 3			1.0			Kawaljeet Singh				Validations
  * **************************************************************************
  */
 class Authenticate extends AModel

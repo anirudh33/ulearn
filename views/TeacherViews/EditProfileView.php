@@ -12,6 +12,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 -------------------------------------------------------------------------
 1		1.1			Anirudh pandita		April 04, 2013		Clean up
 2		1.1			Anirudh pandita		April 06, 2013		Fixed date picker
+3		1.1			Kawaljeet Singh     April 03, 2013		Error Fixed
 * ************************************************************************
 */
 ?>

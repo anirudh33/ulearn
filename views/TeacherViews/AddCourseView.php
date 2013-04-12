@@ -7,6 +7,12 @@ Version                     -  1.0
 Created by                  -  Tanu trehan
 Created on                  -  April 2, 2013
 * **************************** Update Log ********************************
+
+ Description                 -  Error Displays
+ Version                     -  1.0
+ Created by                  -  Kawaljeet Singh
+ Created on                  -  April 06, 2013
+*
 */
 ?>
 <div id="registerdiv">
