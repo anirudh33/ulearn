@@ -6,6 +6,10 @@
        * Version - 1.0 
        * Created by - Tanu trehan 
        * Created on - March 28, 2013
+       * 
+       * Updation log
+       * method - change status 
+       * Created by -Kawaljeet Singh 
        */
 
 class Student extends AUser {
@@ -224,6 +228,10 @@ class Student extends AUser {
 		);
 		}
 	}
+	
+	/* method called to change status of message */
+	
+	
 	public function changestatus($mid)
 	{
 		

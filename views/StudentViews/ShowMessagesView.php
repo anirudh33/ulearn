@@ -30,9 +30,9 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 				
 				<th>MessageID</th>
 				<th>Subject</th>
-				<th>Status(READ / UNREAD)</th>
+				<th>Status</th>
 				<th>Sent From</th>
-				<th>View Messages </th>
+				<th>View</th>
 				
 				
 			</tr>

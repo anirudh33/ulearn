@@ -282,24 +282,24 @@ CREATE TABLE IF NOT EXISTS `userdetails` (
 
 INSERT INTO `userdetails` (`user_id`, `email`, `password`, `user_type`, `confirm_code`) VALUES
 (1, 'root@osscube.com', 'root', 'admin', 'sss'),
-(2, 'teacher@osscube.com', 'root', 'teacher', 'ttt'),
-(3, 'student@osscube.com', 'root', 'student', 'ggg'),
-(4, 'teacher2@ulearn.com', 'root', 'teacher', 'hhhh'),
-(5, 'teacher3@ulearn.com', 'root', 'teacher', 'hhhh'),
-(6, 'raman@ulearn.com', 'apple', 'teacher', 'hh'),
-(7, 'teacher4@ulearn.com', 'root', 'teacher', 'ggg'),
-(8, 'teacher5@ulearn.com', 'root', 'teacher', 'gg'),
-(9, 'teacher6@osscube.com', 'root', 'teacher', 'hhh'),
-(10, 'teacher7@ulearn.com', 'root', 'teacher', 'ggg'),
-(11, 'teacher8@ulearn.com', 'root', 'teacher', 'ggg'),
-(12, 'teacher9@ulearn.com', 'tttt', 'teacher', 'h'),
-(13, 'teacher10@ulearn.com', 'abc', 'teacher', 'aa'),
-(14, 'teacher11@ulearn.com', 'asd', 'teacher', 'jj'),
-(15, 'student@ulearn.com', 'uyu', 'student', 'iii'),
-(16, 'student2@ulearn.com', 'hello', 'student', 'uuu'),
-(17, 'student3@ulearn.com', 'uio', 'student', 'jjj'),
-(18, 'student4@ulearn.com', 'yui', 'student', 'uu'),
-(19, 'student5@ulearn.com', 'tyu', 'student', 'hhh');
+(2, 'teacher@osscube.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'ttt'),
+(3, 'student@osscube.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'student', 'ggg'),
+(4, 'teacher2@ulearn.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'hhhh'),
+(5, 'teacher3@ulearn.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'hhhh'),
+(6, 'raman@ulearn.com', 'd0be2dc421be4fcd0172e5afceea3970e2f3d940', 'teacher', 'hh'),
+(7, 'teacher4@ulearn.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'ggg'),
+(8, 'teacher5@ulearn.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'gg'),
+(9, 'teacher6@osscube.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'hhh'),
+(10, 'teacher7@ulearn.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'ggg'),
+(11, 'teacher8@ulearn.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'ggg'),
+(12, 'teacher9@ulearn.com', '7278934df282ee1027073d9eedbfee4735c627a5', 'teacher', 'h'),
+(13, 'teacher10@ulearn.com', 'a9993e364706816aba3e25717850c26c9cd0d89d', 'teacher', 'aa'),
+(14, 'teacher11@ulearn.com', 'f10e2821bbbea527ea02200352313bc059445190', 'teacher', 'jj'),
+(15, 'student@ulearn.com', '86538a46bb1b2ee02a3863fed095358041b78fdd', 'student', 'iii'),
+(16, 'student2@ulearn.com', 'aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d', 'student', 'uuu'),
+(17, 'student3@ulearn.com', 'c810f6f084b88c9b8ae437660a97860692ab9cd0', 'student', 'jjj'),
+(18, 'student4@ulearn.com', '396dc0504d2f514bced42f12227d4b68b1210401', 'student', 'uu'),
+(19, 'student5@ulearn.com', '0310e5c5e7fd71475d94f72deb8e0a1f48031aaa', 'student', 'hhh');
 
 --
 -- Constraints for dumped tables

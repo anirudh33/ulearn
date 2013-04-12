@@ -31,7 +31,7 @@ header separation
 				
 				<th>MessageID</th>
 				<th>Subject</th>
-				<th>Status(READ / UNREAD)</th>
+				<th>Status</th>
 				<th>Sent From</th>
 				<th>View</th>
 				

@@ -144,8 +144,8 @@ class MainController
 		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 		$mail->Host = 'smtp.gmail.com';
 		$mail->Port = 465;
-		$mail->Username = "kawaljeet.singh@osscube.com";
-		$mail->Password = "waheguru123";
+		$mail->Username = "ulearnoss@gmail.com";
+	    $mail->Password = "root@osscube.com";
 		//$mail->SetFrom (  "Rasmus Lerdorf" );
 		$mail->Subject = "Contact Me".$from;
 		$mail->Body = "My Name is =>".$name."<br>Message=>".$message;
@@ -240,8 +240,8 @@ public function setCustomMessage($messageType,$message)
 	$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 	$mail->Host = 'smtp.gmail.com';
 	$mail->Port = 465;
-	$mail->Username = "kawaljeet.singh@osscube.com";
-	$mail->Password = "waheguru123";
+	$mail->Username = "ulearnoss@gmail.com";
+	$mail->Password = "root@osscube.com";
 	//$mail->SetFrom (  "Rasmus Lerdorf" );
 	$mail->Subject = "Confirmation Mail from Ulearn";
 	 $mail->Body = $message;
