@@ -17,25 +17,19 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  kawaljeet Singh	April 10, 2013		Message status updated
 * *************************************************************************/
 ?>
-
 <div id="messageBodyContent">
-<div id="messageBodySubject">
+	<div id="messageBodySubject">
 Subject:
-
-<?php  print_r($data[0]["subject"])."<br/>";?>
-
-
+<?php  echo $data[0]["subject"]."<br/>";?>
 </div>
-<div id="messageBodySent">
-Sent From: <?php  print_r($data1[0]["email"])."<br/>";?>
+	<div id="messageBodySent">
+Sent From: <?php echo $data1[0]["email"]."<br/>";?>
 </div>
-
-
-  <div id="mess">
-  MESSAGE: 
-        <h2><br><?php  print_r($data[0]["body"])."<br/>";?></h2>
-       
-    </div>
+	<div id="mess">
+		MESSAGE:
+		<h2>
+			<br><?php  echo $data[0]["body"]."<br/>";?></h2>
+	</div>
 </div>
 </body>
 </html>

@@ -146,27 +146,22 @@ class MainController
 		$mail->Port = 465;
 		$mail->Username = "ulearnoss@gmail.com";
 	    $mail->Password = "root@osscube.com";
-		//$mail->SetFrom (  "Rasmus Lerdorf" );
 		$mail->Subject = "Contact Me".$from;
 		$mail->Body = "My Name is =>".$name."<br>Message=>".$message;
 		$mail->AddAddress ($email);
-		//$mail->MsgHTML ( "dnkjvvnjvcv" );
-		
+				
 		if (! $mail->Send ()) {
 			
 			$this->setCustomMessage("ErrorMessage", "Mail Not Sent");
-			//exit ();
 			unset($_POST["message"]);
 			unset($_POST["email"]);
 			unset($_POST["name"]);
 			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
-			//$this->showMainView();
+			
 		} else {
 			$this->setCustomMessage("SuccessMessage", "Mail sent, it  will take some time");
-			//exit ();
 			header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php" );
-			//$this->showMainView();
-			
+						
 		}
 		
 		}

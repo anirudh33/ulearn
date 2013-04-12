@@ -1,17 +1,18 @@
 <?php 
-/*
-       * Creation Log 
-       * File Name - Teacher.php 
-       * Description - Contains all functions to query database for teacher details
-       * Version - 1.0 
-       * Created by - Tanu trehan 
-       * Created on - March 28, 2013
-       *  
-       *  Updation log
-       * method - change status 
-       * Created by -Kawaljeet Singh 
-       */
-
+/**
+ **************************** Creation Log *******************************
+* File Name 	- Student.php
+* Description 	- Model class holding functionalities 
+* 				  to be provided as a whole
+* Version		- 1.0
+* Created by	- Tanu  
+* Created on 	- March 08, 2013
+* **********************Update Log ***************************************
+* Sr.NO. Version Updated by 		Updated on	 	Description
+* -------------------------------------------------------------------------
+* 1		1.1		Kawaljeet Singh		April 07, 2013 	Messaging function added
+* ************************************************************************
+*/
 
 class Teacher extends AUser {
 	

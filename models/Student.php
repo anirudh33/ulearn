@@ -1,17 +1,18 @@
 <?php 
-/*
-       * Creation Log 
-       * File Name - Student.php 
-       * Description - Contains all functions to query database for student details
-       * Version - 1.0 
-       * Created by - Tanu trehan 
-       * Created on - March 28, 2013
-       * 
-       * Updation log
-       * method - change status 
-       * Created by -Kawaljeet Singh 
-       */
-
+/**
+ **************************** Creation Log *******************************
+* File Name 	- Student.php
+* Description 	- Model class holding functionalities 
+* 				  to be provided as a whole
+* Version		- 1.0
+* Created by	- Tanu  
+* Created on 	- March 08, 2013
+* **********************Update Log ***************************************
+* Sr.NO. Version Updated by 		Updated on	 	Description
+* -------------------------------------------------------------------------
+* 1		1.1		Kawaljeet Singh		April 07, 2013 	Messaging function added
+* ************************************************************************
+*/
 class Student extends AUser {
 	public function __construct() {
 		parent::__construct ();
@@ -25,7 +26,6 @@ class Student extends AUser {
 	public function getTdata() {
 		return $this->tdata;
 	}
-	
 	/**
 	 *
 	 * @param multitype: $tdata        	
@@ -50,7 +50,6 @@ class Student extends AUser {
 		$this->db->From ( "studentdetails" );
 		$this->db->Where ();
 		$this->db->Select ();
-		
 		$this->setTdata ( $this->db->resultArray () );
 	}
 
@@ -73,12 +72,12 @@ class Student extends AUser {
 				"user_id" => $_SESSION ["userID"] 
 		) );
 		$this->db->Select ();
-		
 		$result = $this->db->resultArray ();
 		return $result;
 	}
 
 /* method called to insert edit profile student data in database */
+
 	public function editStudent($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {
 		DBConnection::Connect ();
 		$this->db->From ( "studentdetails" );
@@ -97,14 +96,12 @@ class Student extends AUser {
 		}else {
 			$this->setCustomMessage("ErrorMessage", "Profile couldnt be updated ");
 		}
-		
 	}
 
 /* method called to insert student message in database */
 
 	public function messageSend($body, $subject, $sentto) {
 		DBConnection::Connect ();
-		
 		/* fetch id of Student */
 		$this->db->Fields ( array (
 				"id" 
@@ -141,7 +138,6 @@ class Student extends AUser {
 		
 		$this->db->From ( "studentmessage" );
 		$this->db->Fields ( array (
-				// "message_id"=>"$message_id",
 				"body" => "$body",
 				"subject" => "$subject",
 				"sentfrom" => "$sentfrom",
@@ -219,9 +215,6 @@ class Student extends AUser {
 		) );
 		$this->db->Select ();
 		$email = $this->db->resultArray ();
-		//print_r($result);
-		//print_r($email);
-	
 		return array (
 				$result,
 				$email 
@@ -231,26 +224,18 @@ class Student extends AUser {
 	
 	/* method called to change status of message */
 	
-	
 	public function changestatus($mid)
 	{
-		
 		DBConnection::Connect ();
 		$this->db->From ( "teachermessage" );
-		
 		$this->db->Where ( array (
 				"message_id" => $mid
 		) );
 		$this->db->Fields ( array (
 				"status" => "1"
 		) );
-		
 		  $this->db->Update ();
-		
 		 $this->db->lastQuery ();
-
-		
-		
 	}
 
 /* method called to return student messages body from database */
@@ -260,7 +245,6 @@ public function messageBody($aid) {
 		
 		$this->db->Fields ( array (
 				"body", "subject" , "sentfrom"
-				
 		) );
 		$this->db->From ( "teachermessage" );
 		$this->db->Where ( array (
@@ -296,9 +280,9 @@ public function messageBody($aid) {
 				$email 
 		);
 	}
-
+	
 	/* method called to return email of student from database for send message */
-
+	
 	public function fetchEmailID() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
@@ -384,7 +368,6 @@ public function messageBody($aid) {
 			}
 			closedir($handle);
 		}
-	
 		return $files;
 	}
 }
