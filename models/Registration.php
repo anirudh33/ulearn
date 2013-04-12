@@ -5,11 +5,6 @@
 * Description 	- registeration model class holds business logic methods 
 * Version 		- 1.0
 * Created by	- Kawaljeet Singh Created on - March 01, 2013
-* **********************Update Log ***************************************
-* Sr.NO. Version Updated by Updated on Description
-* -------------------------------------------------------------------------
-* 
-* ************************************************************************
 */
 ?>
 <?php
@@ -45,7 +40,7 @@ class Registration extends AUser {
 	
 	/* method called to register student in database from registeration form */
 	public function newStudentRegistration($email, $password, $firstname, $lastname, $phone, $address, $qualification, $gender, $date, $usertype, $status, $profilepicture, $confirm_code) {
-		$new_date = date ( 'Y-m-d', strtotime ( $date ) );
+		$new_date = date( 'Y-m-d', strtotime ( $date ) );
 		$password=sha1($password);
 		
 		DBConnection::Connect ();

@@ -9,14 +9,11 @@
  * **********************Update Log *************************************** 
  * Sr.NO. Version Updated by 	Updated on 		Description 
  * ------------------------------------------------------------------------- 
- * 1 	1.0 	Anirudh Pandita March 28, 2013 Functions added 2 1.1 Anirudh Pandita April 04, 2013 Comments done 
+ * 1 	1.0 	Anirudh Pandita  March 28, 2013 Functions added 2 1.1 Anirudh Pandita April 04, 2013 Comments done 
  ------------------------------------------------------------------------- 
- * 2 	1.0 	kawaljeet Singh April 10, 2013 Functions added 2 1.1  
+ * 2 	1.0 	kawaljeet Singh  April 10, 2013 Functions added 2 1.1  
  * ************************************************************************
- * 
- * @author anirudhpandita
- *         The Abstract controller class containing all common functions for
- *         AdminController, StudentController, TeacherController
+ *
  */
 abstract class AController
 {
