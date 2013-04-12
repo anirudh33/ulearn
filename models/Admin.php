@@ -342,6 +342,9 @@ class Admin extends AUser {
 				"status" => "2" 
 		) );
 		
+		
+		
+		
 		$objReturn = $this->db->Update ();
 		return $objReturn;
 	}

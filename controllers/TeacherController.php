@@ -78,15 +78,13 @@ class TeacherController extends AController
             
             $courseName=$objCourse->fetchCourse($limit);
             
-            $courseNameCount=count($result1);
+            $courseNameCount=count($courseName);
             if(!empty($courseNameCount)) {
      		$this->showSubViews("editCourse",$courseName,$courseNameCount);
             }else {
             	$this->setCustomMessage("ErrorMessage", "NO courses exist !");
             	$this->showView();
-            }
-     		
-        
+            }        
     }
     
     /* method called on delete course click in edit course view */
@@ -181,7 +179,7 @@ class TeacherController extends AController
 		
 		$this->createUser ();
 		$fileList = $this->_objUser->downloadContent ( $courseName );
-		if(!empty($filelist)) {
+		if(!empty($fileList)) {
 		$this->showSubViews ( "showContent", $fileList );
 		} else {
 			$this->setCustomMessage("ErrorMessage", "No files have been uploaded yet");

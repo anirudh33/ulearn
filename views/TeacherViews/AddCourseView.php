@@ -1,5 +1,4 @@
 <?php 
-
 /* Creation Log
 
 File Name                   -  AddCouseView.php
@@ -9,11 +8,8 @@ Created by                  -  Tanu trehan
 Created on                  -  April 2, 2013
 * **************************** Update Log ********************************
 */
-//@todo text area click should put cursor to first position ?>
-
-
+?>
 <div id="registerdiv">
-
 			<form id="addform"
 				action="index.php?method=addCourseButtonClick&controller=Teacher"
 				method="POST" class="register" novalidate="novalidate">
@@ -36,11 +32,5 @@ Created on                  -  April 2, 2013
 					</p>
 					<br> <br>
 					<button class="button" id="addCourse">Add &raquo;</button>
-
-				
-
-
-
-
 			</form>
 		</div>

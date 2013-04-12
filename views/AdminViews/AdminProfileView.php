@@ -74,7 +74,8 @@ $pageName="AdminProfileView";
 <br>
 <div id="userdetails">
 	<div id="data">
-		<h3><?php echo $lang->NAME; ?>:</h3> <h4> <?php echo $adminprofiledata[0]['firstname'];?>&nbsp<?php echo $adminprofiledata[0]['lastname'];?></h4>
+		<h3><?php echo $lang->NAME; ?>:</h3> <h4> 
+		<?php echo $adminprofiledata[0]['firstname'];?>&nbsp<?php echo $adminprofiledata[0]['lastname'];?></h4>
 		<div class="line-separator"></div>	
 <h3><?php echo $lang->QUALIFICATION; ?>:  </h3> <h4><?php echo $adminprofiledata[0]['qualification'];?></h4>
 <div class="line-separator"></div>
