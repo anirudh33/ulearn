@@ -175,6 +175,14 @@ class MainController
 			$_SESSION ["$messageType"] = $message . "<br>";
 		}
 	}
+	/*confirms activation*/
+	public function confirm ()
+	{
+		$email = $_GET['email'];
+		$pass = $_GET['passkey'];
+		$obj = new Registration();
+		$obj->confirmEmail($email, $pass);
+	}
 	
 	/* Called when user submits the registration form */
 	public function registerUser() 
