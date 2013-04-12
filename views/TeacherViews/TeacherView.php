@@ -186,8 +186,6 @@ if ($viewName == "viewMessage" && (! empty ( $data ))&& (! empty ( $result2 )))
 
 
 
-
-
 <?php require_once (SITE_PATH . '/views/Footer.php');?>
 
 </html>

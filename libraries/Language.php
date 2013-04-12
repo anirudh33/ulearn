@@ -102,7 +102,7 @@ class Language
 	'UPLOAD'=>"Upload Study Material",
 	'WRITE'=>"Write Message",
 	'ADDCOURSE'=>"Add Course",
-	'EDITCOURSE'=>"Edit Course",
+	'EDITCOURSE'=>"Delete Course",
 	'REGISTERCOURSE'=>"Register Course",
 	'VIEWMESSAGES'=>"View Messages",
 	'VIEWSTUDY'=>"View Study Material",
