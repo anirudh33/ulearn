@@ -17,7 +17,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 
 $pageName=="ReportView";
 ?>
-<form action="index.php?method=showreport&controller=Admin"
+<form action="index.php?method=showReport&controller=Admin"
 	method="POST" class="report">
 
 	<h1><?php echo $lang->REPORT;?></h1>
@@ -56,7 +56,7 @@ $pageName=="ReportView";
 		<fieldset class="row3">
 	<?php
 	
-	if (! empty ( $studentqualificationcount ) and ! empty ( $teacherqualificationcount )) {
+	if (! empty ( $studentQualificationCount ) and ! empty ( $teacherQualificationCount )) {
 		
 		?>
 
@@ -74,11 +74,11 @@ $pageName=="ReportView";
 
 						<tr style="color: #0DA068">
 							<td>Students</td>
-							<td><?php echo $studentqualificationcount;?></td>
+							<td><?php echo $studentQualificationCount;?></td>
 						</tr>
 						<tr style="color: #194E9C">
 							<td>Teachers</td>
-							<td><?php echo $teacherqualificationcount;?></td>
+							<td><?php echo $teacherQualificationCount;?></td>
 						</tr>
 
 
@@ -98,7 +98,7 @@ $pageName=="ReportView";
 	?>
 	<?php
 	
-	if (! empty ( $studentreportdata ) and ! empty ( $teacherreportdata )) {
+	if (! empty ( $studentReportData ) and ! empty ( $teacherReportData )) {
 		
 		?>
 
@@ -116,11 +116,11 @@ $pageName=="ReportView";
 
 						<tr style="color: #0DA068">
 							<td>Students</td>
-							<td><?php echo $studentreportdata;?></td>
+							<td><?php echo $studentReportData;?></td>
 						</tr>
 						<tr style="color: #194E9C">
 							<td>Teachers</td>
-							<td><?php echo $teacherreportdata;?></td>
+							<td><?php echo $teacherReportData;?></td>
 						</tr>
 
 

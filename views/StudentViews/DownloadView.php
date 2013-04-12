@@ -21,7 +21,7 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 	enctype="multipart/form-data" name="frm1" />
 
 	<fieldset class="row2">
-		<legend>Message Details </legend>
+		<legend>cONTENT Details </legend>
 
 
 		<p>

@@ -37,31 +37,31 @@ $pageName=="EditAdminProfileView";
 			<p>
 				<label><?php echo $lang->FIRSTNAME;?> * </label> <input type="text" id="firstname"
 					name="firstname" class="long"
-					value=<?php echo $admindata[0]['firstname'];?>><br><br>
+					value=<?php echo $adminData[0]['firstname'];?>><br><br>
 			</p>
 			<p>
 				<label><?php echo $lang->LASTNAME;?> * </label> 
 				<input type="text" id="lastname" name="lastname" class="long" 
-				value=<?php echo $admindata[0]['lastname'];?>><br><br>
+				value=<?php echo $adminData[0]['lastname'];?>><br><br>
 			</p>
 			<p>
 				<label><?php echo $lang->PHONE;?> </label> 
 				<input type="text" id="phone" name="phone" maxlength="10" 
-				value='<?php echo $admindata[0]['phone']; ?>' ><br><br>
+				value='<?php echo $adminData[0]['phone']; ?>' ><br><br>
 
 			</p>
 
 			<p>
 				<label><?php echo $lang->ADDRESS;?></label>
 				 <input type="text" id="address" name="address" class="long" 
-				 value='<?php echo $admindata[0]['address'];?>' >
+				 value='<?php echo $adminData[0]['address'];?>' >
 			</p>
 
 
 			<p>
 			<?php 
 			
-			$strQualification = $admindata [0] ['qualification'];?>
+			$strQualification = $adminData [0] ['qualification'];?>
 			
 			
 			<div class="fieldgroup">
@@ -92,7 +92,7 @@ $pageName=="EditAdminProfileView";
 
 			<p>
 
-<?php $strGender=$admindata[0]['gender'];?>
+<?php $strGender=$adminData[0]['gender'];?>
 				
 			<div class="fieldgroup">
                 <label for="gender"><?php echo $lang->GENDER;?></label>
@@ -111,7 +111,7 @@ $pageName=="EditAdminProfileView";
              </div> 
 
 					</p>
-					<?php $strDob= $admindata[0]['dob'];?>
+					<?php $strDob= $adminData[0]['dob'];?>
 					
 					
 					<p>

@@ -14,7 +14,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 * ************************************************************************
 */
 
-$pageName="AdminView";
+$pageName = "AdminView";
 require_once (SITE_PATH . '/views/Header.php');
 ?>
 <div id="errors">
@@ -39,67 +39,41 @@ if (isset($_REQUEST["msg"])) {
 
 			<img alt=""
 				src="<?php echo SITE_URL;?>/assets/images/Views/ulearn.gif"
-				style="float: left; padding: 50px; width: 280px;"> <br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+				style="float: left; padding: 50px; width: 280px;"> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 			<div id="logout" style="float: right;">
 				<a id="logout33" href="index.php?method=logout&controller=Admin">LOG
 					OUT</a>
 			</div>
 			
 		</div>
-
-
-
-
 		<div id="image">
-
 			<div id="admincontent" align="center">
-
-				
-				
-				
 				<?php
 				
-				if (! empty ( $teacherdata )) {
+if (! empty ( $teacherData )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ManageTeacherView.php';
-					
-				} elseif (! empty ( $studentdata )) {
+				} elseif (! empty ( $studentData )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ManageStudentView.php';
-				} elseif (! empty ( $admindata )) {
+				} elseif (! empty ( $adminData )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/EditAdminProfileView.php';
 				} elseif (! empty ( $adminprofiledata )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminProfileView.php';
-				} elseif (!empty( $reportdata )) {
+				} elseif (! empty ( $reportData )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ReportView.php';
-				} elseif (! empty ( $studentreportcount )) {
+				} elseif (! empty ( $studentReportCount )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ReportView.php';
-				} elseif (! empty ( $teacherreportcount )) {
+				} elseif (! empty ( $teacherReportCount )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ReportView.php';
 				}
-				if (isset ( $studentqualificationcount ) and isset ( $teacherqualificationcount )) {
+				if (isset ( $studentQualificationCount ) and isset ( $teacherQualificationCount )) {
 					
 					require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/ReportView.php';
 				}
@@ -116,38 +90,9 @@ if (isset($_REQUEST["msg"])) {
 
 
 			<div id="functionpanel">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+				<br> <br> <br> <br>
 				<h2 id="menuheading"><?php echo $lang->CHOOSEFROM; ?>  </h2>
 				<div class="arrowgreen">
 					<ul class="nav nav2">

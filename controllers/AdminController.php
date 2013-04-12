@@ -35,19 +35,19 @@ class AdminController extends AController {
 	/*
 	* Requires view with list of teachers to be seen and managed
 	*/
-	public function showManageTeacherView($teacherdata = array(), $teacherRecordsCount) {
+	public function showManageTeacherView($teacherData = array(), $teacherRecordsCount) {
 		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * Requires view with list of student to be seen and managed
 	*/
-	public function showManageStudentView($studentdata = array(), $studentRecordsCount) {
+	public function showManageStudentView($studentData = array(), $studentRecordsCount) {
 		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * Requires view to edit admin profile
 	*/
-	public function showManageAdminView($admindata = array()) {
+	public function showManageAdminView($adminData = array()) {
 		require_once SITE_PATH. '/views/AdminViews/AdminView.php';
 	}
 	/*
@@ -59,24 +59,24 @@ class AdminController extends AController {
 	/*
 	 * Requires view to generate report
 	*/
-	public function showreportView($reportdata = array()) {
+	public function showReportView($reportData = array()) {
 		require_once SITE_PATH . '/views/AdminViews/AdminView.php';
 	}
 	/*
 	 * method called to generate report
 	*/
 	public function generateReport() {
-		$reportdata = "report ";
+		$reportData = "report ";
 		$this->createUser ();
 		
-		$this->showreportView ( $reportdata );
+		$this->showReportView ( $reportData );
 	}
 	/*
 	 * method called to generate user report
 	*/
-	public function alluserreport($studentreportcount, $teacherreportcount) {
-		$studentreportdata = $studentreportcount;
-		$teacherreportdata = $teacherreportcount;
+	public function allUserReport($studentReportCount, $teacherReportCount) {
+		$studentReportData = $studentReportCount;
+		$teacherReportData = $teacherReportCount;
 		
 		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
 	}
@@ -99,7 +99,7 @@ class AdminController extends AController {
 	/*
 	 * method called to generate qualification report
 	*/
-	public function qualificationreport($studentqualificationcount, $teacherqualificationcount) {
+	public function qualificationReport($studentQualificationCount, $teacherQualificationCount) {
 		require_once $_SESSION ["SITE_PATH"] . '/views/AdminViews/AdminView.php';
 	}
 	/* method called to manage teacher details*/
@@ -123,7 +123,7 @@ class AdminController extends AController {
 		$this->_objUser->fetchTeacher ( $limit );
 		
 		$this->_objUser->fetchTeacherCount ();
-		$this->showManageTeacherView ( $this->_objUser->getTeacherdata (), $this->_objUser->getTotalTeacherRecords () );
+		$this->showManageTeacherView ( $this->_objUser->getTeacherData (), $this->_objUser->getTotalTeacherRecords () );
 	}
 	/* method called to delete teacher in manage teacher*/
 	public function deleteTeacherClick() {
@@ -194,14 +194,14 @@ class AdminController extends AController {
 		$this->_objUser->fetchStudent ( $limit );
 		
 		$this->_objUser->fetchStudentCount ();
-		$this->showManageStudentView ( $this->_objUser->getStudentdata (), $this->_objUser->getTotalStudentRecords () );
+		$this->showManageStudentView ( $this->_objUser->getStudentData (), $this->_objUser->getTotalStudentRecords () );
 	}
 	/* method called to edit admin details in edit profile*/
 	public function editProfileClick() {
 		$this->createUser ();
 		$this->_objUser->fetchUser ();
 		
-		$this->showManageAdminView ( $this->_objUser->getAdmindata () );
+		$this->showManageAdminView ( $this->_objUser->getAdminData () );
 	}
 	/* method called to update admin details in edit profile*/
 	public function editAdminClick() {
@@ -233,41 +233,39 @@ class AdminController extends AController {
 	/* method called to show admin profile*/
 	public function showProfile() {
 		$this->createUser ();
-		$this->_objUser->fetchadminUser ();
+		$this->_objUser->fetchAdminUser ();
 		$this->showAdminProfileView ( $this->_objUser->getAdminProfiledata () );
 	}
 	/* method called to show admin report*/
-	public function showreport() {
+	public function showReport() {
 		$this->createUser ();
 		
 		if (! isset ( $_POST ["usertype"] ) and ! isset ( $_POST ["choice"] )) {
 			
 			$message = "Please select report category <br>";
 			$this->setCustomMessage ( "ErrorMessage", $message );
-			
 			$this->generateReport();
 		}
 		
 		if (isset ( $_POST ["usertype"] )) {
 			
-			$usertype = $_POST ["usertype"];
+			$userType = $_POST ["usertype"];
 			$choice = $_POST ["usertype"];
-			$this->_objUser->fetchStudentcount ();
-			$this->_objUser->fetchTeachercount ();
-			$this->alluserreport ( $this->_objUser->getTotalStudentRecords (), $this->_objUser->getTotalTeacherRecords () );
+			$this->_objUser->fetchStudentCount ();
+			$this->_objUser->fetchTeacherCount ();
+			$this->allUserReport ( $this->_objUser->getTotalStudentRecords (), $this->_objUser->getTotalTeacherRecords () );
 		}
 		
 		if (isset ( $_POST ["choice"] )) {
 			if ($_POST ["choice"] == "graduate") {
-				$this->_objUser->fetchstudentqualification ( "graduate" );
-				$this->_objUser->fetchteacherqualification ( "graduate" );
+				$this->_objUser->fetchStudentQualification ( "graduate" );
+				$this->_objUser->fetchTeacherQualification ( "graduate" );
 				
-				$this->qualificationreport ( $this->_objUser->getStudentqualificationdata (), $this->_objUser->getTeacherqualificationdata () );
+				$this->qualificationReport ( $this->_objUser->getStudentQualificationData (), $this->_objUser->getTeacherQualificationData () );
 			} elseif ($_POST ["choice"] == "postgraduate") {
-				$this->_objUser->fetchstudentqualification ( "postgraduate" );
-				$this->_objUser->fetchteacherqualification ( "postgraduate" );
-				
-				$this->qualificationreport ( $this->_objUser->getStudentqualificationdata (), $this->_objUser->getTeacherqualificationdata () );
+				$this->_objUser->fetchStudentQualification ( "postgraduate" );
+				$this->_objUser->fetchTeacherQualification ( "postgraduate" );
+				$this->qualificationReport ( $this->_objUser->getStudentQualificationData (), $this->_objUser->getTeacherQualificationData () );
 			}
 		}
 	}
@@ -275,7 +273,7 @@ class AdminController extends AController {
 	public function reportGeneration() {
 		$this->_objUser->fetchUser ();
 		
-		$this->showreportView ();
+		$this->showReportView ();
 	}
 	/* method called to manage admin profile*/
 	public function manageProfile() {
@@ -284,8 +282,7 @@ class AdminController extends AController {
 		$this->showProfileView ();
 	}
 	public function updateP(){
-	   //@todo create user check 
-$obj= new Admin();
+	   	$obj= new Admin();
 	    $obj->updatePassword();
 	}
 }

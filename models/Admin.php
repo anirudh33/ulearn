@@ -15,14 +15,14 @@ class Admin extends AUser {
 	public function __construct() {
 		parent::__construct ();
 	}
-	private $teacherdata = array ();
-	private $studentdata = array ();
-	private $admindata = array ();
-	private $adminprofiledata = array ();
+	private $teacherData = array ();
+	private $studentData = array ();
+	private $adminData = array ();
+	private $adminDrofileData = array ();
 	private $totalTeacherRecords;
 	private $totalStudentRecords;
-	private $studentqualificationdata;
-	private $teacherqualificationdata;
+	private $studentQualificationData;
+	private $teacherQualificationData;
 	
 	/*
 	 *
@@ -55,52 +55,52 @@ class Admin extends AUser {
 		$this->totalStudentRecords = $totalStudentRecords;
 	}
 	/*student details*/
-	public function getStudentdata() {
-		return $this->studentdata;
+	public function getStudentData() {
+		return $this->studentData;
 	}
 	/*student details*/
-	private function setStudentdata($studentdata) {
-		$this->studentdata = $studentdata;
+	private function setStudentData($studentData) {
+		$this->studentData = $studentData;
 	}
 	/*student qualification details*/
-	private function setStudentqualificationdata($studentqualificationdata) {
-		$this->studentqualificationdata = $studentqualificationdata;
+	private function setStudentQualificationData($studentQualificationData) {
+		$this->studentQualificationData = $studentQualificationData;
 	}
 	/*student qualification details*/
-	public function getStudentqualificationdata() {
-		return $this->studentqualificationdata;
+	public function getStudentQualificationData() {
+		return $this->studentQualificationData;
 	}
 	/*teacher qualification details*/
-	private function setTeacherqualificationdata($teacherqualificationdata) {
-		$this->teacherqualificationdata = $teacherqualificationdata;
+	private function setTeacherqualificationdata($teacherQualificationData) {
+		$this->teacherQualificationData = $teacherQualificationData;
 	}
 	/*teacher qualification details*/
-	public function getTeacherqualificationdata() {
-		return $this->teacherqualificationdata;
+	public function getTeacherQualificationData() {
+		return $this->teacherQualificationData;
 	}
 	/*teacher details*/
-	public function getTeacherdata() {
-		return $this->teacherdata;
+	public function getTeacherData() {
+		return $this->teacherData;
 	}
 	/*teacher details*/
-	private function setTeacherdata($teacherdata) {
-		$this->teacherdata = $teacherdata;
+	private function setTeacherData($teacherData) {
+		$this->teacherData = $teacherData;
 	}
 	/*admin details*/
-	private function setAdmindata($admindata) {
-		$this->admindata = $admindata;
+	private function setAdminData($adminData) {
+		$this->adminData = $adminData;
 	}
 	/*admin profile details*/
-	private function setAdminProfiledata($adminprofiledata) {
-		$this->adminprofiledata = $adminprofiledata;
+	private function setAdminProfileData($adminProfileData) {
+		$this->adminProfileData = $adminProfileData;
 	}
 	/*admin details*/
-	public function getAdmindata() {
-		return $this->admindata;
+	public function getAdminData() {
+		return $this->adminData;
 	}
 	/*admin profile details*/
-	public function getAdminProfiledata() {
-		return $this->adminprofiledata;
+	public function getAdminProfileData() {
+		return $this->adminProfileData;
 	}
 	
 	/* method called to return admin data from database for edit profile */
@@ -121,10 +121,10 @@ class Admin extends AUser {
 		$this->db->Where ();
 		$this->db->Select ();
 		
-		$this->setAdmindata ( $this->db->resultArray () );
+		$this->setAdminData ( $this->db->resultArray () );
 	}
 	/* method called to return admin details from database in show profile*/
-	public function fetchadminUser() {
+	public function fetchAdminUser() {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				"firstname",
@@ -140,7 +140,7 @@ class Admin extends AUser {
 		$this->db->Where ();
 		$this->db->Select ();
 		
-		$this->setAdminProfiledata ( $this->db->resultArray () );
+		$this->setAdminProfileData ( $this->db->resultArray () );
 	}
 	/*updates any previous passwords to sha1*/
 	public function updatePassword() {
@@ -195,7 +195,7 @@ class Admin extends AUser {
 		
 		$this->db->Limit ( $limit );
 		$this->db->Select ();
-		$this->setTeacherdata ( $this->db->resultArray () );
+		$this->setTeacherData ( $this->db->resultArray () );
 	}
 	/* method called to return teacher count from database in manage teacher*/
 	public function fetchTeacherCount() {
@@ -227,7 +227,7 @@ class Admin extends AUser {
 		$this->db->Limit ( $limit );
 		$this->db->Select ();
 		
-		$this->setStudentdata ( $this->db->resultArray () );
+		$this->setStudentData ( $this->db->resultArray () );
 	}
 	/* method called to return student count from database in manage student*/
 	public function fetchStudentCount() {
@@ -246,7 +246,7 @@ class Admin extends AUser {
 		$this->setTotalStudentRecords ( count ( $this->db->resultArray () ) );
 	}
 	/* method called to return student qualification details from database in generate report*/
-	public function fetchstudentqualification($qualification) {
+	public function fetchStudentQualification($qualification) {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				
@@ -260,10 +260,10 @@ class Admin extends AUser {
 		) );
 		$this->db->Limit ( "" );
 		$this->db->Select ();
-		$this->setStudentqualificationdata ( count ( $this->db->resultArray () ) );
+		$this->setStudentQualificationData ( count ( $this->db->resultArray () ) );
 	}
 	/* method called to return teacher qualification details from database in generate report*/
-	public function fetchteacherqualification($qualification) {
+	public function fetchTeacherQualification($qualification) {
 		DBConnection::Connect ();
 		$this->db->Fields ( array (
 				
@@ -277,7 +277,7 @@ class Admin extends AUser {
 		) );
 		$this->db->Limit ( "" );
 		$this->db->Select ();
-		$this->setTeacherqualificationdata ( count ( $this->db->resultArray () ) );
+		$this->setTeacherQualificationData ( count ( $this->db->resultArray () ) );
 	}
 	/* method called to update admin details from database in edit profile*/
 	public function editAdmin($firstname, $lastname, $phone, $address, $qualification, $gender, $dob) {

@@ -49,9 +49,9 @@ $pages = $obj_paging->get_pages();
 					<td><?php echo $lang-> OPTIONS;?></td>
 				</tr>
                 <?php
-                if ($teacherdata) {
+                if ($teacherData) {
                     $i = 0;
-                    foreach ($teacherdata as $row) {
+                    foreach ($teacherData as $row) {
                         $class = "";
                         if ($i % 2 == 0) {
                             $class = "atnate";
