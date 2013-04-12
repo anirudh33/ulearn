@@ -12,7 +12,6 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
 * ************************************************************************
 */
-
 ?>
 
 
@@ -43,33 +42,17 @@ if (isset($_REQUEST["msg"])) {
 					<p>
 						<label><?php echo $lang->COURSENAME;?> </label> <select name="coursenamelist">
 							 <?php
-								
 								foreach ( $data as $key => $value ) {
-									
-									?>
-                            
+									?>                            
                             <option
-								value="<?php echo $value["coursename"];?>"> 
+					value="<?php echo $value["coursename"];?>"> 
                             <?php echo $value["coursename"];?> </option>
-
                             <?php
 								}
 								?>
                            </select> </br>
-
-
-					</p>
-
-
-
-					</br> </br>
-					<button class="button"><?php echo $lang->REGISTER;?> &raquo;</button>
-
-				
-
-
-
-
-			</form>
-		</div>
-
+		</p>
+		</br> </br>
+		<button class="button"><?php echo $lang->REGISTER;?> &raquo;</button>
+	</form>
+</div>

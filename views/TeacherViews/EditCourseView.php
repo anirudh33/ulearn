@@ -11,7 +11,6 @@ Created on                  -  April 4, 2013
 */
 $lang = Language::getinstance();
 $obj_paging = new paging();
-
 if (isset($_GET['page']))
     $page = $_GET['page'];
 else
@@ -21,9 +20,7 @@ $obj_paging->set_page_length(10);
 $page_length = $obj_paging->page_length;
 $obj_paging->set_records($result2);
 $pages = $obj_paging->get_pages();
-
 ?>
-
 	<div class="row-whiteBox">
 		<div id="divfr"></div>
 		<p class="headingsBig">
@@ -43,15 +40,11 @@ if (isset($_REQUEST["msg"])) {
 		
 		<center><h3 class="head2"><?php echo $lang-> COURSES;?></h3></center>
 		</p>
-
 		<span id="middle"></span>
-
 		<div class="tabular-cnt">
 			<table width="100%" cellspacing="10" cellpadding="5">
-				<tr class="tbl-hd">
-					
-					<td><?php echo $lang->COURSENAME;?></td>
-					
+				<tr class="tbl-hd">					
+					<td><?php echo $lang->COURSENAME;?></td>					
 					<td><?php echo $lang-> STATUS;?></td>
 					<td><?php echo $lang-> OPTIONS;?></td>
 				</tr>
@@ -64,15 +57,10 @@ if (isset($_REQUEST["msg"])) {
                             $class = "atnate";
                         }
                         ?>
-                        <tr id=row class="<?PHP echo $class; ?>">
-                        	
-
-                            <td><?php echo $row['coursename']?></td>
-                            
-                            
+                        <tr id=row class="<?PHP echo $class; ?>">                       	
+                            <td><?php echo $row['coursename']?></td>                                                       
                             <td>	<?php if($row['status']=='1')
-                            		{
-                  					   
+                            		{                 					   
 		                     			 echo "<font color=green>Active</font>" ;?>
 		                     			 <td><a onclick=fncDelete("<?php echo $row['coursename'];?>","deleteCourseClick") href= "javascript:void(0)"  >DELETE </a></td>
                             			<?php  }
@@ -80,8 +68,7 @@ if (isset($_REQUEST["msg"])) {
                             			 {
                             			 	echo "<font color=red>Inactive</font>";?></td>
                             			 	<td><a onclick=fncActivate("<?php echo $row['coursename'];?>","activateCourseClick") href= "javascript:void(0)"  >ACTIVATE </a></td>
-                            			 	<?php }?>
-                           
+                            			 	<?php }?>                           
                         </tr>
                         <? $i++; 
                     }
@@ -90,9 +77,7 @@ if (isset($_REQUEST["msg"])) {
                     }
                     ?>
                     <tr class="<?PHP echo $class;?>">
-
-					<td colspan="6"><p align="left" style="margin: 10px;">
-               
+					<td colspan="6"><p align="left" style="margin: 10px;">               
                         <?php echo $obj_paging -> get_link(10);?>
                         </p></td>
 				</tr>    

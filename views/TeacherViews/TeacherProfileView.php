@@ -11,17 +11,17 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 1		1.1		  Ujjwal Rawlley	April 04, 2013		Profile View updated
 * ************************************************************************
 */
-
-if(isset($data[0]['profilepicture'])) {
-/*Creating profile picture image resource*/
-$image=imagecreatefromstring($data[0]['profilepicture']);
-/* Storing picture to file with custom quality range 1 - 100 */
-imagejpeg($image,SITE_PATH."/assets/images/Views/profilepics/teacherprofile".$_SESSION['userID'].".jpeg",20);
+if (isset ( $data [0] ['profilepicture'] )) {
+	/* Creating profile picture image resource */
+	$image = imagecreatefromstring ( $data [0] ['profilepicture'] );
+	/* Storing picture to file with custom quality range 1 - 100 */
+	imagejpeg ( $image, SITE_PATH . "/assets/images/Views/profilepics/teacherprofile" . $_SESSION ['userID'] . ".jpeg", 20 );
 }
 ?>
-	<header id="header1">
-
-		<div class="wrapper">
+<header id="header1">
+	<div class="wrapper">
+		<span id="leftusernav"><?php echo $lang-> WELCOME;?>&nbsp<?php echo $data[0]['firstname'];?></span>
+		<span id="usernav">
 	
 			<span id="leftusernav"><?php echo $lang-> WELCOME;?>&nbsp<?php echo $data[0]['firstname'];?></span>
 			<span id="usernav">
@@ -38,65 +38,85 @@ imagejpeg($image,SITE_PATH."/assets/images/Views/profilepics/teacherprofile".$_S
 				</div>
 				
 				<?php
-				
-if (! empty ( $data )) {
-					?>
-					
+				if (! empty ( $data )) {
+					?>					
 				<div class="data">
-<center>
+				<center>
 					<h1><?php echo $data[0]['firstname'];?> &nbsp <?php
-					
-echo $data [0] ['lastname'];
-					?></h1></center>
-<center>
+					echo $data [0] ['lastname'];
+					?></h1>
+				</center>
+				<center>
 					<h3><?php
-					
-echo $data [0] ['qualification'];
+					echo $data [0] ['qualification'];
 					?></h3>
-
 					<h4>
 						<a href="http://ulearn.com/">http://ulearn.com/</a>
 					</h4>
-</center>
-					<div class="sep"></div>
-
-				</div>
+				</center>
+				<div class="sep"></div>
+			</div>
 				<?php
-				
-} else {
+				} else {
 					?>
 						<div class="data">
-					<h1>Welcome</h1>
-					<h3>Teacher</h3>
-
-					<h4>
-						<a href="http://ulearn.com/">http://ulearn.com/</a>
-					</h4>
-
-					<div class="sep"></div>
-
-				</div>	
-						<?php 	}?>
-				
-			</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<center>
-			<h1><?php echo $lang->ABOUTME; ?></h1><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				<h1>Welcome</h1>
+				<h3>Teacher</h3>
+				<h4>
+					<a href="http://ulearn.com/">http://ulearn.com/</a>
+				</h4>
+				<div class="sep"></div>
+			</div>	
+						<?php 	}?>				
+			</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center>
+			<h1><?php echo $lang->ABOUTME; ?></h1>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<div id="userdetails">
-	<div id="data">
-		<h3><?php echo $lang->NAME; ?>:</h3> <h4  style="color:red;"> <?php echo $data[0]['firstname'];?>&nbsp<?php echo $data[0]['lastname'];?></h4>
-		<div class="line-separator"></div>		
-<h3><?php echo $lang->QUALIFICATION; ?>:  </h3> <h4 style="color:red;"><?php echo $data[0]['qualification'];?></h4>
-<div class="line-separator"></div>	
-<h3><?php echo $lang->BIRTHDATE;?>:  </h3> <h4 style="color:red;"><?php echo $data[0]['dob'];?></h4>
-<div class="line-separator"></div>	
-<h3><?php echo $lang->CONTACTNO;?>:  </h3> <h4 style="color:red;"><?php echo $data[0]['phone'];?></h4>
-<div class="line-separator"></div>	
-<h3><?php echo $lang->ADDRESS;?>:  </h3> <h4 style="color:red;"><?php echo $data[0]['address'];?></h4>
-
-	</div>
-		</div></center>
-		</section>
-
-
-	</div>
+				<div id="data">
+					<h3><?php echo $lang->NAME; ?>:</h3>
+					<h4 style="color: red;"> <?php echo $data[0]['firstname'];?>&nbsp<?php echo $data[0]['lastname'];?></h4>
+					<div class="line-separator"></div>
+					<h3><?php echo $lang->QUALIFICATION; ?>:  </h3>
+					<h4 style="color: red;"><?php echo $data[0]['qualification'];?></h4>
+					<div class="line-separator"></div>
+					<h3><?php echo $lang->BIRTHDATE;?>:  </h3>
+					<h4 style="color: red;"><?php echo $data[0]['dob'];?></h4>
+					<div class="line-separator"></div>
+					<h3><?php echo $lang->CONTACTNO;?>:  </h3>
+					<h4 style="color: red;"><?php echo $data[0]['phone'];?></h4>
+					<div class="line-separator"></div>
+					<h3><?php echo $lang->ADDRESS;?>:  </h3>
+					<h4 style="color: red;"><?php echo $data[0]['address'];?></h4>
+				</div>
+			</div>
+		</center>
+	</section>
+</div>
 </html>

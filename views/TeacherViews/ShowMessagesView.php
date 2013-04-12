@@ -21,53 +21,49 @@ header separation
 * ************************************************************************
 */
 ?>
-
 <div id="registerdiv">
 	<h1>Show Message</h1>
 	<fieldset class="row2">
-		<legend>Message Details </legend>'
-		<table id="tt" cellspacing="20px" cellpadding ="5px">
+		<legend>Message Details </legend>
+		'
+		<table id="tt" cellspacing="20px" cellpadding="5px">
 			<tr>
-				
 				<th>MessageID</th>
 				<th>Subject</th>
 				<th>Status</th>
 				<th>Sent From</th>
 				<th>View</th>
-				
 			</tr>
 			<?php
-
-		foreach ( $data as $key => $value ) {
-							
-						?>
+			foreach ( $data as $key => $value ) {
+				?>
 			<tr>
-		
+				<td><?php echo $value["message_id"]?></td>
+				<td><?php echo $value["subject"] ?></a></td>
+				<td><?php
+				if ($value ["status"] == '0') {
+					echo "<font color=red>UNREAD</font>";
+				} else {
+					echo "<font color=blue>READ</font>";
+				}
+				?></a></td>							
+	<?php
 				
-	<td><?php echo $value["message_id"]?></td>
-<td><?php echo $value["subject"] ?></a></td>
-<td><?php 
-if($value["status"]=='0'){
-echo "<font color=red>UNREAD</font>";
-}else { echo "<font color=blue>READ</font>";
-}
- ?></a></td>							
-	<?php foreach ( $result2 as $key2 => $value2 ) {
- 	foreach ( $value2 as $key3 => $value3 ) {?>
-
+foreach ( $result2 as $key2 => $value2 ) {
+					foreach ( $value2 as $key3 => $value3 ) {
+						?>
 		<td><?php echo $value3?></td>
 						<?php
-							}}
-							?>
-<td><a href="index.php?method=subjectClick&controller=Teacher&msgid=
-<?php echo $value["message_id"] ?>&sub=<?php echo $value["subject"]?>&stat=<?php echo $value["status"]?>">
-VIEW</a></td>
-					   	</tr><?php
-						}
-						?>
-						
+					}
+				}
+				?>
+<td><a
+					href="index.php?method=subjectClick&controller=Teacher&msgid=
+<?php echo $value["message_id"] ?>&sub=
+<?php echo $value["subject"]?>&stat=<?php echo $value["status"]?>"> VIEW</a></td>
+			</tr><?php
+			}
+			?>						
 						</table>
-
 	</fieldset>
-
 </div>

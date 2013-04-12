@@ -15,12 +15,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 * ************************************************************************
 */
 ?>
-
-
-
-
 <div id="registerdiv">
-
 	<form id="form"
 		action="index.php?method=editTeacherClick&controller=Teacher"
 		method="POST" class="register" novalidate="novalidate">
@@ -38,41 +33,37 @@ if (isset($_REQUEST["msg"])) {
 ?>
 		</div>
 		<h1 id="editprofile"><?php echo $lang->EDITPROFILE;?></h1>
-
-
 		<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 		<p>
-			<label><?php echo $lang->FIRSTNAME;?> * </label> <input type="text" id="firstname"
-				name="firstname" class="long"
+			<label><?php echo $lang->FIRSTNAME;?> * </label> <input type="text"
+				id="firstname" name="firstname" class="long"
 				value=<?php echo $data[0]['firstname']?>>
 		</p>
 		<p>
-			<label><?php echo $lang->LASTNAME;?> * </label> <input type="text" id="lastname"
-				name="lastname" class="long" value=<?php echo $data[0]['lastname']?>>
+			<label><?php echo $lang->LASTNAME;?> * </label> <input type="text"
+				id="lastname" name="lastname" class="long"
+				value=<?php echo $data[0]['lastname']?>>
 		</p>
 		<p>
-			<label><?php echo $lang->PHONE;?></label>
-			 <input type="text" id="phone" name="phone" maxlength="10" value=<?php echo $data[0]['phone']?>>
+			<label><?php echo $lang->PHONE;?></label> <input type="text"
+				id="phone" name="phone" maxlength="10"
+				value=<?php echo $data[0]['phone']?>>
 		</p>
-
 		<p>
-			<label><?php echo $lang->ADDRESS;?> </label> <input type="text" id="address"	name="address" class="long" value='<?php echo $data[0]['address']?>' >
-
+			<label><?php echo $lang->ADDRESS;?> </label> <input type="text"
+				id="address" name="address" class="long"
+				value='<?php echo $data[0]['address']?>'>
 		</p>
-
-
 		<p>
 			<?php
-			
 			$strQualification = $data [0] ['qualification'];
-			?>
-			
-			
+			?>				
+		
 		
 		
 		<div class="fieldgroup">
-			<label for="qualification"><?php echo $lang->QUALIFICATION;?></label> <select
-				name="qualification">
+			<label for="qualification"><?php echo $lang->QUALIFICATION;?></label>
+			<select name="qualification">
 				<option
 					<?php if ($strQualification == "graduate") { echo "selected";}?>
 					value="graduate">graduate</option>
@@ -87,18 +78,10 @@ if (isset($_REQUEST["msg"])) {
 					value="others">others</option>
 			</select>
 		</div>
-
 		</p>
-
-
-
-
-
 		<p>
-
 <?php $strGender=$data[0]['gender'];?>
 				
-			
 		
 		
 		<div class="fieldgroup">
@@ -106,7 +89,6 @@ if (isset($_REQUEST["msg"])) {
 			<p>
 				<label class="gender">Male</label> <input type="radio" name="gender"
 					<?php if ($strGender == "m") { echo "checked";}?> value="m" />
-
 			</p>
 			<p>
 				<label class="gender">Female</label> <input type="radio"
@@ -114,21 +96,17 @@ if (isset($_REQUEST["msg"])) {
 					value="f" />
 			</p>
 		</div>
-
 		</p>
 					<?php $strDob=$data[0]['dob'];  ?>
 					<p>
 		
 		
 		<div class="fieldgroup">
-			<label for="date"><?php echo $lang->BIRTHDATE;?></label> <input type="text"
-				id="datepicker23" name="dob" value=<?php echo $strDob;?> readonly="readonly">
+			<label for="date"><?php echo $lang->BIRTHDATE;?></label> <input
+				type="text" id="datepicker23" name="dob" value=<?php echo $strDob;?>
+				readonly="readonly">
 		</div>
-
 		</p>
 		<button class="button" id="edit">Edit &raquo;</button>
-
-
 	</form>
-
 </div>

@@ -41,8 +41,8 @@ if (isset($_REQUEST["msg"])) {
 						<label><?php echo $lang->DESCRIPTION;?>	</label>
 						<textarea name="description" rows="6" cols="20" class="long">
 						</textarea>
-					</p>
-					<br> <br>
-					<button class="button" id="addCourse">Add &raquo;</button>
-			</form>
-		</div>
+		</p>
+		<br> <br>
+		<button class="button" id="addCourse">Add &raquo;</button>
+	</form>
+</div>

@@ -12,41 +12,29 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 1			 1.1			Anirudh pandita		April 04, 2013		Clean up 
 * ************************************************************************
 */
-
 ?>
 <div id="registerdiv">
-<h1><?php echo $lang->VIEWFILES;?></h1>
-
-	<form id="downloadform" method="post" action="index.php?method=downloadFile&controller=Teacher"	
-	enctype="multipart/form-data" name="frm1" />
-
+	<h1><?php echo $lang->VIEWFILES;?></h1>
+	<form id="downloadform" method="post"
+		action="index.php?method=downloadFile&controller=Teacher"
+		enctype="multipart/form-data" name="frm1" />
 	<fieldset class="row2">
 		<legend><?php echo $lang->FILEDETAILS;?> </legend>
-
-
-		
 		<p>
-
-			<label><?php echo $lang->COURSEDETAILS;?> </label> 
-			<select name="coursenamelist">
+			<label><?php echo $lang->COURSEDETAILS;?> </label> <select
+				name="coursenamelist">
 							 <?php
-							
 								foreach ( $data as $key => $value ) {
-								foreach ($value as $Key1=>$value1) {
-									 ?>
-								
-                                        <option	value="<?php echo $value1["coursename"];?>"> 
+									foreach ( $value as $Key1 => $value1 ) {
+										?>								
+                                        <option
+					value="<?php echo $value1["coursename"];?>"> 
                              <?php echo $value1["coursename"];?> </option>
-
                              <?php } }?>
-            </select> 
+            </select>
 		</p>
-		<br/>
+		<br />
 		<button class="button"><?php echo $lang->VIEW;?> &raquo;</button>
-
 	</fieldset>
 	</form>
 </div>
-
-
-
