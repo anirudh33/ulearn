@@ -42,8 +42,8 @@ class TeacherController extends AController
     {
     	$authObject= new Authenticate();
     	$authObject->validateEditProfile("Teacher");
-        $firstname = $_POST["firstname"];
-        $lastname = $_POST["lastname"];
+        $firstName = $_POST["firstname"];
+        $lastName = $_POST["lastname"];
         $phone = $_POST["phone"];
         $address = $_POST["address"];
         $qualification = $_POST["qualification"];
@@ -52,7 +52,7 @@ class TeacherController extends AController
                 
             $this->createUser();
             
-            $this->_objUser->editTeacher($firstname, $lastname, $phone, $address, $qualification, $gender, $dob);
+            $this->_objUser->editTeacher($firstName, $lastName, $phone, $address, $qualification, $gender, $dob);
         	$this->showProfile();
     }
     /*method called on edit course click in teacher view*/
@@ -76,11 +76,11 @@ class TeacherController extends AController
             $start_limit = $obj_paging->get_limit_start();
             $limit = $start_limit . "," . $page_length;
             
-            $result1=$objCourse->fetchCourse($limit);
+            $courseName=$objCourse->fetchCourse($limit);
             
-            $result2=count($result1);
-            if(!empty($result2)) {
-     		$this->showSubViews("editCourse",$result1,$result2);
+            $courseNameCount=count($result1);
+            if(!empty($courseNameCount)) {
+     		$this->showSubViews("editCourse",$courseName,$courseNameCount);
             }else {
             	$this->setCustomMessage("ErrorMessage", "NO courses exist !");
             	$this->showView();
@@ -93,10 +93,10 @@ class TeacherController extends AController
 	public function deleteCourseClick ()
     {
     	
-        $coursename=$_REQUEST['id'];
+        $courseName=$_REQUEST['id'];
          $objCourse= new Course();
         
-        $objReturn = $objCourse->deleteCourse($coursename);
+        $objReturn = $objCourse->deleteCourse($courseName);
         
         if($objReturn) {
             die("1");
@@ -109,10 +109,10 @@ class TeacherController extends AController
     public function activateCourseClick ()
     {
     	
-        $coursename=$_REQUEST['id'];
+        $courseName=$_REQUEST['id'];
         $objCourse= new Course();
 
-        $objReturn = $objCourse->activateCourse($coursename);
+        $objReturn = $objCourse->activateCourse($courseName);
         if($objReturn) {
             die("1");
         } else {
@@ -141,9 +141,9 @@ class TeacherController extends AController
     }
     /* method called on submitting register course view */
 	public function registerCourseButtonClick() {
-		$coursename = $_POST ['coursenamelist']; // to be changed
+		$courseName = $_POST ['coursenamelist']; // to be changed
 		$objCourse = new Course ();
-		$objCourse->registerTeacherCourse ( $coursename );
+		$objCourse->registerTeacherCourse ( $courseName );
 		$this->registerCourseClick();	
 	}
 	
@@ -157,19 +157,19 @@ class TeacherController extends AController
 	/* method called to show profile in teacher view after login */
 	public function showProfile() {
 		$this->createUser ();
-		$teacherdetails = $this->_objUser->fetchTeacher ();
+		$teacherDetails = $this->_objUser->fetchTeacher ();
 		
 		/* Showing Teacher View with teacher data */
-		$this->showSubViews ( "showProfile", $teacherdetails, '' );
+		$this->showSubViews ( "showProfile", $teacherDetails, '' );
 	}
 	
 	/* method called on view study material click in teacher view */
 	public function downloadClick() {
 		$objCourse = new Course ();
 		$this->createUser ();
-		$result = $objCourse->fetchTeacherCoursename ();
-		if(!empty($result)) {
-		$this->showSubViews ( "download", $result );
+		$courseName = $objCourse->fetchTeacherCoursename ();
+		if(!empty($courseName)) {
+		$this->showSubViews ( "download", $courseName );
 		} else {
 			$this->setCustomMessage("ErrorMessage","You havent chosen any courses yet<br> Register first");
 		}
@@ -177,12 +177,12 @@ class TeacherController extends AController
 	
 	/* method called on submitting study material view */
 	public function downloadFile() {
-		$coursename = $_POST ["coursenamelist"];
+		$courseName = $_POST ["coursenamelist"];
 		
 		$this->createUser ();
-		$filelist = $this->_objUser->downloadContent ( $coursename );
+		$fileList = $this->_objUser->downloadContent ( $courseName );
 		if(!empty($filelist)) {
-		$this->showSubViews ( "showContent", $filelist );
+		$this->showSubViews ( "showContent", $fileList );
 		} else {
 			$this->setCustomMessage("ErrorMessage", "No files have been uploaded yet");
 			$this->showView();
@@ -208,17 +208,17 @@ class TeacherController extends AController
 	
 	/* method called on submitting upload view */
 	public function uploadFile() {
-		$lesson_no = $_POST ["lesson_no"];
-		$lesson_name = $_POST ["lesson_name"];
-		$coursename = $_POST ["coursenamelist"];
+		$lessonNo = $_POST ["lesson_no"];
+		$lessonName = $_POST ["lesson_name"];
+		$courseName = $_POST ["coursenamelist"];
 		
 		$this->createUser ();
 		
-		$path=$this->_objUser->uploadContent ( $lesson_no, $lesson_name,$coursename );
+		$path=$this->_objUser->uploadContent ( $lessonNo, $lessonName,$courseName );
 		
 		if($path!=false) {
 			
-		$this->_objUser->lesson ( $lesson_no, $lesson_name, $coursename,$path );
+		$this->_objUser->lesson ( $lessonNo, $lessonName, $courseName,$path );
 		$this->showView();
 		
 		}else {
