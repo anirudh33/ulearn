@@ -24,30 +24,19 @@ $obj_paging->set_page_length(10);
 $page_length = $obj_paging->page_length;
 $obj_paging->set_records($data1);
 $pages = $obj_paging->get_pages();
-
 ?>
-
 	<div class="row-whiteBox">
 		<div id="divfr"></div>
 		<p class="headingsBig">
-		
-		
 		<div style="text-align:center"><h3 class="head2">FILES</h3>
 		</p>
-
 		<span id="middle"></span>
-
 		<div class="tabular-cnt">
 			<table width="100%" cellspacing="10" cellpadding="5">
 				<tr class="tbl-hd">
-					
 					<td> Filename</td>
-					
-					
-					
 				</tr>
                 <?php
-               
                 if ($data) {
                     $i = 0;
                     foreach ($data as $row) {
@@ -57,15 +46,8 @@ $pages = $obj_paging->get_pages();
                         }
                         ?>
                         <tr id=row class="<?PHP echo $class; ?>">
-                        	
-
-                            <td> <a target='_blank' href='<?php echo "$row"?>'> <?php echo $row?> </a></td>
-                            
-                            
-                            
-                            		
-                           
-                        </tr>
+                         <td> <a target='_blank' href='<?php echo "$row"?>'> <?php echo $row?> </a></td>
+                         </tr>
                         <? $i++; 
                     }
                     if ($i % 2 == 0) {
@@ -73,10 +55,8 @@ $pages = $obj_paging->get_pages();
                     }
                     ?>
                     <tr class="<?PHP echo $class;?>">
-
 					<td colspan="6"><p align="left" style="margin: 10px;">
-               
-                        <?php echo $obj_paging -> get_link(10);?>
+                       <?php echo $obj_paging -> get_link(10);?>
                         </p></td>
 				</tr>    
                     <?php

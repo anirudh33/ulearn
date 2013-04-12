@@ -14,33 +14,19 @@ Sr.NO.	Version     Updated by          Updated on      Description
 * ************************************************************************
 */
 ?>
-
-	
-
-
 <div id="registerdiv">
-	
 	<form id="form"
 		action="index.php?method=editStudentClick&controller=Student"
 		method="POST" class="register" novalidate="novalidate">
 <h1 id="editprofile"><?php echo $lang->EDITPROFILE;?></h1>
-
 <div id="errors">
-
-	
 		<?php 
-	
 if (isset($_REQUEST["msg"])) {
     $message = $_REQUEST["msg"];
     echo $message."";
-    
-    
 }
 ?>
 		</div>
-
-
-
 		<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 		<p>
 			<label><?php echo $lang->FIRSTNAME;?> * </label> <input type="text" id="firstname"
@@ -54,22 +40,16 @@ if (isset($_REQUEST["msg"])) {
 		<p>
 			<label><?php echo $lang->PHONE;?></label> <input type="text" id="phone" name="phone"
 				maxlength="10" value=<?php echo $data[0]['phone']?>>
-
 		</p>
-
 		<p>
 			<label><?php echo $lang->ADDRESS;?></label> <input type="text" id="address"
 				name="address" class="long" value=<?php echo $data[0]['address']?>>
-
 		</p>
-
 <p>
 			<?php 
-			
 			$strQualification = $data [0] ['qualification'];
 			?>
-			
-			<div class="fieldgroup">
+				<div class="fieldgroup">
 				<label for="qualification"><?php echo $lang->QUALIFICATION;?></label> 
 				<select
 					name="qualification">
@@ -86,26 +66,16 @@ if (isset($_REQUEST["msg"])) {
 						value="others">others</option>
 				</select>
 			</div>
-
 			</p>
-
-		
-
-
-		
-
 <p>
-
 <?php $strGender=$data[0]['gender'];?>
-				
-			<div class="fieldgroup">
+		<div class="fieldgroup">
                 <label for="gender"><?php echo $lang->GENDER;?></label>
                  <p>
                 <label class="gender">Male</label>
                 <input type="radio" name="gender" <?php if ($strGender == "m") { echo "checked";}?>  
 						value="m"/>
-				
-                </p>
+               </p>
                 <p>
                 <label class="gender">Female</label>
                 <input type="radio"
@@ -113,19 +83,14 @@ if (isset($_REQUEST["msg"])) {
 						value="f"/>
              </p>
              </div> 
-
 					</p>
 					<?php $strDob=$data[0]['dob'];  ?>
 		<p>
-		
 			 <div class="fieldgroup">
                 <label for="date"><?php echo $lang->BIRTHDATE;?></label>
                <input type="text" id="datepicker23" name="dob" value='<?php echo $strDob;?>' readonly="readonly">
             </div>
 		</p>
-
 		<button class="button" id="edit">Edit &raquo;</button>
-	
 	</form>
-
 </div>

@@ -20,7 +20,6 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 */
 
 ?>
-
 <div id="registerdiv">
 	<h1>Show Message</h1>
 	<fieldset class="row2">
@@ -33,34 +32,25 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 				<th>Status</th>
 				<th>Sent From</th>
 				<th>View</th>
-				
-				
 			</tr>
 			<?php
-
 		foreach ( $data as $key => $value ) {
-							
+						
 						?>
 			<tr>
-		
-				
 	<td><?php echo $value["message_id"]?></td>
 <td><?php echo $value["subject"] ?></a></td>
-
 <td><?php
 if($value["status"]=='0'){
 echo "<font color=red>UNREAD</font>";
 }else { echo "<font color=blue>READ</font>";
 }
 ?></a></td>
-							
-	<?php foreach ( $data1 as $key2 => $value2 ) {
+<?php foreach ( $data1 as $key2 => $value2 ) {
  	foreach ( $value2 as $key3 => $value3 ) 
 			{
 			
 				?>
-			
-
 		<td><?php echo $value3?></td>
 						<?php
 							}
@@ -79,23 +69,3 @@ echo "<font color=red>UNREAD</font>";
 	</fieldset>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

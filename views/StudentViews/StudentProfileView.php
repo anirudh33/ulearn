@@ -21,15 +21,9 @@ imagejpeg($image,SITE_PATH."/assets/images/Views/profilepics/studentprofile".$_S
 	<header>
 	
 		<div class="wrapper">
-			
-			<span id="leftusernav"><?php echo $lang-> WELCOME;?>&nbsp<?php echo $data[0]['firstname'];?></span>
-			
-			
+		<span id="leftusernav"><?php echo $lang-> WELCOME;?>&nbsp<?php echo $data[0]['firstname'];?></span>
 		</div>
 	</header>
-	
-	
-	
 	<div id="content" class="clearfix">
 		<section id="left">
 			<div id="userStats" class="clearfix">
@@ -44,20 +38,13 @@ imagejpeg($image,SITE_PATH."/assets/images/Views/profilepics/studentprofile".$_S
 					<center><h1><?php echo $data[0]['firstname'];?> &nbsp <?php echo $data[0]['lastname'];
 					?></h1></center>
 					<center><h3><?php echo $data[0]['qualification'];?></center></h3>
-					
-
-					
-					
-					
+			
 				</div>
 				<?php }
 				else {?>
 						<div class="data">
 					<h1>Welcome</h1>
 					<h3>Student</h3>
-					
-					
-					
 					<div class="sep"></div>
 					
 				</div>	
@@ -85,7 +72,4 @@ imagejpeg($image,SITE_PATH."/assets/images/Views/profilepics/studentprofile".$_S
 		</div></center>
 
 		</section>
-		
-		
 	</div>
-
