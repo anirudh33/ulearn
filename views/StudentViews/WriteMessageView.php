@@ -22,6 +22,19 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 		action="index.php?method=writeMessage&controller=Student"
 		method="POST" class="register" novalidate="novalidate">
 <h1 id="writemessage"><?php echo $lang->WRITE;?></h1>
+<div id="errors">
+
+	
+		<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+    
+    
+}
+?>
+		</div>
 		<legend><?php echo $lang->MESSAGEDETAILS;?></legend>
 
 

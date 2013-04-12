@@ -17,19 +17,7 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 $pageName = "AdminView";
 require_once (SITE_PATH . '/views/Header.php');
 ?>
-<div id="errors">
 
-	
-		<?php 
-	
-if (isset($_REQUEST["msg"])) {
-    $message = $_REQUEST["msg"];
-    echo $message;
-    
-    
-}
-?>
-		</div>
 <body>
 	<div id="div1"></div>
 

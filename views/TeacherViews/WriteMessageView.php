@@ -22,7 +22,19 @@ Sr.NO.  Version	  Updated by        Updated on          Description
 	<form id="writeform"
 		action="index.php?method=writeMessage&controller=Teacher"
 		method="POST" class="register" novalidate="novalidate">
+<div id="errors">
 
+	
+		<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+    
+    
+}
+?>
+		</div>
 		<h1 id="writemessage"><?php echo $lang->WRITE;?></h1>
 
 

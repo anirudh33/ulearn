@@ -22,7 +22,19 @@ Sr.NO.        Version        Updated by           Updated on          Descriptio
 			<form id="registerform" 
 				action="index.php?method=registerCourseButtonClick&controller=Teacher"
 				method="POST" class="register">
+<div id="errors">
 
+	
+		<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+    
+    
+}
+?>
+		</div>
 				<h1 id="registercourseheading"><?php echo $lang->REGISTERCOURSE;?></h1>
 <p>
 				

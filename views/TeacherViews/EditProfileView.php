@@ -24,7 +24,19 @@ Sr.NO.	Version     Updated by          Updated on      Description
 	<form id="form"
 		action="index.php?method=editTeacherClick&controller=Teacher"
 		method="POST" class="register" novalidate="novalidate">
+<div id="errors">
 
+	
+		<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+    
+    
+}
+?>
+		</div>
 		<h1 id="editprofile"><?php echo $lang->EDITPROFILE;?></h1>
 
 

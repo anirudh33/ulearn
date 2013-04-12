@@ -27,7 +27,19 @@ $pages = $obj_paging->get_pages();
 	<div class="row-whiteBox">
 		<div id="divfr"></div>
 		<p class="headingsBig">
-		
+		<div id="errors">
+
+	
+		<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+    
+    
+}
+?>
+		</div>
 		
 		<center><h3 class="head2"><?php echo $lang-> COURSES;?></h3></center>
 		</p>

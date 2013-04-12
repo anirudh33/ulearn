@@ -13,7 +13,19 @@ Created on                  -  April 2, 2013
 			<form id="addform"
 				action="index.php?method=addCourseButtonClick&controller=Teacher"
 				method="POST" class="register" novalidate="novalidate">
+<div id="errors">
 
+	
+		<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message;
+    
+    
+}
+?>
+		</div>
 				<center><h1 id="addcourseheading"><?php echo $lang->ADDCOURSE;?></h1></center>
 
 				

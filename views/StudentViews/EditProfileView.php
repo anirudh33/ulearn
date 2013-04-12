@@ -24,6 +24,23 @@ Sr.NO.	Version     Updated by          Updated on      Description
 		action="index.php?method=editStudentClick&controller=Student"
 		method="POST" class="register" novalidate="novalidate">
 <h1 id="editprofile"><?php echo $lang->EDITPROFILE;?></h1>
+
+<div id="errors">
+
+	
+		<?php 
+	
+if (isset($_REQUEST["msg"])) {
+    $message = $_REQUEST["msg"];
+    echo $message."";
+    
+    
+}
+?>
+		</div>
+
+
+
 		<legend><?php echo $lang->PERSONALDETAILS;?> </legend>
 		<p>
 			<label><?php echo $lang->FIRSTNAME;?> * </label> <input type="text" id="firstname"
@@ -108,6 +125,7 @@ Sr.NO.	Version     Updated by          Updated on      Description
 		</p>
 
 		<button class="button" id="edit">Edit &raquo;</button>
-
+	
 	</form>
+
 </div>
