@@ -186,8 +186,8 @@ class InitiateUser extends AModel {
 	 */
 	private function encryptPassword($password) {
 	    
-		//  return sha1($password);
-		return $password;
+		return sha1($password);
+		
 	}
 	
 	

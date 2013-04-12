@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `userdetails` (
 --
 
 INSERT INTO `userdetails` (`user_id`, `email`, `password`, `user_type`, `confirm_code`) VALUES
-(1, 'root@osscube.com', 'root', 'admin', 'sss'),
+(1, 'root@osscube.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'admin', 'sss'),
 (2, 'teacher@osscube.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'ttt'),
 (3, 'student@osscube.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'student', 'ggg'),
 (4, 'teacher2@ulearn.com', 'dc76e9f0c0006e8f919e0c515c66dbba3982f785', 'teacher', 'hhhh'),

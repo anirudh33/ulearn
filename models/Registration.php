@@ -96,7 +96,7 @@ class Registration extends AUser {
 		$this->db->Select ();
 		
 		$a = $this->db->resultArray ();
-		echo $this->db->lastQuery ();
+		
 		
 		$rr = $a [0] ["user_type"];
 		
@@ -125,16 +125,16 @@ class Registration extends AUser {
 						"status" => "1" 
 				) );
 				
-				echo $this->db->Update ();
+				$this->db->Update ();
 				
-				echo $this->db->lastQuery ();
+				
 				
 				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
 			}
 			if ($rr == 'teacher') 
 
 			{
-				echo "YOU HAVE BEEN ACTIVATED";
+				
 				
 				$this->db->From ( "teacherdetails" );
 				
@@ -146,6 +146,8 @@ class Registration extends AUser {
 				) );
 				
 				$this->db->Update ();
+				$obj = new MainController ();
+				$obj->setCustomMessage ( "SuccessMessage","You have been activated, Login using your email id");
 				header ( "Location:" . $_SESSION ["DOMAIN_PATH"] . "/index.php?msg=You Are Activated" );
 			}
 		}
